@@ -6,15 +6,19 @@ hash = "ff492043eaf454c46e949d5eef32ece90cc5a19feb50a161dd29a43b5732c880"
 
 [[files]]
 file = "config/fancymenu/customizablemenus.txt"
-hash = "33a7538189b104668ba576efd64da9f2dfba1a8ec5e63c99a95eb2085175633a"
+hash = "6aad46ce2b0e758719e2314869b0d7309e7d3d535a37e65fc980e650c0dce76f"
+
+[[files]]
+file = "config/fancymenu/customization/death_screen_layout.txt"
+hash = "c9ce3fa2e6d9fa105fb1e80fbf4d3ed63f136ae43094e6b9ea98c430af1e0615"
 
 [[files]]
 file = "config/fancymenu/customization/pause_screen_layout.txt"
-hash = "a3d880e9bc81409baffda72212658a68333f62b9ed0257cdfc129ea814b3ee59"
+hash = "ebece5b035e31534cfad37eaf90d89e98f880f2bc52d31acbef1dab54e485871"
 
 [[files]]
 file = "config/fancymenu/customization/title_screen_layout.txt"
-hash = "d3dbd319c571eb3b6dd62ffc00de2a119d8c8f5aca7f133d607387b397c40677"
+hash = "44fa8f6c8b7bacce059e53a1b279ef2b621a2b1618817e3e0651f97054c26b45"
 
 [[files]]
 file = "config/fancymenu/layout_editor/widgets/element_layer_control.lewidget"
