@@ -1,0 +1,13 @@
+name = "Better Starting Armors"
+filename = "better_starting_armors-1.0.1-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/pQbmoi2w/versions/2cBf4bUs/better_starting_armors-1.0.1-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "2a29c52e4ac0a11f7510e4d4e53304739ed6711b4cb8c49d2c2753208638b43ceeeef4a4bb5c929d2fee151decca34d2e7a10ea5f55dd7e228315f7b569dd4ac"
+
+[update]
+[update.modrinth]
+mod-id = "pQbmoi2w"
+version = "2cBf4bUs"

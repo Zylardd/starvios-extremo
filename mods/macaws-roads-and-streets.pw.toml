@@ -1,0 +1,13 @@
+name = "Macaw's Roads and Streets"
+filename = "mcw-roads-1.0.0-mc1.20.1forge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f856c08819b02a9d95d909d04ccfa5b0bb2d88e6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8962060
+project-id = 1709382
