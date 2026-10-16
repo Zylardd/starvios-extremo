@@ -74,7 +74,7 @@ hash = "3d7d4cda73d6bde134a568ccbe4e8d2e7fbe701570012b71fa45acdb2258c823"
 
 [[files]]
 file = "config/fml.toml"
-hash = "cc736909b606c52474eb6866f296e5f653c0f8d527dd97f921440797d533ba72"
+hash = "d2727c8b29a8371c9ec86af343c99cf20c03ed28b06022e344380485bcdeea0e"
 
 [[files]]
 file = "mods/athena-ctm.pw.toml"
