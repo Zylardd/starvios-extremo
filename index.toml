@@ -11,8 +11,23 @@ hash = "5ec0c37f3f4ad07a40c10376668bca80334ddb7ad2bab06eb4de8f7aac339c8e"
 metafile = true
 
 [[files]]
+file = "mods/fancymenu.pw.toml"
+hash = "6d249bb1b8d325f2536a1a4830d1fe55e1b6fa99d044b67d49003ad6c82e4bb2"
+metafile = true
+
+[[files]]
 file = "mods/ferrite-core.pw.toml"
 hash = "902bac905b93271f02bd0951a22bac06a3da24f5c237fcaeb469e14a7679e508"
+metafile = true
+
+[[files]]
+file = "mods/konkrete.pw.toml"
+hash = "90a70141bcec839b6a1aa647c91f97bb7b33b6b9e6ce6b3b18a4113aa7dff636"
+metafile = true
+
+[[files]]
+file = "mods/melody.pw.toml"
+hash = "8def80b33354bc9525033d543925d45cddf54c1ad8b5b943e567cc2b1749d337"
 metafile = true
 
 [[files]]
