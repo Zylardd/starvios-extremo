@@ -6,7 +6,11 @@ hash = "ff492043eaf454c46e949d5eef32ece90cc5a19feb50a161dd29a43b5732c880"
 
 [[files]]
 file = "config/fancymenu/customizablemenus.txt"
-hash = "9f0ada5a7f0193d2d717d1c1736f545f5235c2597213731493b97488617ebbf2"
+hash = "33a7538189b104668ba576efd64da9f2dfba1a8ec5e63c99a95eb2085175633a"
+
+[[files]]
+file = "config/fancymenu/customization/pause_screen_layout.txt"
+hash = "a3d880e9bc81409baffda72212658a68333f62b9ed0257cdfc129ea814b3ee59"
 
 [[files]]
 file = "config/fancymenu/customization/title_screen_layout.txt"
@@ -22,7 +26,7 @@ hash = "9a25d3dc708e43eabafce5479a13c02dae15bc7f673afb2745b8b2ba48a97dc0"
 
 [[files]]
 file = "config/fancymenu/options.txt"
-hash = "6df834ff0756d1d57f5ff20abcc8d5e716f7736fe38f83f390d5b4f539b407ab"
+hash = "8947b66abdfa3075d3c924eedaf82c2c16646b521d6964e28a9acab6d39fa14f"
 
 [[files]]
 file = "config/fancymenu/ui_themes/cherry_blossom.json"
