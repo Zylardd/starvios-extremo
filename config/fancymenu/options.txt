@@ -79,12 +79,12 @@ S:global_menu_background_texture = '';
 
 ##[multiplayer_screen]
 
-B:show_multiplayer_screen_server_icons = 'true';
+B:show_multiplayer_screen_server_icons = 'false';
 
 
 ##[singleplayer_screen]
 
-B:show_singleplayer_screen_world_icons = 'true';
+B:show_singleplayer_screen_world_icons = 'false';
 
 
 ##[layout_editor]
@@ -123,7 +123,7 @@ B:smooth_font_multiline_rendering = 'false';
 
 ##[debug_overlay]
 
-B:show_debug_overlay = 'false';
+B:show_debug_overlay = 'true';
 B:debug_overlay_show_basic_screen_category = 'true';
 B:debug_overlay_show_resources_category = 'true';
 B:debug_overlay_show_system_category = 'true';
