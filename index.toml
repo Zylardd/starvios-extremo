@@ -1,0 +1,36 @@
+hash-format = "sha256"
+
+[[files]]
+file = "mods/chunky.pw.toml"
+hash = "0e17f9758f6f67ef87aa6f8d5afc47901521a05904cd8470ef65063b48e69d73"
+metafile = true
+
+[[files]]
+file = "mods/embeddium.pw.toml"
+hash = "5ec0c37f3f4ad07a40c10376668bca80334ddb7ad2bab06eb4de8f7aac339c8e"
+metafile = true
+
+[[files]]
+file = "mods/ferrite-core.pw.toml"
+hash = "902bac905b93271f02bd0951a22bac06a3da24f5c237fcaeb469e14a7679e508"
+metafile = true
+
+[[files]]
+file = "mods/modernfix.pw.toml"
+hash = "fca852b6e4581ffa88d4c890a307a0a49fbd51d6acaed6c3648cb5db8dc460e0"
+metafile = true
+
+[[files]]
+file = "mods/simple-voice-chat.pw.toml"
+hash = "3bd4e09190316b4c4901ba9fd822b891e2cf216eb645687458e3547ad13f93f0"
+metafile = true
+
+[[files]]
+file = "mods/spark.pw.toml"
+hash = "0be4976227df8e261fd362889bf8e85b93e224d1b1c3cd2a11b73a9de3b64083"
+metafile = true
+
+[[files]]
+file = "servers.dat"
+hash = "2a73623579069eb6606972be86ca1a988fd28bb24e77f7f4c20cf126d7136573"
+preserve = true
