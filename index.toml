@@ -113,6 +113,11 @@ file = "kubejs/server_scripts/starvios/80_mazmorras.js"
 hash = "0ef70eefdc03f8c0821aaa27cfe97791cdd00a22f192615117eae4de3417ae85"
 
 [[files]]
+file = "mods/amendments.pw.toml"
+hash = "5922845f6c9bb57548eca500857ebd2268bffe3799373b7306c2bdfb706d5f95"
+metafile = true
+
+[[files]]
 file = "mods/appleskin.pw.toml"
 hash = "793693a85f3c87d4e899ee0c58deabc53690bf5a70f17343f28fd5063ce8a1e1"
 metafile = true
