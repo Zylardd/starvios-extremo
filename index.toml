@@ -294,7 +294,7 @@ metafile = true
 
 [[files]]
 file = "mods/oculus.pw.toml"
-hash = "f83b253ca6a8e6f2f847952704da0e1fb00e65cbb10b7c9cb15d1a1780618da0"
+hash = "5bfac979964ae1b39d69e1e0822b35ad152f5708ed41605ec87b23dd00dc9f9a"
 metafile = true
 
 [[files]]
@@ -384,15 +384,15 @@ preserve = true
 
 [[files]]
 file = "shaderpacks/bsl-shaders.pw.toml"
-hash = "8e9066219882825d46a80f11057be2eacde6245780b42c49b8c8c3cb3921c893"
+hash = "fa64781cad0a7a90f8c68a79df05753c6ee8e6d7e024ff4a2950f64b87f62e26"
 metafile = true
 
 [[files]]
 file = "shaderpacks/complementary-reimagined.pw.toml"
-hash = "507cb3963240110bc71ed7c75cac1682e66d3609536b0bc5ef90a01db3cce21f"
+hash = "b750a33f0b1aa6cd40941a45250cdc5f8c99297b143003e89ef39cc000cdfd28"
 metafile = true
 
 [[files]]
 file = "shaderpacks/makeup-ultra-fast-shaders.pw.toml"
-hash = "124adb8dc2e059324dc6b4d80d2b381ab92181a96abe1c2a7c58964c17903bfe"
+hash = "ae9dc6517dd2bb6e0fcf16b1f8529bc2d2fe1fcd7438c9c0f34f66494faaf961"
 metafile = true
