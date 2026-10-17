@@ -77,6 +77,42 @@ file = "config/fml.toml"
 hash = "d2727c8b29a8371c9ec86af343c99cf20c03ed28b06022e344380485bcdeea0e"
 
 [[files]]
+file = "kubejs/server_scripts/starvios/00_config.js"
+hash = "0886f0ce027a016829cfeaca432c328708df8e0d284fc825b5838cf6c94957b3"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/10_dias.js"
+hash = "1129cb592bf7eb239d5a560ec19b034d165de8e08a420bacae4644ba46f99afa"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/20_mobs.js"
+hash = "039969f0e32f4f11390f226a87b66751f04cf98b399d2beba1830b915d18e5bf"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/30_eliminacion_y_comandos.js"
+hash = "63c9a27cfd69637a0c0262b809fe84de479dba4da912fcee085e95e8b1b6d690"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/40_proteccion_spawn.js"
+hash = "7a6ac752f18420d6755cc97d0ec504c389dc5bed93b3b9a46593fee34f93d8eb"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/50_resurreccion.js"
+hash = "b3070bbeadd09f51857abf175d3f7d0a4c70e156c35280e4955524e433e0ce7b"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/60_contador_y_dia.js"
+hash = "cff39749a50df830521ac873a4c5c7c4794896be3439e0eb3dcd0b5ccd4b48ef"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/70_recompensas.js"
+hash = "20ef1892cda1da32fe628ea1a4d504cd025a482b7c4fdc2e62376a187f520b76"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/80_mazmorras.js"
+hash = "0ef70eefdc03f8c0821aaa27cfe97791cdd00a22f192615117eae4de3417ae85"
+
+[[files]]
 file = "mods/architectury-api.pw.toml"
 hash = "4e81241ba2da06f425efc5e09fb6b38470125c1581c39e1310c5843a0b96ec76"
 metafile = true
@@ -99,6 +135,11 @@ metafile = true
 [[files]]
 file = "mods/chunky.pw.toml"
 hash = "0e17f9758f6f67ef87aa6f8d5afc47901521a05904cd8470ef65063b48e69d73"
+metafile = true
+
+[[files]]
+file = "mods/curios.pw.toml"
+hash = "9eefd607e0d54ec444e798ccdeede1a09a3939440bd1e11c11b84c07a5134be2"
 metafile = true
 
 [[files]]
@@ -144,6 +185,16 @@ metafile = true
 [[files]]
 file = "mods/kubejs.pw.toml"
 hash = "9ec37ad87c0c174bdafe7d52fc98f96b83aaef0ad42ae59e196655d3d784f31f"
+metafile = true
+
+[[files]]
+file = "mods/l_enders-cataclysm.pw.toml"
+hash = "dfdd246954f9bcfbff66668558b17ba5b3e75a12ba6031c441750a472670fbd8"
+metafile = true
+
+[[files]]
+file = "mods/lionfish-api.pw.toml"
+hash = "f3b6b7cd660a91a34a4e18010c9eaacaeb7ff306cadfee14431fa25a15b041ec"
 metafile = true
 
 [[files]]
@@ -212,8 +263,23 @@ hash = "0be4976227df8e261fd362889bf8e85b93e224d1b1c3cd2a11b73a9de3b64083"
 metafile = true
 
 [[files]]
+file = "mods/when-dungeons-arise.pw.toml"
+hash = "1901cefc095dfaeafb78fc34610febb36f9e4a0ae32f7b96f484f0dacc94c681"
+metafile = true
+
+[[files]]
 file = "mods/worldedit.pw.toml"
 hash = "810c63c5de675c9cb2f29c4e63231ae4d35d83f906d3279ac5c7a83132fe387c"
+metafile = true
+
+[[files]]
+file = "mods/yungs-api.pw.toml"
+hash = "152c6732da180e958fb29f492bae2e468d4dfd423ce4d3d0d31ef31c2eec6c61"
+metafile = true
+
+[[files]]
+file = "mods/yungs-better-dungeons.pw.toml"
+hash = "3b896ddf7389ad7d403b354cd94966c65f4989c9675ec245681b5c78d5208317"
 metafile = true
 
 [[files]]
