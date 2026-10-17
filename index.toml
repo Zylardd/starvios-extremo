@@ -18,7 +18,7 @@ hash = "ebece5b035e31534cfad37eaf90d89e98f880f2bc52d31acbef1dab54e485871"
 
 [[files]]
 file = "config/fancymenu/customization/title_screen_layout.txt"
-hash = "44fa8f6c8b7bacce059e53a1b279ef2b621a2b1618817e3e0651f97054c26b45"
+hash = "23c05bd1424c592b8c6794ad3a0cda0766c27f98b62bf0fd9c745f2ededb5f4d"
 
 [[files]]
 file = "config/fancymenu/layout_editor/widgets/element_layer_control.lewidget"
@@ -120,6 +120,11 @@ metafile = true
 [[files]]
 file = "mods/athena-ctm.pw.toml"
 hash = "49ef0b29b650084f38aac8faf1537b966f1c976029b1df48bb72a614c35a9641"
+metafile = true
+
+[[files]]
+file = "mods/attributefix.pw.toml"
+hash = "1af0f2515f459bc59ac0f489ef94bf2d6e0453e57831d5711c64da695929bde9"
 metafile = true
 
 [[files]]
@@ -270,6 +275,16 @@ metafile = true
 [[files]]
 file = "mods/worldedit.pw.toml"
 hash = "810c63c5de675c9cb2f29c4e63231ae4d35d83f906d3279ac5c7a83132fe387c"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-minimap.pw.toml"
+hash = "7f87fe777d2f09bf5f19f06dc69b60023bc8caf34cba74ab6b62005cf184b348"
+metafile = true
+
+[[files]]
+file = "mods/xaeros-world-map.pw.toml"
+hash = "5290b1a5c4624ba20a080385052eb55cfdc42170dfc5cd5aeecd570115d5f947"
 metafile = true
 
 [[files]]
