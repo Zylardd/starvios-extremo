@@ -113,6 +113,11 @@ file = "kubejs/server_scripts/starvios/80_mazmorras.js"
 hash = "0ef70eefdc03f8c0821aaa27cfe97791cdd00a22f192615117eae4de3417ae85"
 
 [[files]]
+file = "mods/appleskin.pw.toml"
+hash = "793693a85f3c87d4e899ee0c58deabc53690bf5a70f17343f28fd5063ce8a1e1"
+metafile = true
+
+[[files]]
 file = "mods/architectury-api.pw.toml"
 hash = "4e81241ba2da06f425efc5e09fb6b38470125c1581c39e1310c5843a0b96ec76"
 metafile = true
@@ -133,6 +138,11 @@ hash = "740f537e20a88c692f78a7312b7659fc9c904525bda9429e3d4b6ff01a9afe54"
 metafile = true
 
 [[files]]
+file = "mods/borninchaos.pw.toml"
+hash = "f908d8ee3c83f1c9ec7a5f7170b750fa2834203beaf5226bf4116458e14b9f44"
+metafile = true
+
+[[files]]
 file = "mods/chipped.pw.toml"
 hash = "b0732421ae2999d558a7b70a11fa86a93738ca33f6f3ec343017796df9c47d9c"
 metafile = true
@@ -143,8 +153,18 @@ hash = "0e17f9758f6f67ef87aa6f8d5afc47901521a05904cd8470ef65063b48e69d73"
 metafile = true
 
 [[files]]
+file = "mods/create.pw.toml"
+hash = "fb5c251cf4997fa65ca043bab7c9ecbd02e108031584a3e26276b77d212de23c"
+metafile = true
+
+[[files]]
 file = "mods/curios.pw.toml"
 hash = "9eefd607e0d54ec444e798ccdeede1a09a3939440bd1e11c11b84c07a5134be2"
+metafile = true
+
+[[files]]
+file = "mods/dungeons-and-taverns.pw.toml"
+hash = "a6af059766ea70358690d048898d19e493108e2e06a97542fac696fd5e03589a"
 metafile = true
 
 [[files]]
@@ -178,8 +198,28 @@ hash = "db495b3ac268709a2ba673bfe220b10257fb7dae549f94bfbd539617d571f131"
 metafile = true
 
 [[files]]
+file = "mods/idas.pw.toml"
+hash = "d1d2f471ef09edfebf48ee7e52f4586152b5960ed585b87c0fe73a4a6f1bdf3a"
+metafile = true
+
+[[files]]
 file = "mods/immersive-armors.pw.toml"
 hash = "9742482a86605e87c3ded2fe70cd01a841faf8a93929d5a2a7048d39f9c00f7b"
+metafile = true
+
+[[files]]
+file = "mods/integrated-api.pw.toml"
+hash = "dab88bb36bd39ee2320fd55cabaafaaac2289dbead6a50cc68e368608b20f9c7"
+metafile = true
+
+[[files]]
+file = "mods/jade.pw.toml"
+hash = "5d03d20b037a8b7a4765ded0e25146fc970964be46401dff5f9b1059875084e8"
+metafile = true
+
+[[files]]
+file = "mods/jei.pw.toml"
+hash = "21b9e9493869f33671efd4fc1ac07b320ade28fc29e4be2e37d819b42e0b7cdd"
 metafile = true
 
 [[files]]
@@ -233,6 +273,16 @@ hash = "8def80b33354bc9525033d543925d45cddf54c1ad8b5b943e567cc2b1749d337"
 metafile = true
 
 [[files]]
+file = "mods/mezzconfig.pw.toml"
+hash = "c25495262a852dc02886ec8c4b695f30e53264a2e3d881dd36ee9de16a1ef499"
+metafile = true
+
+[[files]]
+file = "mods/mighty-mail.pw.toml"
+hash = "9c628c08156bfa22474dd7b615bc3241029dc2b3e88a24e1977f56fe81d992d5"
+metafile = true
+
+[[files]]
 file = "mods/modernfix.pw.toml"
 hash = "fca852b6e4581ffa88d4c890a307a0a49fbd51d6acaed6c3648cb5db8dc460e0"
 metafile = true
@@ -240,6 +290,16 @@ metafile = true
 [[files]]
 file = "mods/mowzies-mobs.pw.toml"
 hash = "0e6b04ea03c95a193b564aee5c67b8912c52c1de61cd2bd43222c494e26bbbe9"
+metafile = true
+
+[[files]]
+file = "mods/oculus.pw.toml"
+hash = "f83b253ca6a8e6f2f847952704da0e1fb00e65cbb10b7c9cb15d1a1780618da0"
+metafile = true
+
+[[files]]
+file = "mods/quark.pw.toml"
+hash = "8df897c0f7831e919aa528c3c1e5239f39439c123d99761230ab2357132bad98"
 metafile = true
 
 [[files]]
@@ -258,13 +318,33 @@ hash = "5b92406160d9ea8a61ddf111caaecb7f6283678e2c40b08b72dce3eeaf20dc96"
 metafile = true
 
 [[files]]
+file = "mods/security-craft.pw.toml"
+hash = "e0d0d32c780841642264e3cdb5b3b9fb23a21a97f55f0cd30c250638b4ab8c43"
+metafile = true
+
+[[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "3bd4e09190316b4c4901ba9fd822b891e2cf216eb645687458e3547ad13f93f0"
 metafile = true
 
 [[files]]
+file = "mods/sophisticated-backpacks.pw.toml"
+hash = "29990fc5f32464b613f40174cf7b61a918225f2ac70bdb675b209c3a00f90619"
+metafile = true
+
+[[files]]
+file = "mods/sophisticated-core.pw.toml"
+hash = "adecc7f59d89334767058f8b14875723a0633ea9daeb6422feb2ba613aef5dfc"
+metafile = true
+
+[[files]]
 file = "mods/spark.pw.toml"
 hash = "0be4976227df8e261fd362889bf8e85b93e224d1b1c3cd2a11b73a9de3b64083"
+metafile = true
+
+[[files]]
+file = "mods/supplementaries.pw.toml"
+hash = "b3c68ce85c6cbdf37a00e39d18ea0f30ef7f69ee414151615adc2aa793661b81"
 metafile = true
 
 [[files]]
@@ -301,3 +381,18 @@ metafile = true
 file = "servers.dat"
 hash = "2a73623579069eb6606972be86ca1a988fd28bb24e77f7f4c20cf126d7136573"
 preserve = true
+
+[[files]]
+file = "shaderpacks/bsl-shaders.pw.toml"
+hash = "8e9066219882825d46a80f11057be2eacde6245780b42c49b8c8c3cb3921c893"
+metafile = true
+
+[[files]]
+file = "shaderpacks/complementary-reimagined.pw.toml"
+hash = "507cb3963240110bc71ed7c75cac1682e66d3609536b0bc5ef90a01db3cce21f"
+metafile = true
+
+[[files]]
+file = "shaderpacks/makeup-ultra-fast-shaders.pw.toml"
+hash = "124adb8dc2e059324dc6b4d80d2b381ab92181a96abe1c2a7c58964c17903bfe"
+metafile = true
