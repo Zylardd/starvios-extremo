@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "campana.wav"
+hash = "4ba4db81e234f63d9a274c681b5789d21645b75c8af97bab02e0dc24dfd650a6"
+
+[[files]]
 file = "config/fancymenu/custom_gui_screens.txt"
 hash = "ff492043eaf454c46e949d5eef32ece90cc5a19feb50a161dd29a43b5732c880"
 
@@ -75,6 +79,130 @@ hash = "3d7d4cda73d6bde134a568ccbe4e8d2e7fbe701570012b71fa45acdb2258c823"
 [[files]]
 file = "config/fml.toml"
 hash = "d2727c8b29a8371c9ec86af343c99cf20c03ed28b06022e344380485bcdeea0e"
+
+[[files]]
+file = "generar_voces.bat"
+hash = "a90fcc0ccbe0aba8a9090060e267b291e73c0de3638d5e9ec874ec7bf15515e4"
+
+[[files]]
+file = "generar_voces.py"
+hash = "8955e340b600dc2841da05ea61612a9bcaf5677233494f7aa8bcc3670544dbea"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds.json"
+hash = "b6ce6228de2de9e9b84e5fce34aac54e50a201bdc90135ed0071a7630766b534"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/1.ogg"
+hash = "ce6aaf94ff4f7c2812d8021d2d25d807001e71d2e4e31af1f90026353b39815a"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/10.ogg"
+hash = "bf5b886bc8ee2e9321867bec4e6a386f43f6f2bbb367c7bd348318cd2ca38153"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/11.ogg"
+hash = "322f9b3e68b287dcef6cdaf496cff7e594686b66ad34ac7e7050e14904c63a10"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/12.ogg"
+hash = "eb05f4a444ac9d5d2d917791e871571b8db5ef48140922168807fea7998f353c"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/13.ogg"
+hash = "173a20c512b7b722034224dd082fc4065266a6c2abdff5d003a085edcf0d37d7"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/14.ogg"
+hash = "3e8f8b455496a69fae2481acfc157918358b5d38e1e79284ec313fa91ff4a074"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/15.ogg"
+hash = "aca0c0363e515f21c46ed866bf609fe784d977ae358e3387f919391a35bacdcc"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/16.ogg"
+hash = "060766eeec3253bc391cbb5b604101b1ce0e7a4a0bf032f357d409ef916f7ab8"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/17.ogg"
+hash = "8ae9ee185cb5d6c17988b4c19f5b704d5e88dd11c9bf851240f7975cfc797580"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/18.ogg"
+hash = "55cb7d192a902d433256398add0eaf8f0c04601a0557e2860956fce85b7a201f"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/19.ogg"
+hash = "6ea3dfd997b7ec9e73d45f35c038bb4d487380e02e38ea2a2e7e206a182d93ce"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/2.ogg"
+hash = "847ff9b3e7ecadfd975fb110f8b1287f2b5451eaca188b276627849e2369c18f"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/20.ogg"
+hash = "3ea2eafb798888d984e5abe53b7b636818912352b31b636df3b7815427b68909"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/21.ogg"
+hash = "211a7fff4f096a71ba9dd26419bf246deeb32be49062363685e95f38af55a606"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/22.ogg"
+hash = "6c66c5e42b5b0c589bcf4de07d170a54f7fd73e54b4254ac4783b78b250ecde3"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/23.ogg"
+hash = "af4558dcef18e9a1f6e65a4f86625781cd3430e23bac6edb04d11bf13b9afffd"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/24.ogg"
+hash = "94f16af7e5b6fe429fde836dd458412045a2c241421673488baec26c04324a17"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/25.ogg"
+hash = "474d65f0e8ccac3a7908ebf550e60290f888d7790bd6ffe8b79c52ee5f7b8c01"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/26.ogg"
+hash = "9cee958bb17b629c8eecb62c497d37dcdf1d8bb88552efdb84410efc60b98f04"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/27.ogg"
+hash = "92e22ddcee15c503fd9ae3d37fbccf3fbe952177d71fde2a6b031e70fcd009ed"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/28.ogg"
+hash = "89dbb058eae5fa275c77e6f93e6d9fc86312649fd8b251669e1be61488561b37"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/3.ogg"
+hash = "20d87e7edcaa1348f7e5a318297303dba17d21887f5ca429b53c77107ff3d270"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/4.ogg"
+hash = "bf9fea2b4fdb4da3ff5817e66d9751d5f1e5a0539009072f9c9451cb1114f714"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/5.ogg"
+hash = "3ce33d4e28845046ba78ec6a0d7e4dcfc1c76eceef60ee5a2da94ecdc79e34b7"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/6.ogg"
+hash = "2845c6b734ff6bd628aac854ff65a960e9e09bb3895ec2aae0fbc540288293a5"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/7.ogg"
+hash = "7f3557cef6666ffbe67aadf18e1bdd526047d0fcb8bf53b5951562c611d3153c"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/8.ogg"
+hash = "820e895c9d8ac5227551c3eeac3d1c29cf2e8d03613dc4b7165db896ea9e596a"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/dia/9.ogg"
+hash = "66dc70ec235817824081d2af2de11f68e061ef1970e362cc7b2dcd13af3ef0ec"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"

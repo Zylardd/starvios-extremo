@@ -1,0 +1,282 @@
+{
+ "dia.1": {
+  "category": "master",
+  "subtitle": "Día 1: Mortalidad",
+  "sounds": [
+   {
+    "name": "starvios:dia/1",
+    "stream": false
+   }
+  ]
+ },
+ "dia.2": {
+  "category": "master",
+  "subtitle": "Día 2: Zombis acorazados",
+  "sounds": [
+   {
+    "name": "starvios:dia/2",
+    "stream": false
+   }
+  ]
+ },
+ "dia.3": {
+  "category": "master",
+  "subtitle": "Día 3: Tormenta estática",
+  "sounds": [
+   {
+    "name": "starvios:dia/3",
+    "stream": false
+   }
+  ]
+ },
+ "dia.4": {
+  "category": "master",
+  "subtitle": "Día 4: Colmillos venenosos",
+  "sounds": [
+   {
+    "name": "starvios:dia/4",
+    "stream": false
+   }
+  ]
+ },
+ "dia.5": {
+  "category": "master",
+  "subtitle": "Día 5: Furia",
+  "sounds": [
+   {
+    "name": "starvios:dia/5",
+    "stream": false
+   }
+  ]
+ },
+ "dia.6": {
+  "category": "master",
+  "subtitle": "Día 6: Mordisquitos",
+  "sounds": [
+   {
+    "name": "starvios:dia/6",
+    "stream": false
+   }
+  ]
+ },
+ "dia.7": {
+  "category": "master",
+  "subtitle": "Día 7: Piel dura",
+  "sounds": [
+   {
+    "name": "starvios:dia/7",
+    "stream": false
+   }
+  ]
+ },
+ "dia.8": {
+  "category": "master",
+  "subtitle": "Día 8: Cuerpo frágil",
+  "sounds": [
+   {
+    "name": "starvios:dia/8",
+    "stream": false
+   }
+  ]
+ },
+ "dia.9": {
+  "category": "master",
+  "subtitle": "Día 9: Sobrecarga",
+  "sounds": [
+   {
+    "name": "starvios:dia/9",
+    "stream": false
+   }
+  ]
+ },
+ "dia.10": {
+  "category": "master",
+  "subtitle": "Día 10: Hordas veloces",
+  "sounds": [
+   {
+    "name": "starvios:dia/10",
+    "stream": false
+   }
+  ]
+ },
+ "dia.11": {
+  "category": "master",
+  "subtitle": "Día 11: Flechas ardientes",
+  "sounds": [
+   {
+    "name": "starvios:dia/11",
+    "stream": false
+   }
+  ]
+ },
+ "dia.12": {
+  "category": "master",
+  "subtitle": "Día 12: Sed de sangre",
+  "sounds": [
+   {
+    "name": "starvios:dia/12",
+    "stream": false
+   }
+  ]
+ },
+ "dia.13": {
+  "category": "master",
+  "subtitle": "Día 13: Ruge el invierno",
+  "sounds": [
+   {
+    "name": "starvios:dia/13",
+    "stream": false
+   }
+  ]
+ },
+ "dia.14": {
+  "category": "master",
+  "subtitle": "Día 14: Cazadores de élite",
+  "sounds": [
+   {
+    "name": "starvios:dia/14",
+    "stream": false
+   }
+  ]
+ },
+ "dia.15": {
+  "category": "master",
+  "subtitle": "Día 15: Debilidad",
+  "sounds": [
+   {
+    "name": "starvios:dia/15",
+    "stream": false
+   }
+  ]
+ },
+ "dia.16": {
+  "category": "master",
+  "subtitle": "Día 16: Bestias",
+  "sounds": [
+   {
+    "name": "starvios:dia/16",
+    "stream": false
+   }
+  ]
+ },
+ "dia.17": {
+  "category": "master",
+  "subtitle": "Día 17: Hambruna",
+  "sounds": [
+   {
+    "name": "starvios:dia/17",
+    "stream": false
+   }
+  ]
+ },
+ "dia.18": {
+  "category": "master",
+  "subtitle": "Día 18: Legión de hierro",
+  "sounds": [
+   {
+    "name": "starvios:dia/18",
+    "stream": false
+   }
+  ]
+ },
+ "dia.19": {
+  "category": "master",
+  "subtitle": "Día 19: Oscuridad",
+  "sounds": [
+   {
+    "name": "starvios:dia/19",
+    "stream": false
+   }
+  ]
+ },
+ "dia.20": {
+  "category": "master",
+  "subtitle": "Día 20: La luz del Inti",
+  "sounds": [
+   {
+    "name": "starvios:dia/20",
+    "stream": false
+   }
+  ]
+ },
+ "dia.21": {
+  "category": "master",
+  "subtitle": "Día 21: Heridas abiertas",
+  "sounds": [
+   {
+    "name": "starvios:dia/21",
+    "stream": false
+   }
+  ]
+ },
+ "dia.22": {
+  "category": "master",
+  "subtitle": "Día 22: Al límite",
+  "sounds": [
+   {
+    "name": "starvios:dia/22",
+    "stream": false
+   }
+  ]
+ },
+ "dia.23": {
+  "category": "master",
+  "subtitle": "Día 23: Apocalipsis eléctrico",
+  "sounds": [
+   {
+    "name": "starvios:dia/23",
+    "stream": false
+   }
+  ]
+ },
+ "dia.24": {
+  "category": "master",
+  "subtitle": "Día 24: Carnicería",
+  "sounds": [
+   {
+    "name": "starvios:dia/24",
+    "stream": false
+   }
+  ]
+ },
+ "dia.25": {
+  "category": "master",
+  "subtitle": "Día 25: Blindados",
+  "sounds": [
+   {
+    "name": "starvios:dia/25",
+    "stream": false
+   }
+  ]
+ },
+ "dia.26": {
+  "category": "master",
+  "subtitle": "Día 26: Titanes",
+  "sounds": [
+   {
+    "name": "starvios:dia/26",
+    "stream": false
+   }
+  ]
+ },
+ "dia.27": {
+  "category": "master",
+  "subtitle": "Día 27: Arena en el infierno",
+  "sounds": [
+   {
+    "name": "starvios:dia/27",
+    "stream": false
+   }
+  ]
+ },
+ "dia.28": {
+  "category": "master",
+  "subtitle": "Día 28: La batalla final",
+  "sounds": [
+   {
+    "name": "starvios:dia/28",
+    "stream": false
+   }
+  ]
+ }
+}
