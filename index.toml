@@ -178,6 +178,11 @@ hash = "9eefd607e0d54ec444e798ccdeede1a09a3939440bd1e11c11b84c07a5134be2"
 metafile = true
 
 [[files]]
+file = "mods/dragns-livestock-overhaul.pw.toml"
+hash = "c4451cccde1f244f45b6f9f50b504ffe164abc79b9225cdea73789332d831621"
+metafile = true
+
+[[files]]
 file = "mods/dungeons-and-taverns.pw.toml"
 hash = "a6af059766ea70358690d048898d19e493108e2e06a97542fac696fd5e03589a"
 metafile = true
@@ -204,7 +209,12 @@ metafile = true
 
 [[files]]
 file = "mods/geckolib.pw.toml"
-hash = "7ffae05c3b8101588b231db8116c34b36a77a0c6e6d7e6af867ae1c5b47e4d10"
+hash = "898fd2704dd260ae8f3dc20b4416439751f0a9e76367c4f0bbdac886b6987802"
+metafile = true
+
+[[files]]
+file = "mods/giddy-guinea-pigs.pw.toml"
+hash = "7fdfbae8d30e094d290c2b48aba077a92f67048de90c6f2edebff3d2e0828200"
 metafile = true
 
 [[files]]
@@ -315,6 +325,11 @@ metafile = true
 [[files]]
 file = "mods/oculus.pw.toml"
 hash = "5bfac979964ae1b39d69e1e0822b35ad152f5708ed41605ec87b23dd00dc9f9a"
+metafile = true
+
+[[files]]
+file = "mods/patchouli.pw.toml"
+hash = "b2cb681aaf3e6085148392a06d40899239dc299aaf5ce0adf168fc225d922c97"
 metafile = true
 
 [[files]]

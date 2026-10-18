@@ -1,0 +1,13 @@
+name = "Giddy Guinea Pigs!"
+filename = "Guinea_Pigs-1.20.1-1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a3617363aad079d33273401b3accaf4775aa543a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7219450
+project-id = 1104169
