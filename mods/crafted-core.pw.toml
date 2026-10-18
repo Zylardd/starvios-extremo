@@ -1,0 +1,13 @@
+name = "CraftedCore"
+filename = "craftedcore-5.8.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Dg7PHdkJ/versions/OEzYUvHq/craftedcore-5.8.2.jar"
+hash-format = "sha512"
+hash = "9cb1b2f5b686ad80b4a3dbae27b33d9b47f2ac06cb15bfebe1a9f40462699cc4d4e436a6bb3291ef588e59608077d57efcea7eaef64336cbade54970953cb53c"
+
+[update]
+[update.modrinth]
+mod-id = "Dg7PHdkJ"
+version = "OEzYUvHq"

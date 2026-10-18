@@ -158,6 +158,16 @@ hash = "0e17f9758f6f67ef87aa6f8d5afc47901521a05904cd8470ef65063b48e69d73"
 metafile = true
 
 [[files]]
+file = "mods/citadel.pw.toml"
+hash = "c7ac7f84731a0ca1fefb3491c3f65c2767afd4be207e094fcb65c4cea99c9549"
+metafile = true
+
+[[files]]
+file = "mods/crafted-core.pw.toml"
+hash = "04ce0200bab1bfdcd65c3fa601d2e65ab3fb9f03dad551b5336a2657d5a2585d"
+metafile = true
+
+[[files]]
 file = "mods/create.pw.toml"
 hash = "fb5c251cf4997fa65ca043bab7c9ecbd02e108031584a3e26276b77d212de23c"
 metafile = true
@@ -313,6 +323,11 @@ hash = "8df897c0f7831e919aa528c3c1e5239f39439c123d99761230ab2357132bad98"
 metafile = true
 
 [[files]]
+file = "mods/rats.pw.toml"
+hash = "b33e8cd1a5634fc9bf75c39ea283f74cc20aaae25da876682393336aa212c638"
+metafile = true
+
+[[files]]
 file = "mods/refurbished-furniture.pw.toml"
 hash = "2bcee75d08b33dd6506b7cd3f67ea9d0d2c1bf14e26728fa8e12ef19c895b165"
 metafile = true
@@ -360,6 +375,11 @@ metafile = true
 [[files]]
 file = "mods/when-dungeons-arise.pw.toml"
 hash = "1901cefc095dfaeafb78fc34610febb36f9e4a0ae32f7b96f484f0dacc94c681"
+metafile = true
+
+[[files]]
+file = "mods/woodwalkers.pw.toml"
+hash = "c24b8db7dd518035d28133db7cf97a9f55795ceb58af3eae4304a58251fda4f0"
 metafile = true
 
 [[files]]
