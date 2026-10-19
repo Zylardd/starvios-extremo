@@ -193,6 +193,46 @@ file = "kubejs/assets/starvios/sounds/dia/9.ogg"
 hash = "8776749d75259348ef5310ac6e71d257f314291a81b98c932d9c4b25267d52d1"
 
 [[files]]
+file = "kubejs/assets/starvios/sounds/prologo/1.mp3"
+hash = "3efc0752376f1574e65f8d56d29b837343562cfe64bbfb29aeef103cbe70033b"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/10.mp3"
+hash = "dd0ad8478fea56fd14c68c62e70f3bb47ca5d054dfaa108513c416ba7050abdb"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/2.mp3"
+hash = "9e08b77279320c41dbd7cd9df58a33a48e7d90530eb62c33ddd983a127f65654"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/3.mp3"
+hash = "b824eceacd9465542a5a1e1e527e3e18482076ac3c7ccaf7a56ab75642ea16da"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/4.mp3"
+hash = "1b3ca9e2777f744689e1154399c60ab0e3a1112777a72e387eba9be71e77a6e5"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/5.mp3"
+hash = "1215f0fcbb346020fbeff463ba06d4cde8696978cb21be828629318691692e09"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/6.mp3"
+hash = "32f984ca5cb78344c71520d20cc01ca01ed494a1de14ff97b29f5c196cbfd200"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/7.mp3"
+hash = "8938a3c4dd45296760e6359c4f19e2d8138e31a27573252f3b9097144c5b53c5"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/8.mp3"
+hash = "8b23116258bf9a7778d348f8144aa79c39119f47895b7e8fd1ff955b0b1ff480"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/9.mp3"
+hash = "42c7c636f7e89c6ecd424937ca24661fc65313df83cd76c1fae247eed29c669c"
+
+[[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"
 hash = "0886f0ce027a016829cfeaca432c328708df8e0d284fc825b5838cf6c94957b3"
 
