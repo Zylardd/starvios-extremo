@@ -535,6 +535,11 @@ hash = "dfdd246954f9bcfbff66668558b17ba5b3e75a12ba6031c441750a472670fbd8"
 metafile = true
 
 [[files]]
+file = "mods/lightmans-currency.pw.toml"
+hash = "b3663eb41c7a97e5b2a107cf824e493488e00e11bc21ef14b8742b9cc59e9cd4"
+metafile = true
+
+[[files]]
 file = "mods/lionfish-api.pw.toml"
 hash = "f3b6b7cd660a91a34a4e18010c9eaacaeb7ff306cadfee14431fa25a15b041ec"
 metafile = true
