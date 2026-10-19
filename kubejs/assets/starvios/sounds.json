@@ -278,5 +278,105 @@
     "stream": false
    }
   ]
+ },
+ "prologo.1": {
+  "category": "master",
+  "subtitle": "Prólogo 1",
+  "sounds": [
+   {
+    "name": "starvios:prologo/1",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.2": {
+  "category": "master",
+  "subtitle": "Prólogo 2",
+  "sounds": [
+   {
+    "name": "starvios:prologo/2",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.3": {
+  "category": "master",
+  "subtitle": "Prólogo 3",
+  "sounds": [
+   {
+    "name": "starvios:prologo/3",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.4": {
+  "category": "master",
+  "subtitle": "Prólogo 4",
+  "sounds": [
+   {
+    "name": "starvios:prologo/4",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.5": {
+  "category": "master",
+  "subtitle": "Prólogo 5",
+  "sounds": [
+   {
+    "name": "starvios:prologo/5",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.6": {
+  "category": "master",
+  "subtitle": "Prólogo 6",
+  "sounds": [
+   {
+    "name": "starvios:prologo/6",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.7": {
+  "category": "master",
+  "subtitle": "Prólogo 7",
+  "sounds": [
+   {
+    "name": "starvios:prologo/7",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.8": {
+  "category": "master",
+  "subtitle": "Prólogo 8",
+  "sounds": [
+   {
+    "name": "starvios:prologo/8",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.9": {
+  "category": "master",
+  "subtitle": "Prólogo 9",
+  "sounds": [
+   {
+    "name": "starvios:prologo/9",
+    "stream": false
+   }
+  ]
+ },
+ "prologo.10": {
+  "category": "master",
+  "subtitle": "Prólogo 10",
+  "sounds": [
+   {
+    "name": "starvios:prologo/10",
+    "stream": false
+   }
+  ]
  }
 }
