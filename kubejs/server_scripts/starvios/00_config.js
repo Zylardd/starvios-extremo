@@ -1,3 +1,4 @@
+// priority: 1000
 // ============================================================
 //  STARVIOS EXTREMO - CONFIGURACIÓN DEL EVENTO
 //  Edita SOLO este archivo para cambiar reglas, coordenadas y días.
@@ -12,10 +13,10 @@ global.STARVIOS = {
 
   // Punto donde estabas parado al hacer //paste del schematic (= punto de aparición).
   // Se usa para devolver al spawn a quien entre al End.
-  spawn: { x: -1383, y: 104, z: -1338 },
+  spawn: { x: -1383, y: 104, z: -1337 },
 
   // Centro de la arena de jefes (donde aparecen con /starvios jefe). PENDIENTE: pon aquí tu arena.
-  arena: { x: -1383, y: 104, z: -1338 },
+  arena: { x: -1383, y: 104, z: -1337 },
 
   // Zona protegida del spawn (la isla): nadie rompe/coloca bloques y no aparecen mobs hostiles.
   // Coordenadas ABSOLUTAS del mundo (dos esquinas opuestas, da igual el orden). Protege toda la altura.
@@ -30,9 +31,10 @@ global.STARVIOS = {
   // ----------------------------------------------------------
   elites: {
     activa: true,
-    vida: 4.0,                // multiplicador de vida
-    daño: 1.6,                // multiplicador de daño
-    fragmentos: [1, 2],       // fragmentos de corazón que suelta (mínimo, máximo)
+    vida: 8.0,                // multiplicador de vida
+    daño: 1.5,                // multiplicador de daño (encima del x2 general de los mobs)
+    fragmentos: [0, 1],       // fragmentos de corazón que suelta (mínimo, máximo)
+    probPremio: 0.35,         // probabilidad de que suelte además un premio de la lista
     tipos: {                  // qué mobs pueden ser élite y cómo se llaman
       'minecraft:zombie': 'Zombi', 'minecraft:husk': 'Momia', 'minecraft:drowned': 'Ahogado',
       'minecraft:skeleton': 'Esqueleto', 'minecraft:stray': 'Errante', 'minecraft:spider': 'Araña',
@@ -40,20 +42,21 @@ global.STARVIOS = {
       'minecraft:wither_skeleton': 'Esqueleto Wither', 'minecraft:piglin_brute': 'Bruto'
     },
     // Premio aleatorio (uno por élite). peso = cuánto sale (más alto = más común).
+    // soloCapitan: true = solo sale en el cofre del Capitán y de las criptas, nunca de un élite normal.
     // Puedes añadir armaduras de Immersive Armors: mira su ID en el juego con F3+H.
     premios: [
-      { id: 'minecraft:diamond', min: 1, max: 3, peso: 6 },
+      { id: 'minecraft:diamond', min: 1, max: 3, peso: 6, soloCapitan: true },
       { id: 'minecraft:golden_apple', min: 1, max: 2, peso: 6 },
       { id: 'minecraft:experience_bottle', min: 5, max: 12, peso: 5 },
       { id: 'minecraft:emerald', min: 3, max: 8, peso: 5 },
       { id: 'minecraft:iron_chestplate', min: 1, max: 1, peso: 3, nbt: '{Enchantments:[{id:"minecraft:protection",lvl:3s},{id:"minecraft:unbreaking",lvl:2s}]}' },
       { id: 'minecraft:iron_helmet', min: 1, max: 1, peso: 3, nbt: '{Enchantments:[{id:"minecraft:protection",lvl:3s},{id:"minecraft:unbreaking",lvl:2s}]}' },
-      { id: 'minecraft:diamond_leggings', min: 1, max: 1, peso: 2, nbt: '{Enchantments:[{id:"minecraft:protection",lvl:2s}]}' },
-      { id: 'minecraft:diamond_boots', min: 1, max: 1, peso: 2, nbt: '{Enchantments:[{id:"minecraft:feather_falling",lvl:4s},{id:"minecraft:protection",lvl:2s}]}' },
-      { id: 'minecraft:diamond_sword', min: 1, max: 1, peso: 2, nbt: '{Enchantments:[{id:"minecraft:sharpness",lvl:3s}]}' },
-      { id: 'minecraft:totem_of_undying', min: 1, max: 1, peso: 1 },
-      { id: 'minecraft:enchanted_golden_apple', min: 1, max: 1, peso: 1 },
-      { id: 'minecraft:netherite_scrap', min: 1, max: 1, peso: 1 }
+      { id: 'minecraft:diamond_leggings', min: 1, max: 1, peso: 2, nbt: '{Enchantments:[{id:"minecraft:protection",lvl:2s}]}', soloCapitan: true },
+      { id: 'minecraft:diamond_boots', min: 1, max: 1, peso: 2, nbt: '{Enchantments:[{id:"minecraft:feather_falling",lvl:4s},{id:"minecraft:protection",lvl:2s}]}', soloCapitan: true },
+      { id: 'minecraft:diamond_sword', min: 1, max: 1, peso: 2, nbt: '{Enchantments:[{id:"minecraft:sharpness",lvl:3s}]}', soloCapitan: true },
+      { id: 'minecraft:totem_of_undying', min: 1, max: 1, peso: 1, soloCapitan: true },
+      { id: 'minecraft:enchanted_golden_apple', min: 1, max: 1, peso: 1, soloCapitan: true },
+      { id: 'minecraft:netherite_scrap', min: 1, max: 1, peso: 1, soloCapitan: true }
     ]
   },
 
@@ -63,11 +66,24 @@ global.STARVIOS = {
   //  guardianes élite y un cofre de botín, y anuncia las coordenadas.
   // ----------------------------------------------------------
   mazmorras: {
-    distanciaMin: 600,        // bloques mínimos desde el spawn
-    distanciaMax: 3000,       // bloques máximos desde el spawn (el borde está a 7000)
+    distanciaMin: 1200,       // bloques mínimos desde el spawn
+    distanciaMax: 4500,       // bloques máximos desde el spawn (el borde está a 7000; las arenas en las esquinas)
     guardianes: [3, 5],       // cuántos élites la protegen (mínimo, máximo)
+    radioCorrea: 40,          // si persiguen a alguien más lejos de esto (desde el centro), vuelven a su puesto
     tiposGuardian: ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:vindicator', 'minecraft:husk'],
-    cofre: { fragmentos: [2, 4], premios: 3 },
+    // Ya no hay cofre a la vista: lo suelta el CAPITÁN (un élite más fuerte) al morir.
+    cofre: { fragmentos: [1, 2], premios: 2, valiososGarantizados: 0, tiradasEspeciales: 1 },
+    capitan: { vidaExtra: 3.0, nombre: 'Capitán de la mazmorra' },   // vidaExtra = ×3 sobre un élite normal
+    escoltaCapitan: 3,        // élites que custodian al Capitán en la sala del trono
+    estilo: 'laberinto',      // 'laberinto' = fortaleza-laberinto generada · 'estructura' = las estructuras de abajo (antiguo)
+    laberintoCfg: {
+      profundidad: 3,         // escalones que baja desde la superficie
+      laberinto: 7,           // celdas por lado (7 = 29x29 bloques)
+      mobs: ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:vindicator', 'minecraft:husk', 'minecraft:pillager', 'minecraft:spider'],
+      generadores: ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:spider'],
+      cantidadMobs: { base: 14, porDia: 1.0, maximo: 45 },
+      probEliteMob: { base: 0.25, porDia: 0.015, maximo: 0.6 }
+    },
     // Estructuras que se intentan (cada una solo sale en sus biomas; si ninguna cabe, sale un portal en ruinas).
     // Con mods de mazmorras puedes añadir las suyas: escribe /place structure y pulsa TAB para ver los IDs.
     estructuras: [
@@ -83,15 +99,143 @@ global.STARVIOS = {
   },
 
   // ----------------------------------------------------------
+  //  CRIPTAS SUBTERRÁNEAS  (/starvios cripta)
+  //  Una escalera baja desde la superficie a un laberinto de salas con monstruos
+  //  y generadores. Al final, el Señor de la Cripta. Cuando muere aparece su cofre.
+  // ----------------------------------------------------------
+  criptas: {
+    profundidad: 24,          // bloques bajo la superficie
+    distanciaMin: 1200,       // bloques mínimos desde el spawn (punto al azar)
+    distanciaMax: 4500,       // bloques máximos (el borde está a 7000; las arenas en las esquinas)
+    laberinto: 9,             // celdas por lado (9 = laberinto de 37x37 bloques)
+    // Jefes de mods (se prueba uno al azar; si el ID no existe se prueba el siguiente).
+    // vida/daño/armadura son valores absolutos (no multiplicadores).
+    jefes: [
+      { nombre: 'Gólem del Vacío',      id: 'cataclysm:ender_golem',       vida: 450, daño: 18, armadura: 14 },
+      { nombre: 'Revenant Ígneo',       id: 'cataclysm:ignited_revenant',  vida: 380, daño: 14, armadura: 16 },
+      { nombre: 'El Merodeador',        id: 'cataclysm:the_prowler',       vida: 420, daño: 16, armadura: 18 },
+      { nombre: 'Kobolediator',         id: 'cataclysm:kobolediator',      vida: 400, daño: 17, armadura: 14 },
+      { nombre: 'Wadjet',               id: 'cataclysm:wadjet',            vida: 360, daño: 15, armadura: 12 }
+    ],
+    // Si ningún jefe de mod se puede invocar, sale este
+    jefeRespaldo: { nombre: 'Señor de la Cripta', id: 'minecraft:wither_skeleton', vida: 300, daño: 14, armadura: 14, arma: 'minecraft:netherite_sword' },
+    // Monstruos repartidos por el laberinto
+    mobs: ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:spider', 'minecraft:cave_spider', 'minecraft:stray',
+           'minecraft:husk', 'minecraft:skeleton', 'minecraft:zombie', 'minecraft:witch', 'minecraft:vindicator'],
+    cantidadMobs: { base: 30, porDia: 2.0, maximo: 90 },   // monstruos en el laberinto (sube cada día)
+    probEliteMob: { base: 0.20, porDia: 0.015, maximo: 0.6 }, // probabilidad de que cada uno sea élite
+    generadores: ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:cave_spider', 'minecraft:spider', 'minecraft:zombie',
+                  'minecraft:skeleton', 'minecraft:witch', 'minecraft:cave_spider'],
+    cofre: { fragmentos: [3, 5], premios: 4, monedas: 150 }
+  },
+
+  // ----------------------------------------------------------
+  //  RECETAS BLOQUEADAS
+  //  Cualquier receta cuyo RESULTADO encaje con alguno de estos patrones desaparece.
+  //  Para ver el ID de un objeto: pásale el ratón en JEI con F3+H activado.
+  // ----------------------------------------------------------
+  recetasBloqueadas: [
+    '^immersive_armors:',                                            // todas las armaduras de Immersive Armors
+    '^cataclysm:.*_(helmet|chestplate|leggings|boots)$',             // armaduras de Cataclysm (solo por jefes)
+    '^cataclysm:(ignitium|cursium|bone_reptile).*',                  // equipo de jefes de Cataclysm
+    '^securitycraft:(.*mine|bouncing_betty|claymore|ims)$'           // minas explosivas de SecurityCraft (todas)
+    // , '^securitycraft:reinforced_'   // quita las 2 barras del principio para prohibir bloques reforzados (bases blindadas)
+  ],
+
+  // ----------------------------------------------------------
+  //  GENERACIÓN AUTOMÁTICA (solo con el evento activo y jugadores conectados)
+  //  0 = desactivado. En minutos de juego real.
+  // ----------------------------------------------------------
+  automatico: { mazmorraCadaMin: 45, criptaCadaMin: 90 },
+
+  // ----------------------------------------------------------
+  //  BOTÍN ESPECIAL (jefes semanales, élites y señores de las criptas)
+  //  En cada tirada: 30% sale algo valioso; si no, 10% sale algo poco útil.
+  // ----------------------------------------------------------
+  botinEspecial: {
+    probValioso: 0.30,
+    probBasura: 0.10,
+    tiradas: { jefe: 6, elite: 0, cripta: 3 },   // cuántas veces se tira por cada tipo de enemigo
+    valiosos: [
+      { id: 'minecraft:totem_of_undying', cantidad: 1 },
+      { id: 'minecraft:enchanted_golden_apple', cantidad: 1 },
+      { id: 'minecraft:heart_of_the_sea', cantidad: 1 }
+    ],
+    basura: [
+      { id: 'minecraft:rotten_flesh', cantidad: 8 }, { id: 'minecraft:stick', cantidad: 5 },
+      { id: 'minecraft:bowl', cantidad: 3 }, { id: 'minecraft:poisonous_potato', cantidad: 2 },
+      { id: 'minecraft:dead_bush', cantidad: 2 }, { id: 'minecraft:string', cantidad: 4 },
+      { id: 'minecraft:feather', cantidad: 3 }, { id: 'minecraft:flower_pot', cantidad: 1 },
+      { id: 'minecraft:wooden_shovel', cantidad: 1 }, { id: 'minecraft:leather_boots', cantidad: 1 }
+    ]
+  },
+
+  // ----------------------------------------------------------
+  //  ECONOMÍA
+  //  Saldo personal (se ve en la lista TAB). Se gana matando élites, jefes,
+  //  señores de cripta y, a veces, monstruos normales. Se gasta en /tienda.
+  // ----------------------------------------------------------
+  economia: {
+    nombre: 'Starcoins',
+    simbolo: '✦',
+    saldoInicial: 50,
+    // Moneda física con el mod Lightman's Currency (si está instalado). Las Starcoins viven en la cuenta
+    // del banco de cada jugador: se sacan/meten en monedas en un CAJERO (ATM) o con la billetera.
+    // Monedas: Starcoin (1) · de plata (10) · de oro (100) · de diamante (1000)
+    monedaMod: true,
+    tiendaSoloEnSpawn: true,           // /tienda y /vender solo dentro de la isla
+    ganancias: {
+      elite: 10,                       // al que lo mata
+      jefe: 300,                       // a CADA jugador vivo y conectado
+      mobNormal: { prob: 0.20, min: 1, max: 3 }
+    },
+    // clave = lo que se escribe en /comprar <clave>
+    tienda: [
+      { clave: 'pan',        nombre: 'Pan x8',                 id: 'minecraft:bread',              cantidad: 8,  precio: 10 },
+      { clave: 'filete',     nombre: 'Filete asado x8',        id: 'minecraft:cooked_beef',        cantidad: 8,  precio: 20 },
+      { clave: 'antorchas',  nombre: 'Antorchas x32',          id: 'minecraft:torch',              cantidad: 32, precio: 8 },
+      { clave: 'flechas',    nombre: 'Flechas x32',            id: 'minecraft:arrow',              cantidad: 32, precio: 15 },
+      { clave: 'escudo',     nombre: 'Escudo',                 id: 'minecraft:shield',             cantidad: 1,  precio: 25 },
+      { clave: 'cama',       nombre: 'Cama',                   id: 'minecraft:white_bed',          cantidad: 1,  precio: 30 },
+      { clave: 'cubo',       nombre: 'Cubo de agua',           id: 'minecraft:water_bucket',       cantidad: 1,  precio: 20 },
+      { clave: 'curacion',   nombre: 'Poción de curación',     id: 'minecraft:potion',             cantidad: 1,  precio: 35, nbt: '{Potion:"minecraft:strong_healing"}' },
+      { clave: 'perlas',     nombre: 'Perlas de Ender x2',     id: 'minecraft:ender_pearl',        cantidad: 2,  precio: 40 },
+      { clave: 'experiencia',nombre: 'Botellas de XP x10',     id: 'minecraft:experience_bottle',  cantidad: 10, precio: 60 },
+      { clave: 'manzana',    nombre: 'Manzana dorada',         id: 'minecraft:golden_apple',       cantidad: 1,  precio: 120 },
+      { clave: 'fragmento',  nombre: 'Fragmento de Corazón',   especial: 'fragmento',              cantidad: 1,  precio: 250 },
+      { clave: 'totem',      nombre: 'Tótem de inmortalidad',  id: 'minecraft:totem_of_undying',   cantidad: 1,  precio: 800 }
+    ],
+    // Precio por unidad al usar /vender con el objeto en la mano
+    venta: {
+      'minecraft:diamond': 25, 'minecraft:emerald': 10, 'minecraft:gold_ingot': 6, 'minecraft:iron_ingot': 3,
+      'minecraft:netherite_scrap': 120, 'minecraft:ender_pearl': 8, 'minecraft:blaze_rod': 10, 'minecraft:gunpowder': 2,
+      'minecraft:bone': 1, 'minecraft:string': 1, 'minecraft:spider_eye': 1, 'minecraft:leather': 2,
+      'minecraft:coal': 1, 'minecraft:redstone': 1, 'minecraft:lapis_lazuli': 1, 'minecraft:amethyst_shard': 2
+    }
+  },
+
+  // ----------------------------------------------------------
+  //  EQUIPOS  (/equipo ...)  -  sin fuego amigo, chat privado con /eq
+  // ----------------------------------------------------------
+  equipos: {
+    maxMiembros: 4,
+    colores: ['red', 'blue', 'green', 'yellow', 'aqua', 'light_purple', 'gold', 'dark_green', 'dark_aqua', 'dark_purple']
+  },
+
+  // ----------------------------------------------------------
   //  CORAZONES EXTRA PERMANENTES
   //  4 Fragmentos de Corazón (2x2 en la mesa) = 1 Corazón Vital.
   //  Clic derecho con el Corazón Vital = +1 corazón máximo para siempre (hasta el límite).
   // ----------------------------------------------------------
   corazonesExtra: {
     activa: true,
-    maximo: 5,                // corazones extra máximos por jugador
+    maximo: 0,                // corazones extra máximos por jugador (0 = SIN LÍMITE)
     porJefe: 2                // Corazones Vitales que suelta cada jefe semanal al morir
   },
+
+  // Corazón Frágil: clic derecho = +1 corazón DORADO que no se regenera (si te golpean, se pierde).
+  // Receta 2x2: 2 Fragmentos de Corazón + 2 lingotes de oro (en diagonal).
+  corazonFragil: { activa: true, maximo: 7 },   // máximo de corazones frágiles a la vez
 
   // ----------------------------------------------------------
   //  RESURRECCIÓN
@@ -103,7 +247,7 @@ global.STARVIOS = {
   // ----------------------------------------------------------
   resurreccion: {
     activa: true,
-    maxPorJugador: 1,          // cuántas veces puede ser revivido cada jugador (0 = sin límite)
+    maxPorJugador: 0,          // veces que se puede revivir a cada jugador (0 = SIN LÍMITE)
     vidaAlRevivir: 6,          // puntos de vida con los que vuelve (6 = 3 corazones)
     // Receta (mesa de crafteo). Letras de la cuadrícula y qué ítem es cada una.
     receta: ['DGD', 'GHG', 'DGD'],
@@ -128,18 +272,100 @@ global.STARVIOS = {
 
   // Jefes de cada sábado (semana 1..4). Comprueba los IDs con /summon mowziesmobs: + TAB
   jefes: [
-    // vida y daño son MULTIPLICADORES sobre los valores normales del mod (3 = el triple).
-    // velocidad: 1 = normal, 1.2 = 20% más rápido. armadura: puntos extra (0-30).
-    { nombre: 'Ferrous Wroughtnaut', id: 'mowziesmobs:ferrous_wroughtnaut', vida: 3.0, daño: 1.8, velocidad: 1.0, armadura: 6 },
-    { nombre: 'Frostmaw',            id: 'mowziesmobs:frostmaw',            vida: 3.0, daño: 1.8, velocidad: 1.0, armadura: 6 },
-    { nombre: 'Umvuthi',             id: 'mowziesmobs:umvuthi',             vida: 3.5, daño: 2.0, velocidad: 1.0, armadura: 8 },
-    { nombre: 'La Escultora',        id: 'mowziesmobs:sculptor',            vida: 4.0, daño: 2.2, velocidad: 1.0, armadura: 10 }
+    // vida y daño son MULTIPLICADORES sobre los valores normales del mod (15 = quince veces).
+    // Pensado para hasta 20 jugadores a la vez. velocidad: 1 = normal. armadura: puntos extra (0-30).
+    // IMPORTANTE: Minecraft limita la vida a 1024 sin el mod AttributeFix (ver guía).
+    // Comprueba los IDs en el juego con /summon <mod>: y TAB.
+    { nombre: 'Ferrous Wroughtnaut',        id: 'mowziesmobs:ferrous_wroughtnaut',  vida: 2,  daño: 2.5, velocidad: 1.0,  armadura: 8,  color: 'gray',
+      esbirros: ['minecraft:zombie', 'minecraft:vindicator', 'minecraft:skeleton'] },
+    { nombre: 'Frostmaw',                   id: 'mowziesmobs:frostmaw',             vida: 12, daño: 2.5, velocidad: 1.0,  armadura: 8,  color: 'aqua',
+      esbirros: ['minecraft:stray', 'minecraft:stray', 'minecraft:skeleton'] },
+    { nombre: 'Umvuthi',                    id: 'mowziesmobs:umvuthi',              vida: 18, daño: 2.8, velocidad: 1.0,  armadura: 10, color: 'gold',
+      esbirros: ['mowziesmobs:barakoa', 'minecraft:husk', 'minecraft:husk'] },
+    { nombre: 'Monstruosidad de Netherita', id: 'cataclysm:netherite_monstrosity',  vida: 12, daño: 3.0, velocidad: 1.0,  armadura: 12, color: 'dark_red',
+      esbirros: ['minecraft:blaze', 'minecraft:wither_skeleton', 'minecraft:magma_cube'] },
+    { nombre: 'Ignis, el Señor de las Llamas', id: 'cataclysm:ignis',               vida: 15, daño: 3.5, velocidad: 1.05, armadura: 15, color: 'red',
+      esbirros: ['minecraft:blaze', 'cataclysm:ignited_berserker', 'minecraft:wither_skeleton'] }
   ],
+
+  // Esbirros: cada "cada" segundos, mientras viva un jefe semanal, aparecen "cantidad" monstruos
+  // de su lista (esbirros) a su alrededor, hasta "maximo" a la vez. Si un ID no existe, sale un zombi.
+  esbirros: { cada: 20, cantidad: 3, maximo: 10 },
+
+  // Misión diaria: llevar TODO lo que pide al ATRIL del spawn y hacer clic derecho (se saca del inventario).
+  // Una vez por día y jugador. Ver lo de hoy: /mision
+  //  pide:   [ID del objeto (o #etiqueta), cantidad, nombre en español]
+  //  premio: monedas · fragmentos (Fragmentos de Corazón) · fragiles (Corazones Frágiles) · vitales (Corazones Vitales)
+  //          items: [[ID, cantidad], ...]
+  misionEquipo: { fragiles: 1 },   // si TODOS los vivos de un equipo completan la misión del día: premio extra a cada uno
+  misiones: {
+    1:  { texto: 'Primeros pasos', pide: [['#minecraft:logs', 32, 'troncos'], ['#minecraft:coals', 16, 'carbón'], ['minecraft:stone_pickaxe', 1, 'pico de piedra'], ['minecraft:furnace', 1, 'horno']],
+          premio: { monedas: 30, items: [['minecraft:cooked_beef', 8]] } },
+    2:  { texto: 'Cazador', pide: [['minecraft:leather', 10, 'cuero'], ['minecraft:beef', 16, 'carne de res cruda'], ['#minecraft:beds', 1, 'cama']],
+          premio: { monedas: 40, fragiles: 1, items: [['minecraft:bread', 8]] } },
+    3:  { texto: 'Herrero', pide: [['minecraft:iron_ingot', 24, 'lingotes de hierro'], ['minecraft:shield', 1, 'escudo'], ['minecraft:bucket', 1, 'cubo']],
+          premio: { monedas: 50, items: [['minecraft:cooked_porkchop', 10]] } },
+    4:  { texto: 'Arquero', pide: [['minecraft:bow', 1, 'arco'], ['minecraft:arrow', 64, 'flechas'], ['minecraft:string', 16, 'hilo'], ['minecraft:spider_eye', 8, 'ojos de araña']],
+          premio: { monedas: 50, fragiles: 1, items: [['minecraft:baked_potato', 10]] } },
+    5:  { texto: 'Armado hasta los dientes', pide: [['minecraft:iron_helmet', 1, 'casco de hierro'], ['minecraft:iron_chestplate', 1, 'peto de hierro'], ['minecraft:iron_leggings', 1, 'grebas de hierro'], ['minecraft:iron_boots', 1, 'botas de hierro'], ['minecraft:iron_sword', 1, 'espada de hierro']],
+          premio: { monedas: 70, items: [['minecraft:golden_apple', 1], ['minecraft:cooked_beef', 8]] } },
+    6:  { texto: 'Preparativos para el jefe', pide: [['minecraft:cooked_beef', 32, 'filetes cocidos'], ['minecraft:baked_potato', 16, 'papas asadas'], ['minecraft:shield', 1, 'escudo']],
+          premio: { fragiles: 1, items: [['minecraft:golden_apple', 2]] } },
+    7:  { texto: 'Minero profundo', pide: [['minecraft:redstone', 32, 'redstone'], ['minecraft:lapis_lazuli', 16, 'lapislázuli'], ['minecraft:gold_ingot', 8, 'lingotes de oro'], ['minecraft:diamond', 2, 'diamantes']],
+          premio: { monedas: 80, fragmentos: 1 } },
+    8:  { texto: 'La biblioteca', pide: [['minecraft:enchanting_table', 1, 'mesa de encantamientos'], ['minecraft:bookshelf', 6, 'estanterías']],
+          premio: { monedas: 80, fragiles: 2, items: [['minecraft:golden_carrot', 16]] } },
+    9:  { texto: 'Demolición', pide: [['minecraft:gunpowder', 32, 'pólvora'], ['minecraft:tnt', 8, 'TNT']],
+          premio: { monedas: 100, fragmentos: 1 } },
+    10: { texto: 'Abastecer la aldea', pide: [['minecraft:emerald', 20, 'esmeraldas'], ['minecraft:wheat', 32, 'trigo'], ['minecraft:carrot', 32, 'zanahorias'], ['minecraft:potato', 32, 'papas']],
+          premio: { monedas: 100, items: [['minecraft:golden_carrot', 16]] } },
+    11: { texto: 'Expedición al Nether', pide: [['minecraft:quartz', 32, 'cuarzo del Nether'], ['minecraft:glowstone_dust', 16, 'polvo de piedra luminosa']],
+          premio: { monedas: 120, fragiles: 2 } },
+    12: { texto: 'El herbolario', pide: [['minecraft:potion{Potion:"minecraft:healing"}', 3, 'pociones de curación'], ['minecraft:potion{Potion:"minecraft:strength"}', 3, 'pociones de fuerza']],
+          premio: { monedas: 120, fragiles: 2, items: [['minecraft:golden_apple', 1]] } },
+    13: { texto: 'Ruge el invierno', pide: [['minecraft:packed_ice', 32, 'hielo compacto'], ['minecraft:snow_block', 16, 'bloques de nieve']],
+          premio: { monedas: 150, items: [['minecraft:cooked_beef', 16], ['minecraft:golden_apple', 2]] } },
+    14: { texto: 'Trofeos de caza', pide: [['minecraft:ender_pearl', 10, 'perlas de ender'], ['minecraft:bone', 16, 'huesos'], ['minecraft:gunpowder', 16, 'pólvora'], ['minecraft:rotten_flesh', 16, 'carne podrida']],
+          premio: { monedas: 150, fragmentos: 1 } },
+    15: { texto: 'Fiebre de diamantes', pide: [['minecraft:diamond', 10, 'diamantes'], ['minecraft:anvil', 1, 'yunque']],
+          premio: { monedas: 150, fragiles: 2, items: [['minecraft:golden_apple', 2]] } },
+    16: { texto: 'La gran cosecha', pide: [['minecraft:wheat', 32, 'trigo'], ['minecraft:carrot', 32, 'zanahorias'], ['minecraft:potato', 32, 'papas'], ['minecraft:beetroot', 16, 'remolachas']],
+          premio: { monedas: 150, items: [['minecraft:bread', 32], ['minecraft:golden_carrot', 16]] } },
+    17: { texto: 'El banquete', pide: [['minecraft:pumpkin_pie', 16, 'pasteles de calabaza'], ['minecraft:cookie', 32, 'galletas'], ['minecraft:cake', 8, 'tartas']],
+          premio: { monedas: 180, fragiles: 3 } },
+    18: { texto: 'El arsenal', pide: [['minecraft:diamond_sword', 1, 'espada de diamante'], ['minecraft:diamond_axe', 1, 'hacha de diamante'], ['minecraft:crossbow', 1, 'ballesta']],
+          premio: { monedas: 200, fragmentos: 1 } },
+    19: { texto: 'El explorador', pide: [['minecraft:map', 1, 'mapa'], ['minecraft:compass', 1, 'brújula'], ['minecraft:clock', 1, 'reloj'], ['minecraft:ender_pearl', 16, 'perlas de ender']],
+          premio: { monedas: 200, fragiles: 2 } },
+    20: { texto: 'Ofrenda al Inti', pide: [['minecraft:gold_block', 16, 'bloques de oro']],
+          premio: { monedas: 250, items: [['minecraft:golden_apple', 4]] } },
+    21: { texto: 'El alquimista', pide: [['minecraft:glistering_melon_slice', 8, 'rodajas de sandía reluciente'], ['minecraft:ghast_tear', 4, 'lágrimas de ghast'], ['minecraft:potion{Potion:"minecraft:regeneration"}', 4, 'pociones de regeneración']],
+          premio: { monedas: 250, fragmentos: 1, fragiles: 2 } },
+    22: { texto: 'La fortaleza', pide: [['minecraft:stone_bricks', 64, 'ladrillos de piedra'], ['minecraft:obsidian', 32, 'obsidiana']],
+          premio: { monedas: 250, fragiles: 3 } },
+    23: { texto: 'Domar la tormenta', pide: [['minecraft:lightning_rod', 8, 'pararrayos'], ['minecraft:copper_ingot', 32, 'lingotes de cobre'], ['minecraft:creeper_head', 1, 'cabeza de creeper']],
+          premio: { monedas: 250, fragmentos: 1 } },
+    24: { texto: 'Carnicería', pide: [['minecraft:wither_skeleton_skull', 2, 'cráneos de esqueleto wither']],
+          premio: { monedas: 300, fragmentos: 2 } },
+    25: { texto: 'Blindados', pide: [['minecraft:diamond_helmet', 1, 'casco de diamante'], ['minecraft:diamond_chestplate', 1, 'peto de diamante'], ['minecraft:diamond_leggings', 1, 'grebas de diamante'], ['minecraft:diamond_boots', 1, 'botas de diamante']],
+          premio: { monedas: 300, fragmentos: 2 } },
+    26: { texto: 'Titanes', pide: [['minecraft:netherite_ingot', 1, 'lingote de netherita']],
+          premio: { monedas: 350, fragiles: 3, items: [['minecraft:golden_apple', 2]] } },
+    27: { texto: 'Arena en el infierno', pide: [['minecraft:blaze_rod', 16, 'varas de blaze'], ['minecraft:ghast_tear', 8, 'lágrimas de ghast'], ['minecraft:magma_cream', 32, 'cremas de magma']],
+          premio: { monedas: 400, items: [['minecraft:golden_apple', 4]] } },
+    28: { texto: 'La batalla final', pide: [['minecraft:golden_carrot', 32, 'zanahorias doradas'], ['minecraft:golden_apple', 4, 'manzanas doradas'], ['minecraft:totem_of_undying', 1, 'tótem de la inmortalidad']],
+          premio: { monedas: 500, vitales: 1 } }
+  },
+
+  // Animación de entrada: el jefe cae del cielo con estela de fuego y un impacto al tocar el suelo
+  animacionJefes: { activa: true, altura: 35, segundosCaida: 3, cinematica: true },   // cinematica: todos ven la llegada del jefe en modo espectador
 
   // Entidades que NUNCA reciben los multiplicadores (jefes, para que no sean imposibles)
   sinMultiplicador: [
     'mowziesmobs:ferrous_wroughtnaut', 'mowziesmobs:frostmaw',
-    'mowziesmobs:umvuthi', 'mowziesmobs:sculptor', 'minecraft:wither', 'minecraft:ender_dragon'
+    'mowziesmobs:umvuthi', 'mowziesmobs:sculptor', 'minecraft:wither', 'minecraft:ender_dragon',
+    'cataclysm:netherite_monstrosity', 'cataclysm:ignis', 'cataclysm:ender_guardian', 'cataclysm:the_harbinger',
+    'cataclysm:the_leviathan', 'cataclysm:ancient_remnant', 'cataclysm:maledictus', 'cataclysm:scylla'
   ],
 
   // ----------------------------------------------------------
@@ -149,12 +375,14 @@ global.STARVIOS = {
   escalas: {
     vidaJugador:        [[1, 20], [8, 18], [15, 16], [22, 14], [28, 12]],   // puntos (20 = 10 corazones)
     vidaMobs:           [[1, 1.0], [7, 1.2], [16, 1.5], [26, 2.0]],         // multiplicador
-    dañoMobs:           [[1, 1.0], [5, 1.15], [12, 1.35], [24, 1.6]],       // multiplicador
+    dañoMobs:           [[1, 2.0], [5, 2.2], [12, 2.5], [24, 3.0]],         // multiplicador (x2 desde el día 1)
     creeperCargado:     [[1, 0], [3, 0.10], [9, 0.25], [23, 0.50]],         // probabilidad
     zombiArmaduraMalla: [[1, 0], [2, 0.20]],                                // probabilidad
     zombiArmaduraHierro:[[1, 0], [18, 0.40]],                               // probabilidad
     mobsResistencia:    [[1, 0], [25, 0.30]],                               // probabilidad
-    probElite:          [[1, 0.015], [8, 0.025], [14, 0.05], [22, 0.07]]    // probabilidad de mini-jefe
+    probElite:          [[1, 0.03], [5, 0.05], [10, 0.08], [15, 0.11], [22, 0.15]],   // probabilidad de mini-jefe
+    // Refuerzos: monstruos EXTRA que aparecen junto a cada monstruo natural (media). 1 = el doble de mobs.
+    mobsExtra:          [[1, 0], [2, 0.15], [4, 0.3], [7, 0.5], [10, 0.7], [14, 1.0], [18, 1.3], [22, 1.6], [26, 2.0]]
   },
 
   // Reglas de activación única (desde ese día en adelante)
@@ -163,40 +391,46 @@ global.STARVIOS = {
     zombisRapidos:      10,
     esqueletosFuego:    11,
     hambreCada10Min:    17,
+    sinQuemarseAlSol:    7,
     arañaCeguera:       19,
     sinRegeneracion:    21,
     mobsConFuerza:      28
   },
 
+  // Anuncio del día: barra pequeña arriba ("DÍA N · Título") + descripción en el chat + voz
+  anuncioDia: { barraSegundos: 20, voz: true },   // barraSegundos: 0 = la barra se queda todo el día
+  prologoSegundos: 90,   // duración del prólogo narrado del día 1 (generar_prologo.bat te dice cuánto dura)
+
   // Texto que se anuncia cada día (título + descripción). Edítalos a tu gusto.
+  // No hace falta poner "Dia N," en el título: la barra ya muestra el número.
   anuncios: {
-    1:  ['Comienza Starvios',      'Si mueres, quedas eliminado. Sin segundas oportunidades.'],
+    1:  ['Mortalidad',             'Si mueres, quedas eliminado. Sin segundas oportunidades.'],
     2:  ['Zombis acorazados',      'Los zombis pueden aparecer con armadura de malla.'],
     3:  ['Tormenta estática',      'Algunos creepers aparecen cargados (10%).'],
     4:  ['Colmillos venenosos',    'Las arañas envenenan con cada mordida.'],
-    5:  ['Furia',                  'Los mobs hostiles hacen un 15% más de daño.'],
-    6:  ['Primer jefe',            'Hoy despierta el Ferrous Wroughtnaut en la arena.'],
-    7:  ['Piel dura',              'Los mobs hostiles tienen un 20% más de vida.'],
-    8:  ['Cuerpo frágil',          'Pierdes 1 corazón de vida máxima.'],
+    5:  ['Furia',                  'Los mobs hostiles pegan aún más fuerte (x2,2).'],
+    6:  ['Mordisquitos',           'Hoy despierta el Ferrous Wroughtnaut en la arena.'],
+    7:  ['Piel Dura',              'Los mobs tienen un 20% más de vida y ya NO se queman al sol.'],
+    8:  ['Cuerpo Frágil',          'Pierdes 1 corazón de vida máxima.'],
     9:  ['Sobrecarga',             'Un 25% de los creepers aparecen cargados.'],
     10: ['Hordas veloces',         'Los zombis se mueven más rápido.'],
     11: ['Flechas ardientes',      'Los esqueletos disparan flechas de fuego.'],
-    12: ['Sed de sangre',          'Los mobs hacen un 35% más de daño.'],
-    13: ['Segundo jefe',           'Frostmaw ruge en la arena.'],
+    12: ['Sed de sangre',          'Los mobs pegan x2,5.'],
+    13: ['Ruge el invierno',       'Frostmaw ruge en la arena.'],
     14: ['Cazadores de élite',     'Los mini-jefes aparecen el doble. Más peligro, más recompensas.'],
     15: ['Debilidad',              'Pierdes otro corazón de vida máxima.'],
     16: ['Bestias',                'Los mobs tienen un 50% más de vida.'],
     17: ['Hambruna',               'Cada 10 minutos sufres hambre durante 30 segundos.'],
     18: ['Legión de hierro',       'Los zombis pueden llevar armadura de hierro.'],
     19: ['Oscuridad',              'Las arañas también ciegan.'],
-    20: ['Tercer jefe',            'Umvuthi invoca al sol en la arena.'],
+    20: ['La Luz del Inti',        'Umvuthi invoca al sol en la arena.'],
     21: ['Heridas abiertas',       'La regeneración natural se desactiva.'],
     22: ['Al límite',              'Pierdes otro corazón de vida máxima.'],
     23: ['Apocalipsis eléctrico',  'La mitad de los creepers aparecen cargados.'],
-    24: ['Carnicería',             'Los mobs hacen un 60% más de daño.'],
+    24: ['Carnicería',             'Los mobs pegan el triple (x3).'],
     25: ['Blindados',              'Un 30% de los mobs tienen Resistencia.'],
     26: ['Titanes',                'Los mobs tienen el doble de vida.'],
-    27: ['Jefe final',             'La Escultora espera en la arena.'],
-    28: ['Último día',             '6 corazones y mobs con Fuerza. Sobrevive.']
+    27: ['Arena en el infierno',   'La Monstruosidad de Netherita despierta en la arena.'],
+    28: ['La batalla final',       'Ignis desciende entre llamas. 6 corazones, mobs con Fuerza. Sobrevive.']
   }
 };

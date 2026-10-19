@@ -1,0 +1,17 @@
+{
+  "Chains": [
+    {
+      "chain": "main",
+      "name": { "text": "Starcoins" },
+      "displayType": "lightmanscurrency:number",
+      "displayFormat": "{value} ✦",
+      "InputType": "TEXT",
+      "CoreChain": [
+        { "Coin": "kubejs:starcoin", "baseUnit": true },
+        { "Coin": "kubejs:starcoin_plata", "exchangeRate": 10 },
+        { "Coin": "kubejs:starcoin_oro", "exchangeRate": 10 },
+        { "Coin": "kubejs:starcoin_diamante", "exchangeRate": 10 }
+      ]
+    }
+  ]
+}

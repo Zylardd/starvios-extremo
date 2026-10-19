@@ -1,10 +1,11 @@
+// priority: 400
 // ============================================================
 //  STARVIOS - CONTADOR ARRIBA DE LA PANTALLA + COMANDO /dia
 //
 //  /starvios cuenta <tiempo> <acción>   (tiempo: 5m, 30s, 1m30s ...)
 //     acciones:  iniciar    -> al terminar COMIENZA LA SERIE (día 1, sin eliminados)
 //                siguiente  -> al terminar pasa al día siguiente
-//                jefe1..jefe4 -> al terminar invoca ese jefe en la arena
+//                jefe1..jefe5 -> al terminar invoca ese jefe en la arena
 //                cerrar     -> al terminar guarda el mundo, saca a todos y apaga el servidor
 //                nada       -> solo cuenta atrás
 //  /starvios cuenta cancelar
@@ -19,7 +20,8 @@ let stTextoAccion = {
   jefe1: ['El primer jefe despierta en', 'purple'],
   jefe2: ['El segundo jefe despierta en', 'purple'],
   jefe3: ['El tercer jefe despierta en', 'purple'],
-  jefe4: ['El jefe final despierta en', 'purple'],
+  jefe4: ['El cuarto jefe despierta en', 'purple'],
+  jefe5: ['El JEFE FINAL desciende en', 'red'],
   cerrar: ['El servidor se cierra en', 'red'],
   nada:  ['Tiempo restante', 'white']
 };
@@ -45,11 +47,17 @@ let stFinCuenta = (server, accion) => {
     d.putBoolean('starvios_activo', true);
     d.putInt('starvios_ultimo_dia', 0);       // el anuncio del día 1 sale enseguida
     d.putString('starvios_eliminados', '');
-    cmd(`title @a times 5 60 20`);
-    cmd(`title @a title {"text":"¡COMIENZA STARVIOS!","color":"gold","bold":true}`);
-    cmd(`title @a subtitle {"text":"Sobrevive. No hay segundas oportunidades.","color":"gray"}`);
-    cmd(`execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1`);
     global.stAplicarJugadores(server);
+    // Día 1: suena el prólogo narrado (solo la primera vez que empieza la serie)
+    let cine = (global.STARVIOS.introDia1 !== false) && global.stPrologoAudio && !d.getBoolean('starvios_intro_vista') &&
+      global.stPrologoAudio(server);
+    if (cine) d.putBoolean('starvios_intro_vista', true);
+    {
+      cmd(`title @a times 5 60 20`);
+      cmd(`title @a title {"text":"¡COMIENZA STARVIOS!","color":"gold","bold":true}`);
+      cmd(`title @a subtitle {"text":"Sobrevive. No hay segundas oportunidades.","color":"gray"}`);
+      cmd(`execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1`);
+    }
   } else if (accion === 'siguiente') {
     let d = server.persistentData;
     d.putInt('starvios_dia', Math.min(d.getInt('starvios_dia') + 1, global.STARVIOS.diasTotales));
@@ -60,11 +68,8 @@ let stFinCuenta = (server, accion) => {
     let jefe = global.STARVIOS.jefes[n - 1];
     let a = global.STARVIOS.arena;
     if (jefe) {
-      global.stInvocarJefe(server, jefe, 'minecraft:overworld', a.x, a.y, a.z);
-      cmd(`title @a times 10 70 20`);
-      cmd(`title @a title {"text":"${jefe.nombre.toUpperCase()}","color":"dark_red","bold":true}`);
-      cmd(`title @a subtitle {"text":"ha despertado en la arena","color":"gray"}`);
-      cmd(`execute as @a at @s run playsound minecraft:entity.ender_dragon.growl master @s ~ ~ ~ 1 0.7`);
+      global.stInvocarJefe(server, jefe, global.stDondeArena(jefe, server));
+      global.stAnunciarJefe(server, jefe);
     }
   } else if (accion === 'cerrar') {
     // Guardar el mundo, sacar a todos con un mensaje bonito y apagar
@@ -83,7 +88,7 @@ let stFinCuenta = (server, accion) => {
 };
 
 // El estado vive en global para que un /reload no corte la cuenta
-ServerEvents.tick(event => {
+ServerEvents.tick(event => { global.stSeguro('60_contador', () => {
   let c = global.stCuenta;
   if (!c) return;
   let server = event.server;
@@ -114,18 +119,18 @@ ServerEvents.tick(event => {
   }
 
   if (c.restante <= 0 && c.texto) {
-    global.stCuenta = null;
+    global.stCuenta = false;   // nunca null: KubeJS no deja guardar null en global
     stQuitarBarra(server);
     server.runCommandSilent(`title @a actionbar {"text":"⏳ ${c.texto}: ¡tiempo!","color":"white"}`);
     server.runCommandSilent(`execute as @a at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 0.6 1`);
     return;
   }
   if (c.restante <= 0) {
-    global.stCuenta = null;
+    global.stCuenta = false;   // nunca null: KubeJS no deja guardar null en global
     stQuitarBarra(server);
     stFinCuenta(server, c.accion);
   }
-});
+}); });
 
 // La barra se ve también para quien entre a mitad de la cuenta
 PlayerEvents.loggedIn(event => {
@@ -157,7 +162,7 @@ ServerEvents.commandRegistry(event => {
   // Temporizador tranquilo: solo la barra blanca arriba, con tu propio texto, sin efectos
   let temporizador = Commands.literal('temporizador')
     .then(Commands.literal('cancelar').executes(ctx => {
-      global.stCuenta = null;
+      global.stCuenta = false;   // nunca null: KubeJS no deja guardar null en global
       stQuitarBarra(ctx.source.server);
       return ok(ctx, '[Starvios] Temporizador cancelado.');
     }))
@@ -182,7 +187,7 @@ ServerEvents.commandRegistry(event => {
 
   let cuenta = Commands.literal('cuenta')
     .then(Commands.literal('cancelar').executes(ctx => {
-      global.stCuenta = null;
+      global.stCuenta = false;   // nunca null: KubeJS no deja guardar null en global
       stQuitarBarra(ctx.source.server);
       return ok(ctx, '[Starvios] Cuenta atrás cancelada.');
     }));

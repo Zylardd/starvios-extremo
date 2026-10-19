@@ -1,3 +1,4 @@
+// priority: 600
 // ============================================================
 //  STARVIOS - PROTECCIÓN DEL SPAWN (la isla)
 //  - Nadie (salvo OP) rompe ni coloca bloques, ni usa cubos, fuego o TNT
@@ -9,9 +10,16 @@
 global.stEnSpawn = (level, x, z) => {
   let zp = global.STARVIOS.zonaProtegida;
   if (!zp || !zp.activa) return false;
-  if (String(level.dimension) !== 'minecraft:overworld') return false;
+  if (!isFinite(x) || !isFinite(z)) return false;
+  if (global.stDimDe(level) !== 'minecraft:overworld') return false;
   return x >= Math.min(zp.x1, zp.x2) && x <= Math.max(zp.x1, zp.x2) + 1 &&
          z >= Math.min(zp.z1, zp.z2) && z <= Math.max(zp.z1, zp.z2) + 1;
+};
+
+// ¿Esta entidad / bloque / evento está dentro de la zona protegida?
+global.stObjEnSpawn = (o) => {
+  let pos = global.stXYZ(o);
+  return pos ? global.stEnSpawn(o, pos.x, pos.z) : false;
 };
 
 let stPuedeEditar = (p) => p && p.hasPermissions(2);
@@ -24,20 +32,20 @@ let stAvisar = (p) => {
 BlockEvents.broken(event => {
   let p = event.player, b = event.block;
   if (stPuedeEditar(p)) return;
-  if (global.stEnSpawn(b.level, b.x, b.z)) { if (p) stAvisar(p); event.cancel(); }
+  if (global.stObjEnSpawn(b)) { if (p) stAvisar(p); event.cancel(); }
 });
 
 // --- Colocar bloques ---
 BlockEvents.placed(event => {
   let p = event.player, b = event.block;
   if (stPuedeEditar(p)) return;
-  if (global.stEnSpawn(b.level, b.x, b.z)) { if (p) stAvisar(p); event.cancel(); }
+  if (global.stObjEnSpawn(b)) { if (p) stAvisar(p); event.cancel(); }
 });
 
 // --- Pisotear cultivos ---
 BlockEvents.farmlandTrampled(event => {
   let b = event.block;
-  if (global.stEnSpawn(b.level, b.x, b.z)) event.cancel();
+  if (global.stObjEnSpawn(b)) event.cancel();
 });
 
 // --- Cubos, fuego y similares (no pasan por "placed") ---
@@ -51,7 +59,7 @@ let stBloquearUso = (event) => {
   if (!p || stPuedeEditar(p)) return;
   let id = String(event.item.id);
   if (ITEMS_PROHIBIDOS.indexOf(id) === -1 && id.indexOf('bucket') === -1) return;
-  if (global.stEnSpawn(p.level, p.x, p.z)) { stAvisar(p); event.cancel(); }
+  if (global.stObjEnSpawn(p)) { stAvisar(p); event.cancel(); }
 };
 ItemEvents.rightClicked(stBloquearUso);
 BlockEvents.rightClicked(event => {
@@ -60,12 +68,12 @@ BlockEvents.rightClicked(event => {
   let id = String(event.item.id);
   if (ITEMS_PROHIBIDOS.indexOf(id) === -1 && id.indexOf('bucket') === -1) return;
   let b = event.block;
-  if (global.stEnSpawn(b.level, b.x, b.z)) { stAvisar(p); event.cancel(); }
+  if (global.stObjEnSpawn(b)) { stAvisar(p); event.cancel(); }
 });
 
 // --- Explosiones (creepers, TNT, jefes): se cancelan dentro de la zona ---
 LevelEvents.beforeExplosion(event => {
-  if (global.stEnSpawn(event.level, event.x, event.z)) event.cancel();
+  if (global.stObjEnSpawn(event)) event.cancel();
 });
 
 // --- Armaduras/soportes y animales del spawn no se pueden atacar (salvo OP) ---
@@ -75,19 +83,20 @@ EntityEvents.hurt(event => {
   let atacante = event.source.player;
   if (!atacante || stPuedeEditar(atacante)) return;
   if (String(e.type) !== 'minecraft:armor_stand' && !e.isAnimal()) return;
-  if (global.stEnSpawn(e.level, e.x, e.z)) event.cancel();
+  if (global.stObjEnSpawn(e)) event.cancel();
 });
 
 // --- Mobs hostiles: no aparecen en la zona ---
 EntityEvents.checkSpawn(event => {
   let e = event.entity;
-  if (e && e.isMonster() && global.stEnSpawn(event.level, e.x, e.z)) event.cancel();
+  if (e && e.isMonster() && global.stObjEnSpawn(e)) event.cancel();
 });
 
 // Limpieza cada 5 s de hostiles que hayan entrado caminando (los jefes de /starvios jefe se respetan)
-let stLimpieza = 0;
-ServerEvents.tick(event => {
-  if (++stLimpieza % 100 !== 0) return;
+global.stLimpieza = 0;
+ServerEvents.tick(event => { global.stSeguro('40_proteccion (limpieza)', () => {
+  global.stLimpieza = (global.stLimpieza || 0) + 1;
+  if (global.stLimpieza % 100 !== 0) return;
   let zp = global.STARVIOS.zonaProtegida;
   if (!zp || !zp.activa) return;
   let level = event.server.getLevel('minecraft:overworld');
@@ -95,9 +104,9 @@ ServerEvents.tick(event => {
   level.getEntities().forEach(e => {
     if (!e.isLiving() || e.isPlayer() || !e.isMonster()) return;
     if (e.getTags().contains('starvios_jefe')) return;
-    if (global.stEnSpawn(level, e.x, e.z)) e.discard();
+    if (global.stObjEnSpawn(e)) { try { e.discard(); } catch (err) { e.kill(); } }
   });
-});
+}); });
 
 // ============================================================
 //  END DESACTIVADO

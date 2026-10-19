@@ -77,6 +77,10 @@ file = "config/fml.toml"
 hash = "d2727c8b29a8371c9ec86af343c99cf20c03ed28b06022e344380485bcdeea0e"
 
 [[files]]
+file = "config/lightmanscurrency/MasterCoinList.json"
+hash = "59bc321cb7ab6a60747b419c47697b404b939acbc05f4a8361215a5727b53125"
+
+[[files]]
 file = "dias_mp3/1.mp3"
 hash = "81abc4710997dda1865db53db515b5fde9100f8c60310c1b80c0dd4eae1df103"
 
@@ -187,6 +191,22 @@ hash = "c11566087ff7dde372717dce48d27e6987b52cd828d6717db6b30e88cf139d9d"
 [[files]]
 file = "dias_mp3/9.mp3"
 hash = "5dfe4e2938b2c4aff627f66e0708eff5c7228aad46172749e4f296b771f4cffb"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/starcoin.png"
+hash = "1cf6127a76181519b9e99956a217aba2acbb68ff2ffd40708efc2dc772ec4c32"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/starcoin_diamante.png"
+hash = "aff4184ebff13bedc966ce29a25b4cf99387e2645df163838e3e6cd16d62a90e"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/starcoin_oro.png"
+hash = "5f9c32893f7606ccabea3bf0007fbaeda5cb940017bb724566e75fb85932313f"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/starcoin_plata.png"
+hash = "627964cb179606c5a2370e8a2450f0b550a4f1ed9788987aa221e30bacfb83a8"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds.json"
@@ -350,39 +370,87 @@ hash = "6f054508f9078667885a6d9165d4ac87fbf6c6b2ef5c23bb400110a028e582df"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"
-hash = "0886f0ce027a016829cfeaca432c328708df8e0d284fc825b5838cf6c94957b3"
+hash = "0471e9b29d500e3d30214056ee1edef3c290b6a89b4978d9f82d3cea0cf49034"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/10_dias.js"
-hash = "1129cb592bf7eb239d5a560ec19b034d165de8e08a420bacae4644ba46f99afa"
+hash = "1f09ccffb502edd10832fbb9a38ac2ac053e5e1e0b9ebfdbc719ad8ae2a27d13"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/20_mobs.js"
-hash = "039969f0e32f4f11390f226a87b66751f04cf98b399d2beba1830b915d18e5bf"
+hash = "2580ab33af5668253a5b291ecd2dbea0c797a78a2650011075a511ffc77f2ed9"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/30_eliminacion_y_comandos.js"
-hash = "63c9a27cfd69637a0c0262b809fe84de479dba4da912fcee085e95e8b1b6d690"
+hash = "d3560d28eccc374e556663270c35af033e7cc203c65a75dfcceea5f4d53a4eb0"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/40_proteccion_spawn.js"
-hash = "7a6ac752f18420d6755cc97d0ec504c389dc5bed93b3b9a46593fee34f93d8eb"
+hash = "acaa2ae3cd39a5c8dfdec222c158cd2d3f2cff4902a7d49d700646098e10048a"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/50_resurreccion.js"
-hash = "b3070bbeadd09f51857abf175d3f7d0a4c70e156c35280e4955524e433e0ce7b"
+hash = "8d3ee780a8bd16948f2d1674cb672175b0adde53c59dbb5e4ba451dbe287e44d"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/60_contador_y_dia.js"
-hash = "cff39749a50df830521ac873a4c5c7c4794896be3439e0eb3dcd0b5ccd4b48ef"
+hash = "a11518232c72ab530557dca4c95b4623568df369e7b1c88493819ca977128ce5"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/70_recompensas.js"
-hash = "20ef1892cda1da32fe628ea1a4d504cd025a482b7c4fdc2e62376a187f520b76"
+hash = "7fff62f0bc35931725126944b0c18877bdaa258768ec007d3e04b9b699d9e788"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/80_mazmorras.js"
-hash = "0ef70eefdc03f8c0821aaa27cfe97791cdd00a22f192615117eae4de3417ae85"
+hash = "341498c8f811a32527237d579b838c70582153c1a9d78cb9bc6c0158977a664c"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/85_criptas.js"
+hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/90_economia.js"
+hash = "91f5b9d97d5e731c08b398a9c8733cdad63f9d7dbe4e175509784c3062a1c01d"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/92_extras.js"
+hash = "34bf18a4aacc63baa9a3bbf920f797da42f050dd5d3009864214f49e5c4bb851"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/93_anomalias.js"
+hash = "a4d3e231b0e8c6ecbc70a74b8fbde809e72b3a25c6ee103c2d7c897158c16309"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/94_intro.js"
+hash = "467770323c414756fd8ffd7473c0515b4b10de9316457b66c0d6abdf2f78ba96"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/95_equipos.js"
+hash = "7418ad00802218a2fc543daf983376465efe9e40f5751c27b5aa07503fe063e8"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/96_rendimiento.js"
+hash = "b341205dd87ac071eb3f7f7cdd04b000672daba99719c678931c271026654f36"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/97_comercio.js"
+hash = "c8425581ced88b230f9f7d2a8ceca43039c90b92018c5cdfb478a273ea0e50f5"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/98_emotes.js"
+hash = "4cbbc3fe15ce18059b564f7f13fdd02cb4980ac209791402f319a35555e3b706"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/99_arenas.js"
+hash = "016604d3b4cc81479c3d2f84232d2ca1afb3fd3de2ab6bf2e2b3a767f5ea8493"
+
+[[files]]
+file = "kubejs/startup_scripts/starvios_cultivos.js"
+hash = "e497d60ddbfe448773f0e6f36eab4d6fb90d5d6f105fe1111373d4cb8a91a111"
+
+[[files]]
+file = "kubejs/startup_scripts/starvios_monedas.js"
+hash = "0ce188bf64d88eaba29cc0c207c3d90e9629e72abb373d8afed2e3031e0812b5"
 
 [[files]]
 file = "mods/amendments.pw.toml"

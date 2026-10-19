@@ -1,3 +1,4 @@
+// priority: 500
 // ============================================================
 //  STARVIOS - RESURRECCIÓN DE COMPAÑEROS
 //  1) Al ser eliminado, el jugador suelta su "Alma" (su cabeza): brilla,
@@ -44,17 +45,20 @@ let stTieneTag = (item, tag) => {
 // ---------- 1) Soltar el Alma al ser eliminado (lo llama 30_eliminacion_y_comandos.js) ----------
 global.stSoltarAlma = (server, n, p) => {
   if (!RC().activa) return;
-  let dim = String(p.level.dimension);
-  let x = p.x, y = p.y, z = p.z;
-  if (y < p.level.minBuildHeight + 2) {           // murió en el vacío: el Alma va al spawn
-    let s = global.STARVIOS.spawn; x = s.x; y = s.y + 1; z = s.z; dim = 'minecraft:overworld';
-  }
   let item = `{id:"minecraft:player_head",Count:1b,tag:{SkullOwner:"${n}",starvios_alma:"${n}",` +
     `display:{Name:'{"text":"Alma de ${n}","color":"aqua","italic":false}',` +
     `Lore:['{"text":"Llévala con un Corazón de Resurrección","color":"gray","italic":false}',` +
     `'{"text":"para devolver a ${n} a la vida.","color":"gray","italic":false}']}}}`;
-  server.runCommandSilent(`execute in ${dim} run summon minecraft:item ${x.toFixed(2)} ${(y + 0.5).toFixed(2)} ${z.toFixed(2)} ` +
-    `{Age:-32768s,Invulnerable:1b,Glowing:1b,PickupDelay:40s,Item:${item}}`);
+  let datos = `{Age:-32768s,Invulnerable:1b,Glowing:1b,PickupDelay:40s,Item:${item}}`;
+  let pos = global.stXYZ(p);
+  if (pos && pos.y < -60) {
+    // murió en el vacío: el Alma aparece en el spawn
+    let s = global.STARVIOS.spawn;
+    server.runCommandSilent(`execute in minecraft:overworld run summon minecraft:item ${s.x + 0.5} ${s.y + 1} ${s.z + 0.5} ${datos}`);
+  } else {
+    // en el lugar exacto donde murió
+    server.runCommandSilent(`execute at ${n} run summon minecraft:item ~ ~0.5 ~ ${datos}`);
+  }
 };
 
 // El Alma no se puede colocar como bloque (perdería sus datos)
@@ -77,7 +81,10 @@ let stAplicarResurreccion = (server, n) => {
   let jugador = server.getPlayer(n);
   if (!d || !jugador) return;
   server.runCommandSilent(`gamemode survival ${n}`);
-  server.runCommandSilent(`execute in ${d.dim} run tp ${n} ${d.x} ${d.y} ${d.z}`);
+  // Aparece junto a quien lo revivió (si está conectado); si no, donde fue revivido; si no, en el spawn
+  if (d.por && server.getPlayer(d.por)) server.runCommandSilent(`tp ${n} ${d.por}`);
+  else if (d.x != null) server.runCommandSilent(`execute in ${d.dim} run tp ${n} ${d.x} ${d.y} ${d.z}`);
+  else global.stIrAlSpawn(server, n);
   server.scheduleInTicks(2, () => {
     let j = server.getPlayer(n);
     if (!j) return;
@@ -123,7 +130,8 @@ let stIntentarRevivir = (event) => {
   server.runCommandSilent(`whitelist add ${n}`);
 
   let pend = stLeerMapa(server, 'starvios_pendientes');
-  pend[n] = { x: p.x.toFixed(2), y: p.y.toFixed(2), z: p.z.toFixed(2), dim: String(p.level.dimension), por: yo };
+  let pos = global.stXYZ(p);
+  pend[n] = pos ? { x: pos.x.toFixed(2), y: pos.y.toFixed(2), z: pos.z.toFixed(2), dim: global.stDimDe(p), por: yo } : { por: yo };
   stGuardarMapa(server, 'starvios_pendientes', pend);
 
   server.runCommandSilent(`execute at ${yo} run particle minecraft:totem_of_undying ~ ~1 ~ 0.6 1 0.6 0.5 200`);
@@ -147,6 +155,8 @@ BlockEvents.rightClicked(event => {
   }
 });
 
+global.stAplicarResurreccion = (server, n) => stAplicarResurreccion(server, n);
+
 // ---------- 3) Al volver a entrar ----------
 PlayerEvents.loggedIn(event => {
   let server = event.server;
@@ -157,14 +167,26 @@ PlayerEvents.loggedIn(event => {
 });
 
 // ---------- Mensaje con la receta (se usa al revelar y en /resurreccion) ----------
-let stNombreItem = (id) => id.replace('minecraft:', '').replace(/_/g, ' ');
+let ST_NOMBRES_ES = {
+  'minecraft:diamond': 'Diamante', 'minecraft:diamond_block': 'Bloque de diamante',
+  'minecraft:gold_ingot': 'Lingote de oro', 'minecraft:gold_block': 'Bloque de oro',
+  'minecraft:iron_ingot': 'Lingote de hierro', 'minecraft:iron_block': 'Bloque de hierro',
+  'minecraft:emerald': 'Esmeralda', 'minecraft:emerald_block': 'Bloque de esmeralda',
+  'minecraft:netherite_ingot': 'Lingote de netherita', 'minecraft:netherite_scrap': 'Fragmento de netherita',
+  'minecraft:heart_of_the_sea': 'Corazón del mar', 'minecraft:nether_star': 'Estrella del Nether',
+  'minecraft:totem_of_undying': 'Tótem de la inmortalidad', 'minecraft:golden_apple': 'Manzana dorada',
+  'minecraft:enchanted_golden_apple': 'Manzana dorada encantada', 'minecraft:echo_shard': 'Fragmento de eco',
+  'minecraft:ghast_tear': 'Lágrima de ghast', 'minecraft:blaze_rod': 'Vara de blaze',
+  'minecraft:ender_pearl': 'Perla de ender', 'minecraft:experience_bottle': 'Frasco de experiencia'
+};
+let stNombreItem = (id) => ST_NOMBRES_ES[id] || id.replace(/^[a-z0-9_]+:/, '').replace(/_/g, ' ');
 global.stMensajeResurreccion = (enviar) => {
   let r = RC();
   enviar('§5§l━━━━━━ ✦ RESURRECCIÓN ✦ ━━━━━━');
   enviar('§7Quien muere suelta su §bAlma§7 (su cabeza): brilla y nunca desaparece.');
   enviar('§7Fabrica un §dCorazón de Resurrección§7 en la mesa de crafteo:');
   r.receta.forEach(fila => enviar('      §f§l' + fila.split('').join('  ')));
-  Object.keys(r.ingredientes).forEach(k => enviar(`   §e${k}§7 = ${stNombreItem(r.ingredientes[k])}`));
+  Object.keys(r.ingredientes).forEach(k => enviar(`   §e${k}§7 = §f${stNombreItem(r.ingredientes[k])}`));
   enviar('§7Corazón en la §fmano principal§7 + Alma en la §fotra mano§7 → §6clic derecho§7.');
   enviar(`§7Revive con §f${r.vidaAlRevivir / 2} corazones§7 junto a quien lo revivió.`);
   if (r.maxPorJugador > 0) enviar(`§7Cada jugador puede ser revivido §f${r.maxPorJugador}§7 vez/veces.`);
@@ -191,9 +213,6 @@ ServerEvents.commandRegistry(event => {
         let server = ctx.source.server;
         server.persistentData.putBoolean('starvios_resurreccion_revelada', true);
         let cmd = (c) => server.runCommandSilent(c);
-        cmd(`title @a times 10 80 20`);
-        cmd(`title @a title {"text":"✦ RESURRECCIÓN ✦","color":"light_purple","bold":true}`);
-        cmd(`title @a subtitle {"text":"Los caídos pueden volver...","color":"gray"}`);
         cmd(`execute as @a at @s run playsound minecraft:item.totem.use master @s ~ ~ ~ 0.8 0.6`);
         server.players.forEach(p => global.stMensajeResurreccion(t => p.tell(Text.of(t))));
         ctx.source.sendSystemMessage(Text.of('§6[Starvios] Resurrección revelada a todos.'));
