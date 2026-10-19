@@ -190,7 +190,7 @@ hash = "5dfe4e2938b2c4aff627f66e0708eff5c7228aad46172749e4f296b771f4cffb"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds.json"
-hash = "f901f6b023841f0e030d40ea0e4447c59ade6b47cb78ed94dcbed378916b424d"
+hash = "90b9040e0dc8da3fe41000a9f584f0e596150aa6c89d28026d3a92bbad289f10"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/dia/1.ogg"
@@ -306,43 +306,47 @@ hash = "42863b84ea843c01eb3c820bd840fec640f00a29b5cd362557b8dc03229280e5"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/1.ogg"
-hash = "bceee72209528b399a68df91c0b2cb9de9dbbe42fe4d80b68a2199fd9511d3f4"
+hash = "9e1341d38ec9cd753172b5405532a46f5c9ce301ec82134ea295c4791c7e1bde"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/10.ogg"
-hash = "0ffc74eb5fb0175ab95b9f1f19072308d301faa6765cf49c5909f23a037de05d"
+hash = "3e6dd1e413002f70657fcd983cd3c7bc0e6fc70ec152aead84cff1a6cda2da41"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/2.ogg"
-hash = "de0b33492014f2357d9e1272eb270ea8d0b07e9d95490cd554674caf8eea0762"
+hash = "77a2362b2f5be71061dec63d3d89d6cc25b80af60f456d606310fb9c3e9f7276"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/3.ogg"
-hash = "ca82b78a7ebf6c6e9e0f9af93cbd96c8338b49389e23482837d5f033b4e88fb9"
+hash = "d0686282c263074eaf81b86f5fc974f9f4197bcc2c9b401800dbf1e71f6fdbdd"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/4.ogg"
-hash = "25e1eb3240043a6f4f9d9a58fa5a0551f141ba2bf0dd809668f282c0b2a830c2"
+hash = "db2332c5f74bd5aad88cb56cad36aa0fa9fcea78160a8bb19e835e333dfdedae"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/5.ogg"
-hash = "27df2107a45f3fd188c44c5ed0a53aa99956f44783c972ecfe860a3836496424"
+hash = "edb196dc26d906e73a484faa3712e01adafeb7058fd26be725752c2b2565e84c"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/6.ogg"
-hash = "12f266db76ff95ec48a657cc160de133d02bf45637d7938dd216fa36434066fa"
+hash = "c98ceb3d556e26452aea0382159974ec0647f51a9e036007fb460648266ad644"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/7.ogg"
-hash = "375d70b81ffd26cf22cc9da626ce4cc25e363f450e9ff947a1814d76aad0de0e"
+hash = "24597652313d1d2c6644b9d474ba57d85443d5a555ef4c101d276b43609da8df"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/8.ogg"
-hash = "09ed34f3a9322b8e7245c00f9dcdab7f4462e4fa56d7e432d50fa800235b95a0"
+hash = "7423f403173d7f35bbbbaa18000d322c2bda7ddfba0f9b65c73710def049b568"
 
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/9.ogg"
-hash = "0f5a3dea31ccc0a65e632c2fe49aa641ca8d89eeff742fb1775bdc19e3a710e2"
+hash = "e1b6bd1ee848ae65bc09407449245538fb913d173525fe276e6d424675cf2d6c"
+
+[[files]]
+file = "kubejs/assets/starvios/sounds/prologo/completo.ogg"
+hash = "6f054508f9078667885a6d9165d4ac87fbf6c6b2ef5c23bb400110a028e582df"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"

@@ -378,5 +378,15 @@
     "stream": false
    }
   ]
+ },
+ "prologo.completo": {
+  "category": "master",
+  "subtitle": "Prólogo de Starvios",
+  "sounds": [
+   {
+    "name": "starvios:prologo/completo",
+    "stream": true
+   }
+  ]
  }
 }
