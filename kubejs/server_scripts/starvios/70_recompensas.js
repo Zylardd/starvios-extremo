@@ -23,9 +23,9 @@ let NBT_FRAGIL = `{starvios_corazon_fragil:1b,Enchantments:[{id:"minecraft:unbre
   `'{"text":"No se regenera: si te golpean, se pierde.","color":"gray","italic":false}']}}`;
 
 global.stItemsEspeciales = {
-  fragmento: ['minecraft:pink_dye', NBT_FRAGMENTO],
-  corazon:   ['minecraft:red_dye', NBT_VITAL],
-  fragil:    ['minecraft:yellow_dye', NBT_FRAGIL]
+  fragmento: ['kubejs:fragmento_corazon', NBT_FRAGMENTO],
+  corazon:   ['kubejs:corazon_vital', NBT_VITAL],
+  fragil:    ['kubejs:corazon_fragil', NBT_FRAGIL]
 };
 
 // ---------- Receta: 4 fragmentos -> Corazón Vital ----------
@@ -39,13 +39,13 @@ ServerEvents.recipes(event => {
 
 ServerEvents.recipes(event => {
   if (!global.STARVIOS.corazonesExtra.activa) return;
-  event.shaped(Item.of('minecraft:red_dye', NBT_VITAL), ['FF', 'FF'], {
-    F: Item.of('minecraft:pink_dye', NBT_FRAGMENTO).weakNBT()
+  event.shaped(Item.of('kubejs:corazon_vital', NBT_VITAL), ['FF', 'FF'], {
+    F: Item.of('kubejs:fragmento_corazon', NBT_FRAGMENTO).weakNBT()
   }).id('starvios:corazon_vital');
   let cf = global.STARVIOS.corazonFragil;
   if (cf && cf.activa) {
-    event.shaped(Item.of('minecraft:yellow_dye', NBT_FRAGIL), ['FG', 'GF'], {
-      F: Item.of('minecraft:pink_dye', NBT_FRAGMENTO).weakNBT(), G: 'minecraft:gold_ingot'
+    event.shaped(Item.of('kubejs:corazon_fragil', NBT_FRAGIL), ['FG', 'GF'], {
+      F: Item.of('kubejs:fragmento_corazon', NBT_FRAGMENTO).weakNBT(), G: 'minecraft:gold_ingot'
     }).id('starvios:corazon_fragil');
   }
 });
@@ -115,7 +115,7 @@ EntityEvents.death(event => {
     let el = global.STARVIOS.elites;
     let n = stAzar(el.fragmentos[0], el.fragmentos[1]);
     if (global.stEf && global.stEf(server, '8b')) n += stAzar(0, 1);   // anomalía día 8: hasta 2 fragmentos
-    if (n > 0) soltar('minecraft:pink_dye', n, NBT_FRAGMENTO);
+    if (n > 0) soltar('kubejs:fragmento_corazon', n, NBT_FRAGMENTO);
     if (Math.random() < (el.probPremio == null ? 1 : el.probPremio)) {
       let p = stPremioAleatorio(true);
       soltar(p.id, stAzar(p.min, p.max), p.nbt || null);
@@ -131,7 +131,7 @@ EntityEvents.death(event => {
   if (esJefe) {
     let cant = global.STARVIOS.corazonesExtra.porJefe;
     for (let i = 0; i < cant; i++) {
-      soltar('minecraft:red_dye', 1, NBT_VITAL);
+      soltar('kubejs:corazon_vital', 1, NBT_VITAL);
     }
     let tirJefe = global.STARVIOS.botinEspecial.tiradas.jefe;
     if (global.stEf && global.stEf(server, '24b')) tirJefe = tirJefe * 2;   // anomalía día 24

@@ -15,7 +15,7 @@
 let BARRA = 'starvios:cuenta';
 
 let stTextoAccion = {
-  iniciar:   ['La serie comienza en', 'yellow'],
+  iniciar:   ['Comenzamos en', 'yellow'],
   siguiente: ['El siguiente día empieza en', 'red'],
   jefe1: ['El primer jefe despierta en', 'purple'],
   jefe2: ['El segundo jefe despierta en', 'purple'],
@@ -48,16 +48,15 @@ let stFinCuenta = (server, accion) => {
     d.putInt('starvios_ultimo_dia', 0);       // el anuncio del día 1 sale enseguida
     d.putString('starvios_eliminados', '');
     global.stAplicarJugadores(server);
-    // Día 1: suena el prólogo narrado (solo la primera vez que empieza la serie)
-    let cine = (global.STARVIOS.introDia1 !== false) && global.stPrologoAudio && !d.getBoolean('starvios_intro_vista') &&
+    // Suena el prólogo enseguida (sin títulos en pantalla) y, cuando termina, sale el anuncio del día 1
+    let espera = 100;
+    if (global.STARVIOS.introDia1 !== false && global.stPrologoAudio) {
       global.stPrologoAudio(server);
-    if (cine) d.putBoolean('starvios_intro_vista', true);
-    {
-      cmd(`title @a times 5 60 20`);
-      cmd(`title @a title {"text":"¡COMIENZA STARVIOS!","color":"gold","bold":true}`);
-      cmd(`title @a subtitle {"text":"Sobrevive. No hay segundas oportunidades.","color":"gray"}`);
-      cmd(`execute as @a at @s run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1`);
+      d.putBoolean('starvios_intro_vista', true);
+      espera = Math.round((Number(global.STARVIOS.prologoSegundos) || 90) * 20) + 20;   // duración del prólogo + 1 s
     }
+    d.putInt('starvios_ultimo_dia', 1);       // el anuncio lo hacemos nosotros al terminar el prólogo
+    server.scheduleInTicks(espera, () => global.stAnunciar(server, 1));
   } else if (accion === 'siguiente') {
     let d = server.persistentData;
     d.putInt('starvios_dia', Math.min(d.getInt('starvios_dia') + 1, global.STARVIOS.diasTotales));

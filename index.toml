@@ -77,6 +77,10 @@ file = "config/fml.toml"
 hash = "d2727c8b29a8371c9ec86af343c99cf20c03ed28b06022e344380485bcdeea0e"
 
 [[files]]
+file = "config/lightmanscurrency-common.txt"
+hash = "22fa29bc42aec3ab3846f6bbd636c2df49e1a9582d05214cf03d11e7034ab6df"
+
+[[files]]
 file = "config/lightmanscurrency/MasterCoinList.json"
 hash = "59bc321cb7ab6a60747b419c47697b404b939acbc05f4a8361215a5727b53125"
 
@@ -191,6 +195,22 @@ hash = "c11566087ff7dde372717dce48d27e6987b52cd828d6717db6b30e88cf139d9d"
 [[files]]
 file = "dias_mp3/9.mp3"
 hash = "5dfe4e2938b2c4aff627f66e0708eff5c7228aad46172749e4f296b771f4cffb"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/corazon_fragil.png"
+hash = "0c46295f24ed067e71177b7920789f7ada1c316a426e451652a11ff95284b472"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/corazon_resurreccion.png"
+hash = "41b01b4d90ef496af614f1de170191b4ba8515c70b103a6d79e1efe3cebe5f12"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/corazon_vital.png"
+hash = "da10d8c7857218d2c50275f6dae52bbcb1a7cfa2962216a8ba9fb58f017d9b30"
+
+[[files]]
+file = "kubejs/assets/kubejs/textures/item/fragmento_corazon.png"
+hash = "03771420354a04b1dc07cdb583e589b0d6a66809ee1701acd057c7d0345bceba"
 
 [[files]]
 file = "kubejs/assets/kubejs/textures/item/starcoin.png"
@@ -370,11 +390,11 @@ hash = "6f054508f9078667885a6d9165d4ac87fbf6c6b2ef5c23bb400110a028e582df"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"
-hash = "0471e9b29d500e3d30214056ee1edef3c290b6a89b4978d9f82d3cea0cf49034"
+hash = "a3e6098098baaba1173dc6330bbc4e25643143983a8125488bd784cdb84ba060"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/10_dias.js"
-hash = "1f09ccffb502edd10832fbb9a38ac2ac053e5e1e0b9ebfdbc719ad8ae2a27d13"
+hash = "445925c6067382b2b3dcb1b248c45d5d4e5efe83f0eddbf795225d24a6df8da7"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/20_mobs.js"
@@ -382,7 +402,7 @@ hash = "2580ab33af5668253a5b291ecd2dbea0c797a78a2650011075a511ffc77f2ed9"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/30_eliminacion_y_comandos.js"
-hash = "d3560d28eccc374e556663270c35af033e7cc203c65a75dfcceea5f4d53a4eb0"
+hash = "ab790ef6ba5b808b64f6dfa221c4cf5d359bd4af3ef3c9fca2739a994eb5cc1f"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/40_proteccion_spawn.js"
@@ -390,15 +410,15 @@ hash = "acaa2ae3cd39a5c8dfdec222c158cd2d3f2cff4902a7d49d700646098e10048a"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/50_resurreccion.js"
-hash = "8d3ee780a8bd16948f2d1674cb672175b0adde53c59dbb5e4ba451dbe287e44d"
+hash = "1307c85901bda05c73b715ead0c5f582b47cc139ddd9ecd6e5558f0e5a45b5ce"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/60_contador_y_dia.js"
-hash = "a11518232c72ab530557dca4c95b4623568df369e7b1c88493819ca977128ce5"
+hash = "63d7aad9d2213a93e1405814933282c5c19dc16aeca865b788935dd364a229d2"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/70_recompensas.js"
-hash = "7fff62f0bc35931725126944b0c18877bdaa258768ec007d3e04b9b699d9e788"
+hash = "0623657d5bf8c5439f13714a704e84f3ce3b166639b55835405b0c6c87a9184e"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/80_mazmorras.js"
@@ -409,16 +429,24 @@ file = "kubejs/server_scripts/starvios/85_criptas.js"
 hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
 
 [[files]]
+file = "kubejs/server_scripts/starvios/89_ajustes.js"
+hash = "bd7f80ab22b7a24c1d24cc8afb792e2b968d7af14d95b0db155c345a4e6e6531"
+
+[[files]]
 file = "kubejs/server_scripts/starvios/90_economia.js"
-hash = "91f5b9d97d5e731c08b398a9c8733cdad63f9d7dbe4e175509784c3062a1c01d"
+hash = "e313632a111a525eb81fb00aaad799d1fce90fcca53233ddb0610d0949321b2c"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/91_casino.js"
+hash = "0f280c4107ee9cbad43ac82995a635ae61acdbc9fd05445c99c8b6decb4cacee"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/92_extras.js"
-hash = "34bf18a4aacc63baa9a3bbf920f797da42f050dd5d3009864214f49e5c4bb851"
+hash = "5d0f9fcf06a5a9cd7793e9fcdbc60997065f8cac746bbfb6136785be9cc1e984"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/93_anomalias.js"
-hash = "a4d3e231b0e8c6ecbc70a74b8fbde809e72b3a25c6ee103c2d7c897158c16309"
+hash = "73b88cc37f8ba133b75ee3833537e2aad7a1070aac929c184a76034a5dba5700"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/94_intro.js"
@@ -442,11 +470,15 @@ hash = "4cbbc3fe15ce18059b564f7f13fdd02cb4980ac209791402f319a35555e3b706"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/99_arenas.js"
-hash = "016604d3b4cc81479c3d2f84232d2ca1afb3fd3de2ab6bf2e2b3a767f5ea8493"
+hash = "fc82a57ee9b14d5b71347d728cc8d143d707fe321ed0653c37a9beec3aea5f26"
+
+[[files]]
+file = "kubejs/startup_scripts/starvios_corazones.js"
+hash = "d62c655f671116f2fa7f475d24de245e5e2fdf67176262dab83b3d8f45d904ed"
 
 [[files]]
 file = "kubejs/startup_scripts/starvios_cultivos.js"
-hash = "e497d60ddbfe448773f0e6f36eab4d6fb90d5d6f105fe1111373d4cb8a91a111"
+hash = "b9fc5eac3e994018738bc47ffeaf517baa7debd091c1776878c5e32b18d4b1fb"
 
 [[files]]
 file = "kubejs/startup_scripts/starvios_monedas.js"

@@ -191,6 +191,8 @@ ServerEvents.tick(event => { global.stSeguro('10_dias', () => {
     server.runCommandSilent('gamerule doImmediateRespawn true');
     server.runCommandSilent('gamerule spawnRadius 0');
     server.runCommandSilent('scoreboard objectives add st_tmp dummy');
+    let sp = global.STARVIOS.spawn;
+    server.runCommandSilent(`execute in minecraft:overworld run setworldspawn ${sp.x} ${sp.y} ${sp.z}`);
   }
 
   // Cada 5 s: ¿cambió el día? / End bloqueado

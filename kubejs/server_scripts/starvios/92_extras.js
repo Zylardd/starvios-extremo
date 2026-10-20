@@ -26,14 +26,24 @@ ServerEvents.tick(event => { global.stSeguro('92_extras (corazones)', () => {
   });
 }); });
 
-// ---------- 2) Sin daño entre monstruos ----------
+// ---------- 2) Sin daño entre monstruos (vanilla, de mods, élites, jefes y esbirros) ----------
+// Los gólems, lobos y demás aliados SÍ pueden seguir atacando a los monstruos.
+let exHostil = (e) => {
+  try {
+    let tg = String(e.getTags());
+    if (tg.indexOf('starvios_') !== -1 || tg.indexOf('st_esbirro') !== -1) return true;
+  } catch (x) {}
+  try { if (e.isMonster()) return true; } catch (x) {}
+  try { return String(e.getType().getCategory()) === 'MONSTER'; } catch (x) {}
+  return false;
+};
 EntityEvents.hurt(event => {
   let v = event.entity;
   if (!v || v.isPlayer()) return;
   let a = null;
   try { a = event.source.getEntity(); } catch (e) { try { a = event.source.actual; } catch (e2) {} }
   if (!a || a.isPlayer() || a === v) return;
-  try { if (v.isMonster() && a.isMonster()) event.cancel(); } catch (e) {}
+  if (exHostil(v) && exHostil(a)) event.cancel();
 });
 
 // ---------- 3) Misión diaria en el atril del spawn ----------
@@ -144,6 +154,7 @@ BlockEvents.rightClicked(event => {
   aviso('✔ ¡Misión del día completada!', 'green');
   server.runCommandSilent(`tellraw @a ["",{"text":"📜 ","color":"aqua"},{"text":"${n}","color":"yellow"},{"text":" completó la misión del día (${lista.length}).","color":"gray"}]`);
   msEquipo(server, n, h.dia, lista);
+  msBuff(server, n, h.dia, true);
   event.cancel();
 });
 
@@ -161,6 +172,27 @@ PlayerEvents.loggedIn(event => {
     if (h && (hechas[h.dia] || []).indexOf(n) === -1) global.stAnunciarMision(server, n);
   });
 });
+
+// ---------- 3b) 2º buff para quien completa la misión del día (dura hasta que cambia el día) ----------
+let msBuffDe = (dia) => {
+  let l = global.STARVIOS.buffMision || [];
+  return l.length ? l[(dia - 1) % l.length] : null;
+};
+let msBuff = (server, n, dia, avisar) => {
+  let b = msBuffDe(dia);
+  if (!b) return;
+  server.runCommandSilent(`effect give ${n} ${b[0]} 45 ${b[1]} true`);
+  if (avisar) server.runCommandSilent(`tellraw ${n} ["",{"text":"✦ 2º buff por completar la misión: ","color":"aqua","bold":true},{"text":"${b[2]}","color":"yellow"},{"text":" hasta que termine el día.","color":"gray"}]`);
+};
+global.stMsBuffTick = 0;
+ServerEvents.tick(event => { global.stSeguro('92_extras (buff de misión)', () => {
+  global.stMsBuffTick = (global.stMsBuffTick || 0) + 1;
+  if (global.stMsBuffTick % 600 !== 0) return;
+  let server = event.server, h = msHoy(server);
+  if (!h) return;
+  let lista = msHechas(server)[h.dia] || [];
+  lista.forEach(n => { if (server.getPlayer(n)) msBuff(server, n, h.dia, false); });
+}); });
 
 // ---------- 4) Esbirros de los jefes semanales ----------
 global.stEsbTick = 0;
@@ -242,7 +274,7 @@ let rsTotal = (server) => {
    'starvios_devoluciones', 'starvios_misiones', 'starvios_cine_antes', 'starvios_mazmorras'].forEach(k => d.putString(k, k === 'starvios_eliminados' ? '' : '{}'));
   d.putString('starvios_mazmorras', '[]');
   d.putString('starvios_lc_ini', '{}'); d.putString('starvios_lc_pend', '{}');   // saldo inicial otra vez
-  d.putString('starvios_efectos', '{}'); d.putString('starvios_kit1', '[]');   // anomalías
+  d.putString('starvios_efectos', '{}'); d.putString('starvios_segunda', '[]'); d.putString('starvios_loteria', '{}'); d.putString('starvios_kit1', '[]');   // anomalías
   global.stEfListo = false;
   d.putInt('starvios_dia', 0); d.putInt('starvios_ultimo_dia', 0);
   d.putBoolean('starvios_activo', false); d.putBoolean('starvios_intro_vista', false); d.putBoolean('starvios_resurreccion_revelada', false);

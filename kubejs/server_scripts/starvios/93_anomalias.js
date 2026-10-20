@@ -17,9 +17,9 @@ let EF_DESCANSO = [6, 13, 20, 27, 28];
 let EF_TIPOS = { nerf1: 'n1', nerf2: 'n2', buff: 'b' };
 
 let EF_TEXTOS = {
-  1:  { n1: 'La primera noche no se puede saltar durmiendo.',
-        n2: 'Hoy la tienda está cerrada: /comprar no funciona hasta mañana.',
-        b:  'Todos reciben un kit de bienvenida: 8 panes, una cama y una espada de piedra.' },
+  1:  { n1: 'Las herramientas de madera y piedra se gastan el doble.',
+        n2: 'Sin regeneración natural mientras tengas el efecto Hambre.',
+        b:  'Segunda oportunidad: la primera vez que vayas a morir, te salvas con 2 corazones (una sola vez en toda la serie).' },
   2:  { n1: 'Los zombis ahora derriban las puertas de madera.',
         n2: 'Al golpear a un zombi, puede llamar a un compañero (20%).',
         b:  'Los zombis sueltan pepitas de hierro (25%).' },
@@ -61,7 +61,7 @@ let EF_TEXTOS = {
         b:  'Los monstruos sueltan el doble de botín.' },
   17: { n1: 'Los cultivos crecen a la mitad de velocidad.',
         n2: 'Comer carne o pescado crudo da Náuseas.',
-        b:  'La comida de la tienda cuesta la mitad.' },
+        b:  'Cada amanecer todos reciben 8 filetes cocidos.' },
   18: { n1: 'Patrullas de vindicadores rondan por la noche.',
         n2: 'Ya no aparecen gólems de hierro en las aldeas.',
         b:  'Los zombis acorazados pueden soltar piezas de su armadura (10%).' },
@@ -504,7 +504,6 @@ ServerEvents.tick(event => { global.stSeguro('93_anomalias (reloj)', () => {
   if (tick % 100 === 1) efCargar(server);
   let m = global.stEfMapa;
   if (!m || Object.keys(m).length === 0) {
-    if (global.stEfSueno !== -1 && global.stEfSueno !== 100) { server.runCommandSilent('gamerule playersSleepingPercentage 100'); global.stEfSueno = 100; }
     return;
   }
   let ef = (k) => !!m[k];
@@ -547,12 +546,10 @@ ServerEvents.tick(event => { global.stSeguro('93_anomalias (reloj)', () => {
   let ant = global.stEfHoraAnt;
   global.stEfHoraAnt = t;
 
-  // 1n1: la primera noche no se puede dormir
-  let sueno = ef('1n1') && dia === 1 ? 101 : 100;
-  if (global.stEfSueno !== sueno) { server.runCommandSilent(`gamerule playersSleepingPercentage ${sueno}`); global.stEfSueno = sueno; }
 
   // Amanecer
   if (efCruzo(ant, t, 0)) {
+    if (ef('17b')) vivos.forEach(p => server.runCommandSilent(`give ${efNombre(p)} minecraft:cooked_beef 8`));
     if (ef('21b')) vivos.forEach(p => efPoc(server, efNombre(p), 'minecraft:regeneration', 10, 0));
     if (ef('25b')) vivos.forEach(p => efPoc(server, efNombre(p), 'minecraft:strength', 60, 0));
     if (ef('26b')) vivos.forEach(p => efPoc(server, efNombre(p), 'minecraft:absorption', 600, 0));
@@ -636,24 +633,56 @@ ServerEvents.tick(event => { global.stSeguro('93_anomalias (reloj)', () => {
   }
 }); });
 
-// Kit de bienvenida (buff día 1) para los que no estaban conectados al activarlo
-let efDarKit1 = (server, n) => {
-  let l = [];
-  try { l = JSON.parse(server.persistentData.getString('starvios_kit1') || '[]'); } catch (e) {}
-  if (l.indexOf(n) !== -1) return;
-  l.push(n);
-  server.persistentData.putString('starvios_kit1', JSON.stringify(l));
-  server.runCommandSilent(`give ${n} minecraft:bread 8`);
-  server.runCommandSilent(`give ${n} minecraft:red_bed 1`);
-  server.runCommandSilent(`give ${n} minecraft:stone_sword 1`);
-  server.runCommandSilent(`title ${n} actionbar {"text":"✦ Recibiste el kit de bienvenida","color":"gold"}`);
+// Segunda oportunidad (buff día 1): la primera muerte de cada jugador se evita UNA vez en toda la serie.
+// La llama 30_eliminacion antes de eliminar al jugador. Devuelve true si lo salvó (y cancela la muerte).
+global.stSegundaOportunidad = (event, p) => {
+  let server = p.server;
+  if (!global.stEf(server, '1b')) return false;
+  let n = efNombre(p);
+  let usados = [];
+  try { usados = JSON.parse(server.persistentData.getString('starvios_segunda') || '[]'); } catch (e) {}
+  if (usados.indexOf(n) !== -1) return false;
+  usados.push(n);
+  server.persistentData.putString('starvios_segunda', JSON.stringify(usados));
+  try { p.setHealth(4); } catch (e) {}
+  efPoc(server, n, 'minecraft:regeneration', 10, 1);
+  efPoc(server, n, 'minecraft:absorption', 5, 1);
+  efPoc(server, n, 'minecraft:fire_resistance', 40, 0);
+  server.runCommandSilent(`execute at ${n} run particle minecraft:totem_of_undying ~ ~1 ~ 0.5 1 0.5 0.5 150`);
+  server.runCommandSilent(`execute at ${n} run playsound minecraft:item.totem.use player @a[distance=..32] ~ ~ ~ 1 1`);
+  server.runCommandSilent(`title ${n} times 5 50 15`);
+  server.runCommandSilent(`title ${n} title {"text":"💀 SEGUNDA OPORTUNIDAD","color":"gold","bold":true}`);
+  server.runCommandSilent(`title ${n} subtitle {"text":"No habrá otra.","color":"gray"}`);
+  server.runCommandSilent(`tellraw @a ["",{"text":"💀 ","color":"gold"},{"text":"${n}","color":"yellow","bold":true},{"text":" engañó a la muerte… por esta única vez.","color":"gold"}]`);
+  event.cancel();
+  return true;
 };
-PlayerEvents.loggedIn(event => {
-  let server = event.server, p = event.player;
-  efCargar(server);
-  if (!global.stEf(server, '1b')) return;
-  try { if (p.isSpectator()) return; } catch (e) {}
-  server.scheduleInTicks(60, () => efDarKit1(server, efNombre(p)));
+
+// 1n1: las herramientas de madera y piedra se gastan el doble
+let EF_HERR = /^minecraft:(wooden|stone)_(pickaxe|axe|shovel|hoe|sword)$/;
+let efGastar = (p) => {
+  try {
+    let it = p.mainHandItem;
+    if (!it || it.isEmpty() || !EF_HERR.test(efIdItem(it))) return;
+    let d = Number(it.getDamageValue()) + 1;
+    if (d >= Number(it.getMaxDamage())) {
+      it.shrink(1);
+      p.server.runCommandSilent(`execute at ${efNombre(p)} run playsound minecraft:entity.item.break player @a[distance=..8] ~ ~ ~ 1 1`);
+    } else it.setDamageValue(d);
+  } catch (e) {}
+};
+BlockEvents.broken(event => {
+  let p = event.player;
+  if (!p || !global.stEf(p.server, '1n1')) return;
+  try { if (p.isCreative()) return; } catch (e) {}
+  efGastar(p);
+});
+EntityEvents.hurt(event => {
+  let a = null;
+  try { a = event.source.getEntity(); } catch (e) {}
+  if (!a || !a.isPlayer() || !global.stEf(a.server, '1n1')) return;
+  try { if (event.source.getDirectEntity() !== a) return; } catch (e) {}
+  efGastar(a);
 });
 
 // ============================================================
@@ -680,7 +709,6 @@ let efActivar = (server, dia, tipo, avisar) => {
   efGuardar(server, m);
   if (!global.stActivo(server)) avisar('§e[Starvios] Ojo: el evento está desactivado (/starvios activar). La anomalía queda guardada y funcionará al activarlo.');
   efAnunciar(server, dia, tipo);
-  if (k === '1b') efVivos(server).forEach(p => efDarKit1(server, efNombre(p)));
   if (EF_CON_RECETA.indexOf(k) !== -1 && !ya) {
     avisar('§7[Starvios] Recargando recetas (/reload) en 2 segundos…');
     server.scheduleInTicks(40, () => server.runCommandSilent('reload'));
@@ -738,7 +766,7 @@ ServerEvents.commandRegistry(event => {
         let server = ctx.source.server;
         let teniaReceta = EF_CON_RECETA.some(k => efLeer(server)[k]);
         efGuardar(server, {});
-        server.persistentData.putString('starvios_kit1', '[]');
+        server.persistentData.putString('starvios_segunda', '[]');
         if (teniaReceta) server.scheduleInTicks(40, () => server.runCommandSilent('reload'));
         decir(ctx)('§a[Starvios] Todas las anomalías desactivadas.');
         return 1;

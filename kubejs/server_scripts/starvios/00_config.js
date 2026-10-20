@@ -13,7 +13,7 @@ global.STARVIOS = {
 
   // Punto donde estabas parado al hacer //paste del schematic (= punto de aparición).
   // Se usa para devolver al spawn a quien entre al End.
-  spawn: { x: -1383, y: 104, z: -1337 },
+  spawn: { x: -1384, y: 94, z: -1284 },
 
   // Centro de la arena de jefes (donde aparecen con /starvios jefe). PENDIENTE: pon aquí tu arena.
   arena: { x: -1383, y: 104, z: -1337 },
@@ -215,6 +215,19 @@ global.STARVIOS = {
   },
 
   // ----------------------------------------------------------
+  //  CASINO  (/duelo  /ruleta  /loteria)  -  sin límites de apuesta
+  //  Admin: /starvios casino abrir|cerrar · /starvios loteria sortear
+  // ----------------------------------------------------------
+  casino: {
+    comisionDuelo: 0.05,     // la casa se queda con el 5% del bote del duelo
+    pagoColor: 2,            // ruleta: rojo/negro paga x2
+    pagoVerde: 14,           // ruleta: verde (el 0) paga x14
+    pagoNumero: 36,          // ruleta: número exacto paga x36
+    precioBoleto: 20,        // lotería: precio de cada boleto
+    premioLoteria: 0.9       // lotería: el ganador se lleva el 90% del bote (el resto es de la casa)
+  },
+
+  // ----------------------------------------------------------
   //  EQUIPOS  (/equipo ...)  -  sin fuego amigo, chat privado con /eq
   // ----------------------------------------------------------
   equipos: {
@@ -288,6 +301,19 @@ global.STARVIOS = {
       esbirros: ['minecraft:blaze', 'cataclysm:ignited_berserker', 'minecraft:wither_skeleton'] }
   ],
 
+  // Más monstruos en la superficie: cada "cada" segundos, junto a cada jugador al aire libre
+  // aparecen "cantidad" monstruos a ~25 bloques, si cerca hay menos de "maximo".
+  mobsSuperficie: {
+    activa: true, cada: 20,
+    dia:   { cantidad: 2, maximo: 6,  tipos: ['minecraft:husk', 'minecraft:spider', 'minecraft:creeper', 'minecraft:zombie'] },
+    noche: { cantidad: 3, maximo: 12, tipos: ['minecraft:zombie', 'minecraft:skeleton', 'minecraft:spider', 'minecraft:creeper', 'minecraft:witch'] }
+  },
+
+  // Élites y Capitanes de mazmorra rompen los bloques que les cierran el paso hacia su objetivo
+  // (y el bloque bajo los pies de quien se suba a un pilar). Nunca en el spawn ni en las arenas.
+  rompeBloques: { activa: true, noRompe: ['minecraft:bedrock', 'minecraft:obsidian', 'minecraft:crying_obsidian', 'minecraft:barrier',
+    'minecraft:reinforced_deepslate', 'minecraft:spawner', 'minecraft:end_portal_frame', 'minecraft:chest', 'minecraft:lectern'] },
+
   // Esbirros: cada "cada" segundos, mientras viva un jefe semanal, aparecen "cantidad" monstruos
   // de su lista (esbirros) a su alrededor, hasta "maximo" a la vez. Si un ID no existe, sale un zombi.
   esbirros: { cada: 20, cantidad: 3, maximo: 10 },
@@ -297,7 +323,16 @@ global.STARVIOS = {
   //  pide:   [ID del objeto (o #etiqueta), cantidad, nombre en español]
   //  premio: monedas · fragmentos (Fragmentos de Corazón) · fragiles (Corazones Frágiles) · vitales (Corazones Vitales)
   //          items: [[ID, cantidad], ...]
-  misionEquipo: { fragiles: 1 },   // si TODOS los vivos de un equipo completan la misión del día: premio extra a cada uno
+  misionEquipo: { fragiles: 1 },
+  // 2º buff para quien completa la misión del día: dura hasta que cambia el día. Se repite en este orden.
+  // [efecto, nivel (0 = I), nombre en español]
+  buffMision: [
+    ['minecraft:haste', 0, 'Prisa minera I'],
+    ['minecraft:speed', 0, 'Velocidad I'],
+    ['minecraft:resistance', 0, 'Resistencia I'],
+    ['minecraft:strength', 0, 'Fuerza I'],
+    ['minecraft:night_vision', 0, 'Visión nocturna']
+  ],   // si TODOS los vivos de un equipo completan la misión del día: premio extra a cada uno
   misiones: {
     1:  { texto: 'Primeros pasos', pide: [['#minecraft:logs', 32, 'troncos'], ['#minecraft:coals', 16, 'carbón'], ['minecraft:stone_pickaxe', 1, 'pico de piedra'], ['minecraft:furnace', 1, 'horno']],
           premio: { monedas: 30, items: [['minecraft:cooked_beef', 8]] } },
@@ -382,7 +417,7 @@ global.STARVIOS = {
     mobsResistencia:    [[1, 0], [25, 0.30]],                               // probabilidad
     probElite:          [[1, 0.03], [5, 0.05], [10, 0.08], [15, 0.11], [22, 0.15]],   // probabilidad de mini-jefe
     // Refuerzos: monstruos EXTRA que aparecen junto a cada monstruo natural (media). 1 = el doble de mobs.
-    mobsExtra:          [[1, 0], [2, 0.15], [4, 0.3], [7, 0.5], [10, 0.7], [14, 1.0], [18, 1.3], [22, 1.6], [26, 2.0]]
+    mobsExtra:          [[1, 0.3], [2, 0.4], [4, 0.6], [7, 0.8], [10, 1.0], [14, 1.3], [18, 1.6], [22, 2.0], [26, 2.5]]
   },
 
   // Reglas de activación única (desde ese día en adelante)

@@ -1,7 +1,7 @@
 // priority: 100
 // ============================================================
 //  STARVIOS - ECONOMÍA (Starcoins)
-//  Jugadores:  /dinero  /pagar <jugador> <cantidad>  /tienda  /comprar <clave> [veces]
+//  Jugadores:  /dinero  /pagar <jugador> <cantidad>
 //              /vender  (lo que tienes en la mano)  /retirar <cantidad>  /top
 //  Admin:      /starvios dinero ver|dar|quitar|poner <jugador> [cantidad]
 //  Las monedas físicas (/retirar) se depositan con clic derecho.
@@ -265,42 +265,7 @@ ServerEvents.commandRegistry(event => {
       return 1;
     }))));
 
-  // /tienda
-  event.register(Commands.literal('tienda').executes(ctx => {
-    let server = ctx.source.server;
-    let n = nombre(ctx); if (!n) return 0;
-    server.runCommandSilent(`tellraw ${n} {"text":"━━━ Tienda Starvios ━━━  (saldo: ${ecTexto(global.stSaldo(server, n))})","color":"gold","bold":true}`);
-    s().tienda.forEach(t => {
-      server.runCommandSilent(`tellraw ${n} ["",{"text":"[Comprar] ","color":"green","bold":true,` +
-        `"clickEvent":{"action":"run_command","value":"/comprar ${t.clave}"},"hoverEvent":{"action":"show_text","contents":"Comprar ${t.nombre}"}},` +
-        `{"text":"${t.nombre}","color":"white"},{"text":"  ${ecPrecio(server, t)} ${s().simbolo}","color":"yellow"},{"text":"  (/comprar ${t.clave})","color":"dark_gray"}]`);
-    });
-    server.runCommandSilent(`tellraw ${n} {"text":"Vende lo que tengas en la mano con /vender. Retira monedas con /retirar <cantidad>.","color":"gray"}`);
-    return 1;
-  }));
-
-  // /comprar <clave> [veces]
-  let comprar = (ctx, veces) => {
-    let server = ctx.source.server, d = decir(ctx);
-    let n = nombre(ctx); if (!n) return 0;
-    if (!ecPuedeComerciar(ctx, d)) return 0;
-    if (global.stEf && global.stEf(server, '1n2') && global.stDia(server) === 1) { d('§cHoy la tienda está cerrada. Vuelve mañana.'); return 0; }
-    let clave = String(Arguments.STRING.getResult(ctx, 'clave')).toLowerCase();
-    let t = s().tienda.filter(x => x.clave === clave)[0];
-    if (!t) { d('§cEse objeto no está en la tienda. Escribe /tienda.'); return 0; }
-    veces = Math.max(1, Math.min(veces, 64));
-    let total = ecPrecio(server, t) * veces;
-    if (!ecQuitar(server, n, total)) { d(`§cTe faltan monedas. Cuesta ${ecTexto(total)}, tienes ${ecTexto(global.stSaldo(server, n))}.`); return 0; }
-    let id = t.id, nbt = t.nbt || '';
-    if (t.especial) { let e = global.stItemsEspeciales[t.especial]; id = e[0]; nbt = e[1]; }
-    server.runCommandSilent(`give ${n} ${id}${nbt} ${t.cantidad * veces}`);
-    server.runCommandSilent(`execute at ${n} run playsound minecraft:entity.villager.yes master ${n} ~ ~ ~ 0.7 1`);
-    d(`§6Compraste §e${t.nombre}${veces > 1 ? ' ×' + veces : ''}§6 por §e${ecTexto(total)}§6. Saldo: §e${ecTexto(global.stSaldo(server, n))}`);
-    return 1;
-  };
-  event.register(Commands.literal('comprar').then(Commands.argument('clave', Arguments.STRING.create(event))
-    .executes(ctx => comprar(ctx, 1))
-    .then(Commands.argument('veces', Arguments.INTEGER.create(event)).executes(ctx => comprar(ctx, Arguments.INTEGER.getResult(ctx, 'veces'))))));
+  // (/tienda y /comprar quitados: la tienda ahora son las máquinas del mod Lightman's Currency en el spawn)
 
   // /vender
   event.register(Commands.literal('vender').executes(ctx => {

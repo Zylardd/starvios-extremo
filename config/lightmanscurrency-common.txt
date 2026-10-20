@@ -1,0 +1,15 @@
+#Starvios: las monedas que sueltan mobs y cofres son Starcoins (no las monedas normales del mod).
+#Las opciones que no están aquí usan su valor por defecto (el mod las añade solo al arrancar).
+[villagers]
+	#Sin trueques de piglins ni aldeanos con monedas del mod (no son Starcoins)
+	piglinsBarterCoins=false
+	addCustomWanderingTrades=false
+	addBanker=false
+	addCashier=false
+[loot]
+	lootItemT1=kubejs:starcoin
+	lootItemT2=kubejs:starcoin
+	lootItemT3=kubejs:starcoin_plata
+	lootItemT4=kubejs:starcoin_plata
+	lootItemT5=kubejs:starcoin_oro
+	lootItemT6=kubejs:starcoin_oro

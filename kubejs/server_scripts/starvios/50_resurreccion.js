@@ -18,13 +18,13 @@ let NBT_CORAZON = `{starvios_resurreccion:1b,Enchantments:[{id:"minecraft:unbrea
   `'{"text":"y el Alma del compañero en la otra mano.","color":"gray","italic":false}',` +
   `'{"text":"Clic derecho para revivirlo.","color":"gold","italic":false}']}}`;
 
-global.stItemCorazonResurreccion = ['minecraft:nether_star', NBT_CORAZON];
+global.stItemCorazonResurreccion = ['kubejs:corazon_resurreccion', NBT_CORAZON];
 global.stResurreccionRevelada = (server) => server.persistentData.getBoolean('starvios_resurreccion_revelada');
 
 // ---------- Receta ----------
 ServerEvents.recipes(event => {
   if (!RC().activa) return;
-  event.shaped(Item.of('minecraft:nether_star', NBT_CORAZON), RC().receta, RC().ingredientes)
+  event.shaped(Item.of('kubejs:corazon_resurreccion', NBT_CORAZON), RC().receta, RC().ingredientes)
     .id('starvios:corazon_resurreccion');
 });
 
@@ -80,6 +80,12 @@ let stAplicarResurreccion = (server, n) => {
   let d = pend[n];
   let jugador = server.getPlayer(n);
   if (!d || !jugador) return;
+  // Vuelve desde 0: sin objetos, sin cofre de ender, sin experiencia y sin efectos
+  server.runCommandSilent(`clear ${n}`);
+  for (let i = 0; i < 27; i++) server.runCommandSilent(`item replace entity ${n} enderchest.${i} with minecraft:air`);
+  server.runCommandSilent(`xp set ${n} 0 levels`);
+  server.runCommandSilent(`xp set ${n} 0 points`);
+  server.runCommandSilent(`effect clear ${n}`);
   server.runCommandSilent(`gamemode survival ${n}`);
   // Aparece junto a quien lo revivió (si está conectado); si no, donde fue revivido; si no, en el spawn
   if (d.por && server.getPlayer(d.por)) server.runCommandSilent(`tp ${n} ${d.por}`);

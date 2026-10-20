@@ -12,6 +12,8 @@ EntityEvents.death(event => {
   let n = p.getName().getString();
   if (global.STARVIOS.exentos.indexOf(n) !== -1) return;
   if (global.stDia(server) <= 0) return; // con el evento desactivado no se elimina a nadie
+  // Buff del día 1: "Segunda oportunidad" (93_anomalias.js) — si lo salva, cancela la muerte aquí
+  if (global.stSegundaOportunidad && global.stSegundaOportunidad(event, p)) return;
 
   // Guardar dónde murió para dejarlo ahí como espectador al reaparecer
   global.stMuertes = global.stMuertes || {};

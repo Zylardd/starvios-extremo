@@ -303,7 +303,8 @@ let arPuertas = (server, n, abrir) => {
 };
 
 // ---------- Protección ----------
-let arPuedeEditar = (p) => p && p.hasPermissions(2);
+// Solo se puede editar en modo CREATIVO (aunque seas OP, en supervivencia tampoco puedes romperla)
+let arPuedeEditar = (p) => { try { return !!p && p.hasPermissions(2) && p.isCreative(); } catch (e) { return false; } };
 
 BlockEvents.broken(event => {
   let p = event.player;
@@ -329,8 +330,37 @@ LevelEvents.afterExplosion(event => { global.stSeguro('99_arenas (explosiones)',
   let pos = global.stXYZ(event);
   if (!pos) return;
   let server = event.server || event.level.server;
-  if (!arEnZona(server, pos.x, pos.y, pos.z)) return;
-  try { event.removeAllAffectedBlocks(); } catch (e) { event.getAffectedBlocks().clear(); }
+  if (arEnZona(server, pos.x, pos.y, pos.z)) {
+    try { event.removeAllAffectedBlocks(); } catch (e) { event.getAffectedBlocks().clear(); }
+    return;
+  }
+  // Explosión fuera pero que alcanza la arena: se salvan solo los bloques de la arena
+  let quitar = [];
+  try {
+    event.getAffectedBlocks().forEach(b => {
+      let q = global.stXYZ(b);
+      if (q && arEnZona(server, q.x, q.y, q.z)) quitar.push(b);
+    });
+    quitar.forEach(b => event.removeAffectedBlock(b));
+  } catch (e) {}
+}); });
+
+// Los jefes (Cataclysm, Mowzie's) no rompen bloques mientras haya alguno vivo:
+// mobGriefing se apaga durante la pelea y se vuelve a encender cuando no queda ninguno.
+global.stArTick = 0;
+ServerEvents.tick(event => { global.stSeguro('99_arenas (jefes sin romper)', () => {
+  global.stArTick = (global.stArTick || 0) + 1;
+  if (global.stArTick % 40 !== 0) return;
+  let server = event.server;
+  let hay = Number(server.runCommandSilent('execute if entity @e[tag=starvios_jefe]')) > 0;
+  let d = server.persistentData;
+  if (hay && !d.getBoolean('starvios_griefing_off')) {
+    d.putBoolean('starvios_griefing_off', true);
+    server.runCommandSilent('gamerule mobGriefing false');
+  } else if (!hay && d.getBoolean('starvios_griefing_off')) {
+    d.putBoolean('starvios_griefing_off', false);
+    server.runCommandSilent('gamerule mobGriefing true');
+  }
 }); });
 
 EntityEvents.checkSpawn(event => {
