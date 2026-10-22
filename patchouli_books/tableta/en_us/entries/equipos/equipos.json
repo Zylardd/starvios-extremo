@@ -7,7 +7,7 @@
   {
    "type": "patchouli:text",
    "title": "Equipos",
-   "text": "$(li)$(l)/equipo crear <nombre>$()$(li)$(l)/equipo invitar <jugador>$() (líder)$(li)$(l)/equipo aceptar$() / $(l)rechazar$()$(li)$(l)/equipo info$(): dónde están$(li)$(l)/eq <mensaje>$(): chat del equipo$(br2)No hay fuego amigo. Todo esto también está en botones en tu Diario."
+   "text": "$(li)$(l)/equipo crear <nombre>$()$(li)$(l)/equipo invitar <jugador>$() (líder)$(li)$(l)/equipo aceptar$() / $(l)rechazar$()$(li)$(l)/equipo info$(): dónde están$(li)$(l)/eq <mensaje>$(): chat del equipo$(br2)No hay fuego amigo. Más fácil: escribe solo $(l)/equipo$() y te sale un panel con botones."
   }
  ]
 }

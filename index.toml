@@ -1656,11 +1656,15 @@ hash = "dfb3f15881601d32f196c2ea565c19b84981837131bb96bdd2b6ccd85d7de354"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/equipos.json"
-hash = "efd4c94e5e75f72ff6a8e95409e4713ae81597247e51c6f1691c01d1c4354306"
+hash = "81fd88a1ab6c8a8f8757374ecb4b25e7b3a1a159d5ca5c878833776624c8047b"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/mapa.json"
 hash = "aa0c6ce113a067e1b0b6d8212adcf6fbf63d84d8ac90320f54dd610869ad2aed"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/equipos/panel.json"
+hash = "1fdfd3d7fb09b184049ffac99977d1e17947dd70a653bf40f125cbcf2488decf"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/voz.json"

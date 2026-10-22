@@ -1,0 +1,13 @@
+{
+ "name": "Panel de equipo (botones)",
+ "icon": "minecraft:red_banner",
+ "category": "patchouli:equipos",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Panel de equipo (botones)",
+   "text": "Haz clic en un botón, cierra la tableta ($(l)Esc$()) y mira el chat.$(br2)$(c:/equipo)$(2)▶ Abrir panel de equipo$(/c)$(br)$(c:/equipo aceptar)$(2)▶ Aceptar invitación$(/c)$(br)$(c:/equipo rechazar)$(2)▶ Rechazar invitación$(/c)$(br)$(c:/equipo info)$(2)▶ Dónde está mi equipo$(/c)$(br)$(c:/equipo lista)$(2)▶ Ver todos los equipos$(/c)$(br2)En el panel puedes crear tu equipo, invitar con un clic a los jugadores conectados y, si eres líder, expulsar."
+  }
+ ]
+}
