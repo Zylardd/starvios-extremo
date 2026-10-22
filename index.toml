@@ -1608,7 +1608,7 @@ hash = "8195ce27ef6dd076491bb139f76c49c1c1e7c17562d14db9b219a30e4366ee72"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/categories/reglas.json"
-hash = "0cf567f3054d25df6cd69ea4b6b025f739c1fb435499ba364bfe11c22a8e81fd"
+hash = "933358c926bee01dae9f088cece19b82d7c9eddb92321869d1987e7b9c4d0425"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/comandos/dinero.json"
@@ -1636,7 +1636,7 @@ hash = "301a31e095f7f288a5668cb98a7dbc5088ecfe335741ca4cd6ba90b3d941b985"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/corazones/vital.json"
-hash = "d65778137990f456079df90559fffe0c50d0b7c3e22bd727f923bf047c513021"
+hash = "61899e03cf0efb985351d8ce36240dc931c4bc60622cda657388b1c1c0413a1e"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/dinero/casino.json"
@@ -1644,7 +1644,7 @@ hash = "599dd78fee7669004ad0a61d44acb90eb2fee124d64d0743c16941d9c35c8f51"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/dinero/starcoins.json"
-hash = "87ab5730cc70440cd727413f5bcd3b8ef7121b443a663cc97a34c6b6abb1214c"
+hash = "e6536244a3aef99d2706784d96bf1b4b18fca75f69b4faa8a3bb344868268940"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/dinero/tiendas.json"
@@ -1680,11 +1680,11 @@ hash = "caf202463e3cd8f092817f769224ad5b5e0067c0891d39ad8b8251b97a01c622"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/mods/mod0.json"
-hash = "feab9047b176dae5a9d1e04873c7b1c3f73b81e86a9a1307db20d79fd455fcc9"
+hash = "ee35322cce2816803b84df4b4d50d2de10a436dffec4ff279dd481e15e78a712"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/mods/mod1.json"
-hash = "f54a4d08b51c988adeb9bd071b87deb70e73417c7c2435c5fc17e238670a05de"
+hash = "1fd9ab1c184e29727d33b735f79e8afe611d87efcd87800b2e826969807565fc"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/mods/mod2.json"

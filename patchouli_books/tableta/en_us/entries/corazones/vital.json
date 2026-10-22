@@ -7,7 +7,7 @@
   {
    "type": "patchouli:text",
    "title": "Corazón Vital",
-   "text": "Clic derecho: $(l)+1 corazón máximo para siempre$(). Los jefes sueltan varios al morir."
+   "text": "Clic derecho: $(l)+1 corazón máximo para siempre$(). Algunos enemigos poderosos los sueltan al morir."
   }
  ]
 }
