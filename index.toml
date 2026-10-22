@@ -85,6 +85,10 @@ file = "config/lightmanscurrency/MasterCoinList.json"
 hash = "59bc321cb7ab6a60747b419c47697b404b939acbc05f4a8361215a5727b53125"
 
 [[files]]
+file = "config/securitycraft-client.toml"
+hash = "3093c52280904c9a8f111fdf4a016c5785b817ac022389e19de9f61dbc8631bf"
+
+[[files]]
 file = "dias_mp3/1.mp3"
 hash = "81abc4710997dda1865db53db515b5fde9100f8c60310c1b80c0dd4eae1df103"
 
