@@ -641,6 +641,11 @@ hash = "9742482a86605e87c3ded2fe70cd01a841faf8a93929d5a2a7048d39f9c00f7b"
 metafile = true
 
 [[files]]
+file = "mods/immersive-paintings.pw.toml"
+hash = "24545661045627a8badd9ce705979a85cb1d0d32ff95f4de4ebbbf5e5d503cc7"
+metafile = true
+
+[[files]]
 file = "mods/integrated-api.pw.toml"
 hash = "dab88bb36bd39ee2320fd55cabaafaaac2289dbead6a50cc68e368608b20f9c7"
 metafile = true
