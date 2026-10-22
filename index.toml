@@ -1735,10 +1735,6 @@ file = "patchouli_books/tableta/en_us/entries/reglas/dias.json"
 hash = "54cbb165dbae671b945e633419c1103108cff1bab5986b6e47d2988152c9a230"
 
 [[files]]
-file = "patchouli_books/tableta/en_us/entries/reglas/jefes.json"
-hash = "009a6218c6a6b4cc8f6f7dedd1c24395cd38f1a731526512e3415561331c6a5c"
-
-[[files]]
 file = "patchouli_books/tableta/en_us/entries/reglas/muerte.json"
 hash = "a47fee2c804bf17550c578a87067adf3c7029ca9a8b35ca213badd45731c7cd9"
 
