@@ -243,12 +243,7 @@ PlayerEvents.loggedIn(event => {
   let dia = global.stDia(server);
   global.stCmd(server, `attribute ${n} minecraft:generic.max_health base set ${global.stVidaMax(server, n)}`);
 
-  if (dia > 0) {
-    let a = global.STARVIOS.anuncios[dia];
-    server.scheduleInTicks(40, () => {
-      global.stCmd(server, `tellraw ${n} ["",{"text":"[Starvios] ","color":"dark_red","bold":true},{"text":"Día ${dia} de ${global.STARVIOS.diasTotales}","color":"gold"}${a ? `,{"text":" - ${global.stEsc(global.stTituloDia(a[0]))}: ${global.stEsc(a[1])}","color":"gray"}` : ''}]`);
-    });
-  }
+  // (el día se muestra arriba a la derecha al entrar: 92_extras.js; la info completa está en el Diario)
 });
 
 

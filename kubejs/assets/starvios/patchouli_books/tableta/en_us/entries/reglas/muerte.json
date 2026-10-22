@@ -1,0 +1,17 @@
+{
+ "name": "Una sola vida",
+ "icon": "minecraft:skeleton_skull",
+ "category": "starvios:reglas",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Una sola vida",
+   "text": "En Starvios $(l)si mueres, quedas eliminado$(): pasas a espectador y a los pocos segundos sales del servidor.$(br2)Tus coordenadas salen en el chat y tu $(l)Alma$() (tu cabeza) queda brillando donde caíste. Tu equipo puede revivirte con un ritual (mira la categoría Corazones)."
+  },
+  {
+   "type": "patchouli:text",
+   "text": "El día 1 hay una $(l)Segunda oportunidad$(): la primera vez que vayas a morir te salvas con 2 corazones. Solo una vez en toda la serie."
+  }
+ ]
+}

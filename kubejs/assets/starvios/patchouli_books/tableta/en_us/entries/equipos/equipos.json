@@ -1,0 +1,13 @@
+{
+ "name": "Equipos",
+ "icon": "minecraft:white_banner",
+ "category": "starvios:equipos",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Equipos",
+   "text": "$(li)$(l)/equipo crear <nombre>$()$(li)$(l)/equipo invitar <jugador>$() (líder)$(li)$(l)/equipo aceptar$() / $(l)rechazar$()$(li)$(l)/equipo info$(): dónde están$(li)$(l)/eq <mensaje>$(): chat del equipo$(br2)No hay fuego amigo. Todo esto también está en botones en tu Diario."
+  }
+ ]
+}

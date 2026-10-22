@@ -1,0 +1,13 @@
+{
+ "name": "Mowzie's Mobs",
+ "icon": "minecraft:iron_axe",
+ "category": "starvios:mods",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Mowzie's Mobs",
+   "text": "Jefes y criaturas: el $(l)Guardián de Hierro$(), $(l)Frostmaw$() y $(l)Umvuthi$() (jefes de la serie), y tribus Barakoa. Sus armas (Lanza, Cerbatana, Hacha de los Mil Metales...) solo salen de misiones."
+  }
+ ]
+}

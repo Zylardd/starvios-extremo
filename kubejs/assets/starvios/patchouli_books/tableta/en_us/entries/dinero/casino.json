@@ -1,0 +1,13 @@
+{
+ "name": "Casino",
+ "icon": "minecraft:gold_block",
+ "category": "starvios:dinero",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Casino",
+   "text": "$(li)$(l)Tragamonedas y gacha$(): máquinas del casino.$(li)$(l)/ruleta$(): rojo/negro x2, verde x14, número x36.$(li)$(l)/duelo <jugador> <cantidad>$(): cara o cruz, el ganador se lleva el bote.$(li)$(l)/loteria$(): compra boletos; el sorteo es cada amanecer.$(br2)Juega con cabeza: la casa siempre gana un poquito."
+  }
+ ]
+}

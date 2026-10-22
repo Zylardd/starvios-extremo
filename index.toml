@@ -265,6 +265,174 @@ file = "kubejs/assets/minecraft/lang/es_ve.json"
 hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
 
 [[files]]
+file = "kubejs/assets/starvios/models/item/tableta.json"
+hash = "72181dbca5a0369217c605f6c23103a2387fbba1fd31f955914556e1e88d7ad5"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/comandos.json"
+hash = "faeff967155a8e1588ea9110634465dcf82184df7100ec01072d75f0b74c9cbf"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/corazones.json"
+hash = "3d350b4f13d1a483e440aa5b00d14c8915a055cb293502b5f15cb0ebbfb941a5"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/dinero.json"
+hash = "ce77f2e2d6085ebd03d803c075ed6c3c593727d002ded2567ff6c95ae062dbce"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/equipos.json"
+hash = "919e0cc0edd0641dc80bc468941e64847388ac4350311fa1d6c741742486964c"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/misiones.json"
+hash = "00e384c995b8ab5c73938156b50ae2d21424df449032ac77782d0feb58f8af51"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/mods.json"
+hash = "ba74246cb3f338f5e5d362e9d1a5a17da07d6136915b5b80d6d84618f97d4fa5"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/peligros.json"
+hash = "8195ce27ef6dd076491bb139f76c49c1c1e7c17562d14db9b219a30e4366ee72"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/categories/reglas.json"
+hash = "0cf567f3054d25df6cd69ea4b6b025f739c1fb435499ba364bfe11c22a8e81fd"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/comandos/dinero.json"
+hash = "717eb633c96aef6b996834b8a4a1c463d3ed6588b22d41778ed6b336c850ee47"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/comandos/equipo.json"
+hash = "b1708d002dd5e4d066abc803fdfda1591766d08d931cac947bc29769fc6ba136"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/comandos/info.json"
+hash = "8a65b4ab6d2aeef9ba5e9288245ad7c4e82cf42a948a1e10365a772f924fb237"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/corazones/fragil.json"
+hash = "7ca2977486a0b674b8a61026be657ceba74bc0e0f915eaeda26d758904239240"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/corazones/fragmento.json"
+hash = "f9bcba4abd8bbfe69ba84bfeecf39dbaf1aa6954f3991fe609cfe6a5788b3727"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/corazones/resurreccion.json"
+hash = "111833e5155d94a7c1c9045e1ca3c7c987f4023b0ef31f07c752aba550ff8803"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/corazones/vital.json"
+hash = "9c483a0acb1e7ba35f37c432f667ae930f839ed3c9572b032642cf28c8e3f21a"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/dinero/casino.json"
+hash = "ad7670b0f8a2fc7c259a1a5ae929cbfc032c5e396bed9ecc4a2799656650b032"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/dinero/starcoins.json"
+hash = "5a5002c131d605892958c924becbe2e060a01528fad21092895f1aec002e4041"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/dinero/tiendas.json"
+hash = "74dbc842173ac4d174f6b47e812f0195dd8cd6559d847ff858cb2d30f6cd660b"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/equipos/emotes.json"
+hash = "e9c0a30f495616d0f8426d4d85fdda8351411bb3676274fdf31b032dd1ac8f80"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/equipos/equipos.json"
+hash = "fb920ebd98e6283beb9db63134957b2b3dc71d111d80ca160dcd20c0f9a5f1c2"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/equipos/mapa.json"
+hash = "78d2012335f0a26f948e2c8524aa7d734eb61bc51289f6581e0324c89d4a142c"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/equipos/voz.json"
+hash = "aa28a4f3436a7735d0e556ecfcf130f144a30c009271670031f5edcbf9e14be5"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/misiones/como.json"
+hash = "d365ed1be622385beca53f6788f0ce898d90b817981d488ad313289bb59a8345"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/misiones/equipo.json"
+hash = "076ec3d0ebe85d8fb925740986bc91c29274c041cc355cd35d3732d57f9daf43"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/misiones/premios.json"
+hash = "994739696a040e6c9b6b981c001f8875544bb209534ce709b885fa94bbade8c6"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod0.json"
+hash = "a173da2017892b91b2ed8924c6714e9c3a9ff964aa8bd6da795d69f14aa15540"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod1.json"
+hash = "52c9cc5c49583ccbea4189b25ea3bb31b2f72d0ab89de50bd96c3767f66a031e"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod2.json"
+hash = "42e9836918c7f408471b094f177068081ac7ce792505b2495099e8163517c24e"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod3.json"
+hash = "073c070c1cf3956116074a9fcf23a65506a6e141f7ebbaac4179cfaeeb2f0764"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod4.json"
+hash = "fb610ff5fc1e6d5de3fc20f9c517828b4ed25b87193d694f5732de90ef5aaca8"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod5.json"
+hash = "9c39defacfabe470e9247c9fb0b5e9da4716e2b79c5f869e370099e1194a2da6"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/mods/mod6.json"
+hash = "22d01904693f6fa9555e217465a96298e0952fee5493a483171dd7b752b8acca"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/peligros/criptas.json"
+hash = "6cb0ee17bad78840cde1d46042bea75591790e1684b1b6be0e13218407a2f732"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/peligros/elites.json"
+hash = "0e8625dbfc197409660cebf47cfd1457dc3c8d3bfa9c6ee6b7d1f270782979ce"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/peligros/mazmorras.json"
+hash = "943412d65933b2b692148eba5b585a3f7a25c274cd2758fe08ddfcddc28e9a37"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/peligros/mobs.json"
+hash = "6097acb5342bd00dd1cb6541ef6eec6b5af902653ae49e520f6aeda126a5ecb4"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/reglas/anomalias.json"
+hash = "71d330bcfcc57343e9c601f4dc2afeddb3edc285c181752ea366bab035df56f4"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/reglas/anuncios.json"
+hash = "f62166006ce40a3a8bfade20f7097c2cfc95b7ef5befd1972ebb790887a4a015"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/reglas/dias.json"
+hash = "a278b27ed95a1a814e608e28fd4ff441edae759597aab42f230d2291215d7aa8"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/reglas/jefes.json"
+hash = "d26136638bf90bf74e28b1cc55dc7c032752498a3cdc487a37fd0b4deffa7f9f"
+
+[[files]]
+file = "kubejs/assets/starvios/patchouli_books/tableta/en_us/entries/reglas/muerte.json"
+hash = "cc9c522719c7cc28b1d53077a33baa72cfdd56ce579117991b47aebba8f771e4"
+
+[[files]]
 file = "kubejs/assets/starvios/sounds.json"
 hash = "b85054f0c3038099d94347e65defcbd23c743240981ce010ae673d6b608ece73"
 
@@ -455,6 +623,10 @@ hash = "9b0846afac06a82b2bdee3d6862776d17ec756d63ea465a92a023338eace7234"
 [[files]]
 file = "kubejs/assets/starvios/sounds/prologo/completo.ogg"
 hash = "9fc98c7b5c6baa2a7d838a49e287beceef1025482190e653744883df99818642"
+
+[[files]]
+file = "kubejs/assets/starvios/textures/item/tableta.png"
+hash = "fe3c64ff627f19e777664fcc8da0475f8d7cbb203cb54f079da94317a99932a3"
 
 [[files]]
 file = "kubejs/config/starvios_prologo.json"
@@ -965,12 +1137,16 @@ file = "kubejs/data/starvios/advancements/anuncio/raiz.json"
 hash = "441682757651522655ec0256d0ce84c9d54a035792e4fbbc354099766c7bebe9"
 
 [[files]]
+file = "kubejs/data/starvios/patchouli_books/tableta/book.json"
+hash = "e4f24860b5fccf92c194e942c1aa9362d103f83f64aa75927bd8762e94ba0b08"
+
+[[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"
-hash = "662338f2710851b40ce1b3f46335b5ffebb14951c2a661d61f20ad86cdd96152"
+hash = "21e81c36eeee1938c60b5490826bf5fe95dab09c93d35ec4f405efe68073b628"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/10_dias.js"
-hash = "59d831696cd278ad823d8794ac4b6afccd44cfa3cc7cf0f086c13450bcaca852"
+hash = "2cb0dba0790b43c5d9d626df8b833d870bf0591e9da46820900d1bd0666dc67a"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/20_mobs.js"
@@ -1006,7 +1182,7 @@ hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/87_diario.js"
-hash = "003aced4cdfb735922af70847fa7c555a8bb958f6a861354208dbcb95c82e470"
+hash = "1d518a3cb4d4c69e6330c9cad08e331483b41c11328f1c57d7364a53e84404a5"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/88_anuncios.js"
@@ -1026,7 +1202,7 @@ hash = "0f280c4107ee9cbad43ac82995a635ae61acdbc9fd05445c99c8b6decb4cacee"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/92_extras.js"
-hash = "ce8bcfd518daebae0e0091e23f795830e4dfc0f7d709f063e07b2af51e673638"
+hash = "9c9ab7ba064dc6b42a1c09bb4c202eff71e837ad4df7f2ba59f25a167ef6f50b"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/93_anomalias.js"
@@ -1034,7 +1210,7 @@ hash = "6c7b41e30d64961ff7068f5169bc51249e20f278f75636ed007e859a485843e5"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/94_intro.js"
-hash = "30c9ba61a10dc33c8a529255967607c22bbf52bd909ad7b00613fe358ac70b66"
+hash = "02e4d2c4d137435af28f356c09df6f8456bd89db0a9cd9caf6fae048a9594abc"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/95_equipos.js"

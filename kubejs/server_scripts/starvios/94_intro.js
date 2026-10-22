@@ -174,8 +174,11 @@ let prSegmentos = () => {
       if (d && d.length) return d;
     }
   } catch (e) {}
-  // Sin archivo de tiempos: se reparte la duración según lo largo de cada frase
   let txt = global.STARVIOS.prologo || [];
+  // Tiempos medidos (00_config.js -> prologoTiempos)
+  let tm = global.STARVIOS.prologoTiempos;
+  if (tm && tm.length === txt.length) return txt.map((t, i) => [tm[i][0], tm[i][1], t]);
+  // Sin tiempos: se reparte la duración según lo largo de cada frase
   let total = Number(global.STARVIOS.prologoSegundos) || 90;
   let letras = txt.reduce((s, t) => s + t.length, 0) || 1;
   let r = [], t0 = 0.3;
@@ -212,6 +215,13 @@ global.stPrologoAudio = (server) => {
   global.stPrologoHasta = Date.now() + total * 1000;     // el anuncio del día 1 espera a que termine
   // volumen 100 = se oye igual en cualquier sitio cercano aunque te muevas
   server.runCommandSilent(`execute as @a at @s run playsound ${PROLOGO_SONIDO} voice @s ~ ~ ~ 100 1`);
+  // Con Plasmo Voice: se silencia a todos (menos a los admins) mientras dura el prólogo
+  if (global.STARVIOS.silenciarVozEnPrologo !== false && global.stSilencioVoz) {
+    global.stSilencioVoz(server, true);
+    let fin = Date.now() + total * 1000;
+    global.stSilencioHasta = fin;
+    server.scheduleInTicks(Math.round(total * 20) + 20, () => { if (global.stSilencioHasta === fin) global.stSilencioVoz(server, false); });
+  }
   prSubs = [];
   if (global.STARVIOS.prologoSubtitulos !== false) {
     prSegmentos().forEach(sg => {
@@ -258,6 +268,8 @@ ServerEvents.commandRegistry(event => {
       .then(Commands.literal('parar').executes(ctx => {
         global.stPrologoHasta = 0;
         global.stPrologoToken = -1;
+        global.stSilencioHasta = 0;
+        if (global.stSilencioVoz) global.stSilencioVoz(ctx.source.server, false);
         ctx.source.server.runCommandSilent(`stopsound @a voice ${PROLOGO_SONIDO}`);
         ctx.source.server.runCommandSilent('title @a actionbar {"text":""}');
         decir(ctx)('§6Prólogo detenido.'); return 1;
@@ -319,3 +331,29 @@ global.stCineJefe = (server, jefe) => {
   if (!ok) run(`effect clear @e[tag=st_cine_jefe] minecraft:slowness`);
   return ok;
 };
+
+
+// ============================================================
+//  SILENCIO DEL CHAT DE VOZ (mod Plasmo Voice: comandos /vmute y /vunmute)
+//  /starvios silencio on   -> silencia a todos los jugadores (los admins NO, para que puedas hablar)
+//  /starvios silencio off  -> les devuelve la voz
+//  Durante el prólogo se hace solo (00_config.js -> silenciarVozEnPrologo).
+//  Para hablarles a TODOS a la vez: addon pv-addon-broadcast (/vbc server + tecla de Broadcast).
+// ============================================================
+global.stSilencioVoz = (server, on) => {
+  server.players.forEach(p => {
+    let n = p.getName().getString();
+    try { if (p.hasPermissions(2)) return; } catch (e) {}
+    server.runCommandSilent(on ? `vmute ${n}` : `vunmute ${n}`);
+  });
+  server.runCommandSilent(on
+    ? 'title @a actionbar {"text":"🔇 Chat de voz silenciado","color":"gray"}'
+    : 'title @a actionbar {"text":"🔊 Chat de voz activado","color":"green"}');
+};
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands } = event;
+  event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))
+    .then(Commands.literal('silencio')
+      .then(Commands.literal('on').executes(ctx => { global.stSilencioVoz(ctx.source.server, true); ctx.source.sendSystemMessage(Text.of('§6[Starvios] Voz silenciada (menos admins).')); return 1; }))
+      .then(Commands.literal('off').executes(ctx => { global.stSilencioHasta = 0; global.stSilencioVoz(ctx.source.server, false); ctx.source.sendSystemMessage(Text.of('§6[Starvios] Voz activada.')); return 1; }))));
+});

@@ -364,7 +364,7 @@ let rsTotal = (server) => {
    'starvios_devoluciones', 'starvios_misiones', 'starvios_cine_antes', 'starvios_mazmorras'].forEach(k => d.putString(k, k === 'starvios_eliminados' ? '' : '{}'));
   d.putString('starvios_mazmorras', '[]');
   d.putString('starvios_lc_ini', '{}'); d.putString('starvios_lc_pend', '{}');   // saldo inicial otra vez
-  d.putString('starvios_efectos', '{}'); d.putString('starvios_diario_dado', '[]'); d.putString('starvios_segunda', '[]'); d.putString('starvios_loteria', '{}'); d.putString('starvios_kit1', '[]');   // anomalías
+  d.putString('starvios_efectos', '{}'); d.putString('starvios_diario_dado', '[]'); d.putString('starvios_tableta_dada', '[]'); d.putString('starvios_segunda', '[]'); d.putString('starvios_loteria', '{}'); d.putString('starvios_kit1', '[]');   // anomalías
   global.stEfListo = false;
   d.putInt('starvios_dia', 0); d.putInt('starvios_ultimo_dia', 0);
   d.putBoolean('starvios_activo', false); d.putBoolean('starvios_intro_vista', false); d.putBoolean('starvios_resurreccion_revelada', false);

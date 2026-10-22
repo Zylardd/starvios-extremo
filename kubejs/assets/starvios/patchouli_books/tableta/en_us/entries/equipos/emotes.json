@@ -1,0 +1,13 @@
+{
+ "name": "Emotes",
+ "icon": "minecraft:cake",
+ "category": "starvios:equipos",
+ "sortnum": 4,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Emotes",
+   "text": "$(l)/emote <saludo|baile|giro|celebrar|corazones|triste|enojado|dormir>$()$(br2)También están como botones en tu Diario."
+  }
+ ]
+}

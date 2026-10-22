@@ -1,0 +1,13 @@
+{
+ "name": "Mazmorras",
+ "icon": "minecraft:iron_bars",
+ "category": "starvios:peligros",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Mazmorras",
+   "text": "Laberintos llenos de monstruos y generadores, a 1200–4500 bloques del spawn. Se anuncian con sus coordenadas.$(br2)Al fondo espera el $(l)Capitán$() con su escolta. Su cofre tiene el mejor botín. $(l)/mazmorras$() muestra las activas."
+  }
+ ]
+}

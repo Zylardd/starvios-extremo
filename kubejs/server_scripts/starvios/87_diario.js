@@ -158,3 +158,34 @@ ServerEvents.commandRegistry(event => {
     return 1;
   }));
 });
+
+// ============================================================
+//  TABLETA DE STARVIOS (guía con el mod Patchouli): reglas, misiones, corazones, dinero,
+//  equipos, peligros, mods y comandos. Se entrega una vez al entrar; si la pierdes: /tableta
+//  Contenido: kubejs/assets/starvios/patchouli_books/tableta/  ·  libro: kubejs/data/starvios/patchouli_books/tableta/book.json
+// ============================================================
+let TB_ITEM = 'patchouli:guide_book{"patchouli:book":"starvios:tableta"}';
+let tbDar = (server, n, forzar) => {
+  let dados = [];
+  try { dados = JSON.parse(server.persistentData.getString('starvios_tableta_dada') || '[]'); } catch (e) {}
+  if (!forzar && dados.indexOf(n) !== -1) return;
+  if (dados.indexOf(n) === -1) { dados.push(n); server.persistentData.putString('starvios_tableta_dada', JSON.stringify(dados)); }
+  server.runCommandSilent(`give ${n} ${TB_ITEM}`);
+};
+PlayerEvents.loggedIn(event => {
+  let server = event.server, n = event.player.getName().getString();
+  server.scheduleInTicks(140, () => tbDar(server, n, false));
+});
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands } = event;
+  event.register(Commands.literal('tableta').executes(ctx => {
+    let p = ctx.source.player;
+    if (!p) return 0;
+    let n = p.getName().getString();
+    let tiene = Number(ctx.source.server.runCommandSilent(`clear ${n} patchouli:guide_book{"patchouli:book":"starvios:tableta"} 0`)) > 0;
+    if (tiene) { ctx.source.sendSystemMessage(Text.of('§7Ya tienes tu Tableta de Starvios.')); return 1; }
+    tbDar(ctx.source.server, n, true);
+    ctx.source.sendSystemMessage(Text.of('§6📱 Aquí tienes tu Tableta de Starvios.'));
+    return 1;
+  }));
+});

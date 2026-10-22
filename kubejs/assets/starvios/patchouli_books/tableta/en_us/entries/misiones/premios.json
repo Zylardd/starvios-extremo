@@ -1,0 +1,13 @@
+{
+ "name": "Premios",
+ "icon": "minecraft:diamond_sword",
+ "category": "starvios:misiones",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Premios",
+   "text": "Las misiones dan Starcoins, Corazones Frágiles, buffs que duran días y equipo que $(l)no se puede craftear$():$(li)Armaduras Guerrero, Steampunk, Pesada y Divina$(li)Armadura de Ignitium (mejor que la netherita)$(li)Armas de Mowzie's Mobs y Cataclysm$(br2)Además ganas un $(l)2º buff$() hasta que acabe el día."
+  }
+ ]
+}

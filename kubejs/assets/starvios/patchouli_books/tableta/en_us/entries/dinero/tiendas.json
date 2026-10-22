@@ -1,0 +1,13 @@
+{
+ "name": "Tiendas",
+ "icon": "minecraft:emerald",
+ "category": "starvios:dinero",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Tiendas",
+   "text": "Las tiendas son $(l)máquinas$() en el spawn (expendedoras, vitrinas, estanterías): ves el objeto, su precio y el stock. Clic derecho para comprar.$(br2)Con $(l)/comercio ofrecer <jugador> <precio>$() vendes lo de tu mano a otro jugador de forma segura."
+  }
+ ]
+}

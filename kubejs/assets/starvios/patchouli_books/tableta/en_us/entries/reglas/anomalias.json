@@ -1,0 +1,13 @@
+{
+ "name": "Nerfs y buffs",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "starvios:reglas",
+ "sortnum": 4,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerfs y buffs",
+   "text": "Durante el día los Cuyes revelan $(l)anomalías$(): 2 nerfs y 1 buff por día, que aparecen arriba a la derecha.$(br2)Se quedan activas el resto de la serie. Las ves todas en tu $(l)Diario$() o con $(l)/anomalias$()."
+  }
+ ]
+}

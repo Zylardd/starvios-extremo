@@ -1,0 +1,13 @@
+{
+ "name": "Cómo se completan",
+ "icon": "minecraft:lectern",
+ "category": "starvios:misiones",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Cómo se completan",
+   "text": "Cada día hay una misión nueva. Ve al $(l)atril del spawn$() y haz clic derecho.$(br2)Basta con $(l)tener$() lo que pide: no se gasta. La $(l)armadura cuenta solo si la llevas puesta$().$(br2)Lo que uses para una misión queda marcado ese día: si se lo pasas a otro, a él no le sirve. ¡Nada de préstamos!$(br2)Solo vale el día de hoy: mañana habrá otra."
+  }
+ ]
+}

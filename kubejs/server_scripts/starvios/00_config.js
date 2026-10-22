@@ -442,10 +442,14 @@ global.STARVIOS = {
 
   // Anuncio del día: barra pequeña arriba ("DÍA N · Título") + descripción en el chat + voz
   anuncioDia: { barraSegundos: 20, voz: true },   // barraSegundos: 0 = la barra se queda todo el día
-  prologoSegundos: 180,   // duración del prólogo narrado (generar_prologo.bat te dice cuánto dura)
+  prologoSegundos: 206,   // duración del prólogo narrado (generar_prologo.bat te dice cuánto dura)
   // Texto del prólogo (lo narra la voz y sale en subtítulos). Si cambias el texto, vuelve a generar el audio
   // con generar_prologo.bat: además crea kubejs/config/starvios_prologo.json con los tiempos exactos.
   prologoSubtitulos: true,
+  silenciarVozEnPrologo: true,   // con Plasmo Voice: nadie (salvo admins) puede hablar mientras suena el prólogo
+  // Inicio y fin (segundos) de cada frase del audio actual, medidos de la grabación de prueba.
+  // Si existe kubejs/config/starvios_prologo.json (lo crea generar_prologo.bat), se usa ese en su lugar.
+  prologoTiempos: [[0.09,8.42],[10.29,19.93],[21.66,25.43],[27.32,40.99],[42.89,53.91],[55.68,65.83],[67.68,76.71],[78.55,90.56],[92.54,99.27],[101.14,110.71],[112.66,122.89],[124.78,139.58],[141.4,146.45],[148.24,160.99],[163.0,169.7],[171.64,179.6],[181.4,193.89],[195.75,203.37]],
   prologoDesfase: 0,      // si los subtítulos van ADELANTADOS pon un número positivo (ej. 0.5); si van ATRASADOS, negativo
   prologo: [
     "Buenas tardes, viajeros. Mi nombre es Liz, y seré su voz en este valle. Estén donde estén… escuchen con atención.",

@@ -1,0 +1,13 @@
+{
+ "name": "Resurrección",
+ "icon": "kubejs:corazon_resurreccion",
+ "category": "starvios:corazones",
+ "sortnum": 4,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Resurrección",
+   "text": "Cuando alguien cae, su $(l)Alma$() queda donde murió (las coordenadas salen en el chat).$(br2)Con el $(l)Corazón de Resurrección$() en la mano principal y el Alma en la otra, haz clic derecho: tu compañero vuelve, pero $(l)desde cero$() (sin objetos).$(br2)La receta es secreta: los Cuyes la revelan cuando el valle esté desesperado ($(l)/resurreccion$())."
+  }
+ ]
+}

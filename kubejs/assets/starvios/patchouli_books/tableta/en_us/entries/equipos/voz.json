@@ -1,0 +1,13 @@
+{
+ "name": "Chat de voz",
+ "icon": "minecraft:note_block",
+ "category": "starvios:equipos",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Chat de voz",
+   "text": "Habla con quien tengas cerca usando el chat de voz.$(br2)Cuando Liz cuente la historia o los admins hablen, la voz de todos puede silenciarse un momento.$(br2)Ajusta el volumen de Liz en $(l)Opciones → Música y sonidos → Voz/Habla$()."
+  }
+ ]
+}

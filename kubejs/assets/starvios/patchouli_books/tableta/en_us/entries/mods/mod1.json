@@ -1,0 +1,13 @@
+{
+ "name": "L_Ender's Cataclysm",
+ "icon": "minecraft:netherite_ingot",
+ "category": "starvios:mods",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "L_Ender's Cataclysm",
+   "text": "Los jefes más duros: la $(l)Monstruosidad de Netherita$() e $(l)Ignis$(), y los jefes de las criptas. La $(l)armadura de Ignitium$() es mejor que la netherita: se gana con misiones."
+  }
+ ]
+}
