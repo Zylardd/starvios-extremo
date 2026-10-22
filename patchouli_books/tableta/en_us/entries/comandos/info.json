@@ -1,0 +1,13 @@
+{
+ "name": "Información",
+ "icon": "minecraft:book",
+ "category": "patchouli:comandos",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Información",
+   "text": "$(li)$(l)/diario$(): tu libro con todo$(li)$(l)/dia$(): reglas activas$(li)$(l)/mision$(): misión de hoy$(li)$(l)/anomalias$(): nerfs y buffs$(li)$(l)/mazmorras$(): mazmorras activas$(li)$(l)/resurreccion$(): receta (cuando se revele)"
+  }
+ ]
+}

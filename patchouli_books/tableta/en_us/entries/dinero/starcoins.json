@@ -1,0 +1,13 @@
+{
+ "name": "Starcoins",
+ "icon": "kubejs:starcoin",
+ "category": "patchouli:dinero",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Starcoins",
+   "text": "La moneda del valle. Hay 4: Starcoin (1 ✦), de plata (10), de oro (100) y de diamante (1000).$(br2)Ganas Starcoins matando monstruos y élites, con misiones, jefes y vendiendo ($(l)/vender$()). Van directo a tu $(l)banco$(): míralo con $(l)/dinero$().$(br2)En un $(l)cajero (ATM)$() del spawn sacas monedas físicas o las depositas. $(l)/pagar$() envía dinero a otro jugador."
+  }
+ ]
+}

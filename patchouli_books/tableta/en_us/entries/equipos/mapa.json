@@ -1,0 +1,13 @@
+{
+ "name": "Mapa",
+ "icon": "minecraft:filled_map",
+ "category": "patchouli:equipos",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Mapa",
+   "text": "Usa el minimapa (Xaero). Pulsa $(l)M$() para el mapa grande.$(br2)Al entrar te sale el punto $(l)Base$(): dale a $(l)[Add]$() para guardarlo. Verás a los demás jugadores en el mapa.$(br2)El mapa no muestra cuevas: las criptas y mazmorras hay que encontrarlas."
+  }
+ ]
+}

@@ -162,9 +162,9 @@ ServerEvents.commandRegistry(event => {
 // ============================================================
 //  TABLETA DE STARVIOS (guía con el mod Patchouli): reglas, misiones, corazones, dinero,
 //  equipos, peligros, mods y comandos. Se entrega una vez al entrar; si la pierdes: /tableta
-//  Contenido: kubejs/assets/starvios/patchouli_books/tableta/  ·  libro: kubejs/data/starvios/patchouli_books/tableta/book.json
+//  Libro y contenido: carpeta patchouli_books/tableta/ (en la raíz del modpack y del servidor)
 // ============================================================
-let TB_ITEM = 'patchouli:guide_book{"patchouli:book":"starvios:tableta"}';
+let TB_ITEM = 'patchouli:guide_book{"patchouli:book":"patchouli:tableta"}';
 let tbDar = (server, n, forzar) => {
   let dados = [];
   try { dados = JSON.parse(server.persistentData.getString('starvios_tableta_dada') || '[]'); } catch (e) {}
@@ -172,9 +172,15 @@ let tbDar = (server, n, forzar) => {
   if (dados.indexOf(n) === -1) { dados.push(n); server.persistentData.putString('starvios_tableta_dada', JSON.stringify(dados)); }
   server.runCommandSilent(`give ${n} ${TB_ITEM}`);
 };
+// Cambia las tabletas viejas (starvios:tableta, no funcionan) por la nueva
+let tbCambiarViejas = (server, n) => {
+  let viejas = Number(server.runCommandSilent(`clear ${n} patchouli:guide_book{"patchouli:book":"starvios:tableta"}`)) > 0;
+  if (viejas) server.runCommandSilent(`give ${n} ${TB_ITEM}`);
+  return viejas;
+};
 PlayerEvents.loggedIn(event => {
   let server = event.server, n = event.player.getName().getString();
-  server.scheduleInTicks(140, () => tbDar(server, n, false));
+  server.scheduleInTicks(140, () => { tbCambiarViejas(server, n); tbDar(server, n, false); });
 });
 ServerEvents.commandRegistry(event => {
   let { commands: Commands } = event;
@@ -182,7 +188,8 @@ ServerEvents.commandRegistry(event => {
     let p = ctx.source.player;
     if (!p) return 0;
     let n = p.getName().getString();
-    let tiene = Number(ctx.source.server.runCommandSilent(`clear ${n} patchouli:guide_book{"patchouli:book":"starvios:tableta"} 0`)) > 0;
+    if (tbCambiarViejas(ctx.source.server, n)) { ctx.source.sendSystemMessage(Text.of('§6📱 Tu tableta vieja se cambió por la nueva.')); return 1; }
+    let tiene = Number(ctx.source.server.runCommandSilent(`clear ${n} patchouli:guide_book{"patchouli:book":"patchouli:tableta"} 0`)) > 0;
     if (tiene) { ctx.source.sendSystemMessage(Text.of('§7Ya tienes tu Tableta de Starvios.')); return 1; }
     tbDar(ctx.source.server, n, true);
     ctx.source.sendSystemMessage(Text.of('§6📱 Aquí tienes tu Tableta de Starvios.'));

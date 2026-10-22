@@ -1,0 +1,11 @@
+{
+ "name": "Tableta de Starvios",
+ "landing_text": "$(l)Bienvenido, forastero.$()$(br2)Aquí está todo lo que necesitas saber para sobrevivir 28 días en Starvios: las reglas, las misiones, el dinero, los mods y los comandos.$(br2)Lo que cambia cada día (misión, nerfs y buffs activos) lo ves en tu $(l)Diario de Starvios$().",
+ "version": 1,
+ "show_progress": false,
+ "i18n": false,
+ "model": "starvios:tableta",
+ "book_texture": "patchouli:textures/gui/book_gray.png",
+ "creative_tab": "minecraft:tools_and_utilities",
+ "subtitle": "Guía del forastero"
+}

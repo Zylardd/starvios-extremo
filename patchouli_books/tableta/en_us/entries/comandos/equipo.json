@@ -1,0 +1,13 @@
+{
+ "name": "Equipo y diversión",
+ "icon": "minecraft:white_banner",
+ "category": "patchouli:comandos",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Equipo y diversión",
+   "text": "$(li)$(l)/equipo crear|invitar|aceptar|rechazar|salir|expulsar|info|lista$()$(li)$(l)/eq <mensaje>$()$(li)$(l)/emote <nombre>$()"
+  }
+ ]
+}

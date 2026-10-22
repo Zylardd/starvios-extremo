@@ -1,0 +1,13 @@
+{
+ "name": "Lightman's Currency",
+ "icon": "kubejs:starcoin",
+ "category": "patchouli:mods",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Lightman's Currency",
+   "text": "Las $(l)Starcoins$(), el banco, los cajeros (ATM), las máquinas de las tiendas, la tragamonedas y la gacha."
+  }
+ ]
+}

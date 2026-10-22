@@ -1,0 +1,13 @@
+{
+ "name": "Corazón Vital",
+ "icon": "kubejs:corazon_vital",
+ "category": "patchouli:corazones",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Corazón Vital",
+   "text": "Clic derecho: $(l)+1 corazón máximo para siempre$(). Los jefes sueltan varios al morir."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "name": "SecurityCraft",
+ "icon": "minecraft:iron_door",
+ "category": "patchouli:mods",
+ "sortnum": 4,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "SecurityCraft",
+   "text": "Puertas, cerraduras y bloques reforzados para proteger tu base. Las $(l)minas explosivas están prohibidas$()."
+  }
+ ]
+}

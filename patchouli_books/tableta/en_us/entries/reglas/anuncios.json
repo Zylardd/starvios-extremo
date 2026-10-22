@@ -1,0 +1,13 @@
+{
+ "name": "Anuncios y Diario",
+ "icon": "minecraft:written_book",
+ "category": "patchouli:reglas",
+ "sortnum": 5,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Anuncios y Diario",
+   "text": "Los avisos importantes salen $(l)arriba a la derecha$() para que el chat quede libre:$(li)📢 Starvios: el día y los buffs$(li)📜 Misión del día$(li)⚠ Anomalía: los nerfs$(br2)Tu $(l)Diario de Starvios$() (libro) se actualiza solo: día, misión, nerfs/buffs y botones para todo. Si lo pierdes: $(l)/diario$()."
+  }
+ ]
+}

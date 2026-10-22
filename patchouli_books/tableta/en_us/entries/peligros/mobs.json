@@ -1,0 +1,13 @@
+{
+ "name": "Monstruos",
+ "icon": "minecraft:creeper_head",
+ "category": "patchouli:peligros",
+ "sortnum": 4,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Monstruos",
+   "text": "Desde el día 1 los mobs hacen el doble de daño, y aparecen más en la superficie, de día y de noche. Los monstruos no se atacan entre ellos.$(br2)El spawn es zona segura: nadie rompe nada y no aparecen monstruos."
+  }
+ ]
+}

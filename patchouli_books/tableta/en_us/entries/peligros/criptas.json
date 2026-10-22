@@ -1,0 +1,13 @@
+{
+ "name": "Criptas",
+ "icon": "minecraft:mossy_stone_bricks",
+ "category": "patchouli:peligros",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Criptas",
+   "text": "Tumbas subterráneas: arco en la superficie, escalera, laberinto y un $(l)jefe de Cataclysm$() en el trono. No se pueden romper ni construir dentro, y todos los monstruos van a por ti."
+  }
+ ]
+}

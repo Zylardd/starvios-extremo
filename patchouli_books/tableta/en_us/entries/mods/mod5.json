@@ -1,0 +1,13 @@
+{
+ "name": "Construcción y decoración",
+ "icon": "minecraft:oak_planks",
+ "category": "patchouli:mods",
+ "sortnum": 5,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Construcción y decoración",
+   "text": "Macaw's (puertas, ventanas, luces, caminos), Handcrafted y Refurbished Furniture (muebles), Chipped (variantes de bloques), Immersive Paintings (cuadros con tus imágenes)."
+  }
+ ]
+}

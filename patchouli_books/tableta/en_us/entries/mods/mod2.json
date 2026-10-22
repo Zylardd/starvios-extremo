@@ -1,0 +1,13 @@
+{
+ "name": "Immersive Armors",
+ "icon": "minecraft:iron_chestplate",
+ "category": "patchouli:mods",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Immersive Armors",
+   "text": "Armaduras especiales (Guerrero, Steampunk, Pesada, Divina...). $(l)No se craftean$(): son premios de las misiones."
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+ "name": "Élites",
+ "icon": "minecraft:zombie_head",
+ "category": "patchouli:peligros",
+ "sortnum": 1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Élites",
+   "text": "Mobs con nombre morado ($(l)☠ Élite$()): más vida, más daño y armadura. Sueltan Fragmentos de Corazón y premios.$(br2)Cuidado: los élites $(l)rompen bloques$() para alcanzarte, y si te subes a un pilar, te lo tiran."
+  }
+ ]
+}

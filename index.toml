@@ -86,7 +86,7 @@ hash = "59bc321cb7ab6a60747b419c47697b404b939acbc05f4a8361215a5727b53125"
 
 [[files]]
 file = "config/securitycraft-client.toml"
-hash = "3093c52280904c9a8f111fdf4a016c5785b817ac022389e19de9f61dbc8631bf"
+hash = "a61787956d78cca0c3a5665f7f86d2fb85b9da1ca96596bd6da71c5f5f38aeae"
 
 [[files]]
 file = "dias_mp3/1.mp3"
@@ -1182,7 +1182,7 @@ hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/87_diario.js"
-hash = "1d518a3cb4d4c69e6330c9cad08e331483b41c11328f1c57d7364a53e84404a5"
+hash = "dce60c36e56673d691971023bb8f1494c051789f9fc7b542f5723fdd94279dad"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/88_anuncios.js"
@@ -1573,6 +1573,174 @@ metafile = true
 file = "mods/zeta.pw.toml"
 hash = "b43f507cffbcc7178b184fa63b2d74fc6b2b8103c4d299ec5633ccf1f5abdafb"
 metafile = true
+
+[[files]]
+file = "patchouli_books/tableta/book.json"
+hash = "d7ba47fe237ec927bf47d073ab686e03b160553f1947b14bf5a58e91ce903abc"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/comandos.json"
+hash = "faeff967155a8e1588ea9110634465dcf82184df7100ec01072d75f0b74c9cbf"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/corazones.json"
+hash = "3d350b4f13d1a483e440aa5b00d14c8915a055cb293502b5f15cb0ebbfb941a5"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/dinero.json"
+hash = "ce77f2e2d6085ebd03d803c075ed6c3c593727d002ded2567ff6c95ae062dbce"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/equipos.json"
+hash = "919e0cc0edd0641dc80bc468941e64847388ac4350311fa1d6c741742486964c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/misiones.json"
+hash = "00e384c995b8ab5c73938156b50ae2d21424df449032ac77782d0feb58f8af51"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/mods.json"
+hash = "ba74246cb3f338f5e5d362e9d1a5a17da07d6136915b5b80d6d84618f97d4fa5"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/peligros.json"
+hash = "8195ce27ef6dd076491bb139f76c49c1c1e7c17562d14db9b219a30e4366ee72"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/reglas.json"
+hash = "0cf567f3054d25df6cd69ea4b6b025f739c1fb435499ba364bfe11c22a8e81fd"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/comandos/dinero.json"
+hash = "543a222e1983281c97c9cf8fb1856bd9f7cb094101eb42f23f27946ab9f44956"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/comandos/equipo.json"
+hash = "e37ab4cf50db87f2e5c568ec596212adea300501fea93203f259e8a2a9a354ec"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/comandos/info.json"
+hash = "04a15354b7301adf1e8a562a825e36dd68356a790a985de434a953ff3051ca26"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/corazones/fragil.json"
+hash = "95fc5237a63cff51b3957c304a5f902ef7aaf854213702a59235dedfdf9d55e0"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/corazones/fragmento.json"
+hash = "0b9baece9a1fc80bafb8c49cf85aa766e7b19894004c50fb4adce90cff08d60e"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/corazones/resurreccion.json"
+hash = "301a31e095f7f288a5668cb98a7dbc5088ecfe335741ca4cd6ba90b3d941b985"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/corazones/vital.json"
+hash = "d65778137990f456079df90559fffe0c50d0b7c3e22bd727f923bf047c513021"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/dinero/casino.json"
+hash = "599dd78fee7669004ad0a61d44acb90eb2fee124d64d0743c16941d9c35c8f51"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/dinero/starcoins.json"
+hash = "87ab5730cc70440cd727413f5bcd3b8ef7121b443a663cc97a34c6b6abb1214c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/dinero/tiendas.json"
+hash = "3c375eae0db31a956398d1fd44d944d46d3235bd6c20ce7c6fcef84b261b0d45"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/equipos/emotes.json"
+hash = "dfb3f15881601d32f196c2ea565c19b84981837131bb96bdd2b6ccd85d7de354"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/equipos/equipos.json"
+hash = "efd4c94e5e75f72ff6a8e95409e4713ae81597247e51c6f1691c01d1c4354306"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/equipos/mapa.json"
+hash = "aa0c6ce113a067e1b0b6d8212adcf6fbf63d84d8ac90320f54dd610869ad2aed"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/equipos/voz.json"
+hash = "ab29a501a9749dbdb42ceaf72a0eab96f2a2349d30ac16c29db3f68da5f09c10"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/misiones/como.json"
+hash = "271fcf058c062a557d993fe0792a1c9f5673047a0ca49932730320926ddedfe6"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/misiones/equipo.json"
+hash = "c622321da6659ad7224a5006e30ca947ba054c517e171ee2b336e8d6c062cdf2"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/misiones/premios.json"
+hash = "caf202463e3cd8f092817f769224ad5b5e0067c0891d39ad8b8251b97a01c622"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod0.json"
+hash = "feab9047b176dae5a9d1e04873c7b1c3f73b81e86a9a1307db20d79fd455fcc9"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod1.json"
+hash = "f54a4d08b51c988adeb9bd071b87deb70e73417c7c2435c5fc17e238670a05de"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod2.json"
+hash = "06221de46503931972644ab299605a13553334412818fa9692d0deda310c299a"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod3.json"
+hash = "048410075944651bfdaeb9371aa369bfaab47b967bb5137f701b40e7dbd49af3"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod4.json"
+hash = "9010df97ac6863b09c8d441799cce8d694c4aa9a17a65fa42eec4ea23c91ceba"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod5.json"
+hash = "d1d6910361ac477c82ff4268b6d15ab69e7b81e69693e31d894f6495cbab2cb3"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod6.json"
+hash = "7c978576fc73823ad02702e3a9434b99db3031672130fd3b67c26392f36ca998"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/peligros/criptas.json"
+hash = "168d9b5159f87e3c53659e5bb6fdd93465680bf7c56e1bbda2b17e698f3bf18c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/peligros/elites.json"
+hash = "7eb51b1e3c1b35acfb0e80120712c804cf593f5820cfc22c69b67bc9f1fec7cd"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/peligros/mazmorras.json"
+hash = "fcd0d57f976498a86b32a252c263e4cc47c9b31330610e9e3f0722cb7d6b541b"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/peligros/mobs.json"
+hash = "bd670b939a1271e2a129a23a39d0ad2ff4b2f50db915fd7dc6af140852010c08"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/reglas/anomalias.json"
+hash = "90072e33a23b268cea95b1019bed18605b22e9f0d1aab19f17613014e6f4e50c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/reglas/anuncios.json"
+hash = "ffacccc648ee64de29cf5941334b5a33fcb8d41d8b0100069db779312f2676a9"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/reglas/dias.json"
+hash = "54cbb165dbae671b945e633419c1103108cff1bab5986b6e47d2988152c9a230"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/reglas/jefes.json"
+hash = "009a6218c6a6b4cc8f6f7dedd1c24395cd38f1a731526512e3415561331c6a5c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/reglas/muerte.json"
+hash = "a47fee2c804bf17550c578a87067adf3c7029ca9a8b35ca213badd45731c7cd9"
 
 [[files]]
 file = "prologo_mp3/1.mp3"

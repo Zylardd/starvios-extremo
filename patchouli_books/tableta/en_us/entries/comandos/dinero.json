@@ -1,0 +1,13 @@
+{
+ "name": "Dinero",
+ "icon": "kubejs:starcoin",
+ "category": "patchouli:comandos",
+ "sortnum": 2,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Dinero",
+   "text": "$(li)$(l)/dinero$()$(li)$(l)/pagar <jugador> <cantidad>$()$(li)$(l)/vender$() (lo de la mano)$(li)$(l)/lcbaltop$(): los más ricos$(li)$(l)/comercio ofrecer|aceptar|rechazar|cancelar$()$(li)$(l)/ruleta$(), $(l)/duelo$(), $(l)/loteria$()"
+  }
+ ]
+}

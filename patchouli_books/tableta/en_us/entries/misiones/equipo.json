@@ -1,0 +1,13 @@
+{
+ "name": "Bonus de equipo",
+ "icon": "minecraft:white_banner",
+ "category": "patchouli:misiones",
+ "sortnum": 3,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Bonus de equipo",
+   "text": "Si $(l)todos los vivos de tu equipo$() completan la misión el mismo día, cada uno recibe $(l)1 Corazón Frágil extra$()."
+  }
+ ]
+}
