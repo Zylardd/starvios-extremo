@@ -161,15 +161,92 @@ PlayerEvents.loggedIn(event => {
   server.persistentData.putString('starvios_cine_antes', JSON.stringify(m));
 });
 
-// ---------- Prólogo narrado (solo audio) ----------
+// ---------- Prólogo narrado (solo audio + subtítulos) ----------
 let PROLOGO_SONIDO = 'starvios:prologo.completo';
+let PR_TIEMPOS = 'kubejs/config/starvios_prologo.json';   // lo crea generar_prologo.bat (tiempos exactos de cada frase)
+
+// [[inicio, fin, texto], ...] en segundos
+let prSegmentos = () => {
+  try {
+    let m = JsonIO.read(PR_TIEMPOS);
+    if (m) {
+      let d = JSON.parse(String(m.datos != null ? m.datos : m.get('datos')));
+      if (d && d.length) return d;
+    }
+  } catch (e) {}
+  // Sin archivo de tiempos: se reparte la duración según lo largo de cada frase
+  let txt = global.STARVIOS.prologo || [];
+  let total = Number(global.STARVIOS.prologoSegundos) || 90;
+  let letras = txt.reduce((s, t) => s + t.length, 0) || 1;
+  let r = [], t0 = 0.3;
+  txt.forEach(t => { let d = (total - 1) * t.length / letras; r.push([t0, t0 + d, t]); t0 += d; });
+  return r;
+};
+global.stPrologoDuracion = () => {
+  let seg = prSegmentos();
+  let fin = seg.length ? Number(seg[seg.length - 1][1]) : 0;
+  return Math.max(fin + 1, Number(global.STARVIOS.prologoSegundos) || 0) || 90;
+};
+
+// Parte una frase en trozos de ~55 letras que quepan en pantalla
+let prTrozos = (texto) => {
+  let palabras = String(texto).split(' '), out = [], cur = '';
+  palabras.forEach(w => {
+    if ((cur + ' ' + w).trim().length > 55 && cur) { out.push(cur.trim()); cur = w; }
+    else cur = (cur + ' ' + w).trim();
+    if (/[.!?…:]$/.test(w) && cur.length > 25) { out.push(cur.trim()); cur = ''; }
+  });
+  if (cur.trim()) out.push(cur.trim());
+  return out;
+};
+let prEsc = (t) => String(t).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+
+// Subtítulos abajo (encima de la barra de objetos), pequeños, y sincronizados con el RELOJ REAL:
+// aunque el servidor vaya lento, cada línea sale en el segundo exacto del audio.
+// Si notas que van adelantados/atrasados, ajusta prologoDesfase en 00_config.js (segundos, puede ser negativo).
+let prSubs = [];          // [[inicio, fin, texto], ...] por trozos
+let prInicio = 0, prUltimo = -1, prUltimoEnvio = 0;
+global.stPrologoToken = 0;
 global.stPrologoAudio = (server) => {
-  let seg = Number(global.STARVIOS.prologoSegundos) || 90;
-  global.stPrologoHasta = Date.now() + seg * 1000;     // el anuncio del día 1 espera a que termine
+  let total = global.stPrologoDuracion();
+  global.stPrologoHasta = Date.now() + total * 1000;     // el anuncio del día 1 espera a que termine
   // volumen 100 = se oye igual en cualquier sitio cercano aunque te muevas
-  server.runCommandSilent(`execute as @a at @s run playsound ${PROLOGO_SONIDO} master @s ~ ~ ~ 100 1`);
+  server.runCommandSilent(`execute as @a at @s run playsound ${PROLOGO_SONIDO} voice @s ~ ~ ~ 100 1`);
+  prSubs = [];
+  if (global.STARVIOS.prologoSubtitulos !== false) {
+    prSegmentos().forEach(sg => {
+      let ini = Number(sg[0]), fin = Number(sg[1]);
+      let trozos = prTrozos(sg[2]);
+      let letras = trozos.reduce((s2, t) => s2 + t.length, 0) || 1;
+      let t = ini;
+      trozos.forEach(tr => { let d = (fin - ini) * tr.length / letras; prSubs.push([t, t + d, tr]); t += d; });
+    });
+  }
+  prInicio = Date.now() + (Number(global.STARVIOS.prologoDesfase) || 0) * 1000;
+  prUltimo = -1;
+  global.stPrologoToken = prInicio;
   return true;
 };
+ServerEvents.tick(event => { global.stSeguro('94_intro (subtítulos)', () => {
+  if (!prSubs.length || global.stPrologoToken !== prInicio) return;
+  let server = event.server;
+  let t = (Date.now() - prInicio) / 1000;
+  if (t < 0) return;
+  let i = -1;
+  for (let k = 0; k < prSubs.length; k++) if (t >= prSubs[k][0] && t < prSubs[k][1] + 0.4) { i = k; break; }
+  if (t > prSubs[prSubs.length - 1][1] + 1) {   // terminó
+    server.runCommandSilent('title @a actionbar {"text":""}');
+    prSubs = []; return;
+  }
+  // la barra de acción se borra sola a los ~2 s: se reenvía mientras dure la línea
+  if (i !== prUltimo || (i >= 0 && Date.now() - prUltimoEnvio > 1500)) {
+    prUltimo = i; prUltimoEnvio = Date.now();
+    server.runCommandSilent(i >= 0
+      ? `title @a actionbar {"text":"${prEsc(prSubs[i][2])}","color":"#F3E2C0","italic":true}`
+      : 'title @a actionbar {"text":""}');
+  }
+}); });
+
 global.stPrologoSonando = () => Date.now() < (global.stPrologoHasta || 0);
 
 ServerEvents.commandRegistry(event => {
@@ -180,7 +257,9 @@ ServerEvents.commandRegistry(event => {
       .executes(ctx => { global.stPrologoAudio(ctx.source.server); decir(ctx)('§6[Starvios] Prólogo sonando para todos.'); return 1; })
       .then(Commands.literal('parar').executes(ctx => {
         global.stPrologoHasta = 0;
-        ctx.source.server.runCommandSilent(`stopsound @a master ${PROLOGO_SONIDO}`);
+        global.stPrologoToken = -1;
+        ctx.source.server.runCommandSilent(`stopsound @a voice ${PROLOGO_SONIDO}`);
+        ctx.source.server.runCommandSilent('title @a actionbar {"text":""}');
         decir(ctx)('§6Prólogo detenido.'); return 1;
       }))
       .then(Commands.literal('reset').executes(ctx => {

@@ -40,20 +40,29 @@ ServerEvents.recipes(event => {
 ServerEvents.recipes(event => {
   if (!global.STARVIOS.corazonesExtra.activa) return;
   event.shaped(Item.of('kubejs:corazon_vital', NBT_VITAL), ['FF', 'FF'], {
-    F: Item.of('kubejs:fragmento_corazon', NBT_FRAGMENTO).weakNBT()
+    F: 'kubejs:fragmento_corazon'
   }).id('starvios:corazon_vital');
   let cf = global.STARVIOS.corazonFragil;
   if (cf && cf.activa) {
     event.shaped(Item.of('kubejs:corazon_fragil', NBT_FRAGIL), ['FG', 'GF'], {
-      F: Item.of('kubejs:fragmento_corazon', NBT_FRAGMENTO).weakNBT(), G: 'minecraft:gold_ingot'
+      F: 'kubejs:fragmento_corazon', G: 'minecraft:gold_ingot'
     }).id('starvios:corazon_fragil');
   }
 });
 
 // ---------- Utilidades ----------
+// Se reconoce por sus datos (NBT) o por el ID del objeto (los sacados del menú creativo/JEI no traen NBT)
+let ST_ID_DE_TAG = {
+  starvios_fragmento: 'kubejs:fragmento_corazon', starvios_corazon_vital: 'kubejs:corazon_vital',
+  starvios_corazon_fragil: 'kubejs:corazon_fragil', starvios_resurreccion: 'kubejs:corazon_resurreccion'
+};
 let stTag = (item, tag) => {
   if (!item || item.isEmpty()) return false;
-  let nbt = item.nbt;
+  let id = '';
+  try { id = String(item.getId()); } catch (e) { try { id = String(item.id); } catch (e2) {} }
+  if (ST_ID_DE_TAG[tag] && id === ST_ID_DE_TAG[tag]) return true;
+  let nbt = null;
+  try { nbt = item.nbt; } catch (e) {}
   return nbt != null && nbt.contains(tag);
 };
 

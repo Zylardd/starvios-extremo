@@ -142,6 +142,14 @@ global.stEsc = (t) => String(t == null ? '' : t).replace(/\\/g, '\\\\').replace(
 // "Dia 1, Mortalidad" -> "Mortalidad" (por si el título ya trae el número)
 global.stTituloDia = (t) => String(t || '').replace(/^\s*d[ií]a\s*\d+\s*[,:·.\-]?\s*/i, '').replace(/^["“]|["”]$/g, '');
 
+// Aviso tipo "logro" en la esquina superior derecha (kubejs/data/starvios/advancements/anuncio/<id>.json).
+// Se concede y se quita enseguida, así se puede volver a mostrar y no queda en la pantalla de logros.
+global.stToast = (server, quien, id) => {
+  server.runCommandSilent(`advancement revoke ${quien} only starvios:anuncio/${id}`);
+  server.runCommandSilent(`advancement grant ${quien} only starvios:anuncio/${id}`);
+  server.scheduleInTicks(60, () => server.runCommandSilent(`advancement revoke ${quien} only starvios:anuncio/${id}`));
+};
+
 // Anuncio discreto: barra pequeña arriba con "DÍA N · Título"; la descripción va solo al chat
 global.stAnunciar = (server, dia) => {
   let a = global.STARVIOS.anuncios[dia];
@@ -164,16 +172,14 @@ global.stAnunciar = (server, dia) => {
       global.stCmd(server, `bossbar remove ${BAR}`);
     });
   }
-  // Chat: la descripción del día
-  global.stCmd(server, `tellraw @a {"text":"━━━━━━━━ DÍA ${dia} · ${titulo} ━━━━━━━━","color":"dark_red","bold":true}`);
-  global.stCmd(server, `tellraw @a {"text":"${global.stEsc(a[1])}","color":"gray"}`);
-  global.stCmd(server, `tellraw @a ["",{"text":"Escribe ","color":"dark_gray"},{"text":"/dia","color":"aqua","clickEvent":{"action":"run_command","value":"/dia"},"hoverEvent":{"action":"show_text","contents":"Ver todas las reglas activas"}},{"text":" para ver todas las reglas activas.","color":"dark_gray"}]`);
+  // Aviso arriba a la derecha (el chat queda libre). La info completa está en el Diario de Starvios.
+  global.stToast(server, '@a', `dia_${dia}`);
   global.stCmd(server, `execute as @a at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 4 0.8`);
   // Misión del día (92_extras.js)
   if (global.stAnunciarMision) server.scheduleInTicks(60, () => global.stAnunciarMision(server));
   // Voz del narrador (necesita el paquete de voces en kubejs/assets del modpack)
   if (cfg.voz !== false) {
-    server.scheduleInTicks(30, () => global.stCmd(server, `execute as @a at @s run playsound starvios:dia.${dia} master @s ~ ~ ~ 8 1`));
+    server.scheduleInTicks(30, () => global.stCmd(server, `execute as @a at @s run playsound starvios:dia.${dia} voice @s ~ ~ ~ 8 1`));
   }
 };
 

@@ -400,6 +400,16 @@ EntityEvents.death(event => { global.stSeguro('93_anomalias (muerte)', () => {
   }
 }); });
 
+// Lista de anomalías activas para el Diario (87_diario.js): [{dia, tipo:'n1'|'n2'|'b', texto}]
+global.stEfActivas = (server) => {
+  let m = efLeer(server), r = [];
+  Object.keys(m).forEach(k => {
+    let d = parseInt(k), t = k.replace(/^\d+/, '');
+    if (EF_TEXTOS[d] && EF_TEXTOS[d][t]) r.push({ dia: d, tipo: t, texto: EF_TEXTOS[d][t] });
+  });
+  return r.sort((a, b) => a.dia - b.dia || (a.tipo < b.tipo ? -1 : 1));
+};
+
 // Multiplicadores que usan otros scripts (economía, recompensas)
 global.stEfMultDinero = (server, que) => {
   if (que === 'mob') return global.stEf(server, '5b') ? 2 : 1;
@@ -689,12 +699,9 @@ EntityEvents.hurt(event => {
 //  7) Activar / anunciar
 // ============================================================
 let efAnunciar = (server, dia, tipo) => {
+  // Aviso arriba a la derecha (kubejs/data/starvios/advancements/anuncio/<n1|n2|b>_<día>.json)
+  global.stToast(server, '@a', `${tipo}_${dia}`);
   let a = EF_ANUNCIO[tipo];
-  let txt = global.stEsc(EF_TEXTOS[dia][tipo]);
-  server.runCommandSilent(`tellraw @a ""`);
-  server.runCommandSilent(`tellraw @a {"text":"${global.stEsc(a.titulo)}","color":"${a.color}","bold":true}`);
-  server.runCommandSilent(`tellraw @a ["",{"text":"   ▸ ","color":"dark_gray"},{"text":"${txt}","color":"${tipo === 'b' ? 'yellow' : 'white'}"}]`);
-  server.runCommandSilent(`tellraw @a ""`);
   a.sonidos.forEach((s, i) => server.scheduleInTicks(i * 12, () =>
     server.runCommandSilent(`execute as @a at @s run playsound ${s[0]} master @s ~ ~ ~ 1 ${s[1]}`)));
 };

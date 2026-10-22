@@ -14,9 +14,12 @@ ServerEvents.tick(event => { global.stSeguro('92_extras (corazones)', () => {
   global.stCorTick = (global.stCorTick || 0) + 1;
   if (global.stCorTick % 20 !== 0) return;
   let server = event.server;
-  if (!global.stCorListo) {
-    global.stCorListo = true;
+  // Cada 10 s se asegura de que el marcador exista y esté puesto debajo del nombre
+  // (por si un /reload, un reset u otro mod lo quitó)
+  if (global.stCorTick % 200 === 20) {
     server.runCommandSilent('scoreboard objectives add st_corazones dummy {"text":"❤","color":"red"}');
+    server.runCommandSilent('scoreboard objectives modify st_corazones displayname {"text":"❤","color":"red"}');
+    server.runCommandSilent('scoreboard objectives setdisplay belowName st_corazones');
     server.runCommandSilent('scoreboard objectives setdisplay below_name st_corazones');
   }
   server.players.forEach(p => {
@@ -67,29 +70,95 @@ let msTextoPremio = (pr) => {
   if (pr.vitales) t.push(`${pr.vitales} Corazón Vital`);
   if (pr.fragmentos) t.push(`${pr.fragmentos} Fragmento(s) de Corazón`);
   if (pr.fragiles) t.push(`${pr.fragiles} Corazón(es) Frágil(es)`);
-  (pr.items || []).forEach(x => t.push(`${x[1]} ${msNombre(x[0])}`));
+  (pr.buffs || (pr.buff ? [pr.buff] : [])).forEach(b => t.push(`${b[2]} (${(b[3] || 1) > 1 ? b[3] + ' días' : 'hoy'})`));
+  (pr.items || []).forEach(x => t.push(x[2] ? (x[1] > 1 ? `${x[1]} ${x[2]}` : x[2]) : `${x[1]} ${msNombre(x[0])}`));
   return t.join(' + ');
 };
 let msPremioDe = (m) => m.premio || { monedas: m.monedas, fragmentos: m.fragmentos };
 
-global.stAnunciarMision = (server, quien) => {
+global.stAnunciarMision = (server, quien, enChat) => {
   let h = msHoy(server);
   if (!h) return;
+  if (!enChat) { global.stToast(server, quien || '@a', `mision_${h.dia}`); return; }   // aviso arriba a la derecha
   let a = quien || '@a';
   let titulo = h.m.texto ? `${h.m.texto}: ` : '';
-  server.runCommandSilent(`tellraw ${a} ["",{"text":"📜 Misión del día ${h.dia}: ","color":"aqua","bold":true},{"text":"${global.stEsc(titulo)}","color":"yellow"},{"text":"trae ${global.stEsc(msTextoPide(h.m))}","color":"white"}]`);
-  server.runCommandSilent(`tellraw ${a} ["",{"text":"   Entrégalo en el atril del spawn (clic derecho). Premio: ","color":"gray"},{"text":"${global.stEsc(msTextoPremio(msPremioDe(h.m)))}","color":"gold"}]`);
+  server.runCommandSilent(`tellraw ${a} ["",{"text":"📜 Misión del día ${h.dia}: ","color":"aqua","bold":true},{"text":"${global.stEsc(titulo)}","color":"yellow"},{"text":"${msEntrega(h.m) ? 'trae' : 'consigue y ten contigo'} ${global.stEsc(msTextoPide(h.m))}","color":"white"}]`);
+  server.runCommandSilent(`tellraw ${a} ["",{"text":"${msEntrega(h.m) ? '   Entrégalo en el atril del spawn (clic derecho). Premio: ' : '   Ve al atril del spawn con todo encima (puesto o en el inventario, no se gasta). Premio: '}","color":"gray"},{"text":"${global.stEsc(msTextoPremio(msPremioDe(h.m)))}","color":"gold"}]`);
   let eq = global.STARVIOS.misionEquipo;
   if (eq && eq.fragiles) server.runCommandSilent(`tellraw ${a} {"text":"   👥 Si todo tu equipo la completa hoy: +${eq.fragiles} Corazón Frágil para cada uno.","color":"dark_aqua"}`);
 };
 
+// ¿La misión se entrega (se quitan los objetos) o basta con tenerlos (puestos o en el inventario)?
+let msEntrega = (m) => m.entregar === true || (m.entregar == null && global.STARVIOS.misionesModo === 'entregar');
+
+// Buffs de recompensa que duran varios días: { jugador: [[efecto, nivel, hastaDía, nombre], ...] }
+let msBuffsLeer = (server) => { try { return JSON.parse(server.persistentData.getString('starvios_buffs') || '{}'); } catch (e) { return {}; } };
+let msBuffsAplicar = (server, n) => {
+  let dia = global.stDia(server);
+  let l = (msBuffsLeer(server)[n] || []).filter(b => dia <= b[2]);
+  l.forEach(b => server.runCommandSilent(`effect give ${n} ${b[0]} 45 ${b[1]} true`));
+};
+global.stMsBuffsAplicar = msBuffsAplicar;
+
+// Cuenta lo que tiene un jugador para un requisito de misión "tener".
+//  ['@armadura:<texto>', N, nombre]  -> N piezas de armadura PUESTAS cuyo ID contiene <texto> (iron_, diamond_, netherite_, ignitium_...)
+//  [ID, N, nombre]                   -> si es armadura (casco/peto/grebas/botas) tiene que estar PUESTA; si no, en el inventario
+// No cuentan los objetos que ya se usaron HOY para la misión de otro jugador (así no se pueden prestar).
+let MS_ARMADURA = /_(helmet|chestplate|leggings|boots)$/;
+let msContar = (p, req, dia) => {
+  let inv = null;
+  try { inv = p.getInventory(); } catch (e) { try { inv = p.inventory; } catch (e2) {} }
+  let r = { n: 0, stacks: [], prestado: false };
+  if (!inv) return r;
+  let id0 = String(req[0]), nbtReq = '';
+  let mm = id0.match(/^([^{]+)(\{.*\})$/);
+  if (mm) { id0 = mm[1]; let pm = mm[2].match(/Potion:"([^"]+)"/); nbtReq = pm ? pm[1] : ''; }
+  let modoArm = id0.indexOf('@armadura:') === 0 ? id0.slice(10) : null;
+  let esArm = modoArm != null || MS_ARMADURA.test(id0);
+  let desde = esArm ? 36 : 0, hasta = esArm ? 39 : 40;
+  for (let i = desde; i <= hasta; i++) {
+    let it = null;
+    try { it = inv.getItem(i); } catch (e) { continue; }
+    if (!it || it.isEmpty()) continue;
+    let id = '';
+    try { id = String(it.getId()); } catch (e) { try { id = String(it.id); } catch (e2) { continue; } }
+    let ok = modoArm != null ? (id.indexOf(modoArm) !== -1 && MS_ARMADURA.test(id)) :
+      id0.charAt(0) === '#' ? (() => { try { return it.hasTag(id0.slice(1)); } catch (e) { return false; } })() : id === id0;
+    if (!ok) continue;
+    if (nbtReq) { let t = ''; try { t = String(it.nbt); } catch (e) {} if (t.indexOf(nbtReq) === -1) continue; }
+    let usado = 0;
+    try { let tg = it.getTag(); usado = tg ? Number(tg.getInt('starvios_mision')) : 0; } catch (e) {}
+    if (usado === dia) { r.prestado = true; continue; }
+    r.n += Number(it.getCount()); r.stacks.push(it);
+  }
+  return r;
+};
+
 let msDar = (server, n, pr, motivo) => {
+  // buff: [efecto, nivel (0 = I), nombre, días que dura (1 = solo hoy)]
+  let buffs = pr.buffs || (pr.buff ? [pr.buff] : []);
+  if (buffs.length) {
+    let m = msBuffsLeer(server);
+    buffs.forEach(b => {
+      let hasta = global.stDia(server) + Math.max(1, b[3] || 1) - 1;
+      m[n] = (m[n] || []).filter(x => x[0] !== b[0]).concat([[b[0], b[1], hasta, b[2]]]);
+    });
+    server.persistentData.putString('starvios_buffs', JSON.stringify(m));
+    msBuffsAplicar(server, n);
+  }
   if (pr.monedas && global.stDarDinero) global.stDarDinero(server, n, pr.monedas, motivo);
   let esp = global.stItemsEspeciales;
   if (pr.fragmentos) server.runCommandSilent(`give ${n} ${esp.fragmento[0]}${esp.fragmento[1]} ${pr.fragmentos}`);
   if (pr.fragiles) server.runCommandSilent(`give ${n} ${esp.fragil[0]}${esp.fragil[1]} ${pr.fragiles}`);
   if (pr.vitales) server.runCommandSilent(`give ${n} ${esp.corazon[0]}${esp.corazon[1]} ${pr.vitales}`);
-  (pr.items || []).forEach(x => server.runCommandSilent(`give ${n} ${x[0]} ${x[1]}`));
+  (pr.items || []).forEach(x => {
+    let ok = Number(server.runCommandSilent(`give ${n} ${x[0]} ${x[1]}`)) > 0;
+    if (!ok) {   // el ID no existe (mod distinto o nombre cambiado): se compensa y se avisa a los admins
+      server.runCommandSilent(`give ${n} minecraft:diamond 3`);
+      server.runCommandSilent(`tellraw @a[tag=!st_x] ["",{"text":"[Starvios] ","color":"red"},{"text":"No existe el objeto ${global.stEsc(x[0])} (premio de misión). Se dieron 3 diamantes. Corrígelo en 00_config.js","color":"gray"}]`.replace('@a[tag=!st_x]', '@a[gamemode=creative]'));
+      console.warn(`[Starvios] Premio de misión con ID inválido: ${x[0]}`);
+    }
+  });
   if (pr.premio) server.runCommandSilent(`give ${n} ${pr.premio.id}${pr.premio.nbt || ''} ${pr.premio.cantidad || 1}`);
 };
 
@@ -132,27 +201,36 @@ BlockEvents.rightClicked(event => {
   let hechas = msHechas(server);
   let lista = hechas[h.dia] || [];
   if (lista.indexOf(n) !== -1) { aviso('Ya completaste la misión de hoy ✔', 'green'); event.cancel(); return; }
-  // 1) ¿Tiene todo? (clear ... 0 solo cuenta, no quita nada)
-  let pide = msPide(h.m), falta = [];
-  pide.forEach(x => {
-    let tiene = Number(server.runCommandSilent(`clear ${n} ${x[0]} 0`)) || 0;
-    if (tiene < x[1]) falta.push(`${x[2] || msNombre(x[0])} (${tiene}/${x[1]})`);
-  });
+  // 1) ¿Tiene todo?
+  let pide = msPide(h.m), falta = [], usados = [];
+  let entrega = msEntrega(h.m);
+  if (entrega) {
+    pide.forEach(x => {
+      let tiene = Number(server.runCommandSilent(`clear ${n} ${x[0]} 0`)) || 0;
+      if (tiene < x[1]) falta.push(`${x[2] || msNombre(x[0])} (${tiene}/${x[1]})`);
+    });
+  } else {
+    pide.forEach(x => {
+      let r = msContar(p, x, h.dia);
+      usados = usados.concat(r.stacks);
+      if (r.n < x[1]) falta.push(`${x[2] || msNombre(x[0])} (${r.n}/${x[1]})${r.prestado ? ' — ya se usó hoy para otra misión' : ''}`);
+    });
+  }
   if (falta.length) {
-    global.stAnunciarMision(server, n);
+    global.stAnunciarMision(server, n, true);
     server.runCommandSilent(`tellraw ${n} ["",{"text":"   Te falta: ","color":"red"},{"text":"${global.stEsc(falta.join(', '))}","color":"yellow"}]`);
     aviso('Te faltan cosas para la misión', 'yellow');
     event.cancel(); return;
   }
-  // 2) Se lo quita y le da el premio
-  pide.forEach(x => server.runCommandSilent(`clear ${n} ${x[0]} ${x[1]}`));
+  // 2) Entregar: se lo quita · Tener: se marcan los objetos usados para que nadie más los use hoy (no se prestan)
+  if (entrega) pide.forEach(x => server.runCommandSilent(`clear ${n} ${x[0]} ${x[1]}`));
+  else usados.forEach(st => { try { st.getOrCreateTag().putInt('starvios_mision', h.dia); } catch (e) {} });
   lista.push(n); hechas[h.dia] = lista;
   server.persistentData.putString('starvios_misiones', JSON.stringify(hechas));
   msDar(server, n, msPremioDe(h.m), 'Misión del día');
   server.runCommandSilent(`execute at ${n} run particle minecraft:happy_villager ~ ~1 ~ 0.5 0.6 0.5 0 20`);
   server.runCommandSilent(`execute at ${n} run playsound minecraft:entity.villager.celebrate master ${n} ~ ~ ~ 1 1`);
   aviso('✔ ¡Misión del día completada!', 'green');
-  server.runCommandSilent(`tellraw @a ["",{"text":"📜 ","color":"aqua"},{"text":"${n}","color":"yellow"},{"text":" completó la misión del día (${lista.length}).","color":"gray"}]`);
   msEquipo(server, n, h.dia, lista);
   msBuff(server, n, h.dia, true);
   event.cancel();
@@ -169,9 +247,20 @@ PlayerEvents.loggedIn(event => {
       server.persistentData.putString('starvios_misiones', JSON.stringify(hechas));
     }
     let h = msHoy(server);
-    if (h && (hechas[h.dia] || []).indexOf(n) === -1) global.stAnunciarMision(server, n);
+    let dia = global.stDia(server);
+    if (dia > 0 && global.STARVIOS.anuncios[dia]) global.stToast(server, n, `dia_${dia}`);
+    if (h && (hechas[h.dia] || []).indexOf(n) === -1) server.scheduleInTicks(40, () => global.stAnunciarMision(server, n));
   });
 });
+
+// Para el Diario de Starvios (87_diario.js)
+global.stMisionInfo = (server, n) => {
+  let h = msHoy(server);
+  if (!h) return null;
+  let b = msBuffDe(h.dia);
+  return { dia: h.dia, nombre: h.m.texto || '', pide: msPide(h.m).map(x => `${x[2] || msNombre(x[0])}`), premio: msTextoPremio(msPremioDe(h.m)),
+           hecha: (msHechas(server)[h.dia] || []).indexOf(n) !== -1, entregar: msEntrega(h.m), buff2: b ? b[2] : '' };
+};
 
 // ---------- 3b) 2º buff para quien completa la misión del día (dura hasta que cambia el día) ----------
 let msBuffDe = (dia) => {
@@ -189,6 +278,7 @@ ServerEvents.tick(event => { global.stSeguro('92_extras (buff de misión)', () =
   global.stMsBuffTick = (global.stMsBuffTick || 0) + 1;
   if (global.stMsBuffTick % 600 !== 0) return;
   let server = event.server, h = msHoy(server);
+  server.players.forEach(p => msBuffsAplicar(server, p.getName().getString()));
   if (!h) return;
   let lista = msHechas(server)[h.dia] || [];
   lista.forEach(n => { if (server.getPlayer(n)) msBuff(server, n, h.dia, false); });
@@ -274,7 +364,7 @@ let rsTotal = (server) => {
    'starvios_devoluciones', 'starvios_misiones', 'starvios_cine_antes', 'starvios_mazmorras'].forEach(k => d.putString(k, k === 'starvios_eliminados' ? '' : '{}'));
   d.putString('starvios_mazmorras', '[]');
   d.putString('starvios_lc_ini', '{}'); d.putString('starvios_lc_pend', '{}');   // saldo inicial otra vez
-  d.putString('starvios_efectos', '{}'); d.putString('starvios_segunda', '[]'); d.putString('starvios_loteria', '{}'); d.putString('starvios_kit1', '[]');   // anomalías
+  d.putString('starvios_efectos', '{}'); d.putString('starvios_diario_dado', '[]'); d.putString('starvios_segunda', '[]'); d.putString('starvios_loteria', '{}'); d.putString('starvios_kit1', '[]');   // anomalías
   global.stEfListo = false;
   d.putInt('starvios_dia', 0); d.putInt('starvios_ultimo_dia', 0);
   d.putBoolean('starvios_activo', false); d.putBoolean('starvios_intro_vista', false); d.putBoolean('starvios_resurreccion_revelada', false);
@@ -309,7 +399,7 @@ ServerEvents.commandRegistry(event => {
     let h = msHoy(server);
     if (!h) { decir(ctx)('§7Hoy no hay misión.'); return 1; }
     if (p && (msHechas(server)[h.dia] || []).indexOf(p.getName().getString()) !== -1) { decir(ctx)('§a✔ Ya completaste la misión de hoy.'); return 1; }
-    global.stAnunciarMision(server, p ? p.getName().getString() : '@a');
+    global.stAnunciarMision(server, p ? p.getName().getString() : '@a', true);
     return 1;
   }));
   event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))

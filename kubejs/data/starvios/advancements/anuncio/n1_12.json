@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:wither_skeleton_skull"
+  },
+  "title": {
+   "text": "Los mobs ya no pierden tu rastro: te siguen hasta 64 bloques",
+   "color": "red"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "challenge",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

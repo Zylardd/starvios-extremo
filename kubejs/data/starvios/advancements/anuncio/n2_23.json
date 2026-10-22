@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:fermented_spider_eye"
+  },
+  "title": {
+   "text": "Las flechas de esqueleto que te impactan pueden invocar un rayo (10%)",
+   "color": "red"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "challenge",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

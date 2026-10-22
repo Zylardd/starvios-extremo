@@ -14,7 +14,9 @@
 // ============================================================
 
 let EQ = () => global.STARVIOS.equipos;
-global.stInvitaciones = global.stInvitaciones || {};
+// Invitaciones guardadas en el mundo (no se pierden con /reload). Clave = nombre en minúsculas.
+let eqInvLeer = (server) => { try { return JSON.parse(server.persistentData.getString('starvios_invitaciones') || '{}'); } catch (e) { return {}; } };
+let eqInvGuardar = (server, m) => server.persistentData.putString('starvios_invitaciones', JSON.stringify(m));
 
 let eqLeer = (server) => {
   let s = server.persistentData.getString('starvios_equipos');
@@ -77,9 +79,12 @@ ServerEvents.commandRegistry(event => {
     if (!k) { d('§cNo tienes equipo. Crea uno con /equipo crear <nombre>.'); return 0; }
     if (m[k].lider !== n) { d('§cSolo el líder puede invitar.'); return 0; }
     if (m[k].miembros.length >= EQ().maxMiembros) { d(`§cEl equipo ya tiene el máximo (${EQ().maxMiembros}).`); return 0; }
-    if (!server.getPlayer(otro)) { d(`§c${otro} no está conectado.`); return 0; }
+    let po = server.getPlayer(otro);
+    if (!po) { d(`§c${otro} no está conectado.`); return 0; }
+    otro = po.getName().getString();   // nombre real (con mayúsculas)
+    if (otro === n) { d('§cNo puedes invitarte a ti mismo.'); return 0; }
     if (eqDe(m, otro)) { d(`§c${otro} ya está en un equipo.`); return 0; }
-    global.stInvitaciones[otro] = k;
+    let inv = eqInvLeer(server); inv[otro.toLowerCase()] = k; eqInvGuardar(server, inv);
     let eq = m[k];
     server.runCommandSilent(`tellraw ${otro} ["",{"text":"⚑ ${n} te invita al equipo ","color":"gray"},{"text":"${eq.nombre}","color":"${eq.color}","bold":true},{"text":"  "},` +
       `{"text":"[Aceptar]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/equipo aceptar"}},{"text":" "},` +
@@ -90,14 +95,15 @@ ServerEvents.commandRegistry(event => {
 
   let aceptar = ctx => {
     let server = ctx.source.server, d = decir(ctx), n = yo(ctx); if (!n) return 0;
-    let k = global.stInvitaciones[n];
+    let inv = eqInvLeer(server);
+    let k = inv[n.toLowerCase()];
     let m = eqLeer(server);
     if (!k || !m[k]) { d('§cNo tienes invitaciones pendientes.'); return 0; }
     if (eqDe(m, n)) { d('§cYa estás en un equipo.'); return 0; }
     if (m[k].miembros.length >= EQ().maxMiembros) { d('§cEse equipo ya está lleno.'); return 0; }
     m[k].miembros.push(n);
     eqGuardar(server, m);
-    delete global.stInvitaciones[n];
+    delete inv[n.toLowerCase()]; eqInvGuardar(server, inv);
     server.runCommandSilent(`team join ${k} ${n}`);
     eqAvisarEquipo(server, m[k], `["",{"text":"⚑ ","color":"${m[k].color}"},{"text":"${n}","color":"yellow"},{"text":" se ha unido al equipo.","color":"gray"}]`);
     return 1;
@@ -105,7 +111,7 @@ ServerEvents.commandRegistry(event => {
 
   let rechazar = ctx => {
     let n = yo(ctx); if (!n) return 0;
-    delete global.stInvitaciones[n];
+    let inv = eqInvLeer(ctx.source.server); delete inv[n.toLowerCase()]; eqInvGuardar(ctx.source.server, inv);
     decir(ctx)('§7Invitación rechazada.');
     return 1;
   };

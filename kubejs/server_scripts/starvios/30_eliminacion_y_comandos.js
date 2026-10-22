@@ -20,6 +20,16 @@ EntityEvents.death(event => {
   let pos = global.stXYZ(p);
   global.stMuertes[n] = pos ? { x: pos.x, y: pos.y, z: pos.z, dim: global.stDimDe(p) } : { sinPos: true };
 
+  // Coordenadas de la muerte en el chat (con clic para copiarlas)
+  if (pos) {
+    let dim = global.stDimDe(p);
+    let nomDim = { 'minecraft:overworld': 'Superficie', 'minecraft:the_nether': 'Nether', 'minecraft:the_end': 'End' }[dim] || dim;
+    let c = `${Math.floor(pos.x)} ${Math.floor(pos.y)} ${Math.floor(pos.z)}`;
+    global.stCmd(server, `tellraw @a ["",{"text":"☠ ","color":"dark_red"},{"text":"${n}","color":"red","bold":true},{"text":" cayó en ","color":"gray"},` +
+      `{"text":"${c}","color":"yellow","underlined":true,"clickEvent":{"action":"copy_to_clipboard","value":"${c}"},"hoverEvent":{"action":"show_text","contents":"Clic para copiar"}},` +
+      `{"text":" (${nomDim})","color":"gray"},{"text":" — su alma brilla allí.","color":"dark_gray"}]`);
+  }
+
   global.stCmd(server, `gamemode spectator ${n}`);
 
   let lista = global.stEliminados(server);

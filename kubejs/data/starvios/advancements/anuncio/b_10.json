@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:golden_apple"
+  },
+  "title": {
+   "text": "Nuevo objeto: Kit de reparación (4 lingotes de hierro en cruz con 1 cuero en el centro). Clic derecho sobre OTRO jugador para repararle un 40% de su armadura",
+   "color": "green"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

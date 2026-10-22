@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:fermented_spider_eye"
+  },
+  "title": {
+   "text": "Los golpes de los mobs empujan más fuerte",
+   "color": "red"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "challenge",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

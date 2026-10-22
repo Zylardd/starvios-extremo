@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:writable_book"
+  },
+  "title": {
+   "text": "Hijo del fuego: armadura de Ignitium completa (puesta)",
+   "color": "aqua"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "goal",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

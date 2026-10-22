@@ -151,3 +151,52 @@ PlayerEvents.loggedIn(event => {
     server.runCommandSilent(`tellraw ${n} ["",{"text":"📍 Base: ","color":"gold","bold":true},{"text":"${s.x} ${s.y} ${s.z}  ","color":"yellow"},{"text":"xaero-waypoint:Base:B:${s.x}:${s.y}:${s.z}:6:false:0:Internal-overworld-waypoints","color":"gray"}]`);
   });
 });
+
+// ---------- 5) /starvios girar  -> gira el bloque que miras (y su otra mitad) 90° ----------
+// Pensado para las máquinas de Lightman's Currency copiadas con /clone: conservan su configuración
+// y solo cambia hacia dónde miran. Repite el comando hasta que quede como quieres.
+let AJ_GIRO = { north: 'east', east: 'south', south: 'west', west: 'north' };
+let ajGirar = (server, level, x, y, z) => {
+  let b = level.getBlock(x, y, z);
+  let id = String(b.id);
+  let props = {};
+  try { let pr = b.getProperties(); pr.forEach((k, v) => { props[String(k)] = String(v); }); } catch (e) {}
+  if (!props.facing) {
+    try { let st = String(b.getBlockState()); let m = st.match(/facing=(\w+)/); if (m) props.facing = m[1]; } catch (e) {}
+  }
+  if (!props.facing || !AJ_GIRO[props.facing]) return null;
+  let nuevo = AJ_GIRO[props.facing];
+  let partes = [y];
+  [-1, 1].forEach(dy => { try { if (String(level.getBlock(x, y + dy, z).id) === id) partes.push(y + dy); } catch (e) {} });
+  partes.forEach(yy => {
+    let bb = level.getBlock(x, yy, z);
+    let st = String(bb.getBlockState());   // Block{id}[a=b,c=d]
+    let m = st.match(/\[(.*)\]/);
+    let lista = m ? m[1].split(',').map(s => s.split('=')) : [];
+    let estado = lista.map(kv => kv[0] === 'facing' ? `facing=${nuevo}` : kv.join('=')).join(',');
+    // Mismo bloque, solo cambia el estado: el bloque-entidad (la máquina y sus datos) se conserva
+    try {
+      let nprops = {}; lista.forEach(kv => { nprops[kv[0]] = kv[0] === 'facing' ? nuevo : kv[1]; });
+      bb.set(id, nprops);
+    } catch (e) {
+      server.runCommandSilent(`execute in ${global.stDimDe(level)} run setblock ${x} ${yy} ${z} ${id}[${estado}] keep`);
+    }
+  });
+  return nuevo;
+};
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands } = event;
+  event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))
+    .then(Commands.literal('girar').executes(ctx => {
+      let p = ctx.source.player;
+      if (!p) return 0;
+      let r = null;
+      try { r = p.rayTrace(6, false); } catch (e) {}
+      let b = r && r.block;
+      if (!b) { ctx.source.sendSystemMessage(Text.of('§cMira el bloque que quieres girar (a menos de 6 bloques).')); return 0; }
+      let q = global.stXYZ(b);
+      let nuevo = ajGirar(ctx.source.server, p.level, Math.floor(q.x), Math.floor(q.y), Math.floor(q.z));
+      ctx.source.sendSystemMessage(Text.of(nuevo ? `§a[Starvios] Ahora mira hacia el ${{ north: 'norte', east: 'este', south: 'sur', west: 'oeste' }[nuevo]}.` : '§cEse bloque no se puede girar.'));
+      return nuevo ? 1 : 0;
+    })));
+});

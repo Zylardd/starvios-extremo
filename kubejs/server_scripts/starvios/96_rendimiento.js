@@ -67,3 +67,18 @@ ServerEvents.commandRegistry(event => {
       .then(Commands.literal('ya').executes(ctx => { rnLimpiar(ctx.source.server); return 1; })))
   );
 });
+
+// /starvios id  -> muestra el ID del objeto que tienes en la mano (para ponerlo en misiones, recetas, etc.)
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands } = event;
+  event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))
+    .then(Commands.literal('id').executes(ctx => {
+      let p = ctx.source.player;
+      if (!p) return 0;
+      let it = p.mainHandItem, id = '';
+      try { id = String(it.getId()); } catch (e) { try { id = String(it.id); } catch (e2) {} }
+      if (!id || id === 'minecraft:air') { ctx.source.sendSystemMessage(Text.of('§cSujeta un objeto en la mano.')); return 0; }
+      ctx.source.server.runCommandSilent(`tellraw ${p.getName().getString()} ["",{"text":"ID: ","color":"gray"},{"text":"${id}","color":"yellow","underlined":true,"clickEvent":{"action":"copy_to_clipboard","value":"${id}"},"hoverEvent":{"action":"show_text","contents":"Clic para copiar"}}]`);
+      return 1;
+    })));
+});

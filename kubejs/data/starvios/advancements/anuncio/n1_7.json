@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:wither_skeleton_skull"
+  },
+  "title": {
+   "text": "Los zombis bebé son el doble de comunes",
+   "color": "red"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "challenge",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

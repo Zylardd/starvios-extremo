@@ -20,7 +20,14 @@ let mzLista = (server) => {
   if (!s) return [];
   try { return JSON.parse(s); } catch (e) { return []; }
 };
-let mzGuardar = (server, l) => server.persistentData.putString('starvios_mazmorras', JSON.stringify(l.slice(-8)));
+let mzGuardar = (server, l) => {
+  server.persistentData.putString('starvios_mazmorras', JSON.stringify(l.slice(-8)));
+  // Historial PERMANENTE de todo lo construido (no se recorta ni lo borra el reset): sirve para /starvios estructuras
+  let h = [];
+  try { h = JSON.parse(server.persistentData.getString('starvios_historial') || '[]'); } catch (e) {}
+  l.forEach(m => { if (!h.some(x => x.x === m.x && x.z === m.z)) h.push(m); });
+  server.persistentData.putString('starvios_historial', JSON.stringify(h));
+};
 
 let mzDireccion = (dx, dz) => {
   let ang = (Math.atan2(dx, -dz) * 180 / Math.PI + 360) % 360;   // 0 = norte
@@ -328,3 +335,62 @@ ServerEvents.tick(event => { global.stSeguro('80_mazmorras (correa)', () => {
   ow(`execute at ${V} run playsound minecraft:entity.enderman.teleport hostile @a[distance=..24] ~ ~ ~ 0.6 0.7`);
   ow(`tag ${V} remove st_volver`);
 }); });
+
+
+// ============================================================
+//  /starvios estructuras          -> lista TODAS las mazmorras/criptas construidas, con botones para borrarlas
+//  /starvios estructuras olvidar  -> vacía la lista (después de borrarlas)
+//  El borrado usa WorldEdit (//regen): regenera esa zona como era el terreno original de la semilla.
+//  Pasos por cada una: [TP] -> [1] -> [2] -> [3 Regenerar]
+// ============================================================
+let mzHistorial = (server) => {
+  let h = [];
+  try { h = JSON.parse(server.persistentData.getString('starvios_historial') || '[]'); } catch (e) {}
+  mzLista(server).forEach(m => { if (!h.some(x => x.x === m.x && x.z === m.z)) h.push(m); });
+  return h;
+};
+// Caja que ocupa cada estructura (bloques)
+let mzCaja = (m) => {
+  if (m.cripta || m.laberinto) {
+    let largo = m.largo || 70, ancho = m.ancho || 35;
+    return { x1: m.x - 12, z1: m.z - ancho - 4, x2: m.x + largo + 4, z2: m.z + ancho + 4 };
+  }
+  return { x1: m.x - 32, z1: m.z - 32, x2: m.x + 32, z2: m.z + 32 };   // mazmorra antigua (estructura)
+};
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands } = event;
+  event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))
+    .then(Commands.literal('estructuras')
+      .executes(ctx => {
+        let server = ctx.source.server, p = ctx.source.player;
+        let h = mzHistorial(server);
+        let dest = p ? p.getName().getString() : '@a';
+        if (!h.length) { ctx.source.sendSystemMessage(Text.of('§7No hay mazmorras ni criptas registradas.')); return 1; }
+        server.runCommandSilent(`tellraw ${dest} {"text":"━━ Estructuras construidas (${h.length}) ━━","color":"gold","bold":true}`);
+        server.runCommandSilent(`tellraw ${dest} {"text":"Para cada una: [TP], luego [1], [2] y [3 Regenerar] (WorldEdit). Tarda unos segundos.","color":"gray"}`);
+        h.forEach((m, i) => {
+          let c = mzCaja(m);
+          let tipo = m.cripta ? 'Cripta' : (m.laberinto ? 'Mazmorra' : 'Mazmorra (antigua)');
+          let aviso = '';
+          let enArena = global.stEnArena && (global.stEnArena(server, c.x1, 64, c.z1) || global.stEnArena(server, c.x2, 64, c.z2) || global.stEnArena(server, m.x, 64, m.z));
+          if (enArena) aviso = ',{"text":"  ⚠ toca una ARENA, no la regeneres","color":"red","bold":true}';
+          server.runCommandSilent(`tellraw ${dest} ["",{"text":"${i + 1}. ${tipo} ${String(m.nombre || '').replace(/"/g, '')} ","color":"yellow"},{"text":"(${m.x}, ${m.z})  ","color":"gray"},` +
+            `{"text":"[TP] ","color":"aqua","clickEvent":{"action":"run_command","value":"/execute in minecraft:overworld run tp @s ${m.x} 200 ${m.z}"}},` +
+            `{"text":"[1] ","color":"green","clickEvent":{"action":"run_command","value":"//pos1 ${c.x1},-64,${c.z1}"},"hoverEvent":{"action":"show_text","contents":"Primera esquina"}},` +
+            `{"text":"[2] ","color":"green","clickEvent":{"action":"run_command","value":"//pos2 ${c.x2},319,${c.z2}"},"hoverEvent":{"action":"show_text","contents":"Segunda esquina"}},` +
+            `{"text":"[3 Regenerar]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"//regen"},"hoverEvent":{"action":"show_text","contents":"Vuelve el terreno a como era (WorldEdit)"}}${aviso}]`);
+        });
+        return 1;
+      })
+      .then(Commands.literal('olvidar').executes(ctx => {
+        let server = ctx.source.server;
+        server.persistentData.putString('starvios_historial', '[]');
+        server.persistentData.putString('starvios_mazmorras', '[]');
+        server.runCommandSilent('kill @e[tag=starvios_guardian]');
+        server.runCommandSilent('kill @e[tag=starvios_capitan]');
+        server.runCommandSilent('kill @e[tag=starvios_cripta_jefe]');
+        server.runCommandSilent('kill @e[tag=starvios_cripta]');
+        ctx.source.sendSystemMessage(Text.of('§a[Starvios] Lista de mazmorras y criptas vaciada (y sus monstruos cargados, eliminados).'));
+        return 1;
+      }))));
+});

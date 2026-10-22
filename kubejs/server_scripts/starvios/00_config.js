@@ -138,7 +138,9 @@ global.STARVIOS = {
     '^immersive_armors:',                                            // todas las armaduras de Immersive Armors
     '^cataclysm:.*_(helmet|chestplate|leggings|boots)$',             // armaduras de Cataclysm (solo por jefes)
     '^cataclysm:(ignitium|cursium|bone_reptile).*',                  // equipo de jefes de Cataclysm
-    '^securitycraft:(.*mine|bouncing_betty|claymore|ims)$'           // minas explosivas de SecurityCraft (todas)
+    '^securitycraft:(.*mine|bouncing_betty|claymore|ims)$',          // minas explosivas de SecurityCraft (todas)
+    '^cataclysm:(gauntlet_of_guard|meat_shredder|the_incinerator)$', // armas de premio de misión (solo por misiones)
+    '^mowziesmobs:(blowgun|spear|naga_fang_dagger|earthrend_gauntlet|wrought_axe)$'
     // , '^securitycraft:reinforced_'   // quita las 2 barras del principio para prohibir bloques reforzados (bases blindadas)
   ],
 
@@ -323,6 +325,10 @@ global.STARVIOS = {
   //  pide:   [ID del objeto (o #etiqueta), cantidad, nombre en español]
   //  premio: monedas · fragmentos (Fragmentos de Corazón) · fragiles (Corazones Frágiles) · vitales (Corazones Vitales)
   //          items: [[ID, cantidad], ...]
+  // 'tener' = basta con tener lo que pide (puesto o en el inventario) y NO se gasta · 'entregar' = se lo quita
+  // (cada misión puede cambiarlo con  entregar: true / false)
+  misionesModo: 'tener',
+  // Premio de tipo buff:  buff: ['minecraft:strength', 0, 'Fuerza I', 3]   -> efecto, nivel (0 = I), nombre, días que dura
   misionEquipo: { fragiles: 1 },
   // 2º buff para quien completa la misión del día: dura hasta que cambia el día. Se repite en este orden.
   // [efecto, nivel (0 = I), nombre en español]
@@ -334,63 +340,65 @@ global.STARVIOS = {
     ['minecraft:night_vision', 0, 'Visión nocturna']
   ],   // si TODOS los vivos de un equipo completan la misión del día: premio extra a cada uno
   misiones: {
-    1:  { texto: 'Primeros pasos', pide: [['#minecraft:logs', 32, 'troncos'], ['#minecraft:coals', 16, 'carbón'], ['minecraft:stone_pickaxe', 1, 'pico de piedra'], ['minecraft:furnace', 1, 'horno']],
-          premio: { monedas: 30, items: [['minecraft:cooked_beef', 8]] } },
-    2:  { texto: 'Cazador', pide: [['minecraft:leather', 10, 'cuero'], ['minecraft:beef', 16, 'carne de res cruda'], ['#minecraft:beds', 1, 'cama']],
-          premio: { monedas: 40, fragiles: 1, items: [['minecraft:bread', 8]] } },
-    3:  { texto: 'Herrero', pide: [['minecraft:iron_ingot', 24, 'lingotes de hierro'], ['minecraft:shield', 1, 'escudo'], ['minecraft:bucket', 1, 'cubo']],
-          premio: { monedas: 50, items: [['minecraft:cooked_porkchop', 10]] } },
-    4:  { texto: 'Arquero', pide: [['minecraft:bow', 1, 'arco'], ['minecraft:arrow', 64, 'flechas'], ['minecraft:string', 16, 'hilo'], ['minecraft:spider_eye', 8, 'ojos de araña']],
-          premio: { monedas: 50, fragiles: 1, items: [['minecraft:baked_potato', 10]] } },
-    5:  { texto: 'Armado hasta los dientes', pide: [['minecraft:iron_helmet', 1, 'casco de hierro'], ['minecraft:iron_chestplate', 1, 'peto de hierro'], ['minecraft:iron_leggings', 1, 'grebas de hierro'], ['minecraft:iron_boots', 1, 'botas de hierro'], ['minecraft:iron_sword', 1, 'espada de hierro']],
-          premio: { monedas: 70, items: [['minecraft:golden_apple', 1], ['minecraft:cooked_beef', 8]] } },
-    6:  { texto: 'Preparativos para el jefe', pide: [['minecraft:cooked_beef', 32, 'filetes cocidos'], ['minecraft:baked_potato', 16, 'papas asadas'], ['minecraft:shield', 1, 'escudo']],
-          premio: { fragiles: 1, items: [['minecraft:golden_apple', 2]] } },
-    7:  { texto: 'Minero profundo', pide: [['minecraft:redstone', 32, 'redstone'], ['minecraft:lapis_lazuli', 16, 'lapislázuli'], ['minecraft:gold_ingot', 8, 'lingotes de oro'], ['minecraft:diamond', 2, 'diamantes']],
-          premio: { monedas: 80, fragmentos: 1 } },
-    8:  { texto: 'La biblioteca', pide: [['minecraft:enchanting_table', 1, 'mesa de encantamientos'], ['minecraft:bookshelf', 6, 'estanterías']],
-          premio: { monedas: 80, fragiles: 2, items: [['minecraft:golden_carrot', 16]] } },
-    9:  { texto: 'Demolición', pide: [['minecraft:gunpowder', 32, 'pólvora'], ['minecraft:tnt', 8, 'TNT']],
-          premio: { monedas: 100, fragmentos: 1 } },
-    10: { texto: 'Abastecer la aldea', pide: [['minecraft:emerald', 20, 'esmeraldas'], ['minecraft:wheat', 32, 'trigo'], ['minecraft:carrot', 32, 'zanahorias'], ['minecraft:potato', 32, 'papas']],
-          premio: { monedas: 100, items: [['minecraft:golden_carrot', 16]] } },
-    11: { texto: 'Expedición al Nether', pide: [['minecraft:quartz', 32, 'cuarzo del Nether'], ['minecraft:glowstone_dust', 16, 'polvo de piedra luminosa']],
-          premio: { monedas: 120, fragiles: 2 } },
-    12: { texto: 'El herbolario', pide: [['minecraft:potion{Potion:"minecraft:healing"}', 3, 'pociones de curación'], ['minecraft:potion{Potion:"minecraft:strength"}', 3, 'pociones de fuerza']],
-          premio: { monedas: 120, fragiles: 2, items: [['minecraft:golden_apple', 1]] } },
-    13: { texto: 'Ruge el invierno', pide: [['minecraft:packed_ice', 32, 'hielo compacto'], ['minecraft:snow_block', 16, 'bloques de nieve']],
-          premio: { monedas: 150, items: [['minecraft:cooked_beef', 16], ['minecraft:golden_apple', 2]] } },
-    14: { texto: 'Trofeos de caza', pide: [['minecraft:ender_pearl', 10, 'perlas de ender'], ['minecraft:bone', 16, 'huesos'], ['minecraft:gunpowder', 16, 'pólvora'], ['minecraft:rotten_flesh', 16, 'carne podrida']],
-          premio: { monedas: 150, fragmentos: 1 } },
-    15: { texto: 'Fiebre de diamantes', pide: [['minecraft:diamond', 10, 'diamantes'], ['minecraft:anvil', 1, 'yunque']],
-          premio: { monedas: 150, fragiles: 2, items: [['minecraft:golden_apple', 2]] } },
-    16: { texto: 'La gran cosecha', pide: [['minecraft:wheat', 32, 'trigo'], ['minecraft:carrot', 32, 'zanahorias'], ['minecraft:potato', 32, 'papas'], ['minecraft:beetroot', 16, 'remolachas']],
-          premio: { monedas: 150, items: [['minecraft:bread', 32], ['minecraft:golden_carrot', 16]] } },
-    17: { texto: 'El banquete', pide: [['minecraft:pumpkin_pie', 16, 'pasteles de calabaza'], ['minecraft:cookie', 32, 'galletas'], ['minecraft:cake', 8, 'tartas']],
-          premio: { monedas: 180, fragiles: 3 } },
-    18: { texto: 'El arsenal', pide: [['minecraft:diamond_sword', 1, 'espada de diamante'], ['minecraft:diamond_axe', 1, 'hacha de diamante'], ['minecraft:crossbow', 1, 'ballesta']],
-          premio: { monedas: 200, fragmentos: 1 } },
-    19: { texto: 'El explorador', pide: [['minecraft:map', 1, 'mapa'], ['minecraft:compass', 1, 'brújula'], ['minecraft:clock', 1, 'reloj'], ['minecraft:ender_pearl', 16, 'perlas de ender']],
-          premio: { monedas: 200, fragiles: 2 } },
-    20: { texto: 'Ofrenda al Inti', pide: [['minecraft:gold_block', 16, 'bloques de oro']],
-          premio: { monedas: 250, items: [['minecraft:golden_apple', 4]] } },
-    21: { texto: 'El alquimista', pide: [['minecraft:glistering_melon_slice', 8, 'rodajas de sandía reluciente'], ['minecraft:ghast_tear', 4, 'lágrimas de ghast'], ['minecraft:potion{Potion:"minecraft:regeneration"}', 4, 'pociones de regeneración']],
-          premio: { monedas: 250, fragmentos: 1, fragiles: 2 } },
-    22: { texto: 'La fortaleza', pide: [['minecraft:stone_bricks', 64, 'ladrillos de piedra'], ['minecraft:obsidian', 32, 'obsidiana']],
-          premio: { monedas: 250, fragiles: 3 } },
-    23: { texto: 'Domar la tormenta', pide: [['minecraft:lightning_rod', 8, 'pararrayos'], ['minecraft:copper_ingot', 32, 'lingotes de cobre'], ['minecraft:creeper_head', 1, 'cabeza de creeper']],
-          premio: { monedas: 250, fragmentos: 1 } },
-    24: { texto: 'Carnicería', pide: [['minecraft:wither_skeleton_skull', 2, 'cráneos de esqueleto wither']],
-          premio: { monedas: 300, fragmentos: 2 } },
-    25: { texto: 'Blindados', pide: [['minecraft:diamond_helmet', 1, 'casco de diamante'], ['minecraft:diamond_chestplate', 1, 'peto de diamante'], ['minecraft:diamond_leggings', 1, 'grebas de diamante'], ['minecraft:diamond_boots', 1, 'botas de diamante']],
-          premio: { monedas: 300, fragmentos: 2 } },
-    26: { texto: 'Titanes', pide: [['minecraft:netherite_ingot', 1, 'lingote de netherita']],
-          premio: { monedas: 350, fragiles: 3, items: [['minecraft:golden_apple', 2]] } },
-    27: { texto: 'Arena en el infierno', pide: [['minecraft:blaze_rod', 16, 'varas de blaze'], ['minecraft:ghast_tear', 8, 'lágrimas de ghast'], ['minecraft:magma_cream', 32, 'cremas de magma']],
-          premio: { monedas: 400, items: [['minecraft:golden_apple', 4]] } },
-    28: { texto: 'La batalla final', pide: [['minecraft:golden_carrot', 32, 'zanahorias doradas'], ['minecraft:golden_apple', 4, 'manzanas doradas'], ['minecraft:totem_of_undying', 1, 'tótem de la inmortalidad']],
-          premio: { monedas: 500, vitales: 1 } }
+    1: { texto: 'Bien protegido', pide: [['@armadura:iron_', 4, 'armadura de hierro completa (puesta)']],
+          premio: { monedas: 50, fragiles: 1 } },
+    2: { texto: 'El herrero', pide: [['@armadura:iron_', 4, 'armadura de hierro completa (puesta)'], ['minecraft:iron_sword', 1, 'espada de hierro'], ['minecraft:iron_pickaxe', 1, 'pico de hierro']],
+          premio: { monedas: 60, items: [['immersive_armors:warrior_helmet', 1, 'Casco de Guerrero']] } },
+    3: { texto: 'El arquero', pide: [['@armadura:iron_', 4, 'armadura de hierro completa (puesta)'], ['minecraft:shield', 1, 'escudo'], ['minecraft:bow', 1, 'arco'], ['minecraft:arrow', 32, 'flechas']],
+          premio: { monedas: 70, items: [['mowziesmobs:blowgun', 1, 'Cerbatana'], ['mowziesmobs:dart', 32, 'dardos']] } },
+    4: { texto: 'Brillo azul', pide: [['minecraft:diamond_pickaxe', 1, 'pico de diamante']],
+          premio: { monedas: 80, buff: ['minecraft:haste', 0, 'Prisa minera I', 2], items: [['immersive_armors:warrior_boots', 1, 'Botas de Guerrero']] } },
+    5: { texto: 'Filo de diamante', pide: [['minecraft:diamond_sword', 1, 'espada de diamante']],
+          premio: { monedas: 90, items: [['mowziesmobs:spear', 1, 'Lanza']] } },
+    6: { texto: 'Preparados para el jefe', pide: [['@armadura:diamond_', 2, '2 piezas de diamante (puestas)'], ['minecraft:golden_apple', 2, 'manzanas doradas']],
+          premio: { monedas: 100, fragiles: 2, buff: ['minecraft:strength', 0, 'Fuerza I', 1] } },
+    7: { texto: 'Diamante completo', pide: [['@armadura:diamond_', 4, 'armadura de diamante completa (puesta)']],
+          premio: { monedas: 120, fragmentos: 1, items: [['immersive_armors:warrior_chestplate', 1, 'Peto de Guerrero']] } },
+    8: { texto: 'El arsenal de diamante', pide: [['@armadura:diamond_', 4, 'armadura de diamante completa (puesta)'], ['minecraft:diamond_sword', 1, 'espada de diamante'], ['minecraft:diamond_axe', 1, 'hacha de diamante']],
+          premio: { monedas: 130, items: [['mowziesmobs:naga_fang_dagger', 1, 'Daga de Colmillo de Naga']] } },
+    9: { texto: 'Listos para todo', pide: [['@armadura:diamond_', 4, 'armadura de diamante completa (puesta)'], ['minecraft:crossbow', 1, 'ballesta'], ['minecraft:potion{Potion:"minecraft:healing"}', 3, 'pociones de curación']],
+          premio: { monedas: 140, buff: ['minecraft:resistance', 0, 'Resistencia I', 2], items: [['immersive_armors:warrior_leggings', 1, 'Grebas de Guerrero']] } },
+    10: { texto: 'Del inframundo', pide: [['@armadura:netherite_', 1, 'una pieza de netherita (puesta)']],
+          premio: { monedas: 150, items: [['immersive_armors:heavy_helmet', 1, 'Casco Pesado']] } },
+    11: { texto: 'Filo negro', pide: [['minecraft:netherite_sword', 1, 'espada de netherita']],
+          premio: { monedas: 160, items: [['mowziesmobs:earthrend_gauntlet', 1, 'Guantelete Desgarratierra']] } },
+    12: { texto: 'Doble netherita', pide: [['@armadura:netherite_', 2, '2 piezas de netherita (puestas)']],
+          premio: { monedas: 170, buff: ['minecraft:speed', 0, 'Velocidad I', 3], items: [['immersive_armors:heavy_chestplate', 1, 'Peto Pesado']] } },
+    13: { texto: 'Ruge el invierno', pide: [['minecraft:potion{Potion:"minecraft:fire_resistance"}', 4, 'pociones de resistencia al fuego'], ['minecraft:golden_apple', 3, 'manzanas doradas']],
+          premio: { monedas: 200, fragiles: 2, buffs: [['minecraft:strength', 0, 'Fuerza I', 1], ['minecraft:resistance', 0, 'Resistencia I', 1]] } },
+    14: { texto: 'Casi invencible', pide: [['@armadura:netherite_', 3, '3 piezas de netherita (puestas)']],
+          premio: { monedas: 200, items: [['mowziesmobs:wrought_axe', 1, 'Hacha de los Mil Metales']] } },
+    15: { texto: 'Netherita completa', pide: [['@armadura:netherite_', 4, 'armadura de netherita completa (puesta)']],
+          premio: { monedas: 220, fragmentos: 1, items: [['immersive_armors:heavy_leggings', 1, 'Grebas Pesadas']] } },
+    16: { texto: 'Señor de los mares', pide: [['minecraft:trident', 1, 'tridente']],
+          premio: { monedas: 230, buff: ['minecraft:haste', 1, 'Prisa minera II', 2], items: [['immersive_armors:heavy_boots', 1, 'Botas Pesadas']] } },
+    17: { texto: 'El arsenal negro', pide: [['@armadura:netherite_', 4, 'armadura de netherita completa (puesta)'], ['minecraft:netherite_sword', 1, 'espada de netherita'], ['minecraft:netherite_axe', 1, 'hacha de netherita']],
+          premio: { monedas: 250, items: [['immersive_armors:divine_helmet', 1, 'Casco Divino']] } },
+    18: { texto: 'Cazador de wither', pide: [['minecraft:wither_skeleton_skull', 4, 'cráneos de esqueleto wither']],
+          premio: { monedas: 270, items: [['immersive_armors:divine_chestplate', 1, 'Peto Divino']] } },
+    19: { texto: 'Dos vidas', pide: [['minecraft:totem_of_undying', 2, 'tótems']],
+          premio: { monedas: 300, items: [['cataclysm:gauntlet_of_guard', 1, 'Guantelete de Guardia']] } },
+    20: { texto: 'Ofrenda al Inti', pide: [['minecraft:enchanted_golden_apple', 1, 'manzana dorada encantada']],
+          premio: { monedas: 300, fragiles: 3, buff: ['minecraft:regeneration', 0, 'Regeneración I', 1] } },
+    21: { texto: 'Domar la tormenta', pide: [['minecraft:creeper_head', 1, 'cabeza de creeper'], ['minecraft:lightning_rod', 16, 'pararrayos']],
+          premio: { monedas: 320, items: [['cataclysm:ignitium_helmet', 1, 'Casco de Ignitium']] } },
+    22: { texto: 'Tres vidas', pide: [['minecraft:totem_of_undying', 3, 'tótems']],
+          premio: { monedas: 340, items: [['cataclysm:ignitium_boots', 1, 'Botas de Ignitium']] } },
+    23: { texto: 'Fortaleza andante', pide: [['@armadura:netherite_', 4, 'armadura de netherita completa (puesta)'], ['minecraft:totem_of_undying', 2, 'tótems']],
+          premio: { monedas: 360, items: [['cataclysm:meat_shredder', 1, 'El Triturador de Carne']] } },
+    24: { texto: 'El banquete dorado', pide: [['minecraft:golden_carrot', 64, 'zanahorias doradas'], ['minecraft:golden_apple', 8, 'manzanas doradas']],
+          premio: { monedas: 380, items: [['cataclysm:ignitium_leggings', 1, 'Grebas de Ignitium']] } },
+    25: { texto: 'Fuego en la piel', pide: [['@armadura:ignitium_', 2, '2 piezas de Ignitium (puestas)']],
+          premio: { monedas: 400, items: [['cataclysm:ignitium_chestplate', 1, 'Peto de Ignitium']] } },
+    26: { texto: 'Hijo del fuego', pide: [['@armadura:ignitium_', 4, 'armadura de Ignitium completa (puesta)']],
+          premio: { monedas: 450, items: [['cataclysm:the_incinerator', 1, 'El Incinerador']] } },
+    27: { texto: 'Arena en el infierno', pide: [['@armadura:ignitium_', 4, 'armadura de Ignitium completa (puesta)'], ['minecraft:totem_of_undying', 2, 'tótems']],
+          premio: { monedas: 500, vitales: 1, buff: ['minecraft:strength', 1, 'Fuerza II', 1] } },
+    28: { texto: 'La batalla final', pide: [['@armadura:ignitium_', 4, 'armadura de Ignitium completa (puesta)'], ['cataclysm:the_incinerator', 1, 'El Incinerador']],
+          premio: { monedas: 1000, vitales: 1, buffs: [['minecraft:strength', 1, 'Fuerza II', 1], ['minecraft:resistance', 1, 'Resistencia II', 1]] } }
   },
+
+
 
   // Animación de entrada: el jefe cae del cielo con estela de fuego y un impacto al tocar el suelo
   animacionJefes: { activa: true, altura: 35, segundosCaida: 3, cinematica: true },   // cinematica: todos ven la llegada del jefe en modo espectador
@@ -434,7 +442,31 @@ global.STARVIOS = {
 
   // Anuncio del día: barra pequeña arriba ("DÍA N · Título") + descripción en el chat + voz
   anuncioDia: { barraSegundos: 20, voz: true },   // barraSegundos: 0 = la barra se queda todo el día
-  prologoSegundos: 90,   // duración del prólogo narrado del día 1 (generar_prologo.bat te dice cuánto dura)
+  prologoSegundos: 180,   // duración del prólogo narrado (generar_prologo.bat te dice cuánto dura)
+  // Texto del prólogo (lo narra la voz y sale en subtítulos). Si cambias el texto, vuelve a generar el audio
+  // con generar_prologo.bat: además crea kubejs/config/starvios_prologo.json con los tiempos exactos.
+  prologoSubtitulos: true,
+  prologoDesfase: 0,      // si los subtítulos van ADELANTADOS pon un número positivo (ej. 0.5); si van ATRASADOS, negativo
+  prologo: [
+    "Buenas tardes, viajeros. Mi nombre es Liz, y seré su voz en este valle. Estén donde estén… escuchen con atención.",
+    "Lo que voy a contarles no está escrito en ningún libro. Pasó de boca en boca, de abuelos a nietos, en las noches más frías de los Andes.",
+    "Es la leyenda de Starvios… el valle que el Sol olvidó.",
+    "Hace mucho tiempo, Starvios era la tierra más fértil bajo la mirada del Inti, el Sol. Sus campos daban maíz y papa todo el año, y sus ríos bajaban limpios desde las cumbres.",
+    "Los pueblos del valle tenían un pacto con el Sol: ellos le ofrecían su trabajo y su canto, y el Inti les regalaba calor, cosechas y días largos.",
+    "Para cuidar ese pacto, el Sol dejó a sus guardianes más pequeños y sagrados: los Cuyes. Nadie se atrevía a tocarlos, porque hablaban en nombre del Inti.",
+    "Pero la abundancia despertó la ambición. Cuatro señores del valle quisieron para sí el poder del Sol… y rompieron el pacto.",
+    "El primero fue un caballero orgulloso, que encerró la fuerza del valle en su armadura. La armadura se cerró sobre él para siempre, y hoy lo llaman el Guardián de Hierro.",
+    "El segundo fue una bestia de las cumbres, Frostmaw, que congeló los picos para que nadie pudiera escapar.",
+    "El tercero, el chamán Umvuthi, trepó hasta el cielo y le arrancó un pedazo al Sol. Lo guarda en su pecho, y baila con él en su templo.",
+    "Y el cuarto, el más terrible, Ignis, encendió una forja en las entrañas del inframundo. Con ella quiere apagar al Inti… y ocupar su lugar.",
+    "Desde aquel día, el valle se pudre. Los muertos ya no descansan en sus criptas, los ejércitos de los Tiranos saquean cada rincón, y cada noche las bestias crecen un poco más.",
+    "El Sol se debilita. Le quedan apenas veintiocho días de luz.",
+    "Pero los ancianos guardaron una última profecía: cuando lleguen forasteros capaces de resistir veintiocho días y derribar a los cuatro Tiranos, el Inti volverá a brillar.",
+    "Los Cuyes esperaron generaciones… hasta hoy. Porque esos forasteros… son ustedes.",
+    "Yo los he traído hasta la última ciudad en pie. Aquí se guarda la luz que queda. Afuera, solo hay oscuridad.",
+    "Recuerden bien: en Starvios, quien cae, no vuelve a levantarse. Cuiden su vida, cuiden a los suyos… y no confíen en la noche.",
+    "Bienvenidos a Starvios, forasteros. Que el Sol los acompañe. La leyenda… comienza ahora."
+  ],
 
   // Texto que se anuncia cada día (título + descripción). Edítalos a tu gusto.
   // No hace falta poner "Dia N," en el título: la barra ya muestra el número.

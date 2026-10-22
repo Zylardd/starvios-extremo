@@ -229,6 +229,38 @@ file = "kubejs/assets/kubejs/textures/item/starcoin_plata.png"
 hash = "627964cb179606c5a2370e8a2450f0b550a4f1ed9788987aa221e30bacfb83a8"
 
 [[files]]
+file = "kubejs/assets/minecraft/lang/en_us.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_ar.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_cl.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_ec.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_es.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_mx.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_uy.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
+file = "kubejs/assets/minecraft/lang/es_ve.json"
+hash = "8de475b34797f6ba850f298d0a056d785287af2edafe90e4500ef3dc78aeec2b"
+
+[[files]]
 file = "kubejs/assets/starvios/sounds.json"
 hash = "b85054f0c3038099d94347e65defcbd23c743240981ce010ae673d6b608ece73"
 
@@ -425,12 +457,516 @@ file = "kubejs/config/starvios_prologo.json"
 hash = "adb0da5034cbd4b03e6962d943723c40d9195591e9e9d13dd914c73972336b07"
 
 [[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_1.json"
+hash = "ede3ccb2e2cdb1ae1e1a7f340e28348a3427fca01faae05f29dd917d1d9338f7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_10.json"
+hash = "3f3fe23f97d0de0facfc0be507c6824fb140b6286c300f7e67b178306ff333c4"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_11.json"
+hash = "8d56992d7bdd7b9b83df0493cbd5d72f227df9d7f74b4f56bd5840effebb3664"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_12.json"
+hash = "690a6d5b3b09c06c5e79e65a7637055aa59cf33a2cb10ff4cec81579e24f2b89"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_14.json"
+hash = "39e36f6a9653e7107a811e0fd5d439af884ac5d16ae42b66ac167e8ebf380916"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_15.json"
+hash = "ef996b49d73967155e6fad3cecf62f942a23ff7191ab68c1e5be329089ae66b0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_16.json"
+hash = "9f1cfdb11d3be21e188d04bea04cd35997fb762b0184902b9def6827d57cc51c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_17.json"
+hash = "e3f5d5e28a9d9eb7b2320a90eed0f3996dc764815d715f220f9ea58ed1e8a2e7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_18.json"
+hash = "d91283e2908be51e913ab62309c4dce110a6da7a9f04fcaa4901af94ef1278dd"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_19.json"
+hash = "6993f30b25391ebdf62f94cc5d8f28bd061d42cdd64f088d9b61214b3cf36e57"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_2.json"
+hash = "58dd7f7b6d797788b3c0d8ed30b4d2be149cc89e429f2d55ee0f426c6e45fcaf"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_21.json"
+hash = "8eba7b55da8267b40872354285a222c1f0f64dd8fe0071e56bfd7e6a7477986f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_22.json"
+hash = "e97b3264187f25bcfc50d379f52e8fb0b6530cfd4c94cf2c14ecd19866dce80a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_23.json"
+hash = "1e0ddbe010bd28ecc89cec9acebe32d06b0247d21ec6cd00aff99f7b5a01a2d6"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_24.json"
+hash = "7f9af07d9041dd3bd59c8833d73551d007ed8ebac9a13bcc9b2f5f716169c390"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_25.json"
+hash = "f81e546bcf2f1327fcab40be2da9f8c74717aeea360c8cdc324965cdd747872c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_26.json"
+hash = "ee4ad71e19a58e4d2a83a2c1f74ae7adc9dff19d3424e849b5b7e271f5db1493"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_3.json"
+hash = "dcb0ac40933dd513418f5d7f632d4435d09ae35788ce75d6e8ac70cbeda0acf3"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_4.json"
+hash = "0b6961f82156491bdf9d9a1c6293a19911f76c572d93b77be269971feec98394"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_5.json"
+hash = "bedf5889c3b128c9f09af15ccd9a157cf8165e5ae17c82bcaee437eb5e8211d8"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_7.json"
+hash = "a85a72de2ba86799dcaf2f5717ddac8f83fee1e3fff79dda2b5ab4757bd3a315"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_8.json"
+hash = "e2c99503abdf53606b75911524fcf5099c25565d4fe04b8ba7fed4d574b12112"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/b_9.json"
+hash = "558138ab901c178ff2907c1d6e23e9e6f651fb3d7d2f01f6d65f75220e28c20a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_1.json"
+hash = "a18cf5c67b896ae00944c35efc29ba6b3bfed44579b607c04c1a23f3929398df"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_10.json"
+hash = "04da6305a222eef148d94a57e8b5126690b4a97dfa17bd8cb58e81c0135abf1c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_11.json"
+hash = "c9925ea4acd697c8d6b52c48b9a88dee0fe6c98d994c1b73349f902c9dcd6bd0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_12.json"
+hash = "d2e00f0da911f3c3624e7ceed6dcf45dceb6286546b67a474a78291c96452370"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_13.json"
+hash = "9acb97c4a5fa58c7bb7765d6c2a2783024d2d037cf4af01c656bc1b24f5226d9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_14.json"
+hash = "40cd9af53f5e024ba7f3f25928d78b8cae6d84548f997d733ae1f86979a756ba"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_15.json"
+hash = "a7de7b173e80e0c579700606fcc9483132a96fcabb436d2e2e71dc231c5b58d8"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_16.json"
+hash = "1d6fcebf92a6b41c6502e31574c8b3b335e1dff6f21af64e415ef8bc5240e46b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_17.json"
+hash = "542466cbbee9760560be71624a2e70c28b593c7247d7b7fcb8f8d67084ab74b0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_18.json"
+hash = "2def7535e6500053ada9ace8122f6ee9b71e1f0135db6271521e0522c55282bf"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_19.json"
+hash = "ebde3a97eea93c971881f47c246c05f2c3160dac723deca7bce43130df9536ae"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_2.json"
+hash = "4266319840a197182c229f483c9db82945225bcdd286aee73933144b6287a42a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_20.json"
+hash = "5248c1f1c5cb438c730daf749a7f3a4c177fa0312087d67237d7bc1a6c641ac5"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_21.json"
+hash = "80ab2eeda2f794a8670428400b4e6f11c2cb94835d714dbbe1c6c6a55612b0cf"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_22.json"
+hash = "89379b5e83a76f1b121c1b3c8f64fbfe4d576f111ed507054c901e8937d202ae"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_23.json"
+hash = "c57e85c84ce1d5115ffb84d28c26b30658871480ecb31a2476e70742c26dc028"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_24.json"
+hash = "ad8c99373327036e79d5e7a24260e75482798a93d443ae64d3db0abc958daf81"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_25.json"
+hash = "367dacbf2af76488865e0b7c63f8d62f54baccb882730359ee7a30b9ea7d4760"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_26.json"
+hash = "1919aaba248df10217d421f6bb2ff6915633c944936a22a6d067186c3ec00da2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_27.json"
+hash = "df183440467fbb39e00eca785659f1eb9a47346c4ab5b122f949e48e4665dbb1"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_28.json"
+hash = "9191858786dac0ad39e02c38e5a569ce574de039bcb0dec954f05d7bf20a1a12"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_3.json"
+hash = "6ff72fa1376b242e05bc8f3efcf82dc40654bd95d006498b837ab11522e6fe9b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_4.json"
+hash = "da76671f06c6ec90332fcd64daeed41b4e088ed7c0fd5986bef560fbb126b2f2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_5.json"
+hash = "a976874594f9a70a816952a14435abd0f0f341de49b2ca15468169697fbf2c9d"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_6.json"
+hash = "d47bbd71fab425bb9e568ddf2880b8b7fc37c00e46b07d0032d8eb00b559ff39"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_7.json"
+hash = "10c3d6843085a5e37da487e974bc31abd1aa70d7aa8e828b6ee18caf2f31a5ba"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_8.json"
+hash = "0ffcf5a0d9d3b312e81232e0ab152ddfba78d24855621b9f84940448e5cfe7fa"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/dia_9.json"
+hash = "e9edcfa2acef0da681104dfb123f0864a216ad32d3b4f9cf303480f2b57d02c9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_1.json"
+hash = "a51e8cf822c69845c35cd54201b36a3c97790bcb2431bbfcce4dccf3c447a65a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_10.json"
+hash = "7c36dd8ce348e2e75b994a0a4198b6c26feb16b6a2b91f3c38ed3ee0dd1b021e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_11.json"
+hash = "99c8ec9873e10ac389d09a852bdd3c16daa0a2a6a850e30f0d74bc636689236c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_12.json"
+hash = "2218ee50ca12b61b5ac95f644d6369b9665b6bcd968786a6b70245f1cd6be4ac"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_13.json"
+hash = "ada853b4fcc8a368ef512b040d43dd32aa3c8b023ecc5e12bf0f5f51ca64836a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_14.json"
+hash = "dcca3bc8e028bc574184cc66fa4b9c60494b9b2737d2bad620ff857c857ba196"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_15.json"
+hash = "bddb7b461d6f7b7cad49f74ed6c688d48a0e3f1e476c07e023e360cdc00abf1e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_16.json"
+hash = "c3b5b18737bc664b8b6d9ad10a8d85de5ce7c8d37ff769720b077543ba7f14a6"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_17.json"
+hash = "974d1c57a692f6476e5d38b0a5728cd84ef530282b2333e54b65fc9a51752cdf"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_18.json"
+hash = "dc8228e0f3d66393d921ac245aa814ee580f5d48b8cdfbfe7a6c2e0f997fdc83"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_19.json"
+hash = "a3bce87352e0d96b0e8dad311590261505dbcd1f224e59b38966e87f61f5fc40"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_2.json"
+hash = "e2eab3fe7d503d9179372804f3d525b8b143f0ca011eb2de29b9d517a5368e6a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_20.json"
+hash = "311bef515208d347efe04f08b02f27d97db6bdb48998f57e80c1d13e6810d8ad"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_21.json"
+hash = "8ae5a564d1e1a93232ffe85b597cc4726ddcba17b112eb268a2f214de9990320"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_22.json"
+hash = "9b9b0718b0a7b162aa32b5c5122e22c5627c056dcaee747638aae2eef24f859d"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_23.json"
+hash = "e2f378d3de80983c42e4878da42719c563c080a26e6487285b0f95f7d27f4c1a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_24.json"
+hash = "056fb9ee6ce239906b6cd1f52cde00a268842afe75dc382755d764e6350a0d12"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_25.json"
+hash = "39baf68cc71f8e0cb419f5af81e50b066aae53f81c1b9535114e571e143a6023"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_26.json"
+hash = "60331b6cc4583f5e767be268dcf00b8d5f43f3215a1d031462b68e2fcc6a3cf5"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_27.json"
+hash = "c50d349516f2700952717a466aba08e778b1137977b9c526ead3275ae835e9b7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_28.json"
+hash = "9af3142c3321893637f85403dd77b2c6118ff22ce4012c3b29d6ed89c4a074fa"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_3.json"
+hash = "919759a5e5cc3799252f4157ed1c6f4152f6ca5b92bfb89217c61c78a92d988e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_4.json"
+hash = "ec578c6c5d8bd4391c25de8458a5f689f8a0d50d6f1c7f5825e41eafa9b76f44"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_5.json"
+hash = "893913306711b4a3f6bc0558815453501d6da9fa77acb9752cf5a076f208c3d2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_6.json"
+hash = "e7f094e3d41f15ea6a620c2eca8e712f2c35f566939228c800df94376eceebed"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_7.json"
+hash = "f2e210b80a60429739675ee0aec469437df9bea7399dfc21132a4a72c55def76"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_8.json"
+hash = "abf5dbd221a562b2336a6c7b644c7638e4f33e71e7c4609c2145101b09416073"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/mision_9.json"
+hash = "21d2e6ddafb83368ad30cecf2e53201081a82365abec681f288db17a5325b500"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_1.json"
+hash = "3e0e0439f591dd0d77dab6b4a7c74dba8dc64084c51fc4e7090d12b50aaf92ec"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_10.json"
+hash = "0c2c526f5cfab7d1523da234a35baa50c7b9c5a9a0ae7afc58a4362f163cfc83"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_11.json"
+hash = "c4cd8a6f0da2ea5c3fe46c34de07c7eedec5a0745c22d8d0c104a579d4ecfb0f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_12.json"
+hash = "74c1f39118816d30ae626c8bdc822eda7b54e8de840e0d6d79fec01933f5f78f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_14.json"
+hash = "8619df1585a9fb58c431f2ce69d2c8edbe06cbb51cdfb1331b1a045b25a11639"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_15.json"
+hash = "b7cb99df33b8f9934c55ad4bd8a0e2c5e3a64e66b7f5ec3876d39c62f80ea137"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_16.json"
+hash = "40e63a4cd94c4ecfa31f2464991066a5812f484c69d82aa87c482d31e2f8c22f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_17.json"
+hash = "8bd0146b35792bd55aba45acbfae0570a419fc7b8b71eb0b99c1b8b46860b323"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_18.json"
+hash = "7b7453f5a9e07efecec545469c389856de2c82d2067dd42df8ff25cb5d522fe2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_19.json"
+hash = "db30fa3c52d719cceb0bb973ff819fc723d627242460192981e1ee6be5dd1042"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_2.json"
+hash = "51a787b8236bf18c45704713d58365c26d68c876f90f9ceadfc25dd53fdcc8e2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_21.json"
+hash = "d424ea1de6aafa2945311bd169e70c27b2b279a56b29a6eb2572572f62661b9c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_22.json"
+hash = "3d4f784275e548134dac11d8ab4ee1301e944d9823f2ec1e75464e3bacb0adc6"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_23.json"
+hash = "51ecc3dcc1e2a8c0cd3fa1bb76d959b3c1f704692207f2c321a755b3c87431c8"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_24.json"
+hash = "2a8a0eaf490e98d49e81cd26b5110aae9f0dd353a5a8a4bd5fe5a379b29a032a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_25.json"
+hash = "452b13ec6bc045bd3ad782de7e9ec90e16f498f3498a001d3a0a8fce0d6b0ea1"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_26.json"
+hash = "7d1a896198e5173a833907f1d2839894b327f41160c79f61162987eb335a86e0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_3.json"
+hash = "e4e37ee674054003daebc6ef16b8d6a2bb61eb50efddb10a9aae26a7f9439a88"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_4.json"
+hash = "d9147578b407c564cf50a61df854cac56c2fb7a14eacb270ef98c59db82affa5"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_5.json"
+hash = "0265ab46ab83e486088a374b0c3394eb4e1459faba6477a7a9d62ecfb9caf564"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_7.json"
+hash = "82f5c2d22b013a8bc47235088809fc040a890f6d97577b87e2e253bc21b5a8b9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_8.json"
+hash = "fa54979a82bffad39fffb8c9ed20c027f7b3ad7bb80a3f508a9f33b93b8dfe6b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n1_9.json"
+hash = "8e6950b4a4186f330fb4b5992e762f7cbfb60851af5747590f3ed5a62c5d7db9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_1.json"
+hash = "0683e8def73d835690672aa633f0f87d750a2e563696751acca9f8936aa7ef96"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_10.json"
+hash = "1ea7d883259be209d53dfbed4d4d2ba4428a4d2cc88fd00c044513c2383cf3b3"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_11.json"
+hash = "1caa29fe45b98207b26d8bc07dc4ac67829401e11634c4bdfaa13352e90393f9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_12.json"
+hash = "dd2b2a9068e26766d049c2d0f637958499443ed6c125699c98632a38cb231b2b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_14.json"
+hash = "7ec74d71b405a721f40a72f10b975e3a595fa0b21118c630606910ac867983e7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_15.json"
+hash = "f17a89366c4f12da5b2b9b953e4de48af83a1ef1b577d153d16919d7a6648f8b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_16.json"
+hash = "20c6b45542d92c8acd09f82f6a0fed4650f719d3a62146bd68e06eadf0b4592d"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_17.json"
+hash = "8423da989b89082bafb3c4022f3a2c22026c142fe30fbc1a363c1d48c7f82254"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_18.json"
+hash = "d13026d755b1757a83de88827d00a37fda15f13d4667a1196e2e66578162fd9d"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_19.json"
+hash = "037e9f7a23208057fb57e091c1b86bc459961e23c0544c321a6fb8db4f8f9625"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_2.json"
+hash = "0a1a7991cafafcaa54698beed7c9cabd96201405928ab950842fd04da2eb73c9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_21.json"
+hash = "59749ff8c36e417036de19bab27740ddb16a5b623e545e7f24bdf04521fc2651"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_22.json"
+hash = "f30c13fd7341221b4ac62b445282440d46b88ab59717af6baf1319abd070ed11"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_23.json"
+hash = "b25774445a53ff7780d697a39015792362373454ced75be8e431c88da3343f34"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_24.json"
+hash = "5a74ac302c943c8c3c1d01e765f4a96a2507ca4ee5f3bd966569f551f39f8410"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_25.json"
+hash = "4471c217394f0c6183deb751e500912c2b8f8491d00f638e1b7d654ad28741d8"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_26.json"
+hash = "148c6aff9e13eaa8ef47e809937450628f439410585c87b9f9f92e0a886c8306"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_3.json"
+hash = "3be49e987e90161e2ebf3a998e4611e4d57e8c7f03867c0818c438cb86774d34"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_4.json"
+hash = "bbc12a0ccc1d76191d53b2dc7c2272304d09062f494c9224b9add582aee8035c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_5.json"
+hash = "fa881daf7564c53c51cedec6b78735717c15dacd9084eb3aafd95854a4cf7a17"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_7.json"
+hash = "d06cdcda2294441f1a1d8f3fe4fbee0479dbf41903f4d1fc8d351212e6704883"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_8.json"
+hash = "8698f9e450c9219a0fba6b82cfcde7ae7b12be376722ac7a77f7b896c93a4a5c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/n2_9.json"
+hash = "467d02174fcfe0b786b6c4b4e22862433548fcb50be18dfe5247fe6298de436a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/anuncio/raiz.json"
+hash = "441682757651522655ec0256d0ce84c9d54a035792e4fbbc354099766c7bebe9"
+
+[[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"
-hash = "a3e6098098baaba1173dc6330bbc4e25643143983a8125488bd784cdb84ba060"
+hash = "662338f2710851b40ce1b3f46335b5ffebb14951c2a661d61f20ad86cdd96152"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/10_dias.js"
-hash = "445925c6067382b2b3dcb1b248c45d5d4e5efe83f0eddbf795225d24a6df8da7"
+hash = "59d831696cd278ad823d8794ac4b6afccd44cfa3cc7cf0f086c13450bcaca852"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/20_mobs.js"
@@ -438,7 +974,7 @@ hash = "2580ab33af5668253a5b291ecd2dbea0c797a78a2650011075a511ffc77f2ed9"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/30_eliminacion_y_comandos.js"
-hash = "ab790ef6ba5b808b64f6dfa221c4cf5d359bd4af3ef3c9fca2739a994eb5cc1f"
+hash = "979b2434a53ed5fdffc4fac8e44757e1a13e23b06ad4aaeed8bfcd9b16872b06"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/40_proteccion_spawn.js"
@@ -446,27 +982,35 @@ hash = "acaa2ae3cd39a5c8dfdec222c158cd2d3f2cff4902a7d49d700646098e10048a"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/50_resurreccion.js"
-hash = "1307c85901bda05c73b715ead0c5f582b47cc139ddd9ecd6e5558f0e5a45b5ce"
+hash = "67cc1d91d081748634a9ec8cd4a1967884a43c7136842c06888d3cf36843291b"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/60_contador_y_dia.js"
-hash = "63d7aad9d2213a93e1405814933282c5c19dc16aeca865b788935dd364a229d2"
+hash = "37c89b5a205f4129fbe75d30a2c146fbb4605349c99ff2f3d13a341641c4c50d"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/70_recompensas.js"
-hash = "0623657d5bf8c5439f13714a704e84f3ce3b166639b55835405b0c6c87a9184e"
+hash = "97035c0653aad42f4e2a2d85f6c1397983c452a13e5e7b4d5d30e83cefeedfdc"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/80_mazmorras.js"
-hash = "341498c8f811a32527237d579b838c70582153c1a9d78cb9bc6c0158977a664c"
+hash = "080c8aaa65eeeb71188aaf65f4597e88b217d46f905b7a7c03543533f3dd1606"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/85_criptas.js"
 hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
 
 [[files]]
+file = "kubejs/server_scripts/starvios/87_diario.js"
+hash = "003aced4cdfb735922af70847fa7c555a8bb958f6a861354208dbcb95c82e470"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/88_anuncios.js"
+hash = "b7dc63e6839b980ca2b6df285abf965a833ac8f38b8a8ebd7010a82f8ae03670"
+
+[[files]]
 file = "kubejs/server_scripts/starvios/89_ajustes.js"
-hash = "bd7f80ab22b7a24c1d24cc8afb792e2b968d7af14d95b0db155c345a4e6e6531"
+hash = "d2732a6efc2d45bf74e2e08104be9dc7c4600718d9d01d2aef31f0869d5ccb0e"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/90_economia.js"
@@ -478,23 +1022,23 @@ hash = "0f280c4107ee9cbad43ac82995a635ae61acdbc9fd05445c99c8b6decb4cacee"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/92_extras.js"
-hash = "5d0f9fcf06a5a9cd7793e9fcdbc60997065f8cac746bbfb6136785be9cc1e984"
+hash = "ce8bcfd518daebae0e0091e23f795830e4dfc0f7d709f063e07b2af51e673638"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/93_anomalias.js"
-hash = "73b88cc37f8ba133b75ee3833537e2aad7a1070aac929c184a76034a5dba5700"
+hash = "6c7b41e30d64961ff7068f5169bc51249e20f278f75636ed007e859a485843e5"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/94_intro.js"
-hash = "467770323c414756fd8ffd7473c0515b4b10de9316457b66c0d6abdf2f78ba96"
+hash = "30c9ba61a10dc33c8a529255967607c22bbf52bd909ad7b00613fe358ac70b66"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/95_equipos.js"
-hash = "7418ad00802218a2fc543daf983376465efe9e40f5751c27b5aa07503fe063e8"
+hash = "017641a7d9e54b3df1ade77d5d65f4646c628d8a2000124e3ad821e67d4cd5d3"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/96_rendimiento.js"
-hash = "b341205dd87ac071eb3f7f7cdd04b000672daba99719c678931c271026654f36"
+hash = "0eadd0808caf5697542f36094b666441c485353464f293789a97940b89a0a309"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/97_comercio.js"
@@ -514,7 +1058,7 @@ hash = "d62c655f671116f2fa7f475d24de245e5e2fdf67176262dab83b3d8f45d904ed"
 
 [[files]]
 file = "kubejs/startup_scripts/starvios_cultivos.js"
-hash = "b9fc5eac3e994018738bc47ffeaf517baa7debd091c1776878c5e32b18d4b1fb"
+hash = "ad6e82c9458394a5792420f4190cc9574b78814c08ec85c3cda5c0a6f1de0146"
 
 [[files]]
 file = "kubejs/startup_scripts/starvios_monedas.js"

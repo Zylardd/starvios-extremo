@@ -1,0 +1,24 @@
+{
+ "parent": "starvios:anuncio/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:wither_skeleton_skull"
+  },
+  "title": {
+   "text": "Una caída fuerte (3 corazones o más) te deja con Lentitud II durante 5 segundos",
+   "color": "red"
+  },
+  "description": {
+   "text": ""
+  },
+  "frame": "challenge",
+  "show_toast": true,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

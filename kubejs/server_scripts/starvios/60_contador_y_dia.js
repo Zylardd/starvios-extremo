@@ -53,7 +53,7 @@ let stFinCuenta = (server, accion) => {
     if (global.STARVIOS.introDia1 !== false && global.stPrologoAudio) {
       global.stPrologoAudio(server);
       d.putBoolean('starvios_intro_vista', true);
-      espera = Math.round((Number(global.STARVIOS.prologoSegundos) || 90) * 20) + 20;   // duración del prólogo + 1 s
+      espera = Math.round((global.stPrologoDuracion ? global.stPrologoDuracion() : 90) * 20) + 20;   // duración del prólogo + 1 s
     }
     d.putInt('starvios_ultimo_dia', 1);       // el anuncio lo hacemos nosotros al terminar el prólogo
     server.scheduleInTicks(espera, () => global.stAnunciar(server, 1));
