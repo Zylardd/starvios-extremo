@@ -7,7 +7,11 @@
   {
    "type": "patchouli:text",
    "title": "Chat de voz",
-   "text": "Habla con quien tengas cerca usando el chat de voz.$(br2)Cuando Liz cuente la historia o los admins hablen, la voz de todos puede silenciarse un momento.$(br2)Ajusta el volumen de Liz en $(l)Opciones → Música y sonidos → Voz/Habla$()."
+   "text": "Habla con quien tengas cerca usando el chat de voz (tecla $(l)V$() para el menú).$(br2)$(l)Voz de equipo:$() tu equipo tiene un grupo de voz privado: se oyen solo entre ustedes y a cualquier distancia. Acepta la invitación que llega al chat y, en $(l)V → Activación$(), ponle una tecla a $(l)Grupos$(). Si alguien no se oye: $(l)/equipo voz$()."
+  },
+  {
+   "type": "patchouli:text",
+   "text": "Cuando Liz cuente la historia o los admins hablen, la voz de todos puede silenciarse un momento.$(br2)Ajusta el volumen de Liz en $(l)Opciones → Música y sonidos → Voz/Habla$()."
   }
  ]
 }

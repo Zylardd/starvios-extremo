@@ -173,10 +173,13 @@ global.stAnunciar = (server, dia) => {
     });
   }
   // Aviso arriba a la derecha (el chat queda libre). La info completa está en el Diario de Starvios.
-  global.stToast(server, '@a', `dia_${dia}`);
+  let hud = global.stHudActivo && global.stHudActivo();
+  let anD = (global.STARVIOS.anuncios || {})[dia];
+  if (hud && anD) global.stAvisoHud(server, `§6§l✦ DÍA ${dia} DE ${global.STARVIOS.diasTotales} ✦`, global.stTituloDia ? global.stTituloDia(anD[0]) : anD[0], anD[1], '#FFAA00');
+  else global.stToast(server, '@a', `dia_${dia}`);
   global.stCmd(server, `execute as @a at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 4 0.8`);
-  // Misión del día (92_extras.js)
-  if (global.stAnunciarMision) server.scheduleInTicks(60, () => global.stAnunciarMision(server));
+  // Misión del día (92_extras.js): sale cuando se va el aviso del día
+  if (global.stAnunciarMision) server.scheduleInTicks(hud ? global.stHudSegundos() * 20 + 10 : 60, () => global.stAnunciarMision(server));
   // Voz del narrador (necesita el paquete de voces en kubejs/assets del modpack)
   if (cfg.voz !== false) {
     server.scheduleInTicks(30, () => global.stCmd(server, `execute as @a at @s run playsound starvios:dia.${dia} voice @s ~ ~ ~ 8 1`));
@@ -252,7 +255,7 @@ PlayerEvents.loggedIn(event => {
 // La primera vez que alguien entra, y cuando reaparece sin cama, lo llevamos al spawn exacto.
 global.stIrAlSpawn = (server, n) => {
   let s = global.STARVIOS.spawn;
-  server.runCommandSilent(`execute in minecraft:overworld run tp ${n} ${s.x + 0.5} ${s.y} ${s.z + 0.5}`);
+  server.runCommandSilent(`execute in minecraft:overworld run tp ${n} ${Number(s.x) + 0.5} ${Number(s.y)} ${Number(s.z) + 0.5}`);
 };
 
 PlayerEvents.loggedIn(event => {

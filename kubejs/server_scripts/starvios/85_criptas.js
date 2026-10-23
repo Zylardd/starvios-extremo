@@ -265,7 +265,8 @@ let crEmpezar = (server, x, z, avisar, tipo) => {
   tipo = tipo || 'cripta';
   let T = crTema(tipo), M = crMedidas(T);
   let esMz = tipo === 'mazmorra';
-  if (!isFinite(x) || !isFinite(z)) { avisar('§cCoordenadas inválidas.'); return; }
+  x = Number(x); z = Number(z);
+  if (!isFinite(x) || !isFinite(z)) { avisar(`§cCoordenadas inválidas (x=${x}, z=${z}).`); return; }
   if (global.stGenerandoCripta) { avisar('§cYa se está generando una cripta o mazmorra, espera unos segundos.'); return; }
   global.stGenerandoCripta = true;
   let id = String(Date.now() % 1000000);
@@ -317,6 +318,7 @@ let crEmpezar = (server, x, z, avisar, tipo) => {
   server.scheduleInTicks(1200, () => { global.stGenerandoCripta = false; });
 };
 global.crEmpezar = crEmpezar;
+global.crLaberinto = crLaberinto;   // lo usa 84_camino.js
 
 // ---------- Barra de vida del jefe: se actualiza cada segundo ----------
 ServerEvents.tick(event => { global.stSeguro('85_criptas (barra)', () => {
@@ -396,7 +398,8 @@ ServerEvents.commandRegistry(event => {
         let p = global.mzElegirPunto(server);
         m.distanciaMin = antes[0]; m.distanciaMax = antes[1];
         if (!p) { msg(ctx)('§cNo encontré tierra firme en el rango. Prueba otra vez.'); return 1; }
-        crEmpezar(server, p.x, p.z, msg(ctx), 'cripta');
+        let pp = String(p).split(' ');
+        crEmpezar(server, parseInt(pp[0]), parseInt(pp[1]), msg(ctx), 'cripta');
         return 1;
       })
       .then(Commands.literal('aqui').executes(ctx => {

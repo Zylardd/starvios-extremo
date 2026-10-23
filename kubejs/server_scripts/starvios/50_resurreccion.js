@@ -63,7 +63,7 @@ global.stSoltarAlma = (server, n, p) => {
   if (pos && pos.y < -60) {
     // murió en el vacío: el Alma aparece en el spawn
     let s = global.STARVIOS.spawn;
-    server.runCommandSilent(`execute in minecraft:overworld run summon minecraft:item ${s.x + 0.5} ${s.y + 1} ${s.z + 0.5} ${datos}`);
+    server.runCommandSilent(`execute in minecraft:overworld run summon minecraft:item ${Number(s.x) + 0.5} ${Number(s.y) + 1} ${Number(s.z) + 0.5} ${datos}`);
   } else {
     // en el lugar exacto donde murió
     server.runCommandSilent(`execute at ${n} run summon minecraft:item ~ ~0.5 ~ ${datos}`);

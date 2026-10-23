@@ -93,6 +93,7 @@ ServerEvents.tick(event => { global.stSeguro('89_ajustes (rompen bloques)', () =
       if (rotos >= 2) return;
       if (global.stEnSpawn(level, b[0], b[2])) return;
       if (global.stEnArena && global.stEnArena(server, b[0], b[1], b[2])) return;
+      if (global.stEnCripta && global.stEnCripta(server, b[0], b[2])) return;   // criptas, mazmorras y caminos
       let id = '';
       try { id = String(level.getBlock(b[0], b[1], b[2]).id); } catch (x) { return; }
       if (!ajSolido(id) || cfg.noRompe.indexOf(id) !== -1) return;
@@ -210,4 +211,59 @@ ServerEvents.commandRegistry(event => {
       ctx.source.server.runCommandSilent(`tellraw @a ["",{"text":"📍 Base: ","color":"gold","bold":true},{"text":"${s.x} ${s.y} ${s.z}  ","color":"yellow"},{"text":"xaero-waypoint:Base:B:${s.x}:${s.y}:${s.z}:6:false:0:Internal-overworld-waypoints","color":"gray"}]`);
       return 1;
     })));
+});
+
+// /starvios proteger [radio]   : cuadros (Immersive Paintings y normales) y marcos cercanos -> irrompibles
+// /starvios desproteger [radio]: vuelven a romperse normal
+// Usa la etiqueta vanilla Invulnerable: no los rompen golpes, flechas ni explosiones (en creativo sí).
+let PROT_TIPOS = ['immersive_paintings:painting', 'immersive_paintings:glow_painting', 'immersive_paintings:graffiti',
+  'immersive_paintings:glow_graffiti', 'minecraft:painting', 'minecraft:item_frame', 'minecraft:glow_item_frame'];
+let protCambiar = (ctx, radio, on) => {
+  let p = ctx.source.player; if (!p) return 0;
+  let n = p.getName().getString(), total = 0;
+  PROT_TIPOS.forEach(t => {
+    let marco = t.indexOf('item_frame') !== -1 ? `,Fixed:${on ? 1 : 0}b` : '';
+    total += Number(ctx.source.server.runCommandSilent(
+      `execute at ${n} as @e[type=${t},distance=..${radio}] run data merge entity @s {Invulnerable:${on ? 1 : 0}b${marco}}`)) || 0;
+  });
+  ctx.source.sendSystemMessage(Text.of(on
+    ? `§6[Starvios] 🛡 ${total} cuadro(s)/marco(s) protegidos en ${radio} bloques.`
+    : `§6[Starvios] ${total} cuadro(s)/marco(s) desprotegidos en ${radio} bloques.`));
+  return 1;
+};
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands, arguments: Arguments } = event;
+  let rama = (nombre, on) => Commands.literal(nombre)
+    .executes(ctx => protCambiar(ctx, 8, on))
+    .then(Commands.argument('radio', Arguments.INTEGER.create(event)).executes(ctx => protCambiar(ctx, Math.max(1, Math.min(200, Arguments.INTEGER.getResult(ctx, 'radio'))), on)));
+  event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))
+    .then(rama('proteger', true)).then(rama('desproteger', false)));
+});
+
+// ============================================================
+//  SIN WITHER: no se puede invocar (ni con el patrón de arena de almas + cráneos)
+//  1) No deja poner un cráneo de esqueleto wither encima de arena/tierra de almas (supervivencia)
+//  2) Por si acaso, cualquier Wither que aparezca se cancela
+//     (si algún día quieres uno: /summon minecraft:wither ~ ~ ~ {Tags:["starvios_permitido"]})
+// ============================================================
+let SW_CRANEOS = ['minecraft:wither_skeleton_skull', 'minecraft:wither_skeleton_wall_skull'];
+let SW_ALMAS = ['minecraft:soul_sand', 'minecraft:soul_soil'];
+BlockEvents.placed(event => {
+  let b = event.block;
+  if (SW_CRANEOS.indexOf(String(b.id)) === -1) return;
+  let p = event.player;
+  try { if (p && p.isCreative()) return; } catch (e) {}
+  let abajo = '';
+  try { abajo = String(b.down.id); } catch (e) {}
+  let lados = [];
+  try { lados = [String(b.north.down.id), String(b.south.down.id), String(b.east.down.id), String(b.west.down.id)]; } catch (e) {}
+  if (SW_ALMAS.indexOf(abajo) === -1 && !lados.some(x => SW_ALMAS.indexOf(x) !== -1)) return;
+  if (p) p.server.runCommandSilent(`title ${p.getName().getString()} actionbar {"text":"☠ El Wither no puede ser invocado en Starvios","color":"dark_red"}`);
+  event.cancel();
+});
+EntityEvents.spawned(event => {
+  let e = event.entity;
+  if (!e || String(e.type) !== 'minecraft:wither') return;
+  try { if (String(e.getTags()).indexOf('starvios_permitido') !== -1) return; } catch (x) {}
+  event.cancel();
 });

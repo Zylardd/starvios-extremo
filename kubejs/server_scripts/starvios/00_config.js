@@ -148,7 +148,7 @@ global.STARVIOS = {
   //  GENERACIÓN AUTOMÁTICA (solo con el evento activo y jugadores conectados)
   //  0 = desactivado. En minutos de juego real.
   // ----------------------------------------------------------
-  automatico: { mazmorraCadaMin: 45, criptaCadaMin: 90 },
+  automatico: { mazmorraCadaMin: 0, criptaCadaMin: 0 },   // 0 = apagado: las invocas tú con /starvios mazmorra y /starvios cripta
 
   // ----------------------------------------------------------
   //  BOTÍN ESPECIAL (jefes semanales, élites y señores de las criptas)
@@ -233,7 +233,7 @@ global.STARVIOS = {
   //  EQUIPOS  (/equipo ...)  -  sin fuego amigo, chat privado con /eq
   // ----------------------------------------------------------
   equipos: {
-    maxMiembros: 4,
+    maxMiembros: 0,   // 0 = sin límite de miembros
     colores: ['red', 'blue', 'green', 'yellow', 'aqua', 'light_purple', 'gold', 'dark_green', 'dark_aqua', 'dark_purple']
   },
 

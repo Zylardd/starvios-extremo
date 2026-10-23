@@ -1,13 +1,13 @@
 {
- "name": "Xaero y voz",
- "icon": "minecraft:compass",
+ "name": "Emotecraft",
+ "icon": "minecraft:cake",
  "category": "patchouli:mods",
  "sortnum": 6,
  "pages": [
   {
    "type": "patchouli:text",
-   "title": "Xaero y voz",
-   "text": "Minimapa y mapa del mundo de Xaero, y el chat de voz por proximidad."
+   "title": "Emotecraft",
+   "text": "Emotes animados: pulsa $(l)B$() para abrir la rueda. Más de 40 bailes y gestos."
   }
  ]
 }

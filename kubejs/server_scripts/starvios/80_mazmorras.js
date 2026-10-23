@@ -42,18 +42,29 @@ let mzEsAgua = (server, x, z) => {
 };
 
 // Punto al azar: en tierra, fuera del spawn protegido, dentro del rango
+// Un intento: devuelve {x, z} o null (sin variables "let" dentro de bucles: Rhino a veces las pierde)
+let mzProbar = (server, sx, sz, dMin, dMax) => {
+  let ang = Math.random() * Math.PI * 2;
+  let d = dMin + Math.random() * (dMax - dMin);
+  let px = Math.round(sx + Math.cos(ang) * d) * 1;
+  let pz = Math.round(sz + Math.sin(ang) * d) * 1;
+  if (!isFinite(px) || !isFinite(pz)) { console.warn(`[Starvios] mzProbar NaN: sx=${sx} sz=${sz} d=${d} ang=${ang}`); return null; }
+  if (global.stEnSpawn('minecraft:overworld', px, pz)) return null;
+  if (mzEsAgua(server, px, pz)) return null;
+  return `${px} ${pz}`;   // texto "x z": los objetos a veces no sobreviven al pasar por global en KubeJS
+};
 let mzElegirPunto = (server) => {
   let s = global.STARVIOS.spawn, c = MZ();
-  if (!c || !isFinite(Number(s.x)) || !isFinite(Number(s.z)) || !isFinite(Number(c.distanciaMin)) || !isFinite(Number(c.distanciaMax))) return null;
-  for (let i = 0; i < 40; i++) {
-    let ang = Math.random() * Math.PI * 2;
-    let d = c.distanciaMin + Math.random() * (c.distanciaMax - c.distanciaMin);
-    let x = Math.round(s.x + Math.cos(ang) * d), z = Math.round(s.z + Math.sin(ang) * d);
-    if (global.stEnSpawn('minecraft:overworld', x, z)) continue;
-    if (mzEsAgua(server, x, z)) continue;
-    return { x: x, z: z };
+  if (!c || !s) return null;
+  // Number(): los valores de la config pueden llegar como objetos Java; así se convierten bien
+  let sx = Number(String(s.x)), sz = Number(String(s.z)), dMin = Number(String(c.distanciaMin)), dMax = Number(String(c.distanciaMax));
+  if (!isFinite(sx) || !isFinite(sz) || !isFinite(dMin) || !isFinite(dMax)) {
+    console.warn(`[Starvios] mzElegirPunto: config rara sx=${s.x} sz=${s.z} min=${c.distanciaMin} max=${c.distanciaMax}`);
+    return null;
   }
-  return null;
+  let res = '';
+  for (let i = 0; i < 40 && !res; i++) res = mzProbar(server, sx, sz, dMin, dMax) || '';
+  return res;   // "x z" o '' si no encontró
 };
 
 let mzMezclar = (arr) => {
@@ -186,7 +197,8 @@ let mzConstruir = (server, x, z, intento) => {
 };
 
 let mzEmpezar = (server, x, z, avisar) => {
-  if (!isFinite(x) || !isFinite(z)) { avisar('§cCoordenadas inválidas. Revisa "spawn" y "mazmorras" en 00_config.js.'); return; }
+  x = Number(x); z = Number(z);
+  if (!isFinite(x) || !isFinite(z)) { avisar(`§cCoordenadas inválidas (x=${x}, z=${z}). Revisa "spawn" y "mazmorras" en 00_config.js.`); return; }
   // Mazmorra-laberinto (mismo generador que las criptas, en 85_criptas.js)
   if (global.crEmpezar && MZ().estilo !== 'estructura') { global.crEmpezar(server, x, z, avisar, 'mazmorra'); return; }
   if (global.stGenerando) { avisar('§cYa se está generando una mazmorra, espera unos segundos.'); return; }
@@ -208,7 +220,8 @@ ServerEvents.commandRegistry(event => {
         let server = ctx.source.server;
         let p = mzElegirPunto(server);
         if (!p) { msg(ctx)('§cNo encontré tierra firme en el rango. Prueba otra vez.'); return 1; }
-        mzEmpezar(server, p.x, p.z, msg(ctx));
+        let pp = String(p).split(' ');
+        mzEmpezar(server, parseInt(pp[0]), parseInt(pp[1]), msg(ctx));
         return 1;
       })
       .then(Commands.literal('aqui').executes(ctx => {
@@ -236,7 +249,7 @@ ServerEvents.commandRegistry(event => {
   // /mazmorras (todos)
   event.register(Commands.literal('mazmorras').executes(ctx => {
     let server = ctx.source.server;
-    let l = mzLista(server);
+    let l = mzLista(server).filter(d => !d.oculta);
     let m = msg(ctx);
     if (!l.length) { m('§7Ahora mismo no hay mazmorras conocidas.'); return 1; }
     let s = global.STARVIOS.spawn;

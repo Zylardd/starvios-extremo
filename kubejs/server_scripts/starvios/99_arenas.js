@@ -236,7 +236,7 @@ let arSitioAuto = (server, n) => {
   else if (mitad > 0 && mitad < 100000) d = Math.floor(mitad - 250);   // junto al borde del mundo, por dentro
   else d = 3000;
   let esq = [[1, -1], [-1, -1], [-1, 1], [1, 1]][n - 1];       // 1 NE, 2 NO, 3 SO, 4 SE
-  return { x: cx + esq[0] * d, z: cz + esq[1] * d };
+  return { x: Number(cx) + esq[0] * Number(d), z: Number(cz) + esq[1] * Number(d) };
 };
 
 // ---------- Construcción por tandas ----------

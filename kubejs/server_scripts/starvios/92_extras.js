@@ -63,13 +63,19 @@ let msHechas = (server) => {
 };
 // Lista [[id, cantidad, nombre], ...] (también acepta el formato antiguo item/cantidad)
 let msPide = (m) => m.pide ? m.pide : [[m.item, m.cantidad, msNombre(m.item)]];
-let msTextoPide = (m) => msPide(m).map(x => `${x[1]} ${x[2] || msNombre(x[0])}`).join(', ');
+// "2 manzanas doradas", pero sin repetir el número si el nombre ya lo trae ("2 piezas de diamante") ni poner "1 ..."
+let msUno = (x) => {
+  let nom = String(x[2] || msNombre(x[0]));
+  if (/^\d/.test(nom) || String(x[0]).charAt(0) === '@' || Number(x[1]) <= 1) return nom;
+  return `${x[1]} ${nom}`;
+};
+let msTextoPide = (m) => msPide(m).map(msUno).join(', ');
 let msTextoPremio = (pr) => {
   let t = [];
   if (pr.monedas) t.push(`${pr.monedas} ${global.STARVIOS.economia.simbolo}`);
-  if (pr.vitales) t.push(`${pr.vitales} Corazón Vital`);
-  if (pr.fragmentos) t.push(`${pr.fragmentos} Fragmento(s) de Corazón`);
-  if (pr.fragiles) t.push(`${pr.fragiles} Corazón(es) Frágil(es)`);
+  if (pr.vitales) t.push(pr.vitales == 1 ? '1 Corazón Vital' : `${pr.vitales} Corazones Vitales`);
+  if (pr.fragmentos) t.push(pr.fragmentos == 1 ? '1 Fragmento de Corazón' : `${pr.fragmentos} Fragmentos de Corazón`);
+  if (pr.fragiles) t.push(pr.fragiles == 1 ? '1 Corazón Frágil' : `${pr.fragiles} Corazones Frágiles`);
   (pr.buffs || (pr.buff ? [pr.buff] : [])).forEach(b => t.push(`${b[2]} (${(b[3] || 1) > 1 ? b[3] + ' días' : 'hoy'})`));
   (pr.items || []).forEach(x => t.push(x[2] ? (x[1] > 1 ? `${x[1]} ${x[2]}` : x[2]) : `${x[1]} ${msNombre(x[0])}`));
   return t.join(' + ');
@@ -79,7 +85,16 @@ let msPremioDe = (m) => m.premio || { monedas: m.monedas, fragmentos: m.fragment
 global.stAnunciarMision = (server, quien, enChat) => {
   let h = msHoy(server);
   if (!h) return;
-  if (!enChat) { global.stToast(server, quien || '@a', `mision_${h.dia}`); return; }   // aviso arriba a la derecha
+  if (!enChat) {   // aviso arriba a la derecha
+    if (global.stHudActivo && global.stHudActivo()) {
+      let pr = msTextoPremio(msPremioDe(h.m));
+      let verbo = msEntrega(h.m) ? 'Trae al atril' : 'Ten contigo';
+      global.stAvisoHud(server, `§b§l✦ MISIÓN DEL DÍA ${h.dia} ✦`, h.m.texto || null,
+        `§e${verbo}: §f${msTextoPide(h.m)}\n§6Premio: §f${pr}\n§7Ve al atril del spawn · /mision`, '#55CCFF', quien || '@a');
+      server.runCommandSilent(`execute as ${quien || '@a'} at @s run playsound minecraft:block.note_block.bell master @s ~ ~ ~ 1 1.2`);
+    } else global.stToast(server, quien || '@a', `mision_${h.dia}`);
+    return;
+  }
   let a = quien || '@a';
   let titulo = h.m.texto ? `${h.m.texto}: ` : '';
   server.runCommandSilent(`tellraw ${a} ["",{"text":"📜 Misión del día ${h.dia}: ","color":"aqua","bold":true},{"text":"${global.stEsc(titulo)}","color":"yellow"},{"text":"${msEntrega(h.m) ? 'trae' : 'consigue y ten contigo'} ${global.stEsc(msTextoPide(h.m))}","color":"white"}]`);
@@ -125,7 +140,13 @@ let msContar = (p, req, dia) => {
     let ok = modoArm != null ? (id.indexOf(modoArm) !== -1 && MS_ARMADURA.test(id)) :
       id0.charAt(0) === '#' ? (() => { try { return it.hasTag(id0.slice(1)); } catch (e) { return false; } })() : id === id0;
     if (!ok) continue;
-    if (nbtReq) { let t = ''; try { t = String(it.nbt); } catch (e) {} if (t.indexOf(nbtReq) === -1) continue; }
+    if (nbtReq) {
+      // Pociones: vale cualquier nivel o duración (curación I = curación II; "strong_" y "long_" cuentan igual)
+      let t = ''; try { t = String(it.nbt); } catch (e) {}
+      let pm2 = t.match(/Potion:"([^"]+)"/);
+      let base = (x) => String(x).replace(/^[a-z0-9_]+:/, '').replace(/^(strong|long)_/, '');
+      if (!pm2 || base(pm2[1]) !== base(nbtReq)) continue;
+    }
     let usado = 0;
     try { let tg = it.getTag(); usado = tg ? Number(tg.getInt('starvios_mision')) : 0; } catch (e) {}
     if (usado === dia) { r.prestado = true; continue; }
@@ -348,7 +369,7 @@ let rsAplicar = (server, n) => {
   r(`recipe take ${n} *`);
   r(`gamemode survival ${n}`);
   r(`execute in minecraft:overworld run spawnpoint ${n} ${s.x} ${s.y} ${s.z}`);
-  r(`execute in minecraft:overworld run tp ${n} ${s.x + 0.5} ${s.y} ${s.z + 0.5}`);
+  r(`execute in minecraft:overworld run tp ${n} ${Number(s.x) + 0.5} ${Number(s.y)} ${Number(s.z) + 0.5}`);
   r(`attribute ${n} minecraft:generic.max_health base set 20`);
   r(`effect give ${n} minecraft:instant_health 1 10 true`);
   r(`effect give ${n} minecraft:saturation 1 20 true`);

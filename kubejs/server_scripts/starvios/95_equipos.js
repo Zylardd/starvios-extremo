@@ -14,6 +14,10 @@
 // ============================================================
 
 let EQ = () => global.STARVIOS.equipos;
+// maxMiembros = 0 -> sin límite
+let eqMax = () => Number(EQ().maxMiembros) || 0;
+let eqLleno = (n) => eqMax() > 0 && n >= eqMax();
+let eqCupo = (n) => eqMax() > 0 ? `${n}/${eqMax()}` : `${n}`;
 // Invitaciones guardadas en el mundo (no se pierden con /reload). Clave = nombre en minúsculas.
 let eqInvLeer = (server) => { try { return JSON.parse(server.persistentData.getString('starvios_invitaciones') || '{}'); } catch (e) { return {}; } };
 let eqInvGuardar = (server, m) => server.persistentData.putString('starvios_invitaciones', JSON.stringify(m));
@@ -47,6 +51,34 @@ let eqAvisarEquipo = (server, eq, texto) => {
   eq.miembros.forEach(n => { if (server.getPlayer(n)) server.runCommandSilent(`tellraw ${n} ${texto}`); });
 };
 
+
+// ---------- Chat de voz del equipo (Plasmo Voice + addon pv-addon-groups) ----------
+// Cada equipo tiene un GRUPO de voz: se oyen solo entre ellos, a cualquier distancia (tecla de "Grupos" en el menú V).
+// Los grupos los crea el líder; los demás entran aceptando la invitación que les llega al chat.
+let eqPw = () => Math.random().toString(36).slice(2, 10);
+let eqComo = (server, n, c) => server.runCommandSilent(`execute as ${n} run ${c}`);
+let eqVozInvitar = (server, eq, quien) => {
+  let host = server.getPlayer(eq.lider) ? eq.lider : eq.miembros.filter(x => x !== quien && server.getPlayer(x))[0];
+  if (!host || host === quien) return false;
+  eqComo(server, host, `groups invite ${quien}`);
+  server.runCommandSilent(`tellraw ${quien} {"text":"🎙 Acepta la invitación al grupo de voz de tu equipo (arriba en el chat) para hablar a distancia.","color":"aqua"}`);
+  return true;
+};
+// Rehace el grupo de voz: el anfitrión (líder o el primero conectado) lo crea e invita al resto conectado
+global.stEquipoVoz = (server, eq) => {
+  let on = eq.miembros.filter(x => server.getPlayer(x));
+  if (!on.length) return 0;
+  let host = on.indexOf(eq.lider) !== -1 ? eq.lider : on[0];
+  on.forEach(x => eqComo(server, x, 'groups leave'));
+  eqComo(server, host, `groups create name: ${String(eq.nombre).replace(/[^A-Za-z0-9 _-]/g, '')} password: ${eqPw()}`);
+  on.filter(x => x !== host).forEach(x => {
+    eqComo(server, host, `groups invite ${x}`);
+    server.runCommandSilent(`tellraw ${x} {"text":"🎙 Acepta la invitación al grupo de voz de tu equipo (arriba en el chat) para hablar a distancia.","color":"aqua"}`);
+  });
+  server.runCommandSilent(`tellraw ${host} {"text":"🎙 Grupo de voz del equipo creado. Habla con la tecla de Grupos (menú V → Activación).","color":"aqua"}`);
+  return on.length;
+};
+
 ServerEvents.commandRegistry(event => {
   let { commands: Commands, arguments: Arguments } = event;
   let decir = (ctx) => (t) => ctx.source.sendSystemMessage(Text.of(t));
@@ -67,6 +99,7 @@ ServerEvents.commandRegistry(event => {
     eqGuardar(server, m);
     eqVanilla(server, k, m[k]);
     server.runCommandSilent(`team join ${k} ${n}`);
+    global.stEquipoVoz(server, m[k]);
     server.runCommandSilent(`tellraw @a ["",{"text":"⚑ ","color":"${color}"},{"text":"${n}","color":"yellow"},{"text":" ha fundado el equipo ","color":"gray"},{"text":"${nombreEq}","color":"${color}","bold":true}]`);
     d('§7Invita a tus compañeros con §f/equipo invitar <jugador>§7. Habla en privado con §f/eq <mensaje>§7.');
     return 1;
@@ -78,7 +111,7 @@ ServerEvents.commandRegistry(event => {
     let m = eqLeer(server), k = eqDe(m, n);
     if (!k) { d('§cNo tienes equipo. Crea uno con /equipo crear <nombre>.'); return 0; }
     if (m[k].lider !== n) { d('§cSolo el líder puede invitar.'); return 0; }
-    if (m[k].miembros.length >= EQ().maxMiembros) { d(`§cEl equipo ya tiene el máximo (${EQ().maxMiembros}).`); return 0; }
+    if (eqLleno(m[k].miembros.length)) { d(`§cEl equipo ya tiene el máximo (${eqMax()}).`); return 0; }
     let po = server.getPlayer(otro);
     if (!po) { d(`§c${otro} no está conectado.`); return 0; }
     otro = po.getName().getString();   // nombre real (con mayúsculas)
@@ -100,11 +133,12 @@ ServerEvents.commandRegistry(event => {
     let m = eqLeer(server);
     if (!k || !m[k]) { d('§cNo tienes invitaciones pendientes.'); return 0; }
     if (eqDe(m, n)) { d('§cYa estás en un equipo.'); return 0; }
-    if (m[k].miembros.length >= EQ().maxMiembros) { d('§cEse equipo ya está lleno.'); return 0; }
+    if (eqLleno(m[k].miembros.length)) { d('§cEse equipo ya está lleno.'); return 0; }
     m[k].miembros.push(n);
     eqGuardar(server, m);
     delete inv[n.toLowerCase()]; eqInvGuardar(server, inv);
     server.runCommandSilent(`team join ${k} ${n}`);
+    eqVozInvitar(server, m[k], n);
     eqAvisarEquipo(server, m[k], `["",{"text":"⚑ ","color":"${m[k].color}"},{"text":"${n}","color":"yellow"},{"text":" se ha unido al equipo.","color":"gray"}]`);
     return 1;
   };
@@ -118,7 +152,14 @@ ServerEvents.commandRegistry(event => {
 
   let sacar = (server, m, k, n) => {
     let eq = m[k];
-    eq.miembros = eq.miembros.filter(x => x !== n);
+    let resto = eq.miembros.filter(x => x !== n);
+    // voz: si se va el líder, pasa el grupo al siguiente; si no queda nadie, se borra
+    if (server.getPlayer(n)) {
+      if (!resto.length) eqComo(server, n, 'groups delete');
+      else if (eq.lider === n && server.getPlayer(resto[0])) eqComo(server, n, `groups transfer ${resto[0]}`);
+      eqComo(server, n, 'groups leave');
+    } else if (resto.length && server.getPlayer(eq.lider) && eq.lider !== n) eqComo(server, eq.lider, `groups kick ${n}`);
+    eq.miembros = resto;
     server.runCommandSilent(`team leave ${n}`);
     if (!eq.miembros.length) {
       delete m[k];
@@ -175,7 +216,7 @@ ServerEvents.commandRegistry(event => {
     let ks = Object.keys(m);
     if (!ks.length) { d('§7Todavía no hay equipos.'); return 1; }
     d('§6§l━━ Equipos ━━');
-    ks.forEach(k => d(`§f${m[k].nombre} §7(${m[k].miembros.length}/${EQ().maxMiembros}) §8- ${m[k].miembros.join(', ')}`));
+    ks.forEach(k => d(`§f${m[k].nombre} §7(${eqCupo(m[k].miembros.length)}) §8- ${m[k].miembros.join(', ')}`));
     return 1;
   };
 
@@ -195,14 +236,14 @@ ServerEvents.commandRegistry(event => {
       return 1;
     }
     let eq = m[k], lider = eq.lider === n;
-    tr(`["",{"text":"Equipo ","color":"gray"},{"text":"${eq.nombre}","color":"${eq.color}","bold":true},{"text":" (${eq.miembros.length}/${EQ().maxMiembros})","color":"dark_gray"}]`);
+    tr(`["",{"text":"Equipo ","color":"gray"},{"text":"${eq.nombre}","color":"${eq.color}","bold":true},{"text":" (${eqCupo(eq.miembros.length)})","color":"dark_gray"}]`);
     eq.miembros.forEach(x => {
       let on = !!server.getPlayer(x);
       let partes = [`{"text":"${x === eq.lider ? ' ★ ' : ' • '}","color":"yellow"}`, `{"text":"${x}","color":"${on ? 'white' : 'dark_gray'}"}`];
       if (lider && x !== n) partes.push('{"text":"  "}', btn('[Expulsar]', 'red', '/equipo expulsar ' + x, 'Sacar a ' + x + ' del equipo', true));
       tr('["",' + partes.join(',') + ']');
     });
-    if (lider && eq.miembros.length < EQ().maxMiembros) {
+    if (lider && !eqLleno(eq.miembros.length)) {
       let libres = [];
       server.players.forEach(p => { let x = p.getName().getString(); if (!eqDe(m, x) && global.stEliminados(server).indexOf(x) === -1) libres.push(x); });
       if (libres.length) {
@@ -211,7 +252,7 @@ ServerEvents.commandRegistry(event => {
         tr('["",' + partes.join(',') + ']');
       } else tr('{"text":"No hay jugadores sin equipo conectados para invitar.","color":"dark_gray"}');
     }
-    tr(`["",${btn('[Dónde están]', 'dark_aqua', '/equipo info', 'Coordenadas de tu equipo')},{"text":"  "},${btn('[Chat de equipo]', 'dark_green', '/eq ', 'Escribe el mensaje', true)},{"text":"  "},${btn('[Salir]', 'red', '/equipo salir', 'Pulsa Enter para confirmar', true)}]`);
+    tr(`["",${btn('[Dónde están]', 'dark_aqua', '/equipo info', 'Coordenadas de tu equipo')},{"text":"  "},${btn('[Chat de equipo]', 'dark_green', '/eq ', 'Escribe el mensaje', true)},{"text":"  "},${btn('[🎙 Voz]', 'aqua', '/equipo voz', 'Rehacer el grupo de voz del equipo (si alguien no se oye)')},{"text":"  "},${btn('[Salir]', 'red', '/equipo salir', 'Pulsa Enter para confirmar', true)}]`);
     return 1;
   };
 
@@ -223,6 +264,14 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('salir').executes(salir))
     .then(Commands.literal('expulsar').then(Commands.argument('jugador', Arguments.STRING.create(event)).executes(expulsar)))
     .then(Commands.literal('info').executes(info))
+    .then(Commands.literal('voz').executes(ctx => {
+      let server = ctx.source.server, n = yo(ctx); if (!n) return 0;
+      let eq = global.stEquipoDe(server, n);
+      if (!eq) { decir(ctx)('§cNo estás en ningún equipo.'); return 0; }
+      let c = global.stEquipoVoz(server, eq);
+      decir(ctx)(`§b🎙 Grupo de voz rehecho para ${c} miembro(s) conectado(s). Los demás deben aceptar la invitación del chat.`);
+      return 1;
+    }))
     .then(Commands.literal('lista').executes(lista)));
 
   // /eq <mensaje> : chat del equipo
@@ -243,9 +292,22 @@ ServerEvents.commandRegistry(event => {
       let m = eqLeer(server);
       if (!m[k]) { decir(ctx)('§cNo existe ese equipo.'); return 0; }
       server.runCommandSilent(`team remove ${k}`);
+      if (server.getPlayer(m[k].lider)) server.runCommandSilent(`execute as ${m[k].lider} run groups delete`);
       delete m[k];
       eqGuardar(server, m);
       decir(ctx)('§6[Starvios] Equipo borrado.');
       return 1;
     })))));
+});
+
+// Al entrar: si es el primero de su equipo conectado, crea el grupo de voz; si no, recibe la invitación
+PlayerEvents.loggedIn(event => {
+  let server = event.server, n = event.player.getName().getString();
+  server.scheduleInTicks(160, () => global.stSeguro('95_equipos (voz)', () => {
+    let eq = global.stEquipoDe(server, n);
+    if (!eq || !server.getPlayer(n)) return;
+    let otros = eq.miembros.filter(x => x !== n && server.getPlayer(x));
+    if (!otros.length) global.stEquipoVoz(server, eq);
+    else eqVozInvitar(server, eq, n);
+  }));
 });

@@ -161,6 +161,7 @@ PlayerEvents.loggedIn(event => {
 
 ServerEvents.commandRegistry(event => {
   let { commands: Commands } = event;
+  if (!DI_ACTIVO) return;   // sin Diario no existe el comando /diario
   event.register(Commands.literal('diario').executes(ctx => {
     let p = ctx.source.player;
     if (!p) return 0;

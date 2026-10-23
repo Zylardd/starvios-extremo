@@ -7,7 +7,11 @@
   {
    "type": "patchouli:text",
    "title": "Emotes",
-   "text": "$(l)/emote <saludo|baile|giro|celebrar|corazones|triste|enojado|dormir>$()$(br2)También están como botones en $(l)Atajos$() (categoría Hoy en Starvios)."
+   "text": "$(l)Emotecraft:$() pulsa $(l)B$() para abrir la rueda de emotes y elige uno. Hay más de 40 bailes y gestos (dab, floss, sentarse, reverencia, abrazo, Naruto...).$(br2)En el menú de la rueda puedes poner tus favoritos en los huecos."
+  },
+  {
+   "type": "patchouli:text",
+   "text": "Además, con partículas y sonido: $(l)/emote <saludo|baile|giro|celebrar|corazones|triste|enojado|dormir>$(), también como botones en $(l)Atajos$()."
   }
  ]
 }

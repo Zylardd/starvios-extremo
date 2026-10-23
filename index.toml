@@ -1714,11 +1714,11 @@ hash = "e4f24860b5fccf92c194e942c1aa9362d103f83f64aa75927bd8762e94ba0b08"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/00_config.js"
-hash = "21e81c36eeee1938c60b5490826bf5fe95dab09c93d35ec4f405efe68073b628"
+hash = "5b6043fa35cf65311978a0037b3459d69a2c70fa5ea2e701be8fdd96b89c52b6"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/10_dias.js"
-hash = "2cb0dba0790b43c5d9d626df8b833d870bf0591e9da46820900d1bd0666dc67a"
+hash = "8af3cc6311911298b3197747cf92a148158d26d2bf600977ce9f8ce102cfc341"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/20_mobs.js"
@@ -1734,7 +1734,7 @@ hash = "acaa2ae3cd39a5c8dfdec222c158cd2d3f2cff4902a7d49d700646098e10048a"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/50_resurreccion.js"
-hash = "67cc1d91d081748634a9ec8cd4a1967884a43c7136842c06888d3cf36843291b"
+hash = "4927c7001062214b9b3490f0fd4236584282576030b6de80ee856fb6a9abd703"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/60_contador_y_dia.js"
@@ -1746,19 +1746,23 @@ hash = "97035c0653aad42f4e2a2d85f6c1397983c452a13e5e7b4d5d30e83cefeedfdc"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/80_mazmorras.js"
-hash = "080c8aaa65eeeb71188aaf65f4597e88b217d46f905b7a7c03543533f3dd1606"
+hash = "c3d9c1bc57b67355000de6a0036adf8a1db1a238a56ec84bfd07821f58a5974b"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/84_camino.js"
+hash = "ba9db6195cebefff490777cfe3ce9d308e88097b1276b57caf32f9d737c2c3ca"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/85_criptas.js"
-hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
+hash = "e659a5a595b8115320d1d974825fd6ec19fb2b0444432106e7068a71241cad48"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/86_hud.js"
-hash = "19a89aab8fd362edc359b1c925fa7fbd3d1bc8d89f51672fc827dc3f80fe678b"
+hash = "d7230a993f31463296f9e9e152cbf8afd6bac2545ab739c6f8eac30704bff9f2"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/87_diario.js"
-hash = "3a7c1c07d33c9d8d7f8ae3ccf535329c893c51a13cd0e48866dd30104ce83169"
+hash = "4882de1a0393865d0262806b2b449880e44562ffe1333a4abf9a545fd270160a"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/87_tableta_hoy.js"
@@ -1766,11 +1770,11 @@ hash = "f8f9364493ffa8f9f36fa5c8512a11b451bea6a5c8a366f2b0f57adc919e5db5"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/88_anuncios.js"
-hash = "b7dc63e6839b980ca2b6df285abf965a833ac8f38b8a8ebd7010a82f8ae03670"
+hash = "b0d2dcd2ede70bf2f2f41b553aaa321f7de0e0209140e9f6f5444122b240972e"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/89_ajustes.js"
-hash = "3770b5054aca0b7925d6a73ead9af8273ba54ddc55b895dcefeb33812f9685aa"
+hash = "5596278cb1b405359fb4bcbea5b01d6bc4b88b45bc98b2b175272b2daa25233e"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/90_economia.js"
@@ -1782,7 +1786,7 @@ hash = "0f280c4107ee9cbad43ac82995a635ae61acdbc9fd05445c99c8b6decb4cacee"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/92_extras.js"
-hash = "9c9ab7ba064dc6b42a1c09bb4c202eff71e837ad4df7f2ba59f25a167ef6f50b"
+hash = "bf3c07373ad9a476d573d10c30dd6986a94885a7379d036a97b2c53bb2ba44fb"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/93_anomalias.js"
@@ -1794,7 +1798,7 @@ hash = "ef0333b9e5c90272c0f369d14aa8ea3b0de32d914f763f43c84ea99882e74899"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/95_equipos.js"
-hash = "b216882a3922f2fd243409b462c50f4f9310e0db5b51b04cee01446c3b7c816c"
+hash = "beed3bdedbd293e21ca63b256c29d1c9423ccc247fe73bf52aae8343b2eea02e"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/96_rendimiento.js"
@@ -1810,7 +1814,7 @@ hash = "4cbbc3fe15ce18059b564f7f13fdd02cb4980ac209791402f319a35555e3b706"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/99_arenas.js"
-hash = "fc82a57ee9b14d5b71347d728cc8d143d707fe321ed0653c37a9beec3aea5f26"
+hash = "35fc15622833912b0844d33cd5bed38ea7445937a458eecd0fe390f91356375c"
 
 [[files]]
 file = "kubejs/startup_scripts/starvios_corazones.js"
@@ -2246,7 +2250,7 @@ hash = "3c375eae0db31a956398d1fd44d944d46d3235bd6c20ce7c6fcef84b261b0d45"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/emotes.json"
-hash = "7743e0ec2f33cd287d3bd811b7d0eff0f8523a1b8c1ebdfa52213a902a273026"
+hash = "ab3bf29b3d140520c8207d2c58720701137df903c57d5aaffd5bb1e9559ebfff"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/equipos.json"
@@ -2262,7 +2266,7 @@ hash = "1fdfd3d7fb09b184049ffac99977d1e17947dd70a653bf40f125cbcf2488decf"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/voz.json"
-hash = "ab29a501a9749dbdb42ceaf72a0eab96f2a2349d30ac16c29db3f68da5f09c10"
+hash = "5597c17ef56057503a25007e82c5026adef973c79fc307a7c3862e0d06be8bfd"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/hoy/atajos.json"
@@ -2694,7 +2698,7 @@ hash = "d1d6910361ac477c82ff4268b6d15ab69e7b81e69693e31d894f6495cbab2cb3"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/mods/mod6.json"
-hash = "7c978576fc73823ad02702e3a9434b99db3031672130fd3b67c26392f36ca998"
+hash = "f4b359f13e5f66864ad1b3000ea243c6b24966214cb28d8a2724b03d2433374a"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/mods/mod7.json"

@@ -1,7 +1,7 @@
 // priority: 59
 // ============================================================
-//  STARVIOS - ANUNCIOS PERSONALIZADOS (con trompeta)
-//  /starvios anuncio <texto>          anuncio dorado en el chat + en pantalla
+//  STARVIOS - ANUNCIOS PERSONALIZADOS (recuadro arriba a la derecha + tintineo)
+//  /starvios anuncio <texto>          anuncio dorado en el recuadro arriba a la derecha (no sale en el chat)
 //  /starvios anuncio rojo <texto>     estilos: dorado, rojo, verde, azul, morado, arcoiris
 //  Colores dentro del texto con & (como en los carteles):
 //    &c rojo  &6 dorado  &e amarillo  &a verde  &b celeste  &9 azul  &d rosa  &5 morado  &f blanco  &7 gris
@@ -10,12 +10,12 @@
 // ============================================================
 
 let AN_ESTILOS = {
-  dorado:   { borde: '#FFAA00', titulo: ['#FFD700', '#FFC300', '#FFAA00', '#FF8C00'], icono: '📢' },
-  rojo:     { borde: '#FF4040', titulo: ['#FF7070', '#FF4040', '#E01010', '#B00000'], icono: '⚠' },
-  verde:    { borde: '#3DDC84', titulo: ['#A8FF60', '#55FF55', '#3DDC84', '#00B060'], icono: '✔' },
-  azul:     { borde: '#40A0FF', titulo: ['#9FD8FF', '#55CCFF', '#40A0FF', '#2060E0'], icono: '✉' },
-  morado:   { borde: '#B060FF', titulo: ['#E0A0FF', '#D070FF', '#B060FF', '#8030D0'], icono: '✦' },
-  arcoiris: { borde: '#FFFFFF', titulo: ['#FF5555', '#FFAA00', '#FFFF55', '#55FF55', '#55FFFF', '#5599FF', '#FF55FF'], icono: '🎉' }
+  dorado:   { borde: '#FFAA00', titulo: ['#FFD700', '#FFC300', '#FFAA00', '#FF8C00'], icono: '✦', cod: '§6' },
+  rojo:     { borde: '#FF4040', titulo: ['#FF7070', '#FF4040', '#E01010', '#B00000'], icono: '⚠', cod: '§c' },
+  verde:    { borde: '#3DDC84', titulo: ['#A8FF60', '#55FF55', '#3DDC84', '#00B060'], icono: '✔', cod: '§a' },
+  azul:     { borde: '#40A0FF', titulo: ['#9FD8FF', '#55CCFF', '#40A0FF', '#2060E0'], icono: '✉', cod: '§9' },
+  morado:   { borde: '#B060FF', titulo: ['#E0A0FF', '#D070FF', '#B060FF', '#8030D0'], icono: '✦', cod: '§5' },
+  arcoiris: { borde: '#FFFFFF', titulo: ['#FF5555', '#FFAA00', '#FFFF55', '#55FF55', '#55FFFF', '#5599FF', '#FF55FF'], icono: '★', cod: '§d' }
 };
 
 let anEsc = (t) => String(t).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
@@ -36,25 +36,18 @@ let anAnunciar = (server, estilo, texto) => {
   let cuerpo = anEsc(anCodigos(texto));
   let linea = `{"text":"${'━'.repeat(32)}","color":"${E.borde}"}`;
   let cmd = (c) => server.runCommandSilent(c);
-  // Chat
-  cmd(`tellraw @a ""`);
-  cmd(`tellraw @a ${linea}`);
-  cmd(`tellraw @a ["",{"text":"   ${E.icono}  "},${anLetras('A N U N C I O', E.titulo).replace(/\{"text":" "\},/g, '')},{"text":"  ${E.icono}"}]`);
-  cmd(`tellraw @a ""`);
-  cmd(`tellraw @a ["",{"text":"   "},{"text":"${cuerpo}","color":"white"}]`);
-  cmd(`tellraw @a ${linea}`);
-  cmd(`tellraw @a ""`);
-  // Pantalla
-  let sub = anCodigos(texto).replace(/§[0-9a-fk-or]/gi, '');
-  if (sub.length > 60) sub = sub.slice(0, 57) + '…';
-  cmd(`title @a times 10 80 20`);
-  cmd(`title @a subtitle {"text":"${anEsc(sub)}","color":"white"}`);
-  cmd(`title @a title ["",${anLetras(E.icono + ' ANUNCIO ' + E.icono, E.titulo)}]`);
-  // Trompeta (cuerno de cabra) + campanita
-  cmd(`execute as @a at @s run playsound minecraft:item.goat_horn.sound.1 master @s ~ ~ ~ 2 1`);
-  server.scheduleInTicks(14, () => cmd(`execute as @a at @s run playsound minecraft:item.goat_horn.sound.1 master @s ~ ~ ~ 2 1.25`));
-  server.scheduleInTicks(30, () => cmd(`execute as @a at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 1 1.5`));
-  server.scheduleInTicks(34, () => cmd(`execute as @a at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 1 2`));
+  // Recuadro arriba a la derecha (igual que los nerfs y buffs: 86_hud.js)
+  if (global.stHudActivo && global.stHudActivo()) {
+    global.stAvisoHud(server, `${E.cod}§l${E.icono} ANUNCIO ${E.icono}`, null, anCodigos(texto), E.borde);
+  } else {
+    let sub = anCodigos(texto).replace(/§[0-9a-fk-or]/gi, '');
+    if (sub.length > 60) sub = sub.slice(0, 57) + '…';
+    cmd(`title @a actionbar {"text":"${anEsc(sub)}","color":"white"}`);
+  }
+  // Tintineo suave (campanitas)
+  cmd(`execute as @a at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 1 1.5`);
+  server.scheduleInTicks(4, () => cmd(`execute as @a at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 1 2`));
+  server.scheduleInTicks(8, () => cmd(`execute as @a at @s run playsound minecraft:block.amethyst_block.chime master @s ~ ~ ~ 1 1.2`));
 };
 global.stAnuncioBonito = anAnunciar;
 
