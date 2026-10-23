@@ -1,0 +1,15 @@
+{
+ "name": "Día 3 · Tormenta estática",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 3 · Tormenta estática",
+   "text": "$(l)Regla del día:$()$(br)Algunos creepers aparecen cargados (10%).$(br2)$(l)Misión: El arquero$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de hierro completa (puesta)$(li)escudo$(li)arco$(li)32 flechas$(br2)$(l)Premio:$()$(li)70 Starcoins$(li)Cerbatana$(li)dardos x32$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_3",
+ "secret": true
+}

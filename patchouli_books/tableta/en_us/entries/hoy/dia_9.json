@@ -1,0 +1,15 @@
+{
+ "name": "Día 9 · Sobrecarga",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 9 · Sobrecarga",
+   "text": "$(l)Regla del día:$()$(br)Un 25% de los creepers aparecen cargados.$(br2)$(l)Misión: Listos para todo$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de diamante completa (puesta)$(li)ballesta$(li)3 pociones de curación$(br2)$(l)Premio:$()$(li)140 Starcoins$(li)Grebas de Guerrero$(li)Resistencia I (2 días)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_9",
+ "secret": true
+}

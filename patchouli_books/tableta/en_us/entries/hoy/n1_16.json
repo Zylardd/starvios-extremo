@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 16",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 49,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 16",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los mobs son un 10% más rápidos.$(br2)$(o)Activa desde el día 16 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_16",
+ "secret": true
+}

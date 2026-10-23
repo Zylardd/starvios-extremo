@@ -1,0 +1,15 @@
+{
+ "name": "Día 20 · La Luz del Inti",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 20 · La Luz del Inti",
+   "text": "$(l)Regla del día:$()$(br)Umvuthi invoca al sol en la arena.$(br2)$(l)Misión: Ofrenda al Inti$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)manzana dorada encantada$(br2)$(l)Premio:$()$(li)300 Starcoins$(li)3 Corazones Frágiles$(li)Regeneración I (1 día)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_20",
+ "secret": true
+}

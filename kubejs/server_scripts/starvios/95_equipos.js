@@ -179,7 +179,43 @@ ServerEvents.commandRegistry(event => {
     return 1;
   };
 
-  event.register(Commands.literal('equipo')
+
+  // /equipo (sin nada) : PANEL con botones, para no escribir comandos
+  let panel = ctx => {
+    let server = ctx.source.server, n = yo(ctx); if (!n) return 0;
+    let m = eqLeer(server), k = eqDe(m, n);
+    let tr = (json) => server.runCommandSilent(`tellraw ${n} ${json}`);
+    let btn = (txt, color, cmd, hover, sugerir) => `{"text":"${txt}","color":"${color}","bold":true,"clickEvent":{"action":"${sugerir ? 'suggest_command' : 'run_command'}","value":"${cmd}"},"hoverEvent":{"action":"show_text","contents":"${hover}"}}`;
+    tr('{"text":"━━━━━━━ ⚑ Panel de equipo ━━━━━━━","color":"gold"}');
+    if (!k) {
+      tr('{"text":"No tienes equipo.","color":"gray"}');
+      let inv = eqInvLeer(server)[n.toLowerCase()];
+      if (inv && m[inv]) tr(`["",{"text":"Te invitaron a ","color":"gray"},{"text":"${m[inv].nombre} ","color":"${m[inv].color}","bold":true},${btn('[Aceptar]', 'green', '/equipo aceptar', 'Unirte')},{"text":" "},${btn('[Rechazar]', 'red', '/equipo rechazar', 'Rechazar invitación')}]`);
+      tr(`["",${btn('[+ Crear equipo]', 'green', '/equipo crear ', 'Escribe el nombre y pulsa Enter', true)},{"text":"  "},${btn('[Ver equipos]', 'gray', '/equipo lista', 'Todos los equipos')}]`);
+      return 1;
+    }
+    let eq = m[k], lider = eq.lider === n;
+    tr(`["",{"text":"Equipo ","color":"gray"},{"text":"${eq.nombre}","color":"${eq.color}","bold":true},{"text":" (${eq.miembros.length}/${EQ().maxMiembros})","color":"dark_gray"}]`);
+    eq.miembros.forEach(x => {
+      let on = !!server.getPlayer(x);
+      let partes = [`{"text":"${x === eq.lider ? ' ★ ' : ' • '}","color":"yellow"}`, `{"text":"${x}","color":"${on ? 'white' : 'dark_gray'}"}`];
+      if (lider && x !== n) partes.push('{"text":"  "}', btn('[Expulsar]', 'red', '/equipo expulsar ' + x, 'Sacar a ' + x + ' del equipo', true));
+      tr('["",' + partes.join(',') + ']');
+    });
+    if (lider && eq.miembros.length < EQ().maxMiembros) {
+      let libres = [];
+      server.players.forEach(p => { let x = p.getName().getString(); if (!eqDe(m, x) && global.stEliminados(server).indexOf(x) === -1) libres.push(x); });
+      if (libres.length) {
+        let partes = ['{"text":"Invitar: ","color":"gray"}'];
+        libres.slice(0, 12).forEach(x => partes.push(btn('[' + x + ']', 'aqua', '/equipo invitar ' + x, 'Invitar a ' + x), '{"text":" "}'));
+        tr('["",' + partes.join(',') + ']');
+      } else tr('{"text":"No hay jugadores sin equipo conectados para invitar.","color":"dark_gray"}');
+    }
+    tr(`["",${btn('[Dónde están]', 'dark_aqua', '/equipo info', 'Coordenadas de tu equipo')},{"text":"  "},${btn('[Chat de equipo]', 'dark_green', '/eq ', 'Escribe el mensaje', true)},{"text":"  "},${btn('[Salir]', 'red', '/equipo salir', 'Pulsa Enter para confirmar', true)}]`);
+    return 1;
+  };
+
+  event.register(Commands.literal('equipo').executes(panel)
     .then(Commands.literal('crear').then(Commands.argument('nombre', Arguments.STRING.create(event)).executes(crear)))
     .then(Commands.literal('invitar').then(Commands.argument('jugador', Arguments.STRING.create(event)).executes(invitar)))
     .then(Commands.literal('aceptar').executes(aceptar))

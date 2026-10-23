@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 1",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 6,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 1",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Segunda oportunidad: la primera vez que vayas a morir, te salvas con 2 corazones (una sola vez en toda la serie).$(br2)$(o)Activa desde el día 1 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_1",
+ "secret": true
+}

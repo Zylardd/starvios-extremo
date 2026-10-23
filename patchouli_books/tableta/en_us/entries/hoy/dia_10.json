@@ -1,0 +1,15 @@
+{
+ "name": "Día 10 · Hordas veloces",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 10 · Hordas veloces",
+   "text": "$(l)Regla del día:$()$(br)Los zombis se mueven más rápido.$(br2)$(l)Misión: Del inframundo$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)una pieza de netherita (puesta)$(br2)$(l)Premio:$()$(li)150 Starcoins$(li)Casco Pesado$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_10",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Día 24 · Carnicería",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 24 · Carnicería",
+   "text": "$(l)Regla del día:$()$(br)Los mobs pegan el triple (x3).$(br2)$(l)Misión: El banquete dorado$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)64 zanahorias doradas$(li)8 manzanas doradas$(br2)$(l)Premio:$()$(li)380 Starcoins$(li)Grebas de Ignitium$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_24",
+ "secret": true
+}

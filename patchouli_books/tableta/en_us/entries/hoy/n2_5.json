@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 5",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 17,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 5",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los golpes de los mobs empujan más fuerte.$(br2)$(o)Activa desde el día 5 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_5",
+ "secret": true
+}

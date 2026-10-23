@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 12",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 39,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 12",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Robo de vida: cada monstruo que matas te cura medio corazón.$(br2)$(o)Activa desde el día 12 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_12",
+ "secret": true
+}

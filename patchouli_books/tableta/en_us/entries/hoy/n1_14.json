@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 14",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 43,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 14",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los élites también aparecen de día.$(br2)$(o)Activa desde el día 14 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_14",
+ "secret": true
+}

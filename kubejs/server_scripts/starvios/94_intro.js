@@ -341,6 +341,7 @@ global.stCineJefe = (server, jefe) => {
 //  Para hablarles a TODOS a la vez: addon pv-addon-broadcast (/vbc server + tecla de Broadcast).
 // ============================================================
 global.stSilencioVoz = (server, on) => {
+  server.persistentData.putBoolean('starvios_silencio', on);
   server.players.forEach(p => {
     let n = p.getName().getString();
     try { if (p.hasPermissions(2)) return; } catch (e) {}
@@ -356,4 +357,13 @@ ServerEvents.commandRegistry(event => {
     .then(Commands.literal('silencio')
       .then(Commands.literal('on').executes(ctx => { global.stSilencioVoz(ctx.source.server, true); ctx.source.sendSystemMessage(Text.of('§6[Starvios] Voz silenciada (menos admins).')); return 1; }))
       .then(Commands.literal('off').executes(ctx => { global.stSilencioHasta = 0; global.stSilencioVoz(ctx.source.server, false); ctx.source.sendSystemMessage(Text.of('§6[Starvios] Voz activada.')); return 1; }))));
+});
+
+// Quien entre mientras el silencio está activo también queda silenciado
+PlayerEvents.loggedIn(event => {
+  let server = event.server, p = event.player;
+  if (!server.persistentData.getBoolean('starvios_silencio')) return;
+  try { if (p.hasPermissions(2)) return; } catch (e) {}
+  let n = p.getName().getString();
+  server.scheduleInTicks(40, () => server.runCommandSilent(`vmute ${n}`));
 });

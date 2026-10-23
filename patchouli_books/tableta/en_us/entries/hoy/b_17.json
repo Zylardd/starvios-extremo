@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 17",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 54,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 17",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Cada amanecer todos reciben 8 filetes cocidos.$(br2)$(o)Activa desde el día 17 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_17",
+ "secret": true
+}

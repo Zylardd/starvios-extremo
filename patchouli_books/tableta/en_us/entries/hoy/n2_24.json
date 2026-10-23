@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 24",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 74,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 24",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Las brujas aparecen el triple.$(br2)$(o)Activa desde el día 24 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_24",
+ "secret": true
+}

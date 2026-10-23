@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 4",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 15,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 4",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Matar una araña te da Regeneración I durante 5 segundos.$(br2)$(o)Activa desde el día 4 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_4",
+ "secret": true
+}

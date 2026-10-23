@@ -1,0 +1,15 @@
+{
+ "name": "Día 5 · Furia",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 5 · Furia",
+   "text": "$(l)Regla del día:$()$(br)Los mobs hostiles pegan aún más fuerte (x2,2).$(br2)$(l)Misión: Filo de diamante$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)espada de diamante$(br2)$(l)Premio:$()$(li)90 Starcoins$(li)Lanza$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_5",
+ "secret": true
+}

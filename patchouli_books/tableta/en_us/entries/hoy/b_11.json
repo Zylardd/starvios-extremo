@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 11",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 36,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 11",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los esqueletos sueltan el doble de flechas y a veces un arco.$(br2)$(o)Activa desde el día 11 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_11",
+ "secret": true
+}

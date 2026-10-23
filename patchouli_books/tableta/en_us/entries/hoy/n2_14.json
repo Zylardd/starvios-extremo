@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 14",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 44,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 14",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los élites ahora tienen Velocidad II.$(br2)$(o)Activa desde el día 14 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_14",
+ "secret": true
+}

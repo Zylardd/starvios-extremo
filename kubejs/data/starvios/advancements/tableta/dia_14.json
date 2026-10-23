@@ -1,0 +1,22 @@
+{
+ "parent": "starvios:tableta/raiz",
+ "display": {
+  "icon": {
+   "item": "minecraft:clock"
+  },
+  "title": {
+   "text": "dia_14"
+  },
+  "description": {
+   "text": ""
+  },
+  "show_toast": false,
+  "announce_to_chat": false,
+  "hidden": true
+ },
+ "criteria": {
+  "x": {
+   "trigger": "minecraft:impossible"
+  }
+ }
+}

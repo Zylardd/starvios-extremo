@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 8",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 25,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 8",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Una caída fuerte (3 corazones o más) te deja con Lentitud II durante 5 segundos.$(br2)$(o)Activa desde el día 8 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_8",
+ "secret": true
+}

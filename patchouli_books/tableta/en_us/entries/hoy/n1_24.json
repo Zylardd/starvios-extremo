@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 24",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 73,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 24",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los mobs tienen Fuerza I por la noche.$(br2)$(o)Activa desde el día 24 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_24",
+ "secret": true
+}

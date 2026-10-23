@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 26",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 79,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 26",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los mobs aparecen en grupos el doble de grandes.$(br2)$(o)Activa desde el día 26 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_26",
+ "secret": true
+}

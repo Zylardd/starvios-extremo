@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 26",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 81,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 26",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Absorción: 2 corazones extra temporales cada amanecer.$(br2)$(o)Activa desde el día 26 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_26",
+ "secret": true
+}

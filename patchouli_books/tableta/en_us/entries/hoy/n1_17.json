@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 17",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 52,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 17",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los cultivos crecen a la mitad de velocidad.$(br2)$(o)Activa desde el día 17 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_17",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 15",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 47,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 15",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Al anochecer todos reciben Debilidad I durante 1 minuto.$(br2)$(o)Activa desde el día 15 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_15",
+ "secret": true
+}

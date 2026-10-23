@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 3",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 12,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 3",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los creepers sueltan el doble de pólvora.$(br2)$(o)Activa desde el día 3 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_3",
+ "secret": true
+}

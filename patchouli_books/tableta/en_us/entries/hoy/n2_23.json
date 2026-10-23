@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 23",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 71,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 23",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Las flechas de esqueleto que te impactan pueden invocar un rayo (10%).$(br2)$(o)Activa desde el día 23 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_23",
+ "secret": true
+}

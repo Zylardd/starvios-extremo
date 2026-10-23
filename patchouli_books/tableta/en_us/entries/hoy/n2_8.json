@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 8",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 26,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 8",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Al despertar tienes Hambre I durante 20 segundos.$(br2)$(o)Activa desde el día 8 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_8",
+ "secret": true
+}

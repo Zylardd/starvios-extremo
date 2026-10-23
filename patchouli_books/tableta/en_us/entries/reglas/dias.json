@@ -7,7 +7,7 @@
   {
    "type": "patchouli:text",
    "title": "Los 28 días",
-   "text": "La serie dura $(l)28 días$(). Cada día empieza con un aviso arriba a la derecha y la voz de Liz anunciando la regla del día.$(br2)Las reglas se acumulan: los mobs pegan más, tienen más vida, aparecen élites, pierdes corazones máximos...$(br2)Para ver las reglas activas: tu $(l)Diario$() o $(l)/dia$()."
+   "text": "La serie dura $(l)28 días$(). Cada día empieza con un aviso arriba a la derecha y la voz de Liz anunciando la regla del día.$(br2)Las reglas se acumulan: los mobs pegan más, tienen más vida, aparecen élites, pierdes corazones máximos...$(br2)Para ver las reglas activas: $(l)Hoy en Starvios$() o $(l)/dia$()."
   }
  ]
 }

@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 4",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 13,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 4",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Las arañas son un 20% más rápidas.$(br2)$(o)Activa desde el día 4 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_4",
+ "secret": true
+}

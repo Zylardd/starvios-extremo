@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 22",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 69,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 22",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Última resistencia: con 1 corazón ganas Resistencia II durante 5 segundos (una vez por minuto).$(br2)$(o)Activa desde el día 22 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_22",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 18",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 56,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 18",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Ya no aparecen gólems de hierro en las aldeas.$(br2)$(o)Activa desde el día 18 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_18",
+ "secret": true
+}

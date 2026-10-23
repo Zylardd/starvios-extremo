@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 10",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 31,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 10",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los zombis aparecen en grupos de 4.$(br2)$(o)Activa desde el día 10 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_10",
+ "secret": true
+}

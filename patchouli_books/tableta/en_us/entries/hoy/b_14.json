@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 14",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 45,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 14",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los élites dan el triple de Starcoins.$(br2)$(o)Activa desde el día 14 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_14",
+ "secret": true
+}

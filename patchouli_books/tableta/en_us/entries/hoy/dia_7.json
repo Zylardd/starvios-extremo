@@ -1,0 +1,15 @@
+{
+ "name": "Día 7 · Piel Dura",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 7 · Piel Dura",
+   "text": "$(l)Regla del día:$()$(br)Los mobs tienen un 20% más de vida y ya NO se queman al sol.$(br2)$(l)Misión: Diamante completo$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de diamante completa (puesta)$(br2)$(l)Premio:$()$(li)120 Starcoins$(li)1 Fragmento de Corazón$(li)Peto de Guerrero$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_7",
+ "secret": true
+}

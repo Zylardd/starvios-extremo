@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 26",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 80,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 26",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los mobs tienen Regeneración I.$(br2)$(o)Activa desde el día 26 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_26",
+ "secret": true
+}

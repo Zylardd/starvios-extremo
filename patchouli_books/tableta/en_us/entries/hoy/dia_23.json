@@ -1,0 +1,15 @@
+{
+ "name": "Día 23 · Apocalipsis eléctrico",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 23 · Apocalipsis eléctrico",
+   "text": "$(l)Regla del día:$()$(br)La mitad de los creepers aparecen cargados.$(br2)$(l)Misión: Fortaleza andante$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de netherita completa (puesta)$(li)2 tótems$(br2)$(l)Premio:$()$(li)360 Starcoins$(li)El Triturador de Carne$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_23",
+ "secret": true
+}

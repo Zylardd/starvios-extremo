@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 21",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 65,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 21",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)El fuego también te da Wither I durante 2 segundos.$(br2)$(o)Activa desde el día 21 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_21",
+ "secret": true
+}

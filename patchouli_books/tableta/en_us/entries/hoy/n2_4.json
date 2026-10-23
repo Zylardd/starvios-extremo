@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 4",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 14,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 4",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Las arañas de cueva salen a la superficie por la noche.$(br2)$(o)Activa desde el día 4 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_4",
+ "secret": true
+}

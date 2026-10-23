@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 7",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 24,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 7",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los mobs sueltan el doble de experiencia.$(br2)$(o)Activa desde el día 7 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_7",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 1",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 5,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 1",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Sin regeneración natural mientras tengas el efecto Hambre.$(br2)$(o)Activa desde el día 1 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_1",
+ "secret": true
+}

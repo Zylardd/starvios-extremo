@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 8",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 27,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 8",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los élites pueden soltar hasta 2 Fragmentos de Corazón.$(br2)$(o)Activa desde el día 8 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_8",
+ "secret": true
+}

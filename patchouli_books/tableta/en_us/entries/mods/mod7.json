@@ -1,0 +1,13 @@
+{
+ "name": "Xaero y voz",
+ "icon": "minecraft:compass",
+ "category": "patchouli:mods",
+ "sortnum": 7,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Xaero y voz",
+   "text": "Minimapa y mapa del mundo de Xaero, y el chat de voz por proximidad."
+  }
+ ]
+}

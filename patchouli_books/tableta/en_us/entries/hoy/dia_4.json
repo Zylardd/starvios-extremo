@@ -1,0 +1,15 @@
+{
+ "name": "Día 4 · Colmillos venenosos",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 4 · Colmillos venenosos",
+   "text": "$(l)Regla del día:$()$(br)Las arañas envenenan con cada mordida.$(br2)$(l)Misión: Brillo azul$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)pico de diamante$(br2)$(l)Premio:$()$(li)80 Starcoins$(li)Botas de Guerrero$(li)Prisa minera I (2 días)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_4",
+ "secret": true
+}

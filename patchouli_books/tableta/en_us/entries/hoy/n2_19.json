@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 19",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 59,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 19",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los enderman aparecen el triple por la noche.$(br2)$(o)Activa desde el día 19 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_19",
+ "secret": true
+}

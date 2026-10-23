@@ -90,9 +90,9 @@ let EF_TEXTOS = {
 
 let EF_ANUNCIO = {
   n1: { titulo: '⚠ Se descubrió una nueva anomalía…', color: 'red',
-        sonidos: [['minecraft:block.beacon.deactivate', 0.6], ['minecraft:ambient.cave', 1]] },
+        sonidos: [['minecraft:entity.elder_guardian.curse', 0.6], ['minecraft:block.beacon.deactivate', 0.5]] },
   n2: { titulo: '🔬 Tras una investigación, se confirmó algo peor…', color: 'dark_red',
-        sonidos: [['minecraft:block.respawn_anchor.deplete', 0.7], ['minecraft:block.conduit.deactivate', 0.8]] },
+        sonidos: [['minecraft:entity.warden.heartbeat', 0.7], ['minecraft:entity.elder_guardian.curse', 0.5], ['minecraft:block.respawn_anchor.deplete', 0.6]] },
   b:  { titulo: '✦ Los antiguos escucharon sus plegarias…', color: 'gold',
         sonidos: [['minecraft:block.beacon.activate', 1.2], ['minecraft:entity.player.levelup', 1]] }
 };
@@ -699,9 +699,13 @@ EntityEvents.hurt(event => {
 //  7) Activar / anunciar
 // ============================================================
 let efAnunciar = (server, dia, tipo) => {
-  // Aviso arriba a la derecha (kubejs/data/starvios/advancements/anuncio/<n1|n2|b>_<día>.json)
-  global.stToast(server, '@a', `${tipo}_${dia}`);
   let a = EF_ANUNCIO[tipo];
+  // Aviso arriba a la derecha: recuadro tipo chat (86_hud.js). Si está apagado, toast de logro.
+  if (global.stHudActivo && global.stHudActivo()) {
+    let cab = { n1: '§c⚠ NUEVA ANOMALÍA §8· §7Día ' + dia, n2: '§4☣ ANOMALÍA CONFIRMADA §8· §7Día ' + dia, b: '§6✦ BENDICIÓN §8· §7Día ' + dia }[tipo];
+    let borde = { n1: '#E03030', n2: '#8B0000', b: '#F0B030' }[tipo];
+    global.stAvisoHud(server, cab, a.titulo, EF_TEXTOS[dia][tipo], borde);
+  } else global.stToast(server, '@a', `${tipo}_${dia}`);
   a.sonidos.forEach((s, i) => server.scheduleInTicks(i * 12, () =>
     server.runCommandSilent(`execute as @a at @s run playsound ${s[0]} master @s ~ ~ ~ 1 ${s[1]}`)));
 };

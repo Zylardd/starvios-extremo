@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 19",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 58,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 19",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Las noches duran un 50% más.$(br2)$(o)Activa desde el día 19 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_19",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 5",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 18,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 5",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Ganas el doble de Starcoins por cada monstruo que mates.$(br2)$(o)Activa desde el día 5 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_5",
+ "secret": true
+}

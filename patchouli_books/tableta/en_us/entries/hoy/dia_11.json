@@ -1,0 +1,15 @@
+{
+ "name": "Día 11 · Flechas ardientes",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 11 · Flechas ardientes",
+   "text": "$(l)Regla del día:$()$(br)Los esqueletos disparan flechas de fuego.$(br2)$(l)Misión: Filo negro$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)espada de netherita$(br2)$(l)Premio:$()$(li)160 Starcoins$(li)Guantelete Desgarratierra$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_11",
+ "secret": true
+}

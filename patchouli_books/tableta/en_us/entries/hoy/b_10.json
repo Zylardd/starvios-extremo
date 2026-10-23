@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 10",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 33,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 10",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Nuevo objeto: Kit de reparación (4 lingotes de hierro en cruz con 1 cuero en el centro). Clic derecho sobre OTRO jugador para repararle un 40% de su armadura.$(br2)$(o)Activa desde el día 10 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_10",
+ "secret": true
+}

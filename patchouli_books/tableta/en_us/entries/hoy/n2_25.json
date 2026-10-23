@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 25",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 77,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 25",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)3 de cada 10 esqueletos llevan armadura de diamante.$(br2)$(o)Activa desde el día 25 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_25",
+ "secret": true
+}

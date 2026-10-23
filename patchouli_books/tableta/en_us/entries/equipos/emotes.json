@@ -7,7 +7,7 @@
   {
    "type": "patchouli:text",
    "title": "Emotes",
-   "text": "$(l)/emote <saludo|baile|giro|celebrar|corazones|triste|enojado|dormir>$()$(br2)También están como botones en tu Diario."
+   "text": "$(l)/emote <saludo|baile|giro|celebrar|corazones|triste|enojado|dormir>$()$(br2)También están como botones en $(l)Atajos$() (categoría Hoy en Starvios)."
   }
  ]
 }

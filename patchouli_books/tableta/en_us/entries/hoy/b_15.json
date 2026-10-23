@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 15",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 48,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 15",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Comer una manzana dorada da 4 corazones de absorción extra.$(br2)$(o)Activa desde el día 15 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_15",
+ "secret": true
+}

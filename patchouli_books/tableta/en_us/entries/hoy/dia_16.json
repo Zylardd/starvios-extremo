@@ -1,0 +1,15 @@
+{
+ "name": "Día 16 · Bestias",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 16 · Bestias",
+   "text": "$(l)Regla del día:$()$(br)Los mobs tienen un 50% más de vida.$(br2)$(l)Misión: Señor de los mares$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)tridente$(br2)$(l)Premio:$()$(li)230 Starcoins$(li)Botas Pesadas$(li)Prisa minera II (2 días)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_16",
+ "secret": true
+}

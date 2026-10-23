@@ -1,0 +1,15 @@
+{
+ "name": "Día 17 · Hambruna",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 17 · Hambruna",
+   "text": "$(l)Regla del día:$()$(br)Cada 10 minutos sufres hambre durante 30 segundos.$(br2)$(l)Misión: El arsenal negro$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de netherita completa (puesta)$(li)espada de netherita$(li)hacha de netherita$(br2)$(l)Premio:$()$(li)250 Starcoins$(li)Casco Divino$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_17",
+ "secret": true
+}

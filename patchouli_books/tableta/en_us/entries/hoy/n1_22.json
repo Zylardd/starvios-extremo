@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 22",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 67,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 22",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Durante las tormentas caen rayos cerca de los jugadores.$(br2)$(o)Activa desde el día 22 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_22",
+ "secret": true
+}

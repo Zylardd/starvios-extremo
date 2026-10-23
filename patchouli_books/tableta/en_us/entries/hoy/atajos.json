@@ -1,0 +1,21 @@
+{
+ "name": "Atajos (botones)",
+ "icon": "minecraft:lever",
+ "category": "patchouli:hoy",
+ "sortnum": -1,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Atajos (botones)",
+   "text": "Clic en un botón, cierra la tableta ($(l)Esc$()) y mira el chat.$(br)$(br)$(c:/mision)$(2)▶ Mi misión y progreso$(/c)$(br)$(c:/dia)$(2)▶ Reglas activas$(/c)$(br)$(c:/anomalias)$(2)▶ Nerfs y buffs$(/c)$(br)$(c:/mazmorras)$(2)▶ Mazmorras activas$(/c)$(br)$(c:/resurreccion)$(2)▶ Resurrección$(/c)$(br)$(c:/equipo)$(2)▶ Panel de equipo$(/c)"
+  },
+  {
+   "type": "patchouli:text",
+   "text": "$(l)Dinero y casino$()$(br2)$(c:/dinero)$(6)▶ Mi dinero$(/c)$(br)$(c:/vender)$(6)▶ Vender lo de la mano$(/c)$(br)$(c:/lcbaltop)$(6)▶ Los más ricos$(/c)$(br)$(c:/ruleta)$(4)▶ Ruleta$(/c)$(br)$(c:/loteria)$(6)▶ Lotería$(/c)$(br2)Duelo: escribe $(l)/duelo <jugador> <cantidad>$()"
+  },
+  {
+   "type": "patchouli:text",
+   "text": "$(l)Emotes$()$(br2)$(c:/emote saludo)$(3)▶ Saludo$(/c)$(br)$(c:/emote baile)$(3)▶ Baile$(/c)$(br)$(c:/emote giro)$(3)▶ Giro$(/c)$(br)$(c:/emote celebrar)$(3)▶ Celebrar$(/c)$(br)$(c:/emote corazones)$(3)▶ Corazones$(/c)$(br)$(c:/emote triste)$(3)▶ Triste$(/c)$(br)$(c:/emote enojado)$(3)▶ Enojado$(/c)$(br)$(c:/emote dormir)$(3)▶ Dormir$(/c)"
+  }
+ ]
+}

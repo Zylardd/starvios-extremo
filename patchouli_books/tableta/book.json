@@ -1,6 +1,6 @@
 {
  "name": "Tableta de Starvios",
- "landing_text": "$(l)Bienvenido, forastero.$()$(br2)Aquí está todo lo que necesitas saber para sobrevivir 28 días en Starvios: las reglas, las misiones, el dinero, los mods y los comandos.$(br2)Lo que cambia cada día (misión, nerfs y buffs activos) lo ves en tu $(l)Diario de Starvios$().",
+ "landing_text": "$(l)Bienvenido, forastero.$()$(br2)Aquí está todo lo que necesitas saber para sobrevivir 28 días en Starvios: las reglas, las misiones, el dinero, los mods y los comandos.$(br2)Lo que cambia cada día (misión, nerfs y buffs activos) está en $(l)Hoy en Starvios$(), y los botones rápidos en $(l)Atajos$().",
  "version": 1,
  "show_progress": false,
  "i18n": false,

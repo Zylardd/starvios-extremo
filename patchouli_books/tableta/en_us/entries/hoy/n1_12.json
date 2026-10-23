@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 12",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 37,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 12",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los mobs ya no pierden tu rastro: te siguen hasta 64 bloques.$(br2)$(o)Activa desde el día 12 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_12",
+ "secret": true
+}

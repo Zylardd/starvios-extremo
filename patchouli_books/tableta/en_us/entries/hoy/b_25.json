@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 25",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 78,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 25",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Fuerza I para todos durante 1 minuto cada amanecer.$(br2)$(o)Activa desde el día 25 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_25",
+ "secret": true
+}

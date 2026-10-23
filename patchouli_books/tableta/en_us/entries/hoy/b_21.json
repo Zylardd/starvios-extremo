@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 21",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 66,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 21",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Bendición: Regeneración I durante 10 segundos cada amanecer.$(br2)$(o)Activa desde el día 21 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_21",
+ "secret": true
+}

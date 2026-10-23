@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 24",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 75,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 24",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Botín especial x2 en élites y jefes.$(br2)$(o)Activa desde el día 24 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_24",
+ "secret": true
+}

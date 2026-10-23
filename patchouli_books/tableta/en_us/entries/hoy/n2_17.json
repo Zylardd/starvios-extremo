@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 17",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 53,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 17",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Comer carne o pescado crudo da Náuseas.$(br2)$(o)Activa desde el día 17 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_17",
+ "secret": true
+}

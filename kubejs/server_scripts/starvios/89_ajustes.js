@@ -200,3 +200,14 @@ ServerEvents.commandRegistry(event => {
       return nuevo ? 1 : 0;
     })));
 });
+
+// /starvios base : vuelve a enviar a TODOS el waypoint "Base" con el botón [Add] de Xaero
+ServerEvents.commandRegistry(event => {
+  let { commands: Commands } = event;
+  event.register(Commands.literal('starvios').requires(s => s.hasPermission(2))
+    .then(Commands.literal('base').executes(ctx => {
+      let s = global.STARVIOS.spawn;
+      ctx.source.server.runCommandSilent(`tellraw @a ["",{"text":"📍 Base: ","color":"gold","bold":true},{"text":"${s.x} ${s.y} ${s.z}  ","color":"yellow"},{"text":"xaero-waypoint:Base:B:${s.x}:${s.y}:${s.z}:6:false:0:Internal-overworld-waypoints","color":"gray"}]`);
+      return 1;
+    })));
+});

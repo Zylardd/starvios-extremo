@@ -63,9 +63,12 @@ let diPaginas = (server, n) => {
   }
   // 3) Nerfs y buffs activos
   let act = global.stEfActivas ? global.stEfActivas(server) : [];
-  let lineas = act.length ? act.map(a => ({ t: `${a.tipo === 'b' ? '✦' : '⚠'} D${a.dia}: ${a.texto}`, c: a.tipo === 'b' ? 'dark_green' : 'dark_red' }))
-                          : [{ t: 'Ninguna por ahora.', c: 'gray' }];
-  pags = pags.concat(diPaginar('Nerfs y buffs', 'dark_red', lineas));
+  let nN = act.filter(a => a.tipo !== 'b').length, nB = act.length - nN;
+  pags.push(diPagina([diTxt('⚠ Nerfs y buffs', 'dark_red', ',"bold":true'), diBR, diBR,
+    diTxt(act.length ? `Activos: ${nN} nerf(s) y ${nB} buff(s).` : 'Ninguno por ahora.', 'black'), diBR, diBR,
+    diTxt('Míralos ordenados en tu Tableta, categoría ', 'dark_gray'), diTxt('Hoy en Starvios', 'dark_purple', ',"bold":true'), diTxt('.', 'dark_gray'), diBR, diBR,
+    diBoton('[No tengo tableta]', 'dark_purple', '/tableta', 'Te da una si la perdiste'), diBR,
+    diBoton('[Verlos en el chat]', 'dark_red', '/anomalias')]));
   // 4) Equipo
   let eq = global.stEquipoDe ? global.stEquipoDe(server, n) : null;
   let pe = [diTxt('⚑ Equipo', 'dark_blue', ',"bold":true'), diBR, diBR];
@@ -81,6 +84,7 @@ let diPaginas = (server, n) => {
     pe.push(diBoton('[Aceptar invitación]', 'blue', '/equipo aceptar', 'Unirte al equipo que te invitó'), diBR);
     pe.push(diBoton('[Rechazar invitación]', 'red', '/equipo rechazar'), diBR);
   }
+  pe.push(diBR, diBoton('[Panel de equipo]', 'gold', '/equipo', 'Crear, invitar y expulsar con botones'), diBR);
   pe.push(diBR, diBoton('[Ver equipos]', 'dark_gray', '/equipo lista'));
   pags.push(diPagina(pe));
   // 5) Atajos
@@ -133,7 +137,15 @@ let diActualizar = (server, p, forzar) => {
   inv.setItem(slot, Item.of('minecraft:written_book', snbt));
   diUltimo[n] = snbt;
 };
-global.stDiarioActualizar = (server) => server.players.forEach(p => { try { diActualizar(server, p, false); } catch (e) {} });
+// ------------------------------------------------------------
+//  EL DIARIO YA NO SE USA: todo está en la Tableta.
+//  Se quitan los diarios que queden en los inventarios y /diario lleva a la tableta.
+// ------------------------------------------------------------
+let DI_ACTIVO = false;   // pon true para volver a usar el Diario
+let diQuitar = (server, n) => server.runCommandSilent(`clear ${n} minecraft:written_book{${DI_TAG}:1b}`);
+global.stDiarioActualizar = (server) => server.players.forEach(p => {
+  try { if (DI_ACTIVO) diActualizar(server, p, false); else diQuitar(server, p.getName().getString()); } catch (e) {}
+});
 
 global.stDiTick = 0;
 ServerEvents.tick(event => { global.stSeguro('87_diario', () => {
@@ -144,7 +156,7 @@ ServerEvents.tick(event => { global.stSeguro('87_diario', () => {
 
 PlayerEvents.loggedIn(event => {
   let server = event.server, p = event.player;
-  server.scheduleInTicks(120, () => { try { diActualizar(server, p, false); } catch (e) { console.warn(`[Starvios] Diario: ${e}`); } });
+  server.scheduleInTicks(120, () => { try { if (DI_ACTIVO) diActualizar(server, p, false); else diQuitar(server, p.getName().getString()); } catch (e) { console.warn(`[Starvios] Diario: ${e}`); } });
 });
 
 ServerEvents.commandRegistry(event => {
@@ -152,9 +164,11 @@ ServerEvents.commandRegistry(event => {
   event.register(Commands.literal('diario').executes(ctx => {
     let p = ctx.source.player;
     if (!p) return 0;
-    diUltimo[p.getName().getString()] = '';
-    diActualizar(ctx.source.server, p, true);
-    ctx.source.sendSystemMessage(Text.of('§6📖 Tu Diario de Starvios está al día. Ábrelo con clic derecho.'));
+    if (DI_ACTIVO) {
+      diUltimo[p.getName().getString()] = '';
+      diActualizar(ctx.source.server, p, true);
+      ctx.source.sendSystemMessage(Text.of('§6📖 Tu Diario de Starvios está al día. Ábrelo con clic derecho.'));
+    } else ctx.source.sendSystemMessage(Text.of('§6📱 Todo está ahora en tu Tableta de Starvios (categoría "Hoy en Starvios"). Si la perdiste: /tableta'));
     return 1;
   }));
 });

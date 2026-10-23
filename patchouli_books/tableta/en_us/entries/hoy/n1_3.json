@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 3",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 10,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 3",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Cada medianoche se desata una tormenta eléctrica de 5 minutos.$(br2)$(o)Activa desde el día 3 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_3",
+ "secret": true
+}

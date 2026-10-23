@@ -1,0 +1,15 @@
+{
+ "name": "Día 28 · La batalla final",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 28 · La batalla final",
+   "text": "$(l)Regla del día:$()$(br)Ignis desciende entre llamas. 6 corazones, mobs con Fuerza. Sobrevive.$(br2)$(l)Misión: La batalla final$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de Ignitium completa (puesta)$(li)El Incinerador$(br2)$(l)Premio:$()$(li)1000 Starcoins$(li)1 Corazón Vital$(li)Fuerza II (1 día)$(li)Resistencia II (1 día)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_28",
+ "secret": true
+}

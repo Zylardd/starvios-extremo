@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 1 · día 25",
+ "icon": "minecraft:fermented_spider_eye",
+ "category": "patchouli:hoy",
+ "sortnum": 76,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 1 · día 25",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Los mobs reciben un 30% menos de daño de las flechas.$(br2)$(o)Activa desde el día 25 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n1_25",
+ "secret": true
+}

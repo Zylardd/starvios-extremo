@@ -7,7 +7,7 @@
   {
    "type": "patchouli:text",
    "title": "Nerfs y buffs",
-   "text": "Durante el día los Cuyes revelan $(l)anomalías$(): 2 nerfs y 1 buff por día, que aparecen arriba a la derecha.$(br2)Se quedan activas el resto de la serie. Las ves todas en tu $(l)Diario$() o con $(l)/anomalias$()."
+   "text": "Durante el día los Cuyes revelan $(l)anomalías$(): 2 nerfs y 1 buff por día, que aparecen arriba a la derecha.$(br2)Se quedan activas el resto de la serie. Las ves todas en la categoría $(l)Hoy en Starvios$() de esta tableta, o con $(l)/anomalias$()."
   }
  ]
 }

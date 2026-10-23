@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 2",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 9,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 2",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los zombis sueltan pepitas de hierro (25%).$(br2)$(o)Activa desde el día 2 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_2",
+ "secret": true
+}

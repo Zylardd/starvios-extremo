@@ -1,0 +1,15 @@
+{
+ "name": "Día 13 · Ruge el invierno",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 13 · Ruge el invierno",
+   "text": "$(l)Regla del día:$()$(br)Frostmaw ruge en la arena.$(br2)$(l)Misión: Ruge el invierno$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)4 pociones de resistencia al fuego$(li)3 manzanas doradas$(br2)$(l)Premio:$()$(li)200 Starcoins$(li)2 Corazones Frágiles$(li)Fuerza I (1 día)$(li)Resistencia I (1 día)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_13",
+ "secret": true
+}

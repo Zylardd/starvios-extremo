@@ -1,0 +1,15 @@
+{
+ "name": "Día 21 · Heridas abiertas",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 21 · Heridas abiertas",
+   "text": "$(l)Regla del día:$()$(br)La regeneración natural se desactiva.$(br2)$(l)Misión: Domar la tormenta$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)cabeza de creeper$(li)16 pararrayos$(br2)$(l)Premio:$()$(li)320 Starcoins$(li)Casco de Ignitium$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_21",
+ "secret": true
+}

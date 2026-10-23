@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 23",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 72,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 23",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los creepers cargados sueltan 20 Starcoins y una cabeza de creeper.$(br2)$(o)Activa desde el día 23 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_23",
+ "secret": true
+}

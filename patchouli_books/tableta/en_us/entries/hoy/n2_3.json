@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 3",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 11,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 3",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Bajo la tormenta, la armadura de hierro atrae los rayos (10% cada minuto).$(br2)$(o)Activa desde el día 3 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_3",
+ "secret": true
+}

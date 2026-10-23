@@ -1,0 +1,15 @@
+{
+ "name": "Día 8 · Cuerpo Frágil",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 8 · Cuerpo Frágil",
+   "text": "$(l)Regla del día:$()$(br)Pierdes 1 corazón de vida máxima.$(br2)$(l)Misión: El arsenal de diamante$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de diamante completa (puesta)$(li)espada de diamante$(li)hacha de diamante$(br2)$(l)Premio:$()$(li)130 Starcoins$(li)Daga de Colmillo de Naga$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_8",
+ "secret": true
+}

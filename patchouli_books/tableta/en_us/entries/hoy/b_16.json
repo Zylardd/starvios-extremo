@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 16",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 51,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 16",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los monstruos sueltan el doble de botín.$(br2)$(o)Activa desde el día 16 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_16",
+ "secret": true
+}

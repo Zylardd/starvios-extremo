@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 18",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 57,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 18",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los zombis acorazados pueden soltar piezas de su armadura (10%).$(br2)$(o)Activa desde el día 18 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_18",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Buff · día 9",
+ "icon": "minecraft:glistering_melon_slice",
+ "category": "patchouli:hoy",
+ "sortnum": 30,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Buff · día 9",
+   "text": "$(2)$(l)Bendición activa$()$()$(br2)Los pararrayos se craftean con 1 solo lingote de cobre.$(br2)$(o)Activa desde el día 9 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/b_9",
+ "secret": true
+}

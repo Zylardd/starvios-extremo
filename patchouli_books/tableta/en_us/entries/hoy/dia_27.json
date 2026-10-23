@@ -1,0 +1,15 @@
+{
+ "name": "Día 27 · Arena en el infierno",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 27 · Arena en el infierno",
+   "text": "$(l)Regla del día:$()$(br)La Monstruosidad de Netherita despierta en la arena.$(br2)$(l)Misión: Arena en el infierno$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de Ignitium completa (puesta)$(li)2 tótems$(br2)$(l)Premio:$()$(li)500 Starcoins$(li)1 Corazón Vital$(li)Fuerza II (1 día)$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_27",
+ "secret": true
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Día 18 · Legión de hierro",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 18 · Legión de hierro",
+   "text": "$(l)Regla del día:$()$(br)Los zombis pueden llevar armadura de hierro.$(br2)$(l)Misión: Cazador de wither$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)4 cráneos de esqueleto wither$(br2)$(l)Premio:$()$(li)270 Starcoins$(li)Peto Divino$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_18",
+ "secret": true
+}

@@ -201,6 +201,186 @@ file = "dias_mp3/9.mp3"
 hash = "5dfe4e2938b2c4aff627f66e0708eff5c7228aad46172749e4f296b771f4cffb"
 
 [[files]]
+file = "emotes/bend_sit.json"
+hash = "39d0c184249829bee1d94292748c5c7877e50da8767b42d44319164000ffd38f"
+
+[[files]]
+file = "emotes/bow1.json"
+hash = "b4fda1c66eb925f5c7a398eec5c5d2356334b651309f4c460bdee435264f9678"
+
+[[files]]
+file = "emotes/bow2.json"
+hash = "13f324f7bf7548f4479c4ebd06ab651250ffcfb838cfe65478e77a1cc6eafec9"
+
+[[files]]
+file = "emotes/bps_bloop.json"
+hash = "00edeb240cbeed05fac31886ab268ef98958e2a9127d9efec36afe6af409fa12"
+
+[[files]]
+file = "emotes/campfire_sit1.json"
+hash = "21f0870a3db57d9db4442bc96cd3d0f275b940e311b58f99c3644420fb57f188"
+
+[[files]]
+file = "emotes/club_penguin_dance.json"
+hash = "91aeba791641240d734179fb8ed3365fa113aaf472144dc5c4f392ee048ebc26"
+
+[[files]]
+file = "emotes/cool_sit.json"
+hash = "00ea3c4adc6c77cfcffafbba0c3fe44394f050860dfed78cc1fea8fa6970ba6a"
+
+[[files]]
+file = "emotes/cross.json"
+hash = "5b7a997c01df8cc4e6fee0447956e7553899316af632b65145a98d81877d919f"
+
+[[files]]
+file = "emotes/dab.json"
+hash = "f30e429e892b16311593d595b7c8fa10cade0561a742f4ba2aa1693472fdc76e"
+
+[[files]]
+file = "emotes/do_eternal_rest_and_respawn.json"
+hash = "aa9f8d6ca98dcbaca21ff365e6c382c69c9a98751c834bb80ffe834fafe2b747"
+
+[[files]]
+file = "emotes/f.json"
+hash = "935ab98322109d4ab3b5594173543c9c46437218be99b1758f904bc4db117ede"
+
+[[files]]
+file = "emotes/floss.json"
+hash = "20bffc968326f9b0c4748c037ebef14cb8e30070196ea0ecf720b60df2916ba5"
+
+[[files]]
+file = "emotes/floss_dance3.json"
+hash = "c58ff8ebc9ddfb104f954921575cc8ea8bc391d839cb84783ba8a57f3e7c5eea"
+
+[[files]]
+file = "emotes/grace.json"
+hash = "51b645e73319d07693af9a0ee0ced9450393c1aa5dd61c4a984de38c3211504e"
+
+[[files]]
+file = "emotes/headball.json"
+hash = "0c579f45c449a41a5a7ccec221fdbcf69b420fd3a08c74d77895f48200caff09"
+
+[[files]]
+file = "emotes/headspin.json"
+hash = "dc3b8be9ff5eb29ba9cb4967da12efcd8630434902ea8e6e087c7a5951b943d5"
+
+[[files]]
+file = "emotes/headyeet.json"
+hash = "70bde525c1f074ef9158a2ee64df064dc236535d2231a6753b58c6e9a33799c1"
+
+[[files]]
+file = "emotes/heart.json"
+hash = "0bdc9fa48329088c2f1aea471fce9af5e1e4a572729a438f32faf2f4e4e2792d"
+
+[[files]]
+file = "emotes/hearthands.json"
+hash = "cd9b425dfcdb4a43c33a8ceac6f89ae83076624ba250afba50a416687b0fe61a"
+
+[[files]]
+file = "emotes/hug.json"
+hash = "d1bb293d36d004fc728ed9c1cfefe238e84e77cbe8afa53f387eaae52f6b1531"
+
+[[files]]
+file = "emotes/hunchback.json"
+hash = "e521ed5634aa953333ac1db2d556d57b9df80b4128186b51946f6802e3ab6424"
+
+[[files]]
+file = "emotes/inspect.json"
+hash = "d1d070ffc05b8a25b5e221ac3620d6cd769fc7c4f1621664f9a6913da7840663"
+
+[[files]]
+file = "emotes/into_pieces.json"
+hash = "6f2f7ba1a8b29b14c5a6b2e66a1c2d4f293e942c2586b9d476e6509b829b25eb"
+
+[[files]]
+file = "emotes/item.json"
+hash = "1f6a20861a087420f452da13b13423856e64aea3a4494e06c98d2feaf1b0e6bd"
+
+[[files]]
+file = "emotes/jump.json"
+hash = "6caf2f98732ad6c2aa088d8c7fe6f6b09257661298979698397e73d9cd152ef7"
+
+[[files]]
+file = "emotes/jumping_jacks.json"
+hash = "65714e9dc6f46da3045aa346abb4022cd81f6014c04e3a7b586f188178faa6ee"
+
+[[files]]
+file = "emotes/lay_down5.json"
+hash = "c4d18b8359744e348641ac8a9bd115edd25921d3040c5ff361dcf78acf786840"
+
+[[files]]
+file = "emotes/lean.json"
+hash = "94cd2440ecf27c0d7ec0c97a9cbcbc68a9040b1055230287796487aeb9b42b44"
+
+[[files]]
+file = "emotes/lejat.json"
+hash = "19a3bab49b843d6692e443c9501fd475b2d1c59fe4e3c9d68965dd99810563d1"
+
+[[files]]
+file = "emotes/lookaround.json"
+hash = "77bb9f6ab288eae6c1afe2a5a115482ea25e6e540670e3c7faca5e11d361fe2b"
+
+[[files]]
+file = "emotes/make_gestures.json"
+hash = "fc7fa7e1b7e7b95fdaceb2cef3ea5c95ac28b78501a4cbcd8dfe52fc230269e3"
+
+[[files]]
+file = "emotes/meditation_fly.json"
+hash = "d8f546d1ad3d567e3f93d5ae15b525c922bcde7fae1559436acd1e2b1fdd4909"
+
+[[files]]
+file = "emotes/meeting.json"
+hash = "44a5f6ff0fa3d455a78d9a9058d204356090f9542a67e76bd16d9499ef230e29"
+
+[[files]]
+file = "emotes/narutonew.json"
+hash = "564f870144a63e0adda2f93ae5da68410a0fbdc7a718909291e6d5d7a97bb5c3"
+
+[[files]]
+file = "emotes/nervous.json"
+hash = "7fd37c4a3120d3b76e0ec711e9c7efeca6ccae2fb33125f06c8fdd2530dbef5c"
+
+[[files]]
+file = "emotes/orange_justice.json"
+hash = "9fc76c73bcfc65e08d34eeb5be18ebd9c348f87559007127d7e09b0f6c5e8395"
+
+[[files]]
+file = "emotes/penguin.json"
+hash = "0719a6d4e593ace446e2001658674424bff1965790877861939d39ee49bd360d"
+
+[[files]]
+file = "emotes/selfie.json"
+hash = "8854e458a2b2f021b394ca9c64d9c6e6f993a89bd79bc09a33525dd72830ffa0"
+
+[[files]]
+file = "emotes/shake.json"
+hash = "b245cf659e58d5c7906719c01b701d4e0d26f7e495bfe9d3d299edf8025d76d8"
+
+[[files]]
+file = "emotes/sit.json"
+hash = "1e5940f16afc3822a00d3a99da1c70c26e2de47eae5110189c20bee3e9ebc4ad"
+
+[[files]]
+file = "emotes/sitting.json"
+hash = "4b31fc18d89b38cb17cb41629cb59471c70c68cf5d6cea544a3598a6c5e6e794"
+
+[[files]]
+file = "emotes/take_the_l.json"
+hash = "8a41337862388ff29b436a74a8eec7828ea05afdd0efe14d3f9040a45598ff2a"
+
+[[files]]
+file = "emotes/the_dab.json"
+hash = "5961c69156ee8b35a83bc9e91f4fff91792289009414525279b85ea836552602"
+
+[[files]]
+file = "emotes/tpose.json"
+hash = "e81cd74ece1639d5d8dd2077c39f2de0a1880ce1d2aafa0fe7b51641aa40ab94"
+
+[[files]]
+file = "emotes/twerk.json"
+hash = "2fb9fcebee765eb561199508b5f1c7381e54cad8b132eb65e345f31006b91970"
+
+[[files]]
 file = "kubejs/assets/kubejs/textures/item/corazon_fragil.png"
 hash = "0c46295f24ed067e71177b7920789f7ada1c316a426e451652a11ff95284b472"
 
@@ -1137,6 +1317,398 @@ file = "kubejs/data/starvios/advancements/anuncio/raiz.json"
 hash = "441682757651522655ec0256d0ce84c9d54a035792e4fbbc354099766c7bebe9"
 
 [[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_1.json"
+hash = "df1e5e9c70f3d35742044a2ff44782e6ea117f16b39ddb2f53da4e93ed299f46"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_10.json"
+hash = "2cfabef888f64b4a4ad4f744a8dd453936475e7a0d4f66d980051c7491a54117"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_11.json"
+hash = "819751f7eda337551565ee73d1f7d7c70ed75e07ff90c33046732f46cbceb674"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_12.json"
+hash = "8eb62ab77b75e17a042eecb3fe110fbed3606b79314a8c39de8eb487e57cd1e4"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_14.json"
+hash = "aaaa299e3e084c80297f007bb154402981cf486031d5e8a0fb58eb6e586140bf"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_15.json"
+hash = "147be5871d94352b0cdb1ad8dddba614417d5f71510ba8f6fd03262e1aa47089"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_16.json"
+hash = "f6e22be251a2c85e9646b4195a961e620babad12079bd09c4c6086a40c565017"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_17.json"
+hash = "81e5ea7824119c3ed1fc499b47ebbcff556e005a12b3f760a04e35e92f84904e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_18.json"
+hash = "dbfe2029047112a9ce8f4e1e05e686f8d15129dd88d0f7d1064e37e1bb87bc30"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_19.json"
+hash = "6566d4615001414389e00e95106e8d944b3704a260a8d543f59764bedcc33823"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_2.json"
+hash = "e7f5f30497ce29ea0815bcca8dc46ab4b29be769f949f1604d9468afd6912614"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_21.json"
+hash = "b105bae019f553d37a355356516351ed6f2613c9ce9d68a16e84ee7c109c927f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_22.json"
+hash = "57629e56b6fe579a50129c26e6b984c09016892dec9c83bb441f580490b3ddfb"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_23.json"
+hash = "e9137c5bdc2dad4d58ea5dbfbae8917796caa9fa509d4018283e3c25570183eb"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_24.json"
+hash = "2e6e6665da31c5597898a07a52afd9bb56723a652149aaa049a74f0929de8a1b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_25.json"
+hash = "5ad93c0c0db9b15a4c75e9cf804b7e45d98df8e8c1bf5c3bc980afa6f499e847"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_26.json"
+hash = "e440ba700e7e34dfac38f2006c9a3501ef61ad5c319f6a566c0cf46c575e9514"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_3.json"
+hash = "f5b11fcb63a7a49fa336c65246e059276fc375cae46f742a9458c10a292e35e2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_4.json"
+hash = "316148eb6e660d9fe1e7bb2bc90e4682e530c45802982627f947ac6e2ba6fa10"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_5.json"
+hash = "7fafeaad866f2a710c006a94f6e72fff45be433ea33c4c0ef77a3088c1d101a9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_7.json"
+hash = "6cb1eb5e5c1a7ba5ee549e4ba5e01318ebb8ae0c9bcebded67203d2e32421001"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_8.json"
+hash = "20be916b3d3a34f137ddd9ca0acaf5184e763e65be3895bdc0f0a95de32bcb4a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/b_9.json"
+hash = "b1f7ba78021930bcb4877b363b0adcf5ae891ee9c8c76784a6ecaf4aa8905988"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_1.json"
+hash = "6a25bd9343ee3b891bc6123ed7d0406693cbefba9383818f021c01d9ee2a508b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_10.json"
+hash = "92e2877596139bbbf985a2ff7090714884fe9ee9c182bb9efef832a1b230750e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_11.json"
+hash = "7f70a87a1e52ae7a6fd611f2378568453c21411ab67ea7bde39d12b5c9f41def"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_12.json"
+hash = "f550f9487fd8cbd5495525d6e742de31ff5b8fe8cfc593c852166eede103c35b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_13.json"
+hash = "2226520643a1f11a74f73b58617d9ae5ff9a042a3783887ee56caaa70675e0f1"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_14.json"
+hash = "2e0cac9ce35b8af0643f9af561ff4fe2b39cf5fb12e57086cfbd354bc5c8cff0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_15.json"
+hash = "c77394099af48b9b10687ebb2e5f8dbb1412776e0c8b5d5d82d52e3d99f813d6"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_16.json"
+hash = "96dd46a67f810baba8ef12d94caa61d56224cff6e8c0fc6bbebb1957817ce3ab"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_17.json"
+hash = "5440b372ecbbfcce9b461a39b2bcefe2c265a2c5d99bd10ddfbc86dbed72f817"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_18.json"
+hash = "58df35185c98af9c384ef5c95b4fa076e7cc64abb7069176dd6a69330012a027"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_19.json"
+hash = "5619cd02e548860e35f824adff122fd149c4af5b2f2488f0b0f3046bb4c3f546"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_2.json"
+hash = "3d6b580a46ba3e9c0706ffdbb544b93a7d24228250568b8a1d786ee56f1b20bb"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_20.json"
+hash = "409b171f44d54cd79da850a35bcee15484a743e1fb940210c0cebd0f819ffab7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_21.json"
+hash = "04efc5b3a1e8508b419723fcb0b27eefa4ebbfaf6fe804a9f41942b829842647"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_22.json"
+hash = "f521336eaa9dc73818adef40459d474550c6a80f88fd39547b943e34afdcb8e2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_23.json"
+hash = "9a9f40e924d2e590fadeaf378c96fc2c388be8da0b64bd03279169b5cd8ac6f7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_24.json"
+hash = "026179f36ef4a15dc415f82145660fbcc935e556c49bac9979484853b5bcc3e9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_25.json"
+hash = "948c931bbc7f8cefdf63f1536ff8255bc1b47a603d80f896bc7aef1fcd6c4273"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_26.json"
+hash = "bedc6dbd88bc40756318c4b6a15a56cb1b3ae0a01d0c7c17943012f666c36bc5"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_27.json"
+hash = "ca406143b51365c5c2af46abc807b2d43759ad84290c90001ca364562308fee3"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_28.json"
+hash = "9dcb02f679087396b59dbdad6d0eb2e7b3b5b352fa640e2af0269901d0603555"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_3.json"
+hash = "7aec415e2fc475bfe679bd24017816230e0532d5f591601d203cfe996c3c1b94"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_4.json"
+hash = "a9a091e211a93c330eec96bea110745e54c053776edb64b4db448393be1ec569"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_5.json"
+hash = "3d4b9fc59d3b6524c518c01dda329c9acbed3bf7cb795f3b5126b8b5b821dae7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_6.json"
+hash = "fee049cc3c9449bfe835e92edbcd32d664fc1544e7715f7856d2d4d3e71606c0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_7.json"
+hash = "290063f341572e3fd389c1022c4ff4babc8ccf65f963ec0cc885a8c3844a75c9"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_8.json"
+hash = "084eb267d25f67c98f50296265544bc42606d085b9f6f72e8507e35bc574401b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/dia_9.json"
+hash = "e862580d3bdda834d69bd3d4f8028ae65b76f28517d05adb52a7df4c81602428"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_1.json"
+hash = "4dcdab38b56ae5dbbe5f45243a84d9fb4f192f6d4a40d6ea46f6e7a8785690ff"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_10.json"
+hash = "8cbb342dc41c17f9744097a267bc78dbd8ae978f01dac3754edb4c97c2f6f555"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_11.json"
+hash = "4071d86804c15c833310087d57b925909a641c405bad277bcc3f4702077d708d"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_12.json"
+hash = "39d52836293b944fcd3326ab661c1de75ffdae28a18eba7ec41cd157fcc7daf6"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_14.json"
+hash = "da24fae7b320294ff5e2b337871e990450d7c2da894f80701b4e5a36b55a9544"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_15.json"
+hash = "e74864b202e145b0d80f7bf43a71b90327cfa862a80725a89787ab672bb01f27"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_16.json"
+hash = "f0fcfe56665ce3cf53ee15d23ec7cddf88d81a03ef40b57323ed2c7782c7f128"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_17.json"
+hash = "a1086850482b66277670046862f6104af5fc4648f5eaf130fea9634308db856b"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_18.json"
+hash = "ff0eae81ca175ac7174840fe174b012d6a0688147ea3497b173a268fe72b72b5"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_19.json"
+hash = "52a43f2a56061158a6f0a95abb333e8bb05ecff5bc61d87eff7e7b636684e789"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_2.json"
+hash = "7e9b28f24902f406277940f64b20fdca28b73e4215e42a8458b074241fb66041"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_21.json"
+hash = "5dcc8e8eb968598d767f1be398b2d534da19b21d5e52c783c95e00cc4e79d775"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_22.json"
+hash = "eb01114ec95b2961b146d7b8e3373b1f279708e4955ebadffd7fe7d1d28e059c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_23.json"
+hash = "70dd6c8810904c418d0e6e36ec27a5f03b1fb41144f42d2b8c42e455b62a088c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_24.json"
+hash = "cdf0dd4d27ea1457d09e6df40d7b96c080e9fbc5208d6c9eac60ac87a78d0b9e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_25.json"
+hash = "d5aada1f15c355373965318d863df7ee84beb57173c1fa8859486fa5bf7acdf7"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_26.json"
+hash = "0b08af507f04b5ced3af6c9cb867e0a1ee177b80787c39dd4ffae6086169f421"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_3.json"
+hash = "6ce771b9d0f0f5ea04fd7e4d63f0bf17a5ff512d21a77aaaace01ce3a72b2402"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_4.json"
+hash = "c35b539021f649978f80b1c23d603a544d16d2afc7181a1de3f747591258e3a6"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_5.json"
+hash = "560bd36a4bd7f9ca1dc7eb928fa11aa65d33965b9a8419763008f381c0ac15e0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_7.json"
+hash = "1c9e957c536dc73d0a1fa62a9feb5834a7c2f756e7012f165f2d760e1c5164d3"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_8.json"
+hash = "17d38a8a042b1b40f9cca1520511a4b38f24311c293cf365fab49c7c8732e87e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n1_9.json"
+hash = "7672d490e4c0659bd5f570f72615ad278cbd47f02c13e377c1aeee62d745fa65"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_1.json"
+hash = "26d61378bb19a08910385d63ae7bea128bc3fa493118c470111c9b814ea9ff2e"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_10.json"
+hash = "f4a5c5e3af664a9bd26913141d6de99394f5b728ba4ac7cf49bfa62ed5fb52df"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_11.json"
+hash = "a11a3533d313bb9a9a3384102aae9ed451e2e76bcac3d3f940ab03666e92cc0d"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_12.json"
+hash = "810205a670818542a67c25f5220579bc3c3a6a8f77f90fb0d2e95e4c84fff21c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_14.json"
+hash = "8e39fe59800699954ff0faf1acf76d86216cd3749f67318d849812704f161b23"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_15.json"
+hash = "6cb0f40c33673847836310680b75a3d98e0ecc255c4706c6156a294fc1e60e0f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_16.json"
+hash = "a351a14c41de2a505a6bd834cf20395dada24b169292561a1bb02812298f8751"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_17.json"
+hash = "e5d898286d2aed6001c5c85175b14e0a2c8a724eab10e5a9b005240391b55b8f"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_18.json"
+hash = "9e12bb3951f36fd2a6f7589b884acfd5f16e835ae7944c07ceb456f47e77bdf0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_19.json"
+hash = "8469c591955df5094313693022475ddedb4d95333f307fa86d338915583b89d2"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_2.json"
+hash = "4e4aea48c0f715b4acf93977c89ed337e600ac89804f3e1fe3d815853bf97e24"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_21.json"
+hash = "59351db39351f574aa5f2f9b4593b99d00cdfbf8166f243626e77bd2c2ddf11a"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_22.json"
+hash = "298bee9c9d063683907ae076cf2658a2f3387b109292ebb93320a237bcfc1f85"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_23.json"
+hash = "73d7e4198734c7e991f61a8b013abad292da877eb338d7ef58069bfb7c5dccf0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_24.json"
+hash = "3a2c80b3c77d525c2964da6fa41da32e0628ad60b1b59547abfc5cdd41de65d0"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_25.json"
+hash = "4085693b31f41867395b320752558644e34d76e09d963038f642d1aa460bf2cb"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_26.json"
+hash = "7e4041badb9154278c951d19f9796f0155070e06346ff091c1210ed1ec045bbc"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_3.json"
+hash = "28d04fa27cb64d98d301763096c3acb724736d377758ac469ed46836119d3211"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_4.json"
+hash = "5e1312d1dd1908659b05926fc3f72e1ae29eac6b8248e7f16a9f09d9c60a9219"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_5.json"
+hash = "5732a79eec85e6b4eaf4fb821d826b14dd913e698524af1ef2c7468ea42eb243"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_7.json"
+hash = "8168f8a76c60388f213bfe9df86861b3dbd037a607d3ea4d8c88a8f532a92c5c"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_8.json"
+hash = "b77b988a21adca1eda80aa4654580ee2ac9a4dac374603a1bc6338e29bacdd38"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/n2_9.json"
+hash = "6e72ae5043b64627f53b89fe03c25a9fcc7c1c7e04a7fbbe0c67d5bf81fc3316"
+
+[[files]]
+file = "kubejs/data/starvios/advancements/tableta/raiz.json"
+hash = "5e1967244051258091a8794e5c8f83807a7a94dfedf0279fd813d0c89b9884e1"
+
+[[files]]
 file = "kubejs/data/starvios/patchouli_books/tableta/book.json"
 hash = "e4f24860b5fccf92c194e942c1aa9362d103f83f64aa75927bd8762e94ba0b08"
 
@@ -1181,8 +1753,16 @@ file = "kubejs/server_scripts/starvios/85_criptas.js"
 hash = "bbac147bcc079ba5016d4cf0f00d5155a31a417e2904286b26b62d3f6305e51c"
 
 [[files]]
+file = "kubejs/server_scripts/starvios/86_hud.js"
+hash = "19a89aab8fd362edc359b1c925fa7fbd3d1bc8d89f51672fc827dc3f80fe678b"
+
+[[files]]
 file = "kubejs/server_scripts/starvios/87_diario.js"
-hash = "dce60c36e56673d691971023bb8f1494c051789f9fc7b542f5723fdd94279dad"
+hash = "3a7c1c07d33c9d8d7f8ae3ccf535329c893c51a13cd0e48866dd30104ce83169"
+
+[[files]]
+file = "kubejs/server_scripts/starvios/87_tableta_hoy.js"
+hash = "f8f9364493ffa8f9f36fa5c8512a11b451bea6a5c8a366f2b0f57adc919e5db5"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/88_anuncios.js"
@@ -1190,7 +1770,7 @@ hash = "b7dc63e6839b980ca2b6df285abf965a833ac8f38b8a8ebd7010a82f8ae03670"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/89_ajustes.js"
-hash = "d2732a6efc2d45bf74e2e08104be9dc7c4600718d9d01d2aef31f0869d5ccb0e"
+hash = "3770b5054aca0b7925d6a73ead9af8273ba54ddc55b895dcefeb33812f9685aa"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/90_economia.js"
@@ -1206,15 +1786,15 @@ hash = "9c9ab7ba064dc6b42a1c09bb4c202eff71e837ad4df7f2ba59f25a167ef6f50b"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/93_anomalias.js"
-hash = "6c7b41e30d64961ff7068f5169bc51249e20f278f75636ed007e859a485843e5"
+hash = "a9cbe103918394569b1633adb153e3c5e5281beb50781bc0cd0a9f6ba3c24196"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/94_intro.js"
-hash = "02e4d2c4d137435af28f356c09df6f8456bd89db0a9cd9caf6fae048a9594abc"
+hash = "ef0333b9e5c90272c0f369d14aa8ea3b0de32d914f763f43c84ea99882e74899"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/95_equipos.js"
-hash = "017641a7d9e54b3df1ade77d5d65f4646c628d8a2000124e3ad821e67d4cd5d3"
+hash = "b216882a3922f2fd243409b462c50f4f9310e0db5b51b04cee01446c3b7c816c"
 
 [[files]]
 file = "kubejs/server_scripts/starvios/96_rendimiento.js"
@@ -1322,6 +1902,11 @@ metafile = true
 [[files]]
 file = "mods/embeddium.pw.toml"
 hash = "5ec0c37f3f4ad07a40c10376668bca80334ddb7ad2bab06eb4de8f7aac339c8e"
+metafile = true
+
+[[files]]
+file = "mods/emotecraft.pw.toml"
+hash = "84e6ec23b1d9e88d4e1147d3d3c7c50b387f4b7ce06c52d3d8b6ceb6412907ee"
 metafile = true
 
 [[files]]
@@ -1485,6 +2070,11 @@ hash = "831b5d2ea6e06c45d6a367e9fd0511cf09feed9cc70aae4b3538ca1e08c801a5"
 metafile = true
 
 [[files]]
+file = "mods/playeranimator.pw.toml"
+hash = "765987a78e5d8c782d0da2de99998b43b5907d6c41347d3804045ad109e4a586"
+metafile = true
+
+[[files]]
 file = "mods/quark.pw.toml"
 hash = "8df897c0f7831e919aa528c3c1e5239f39439c123d99761230ab2357132bad98"
 metafile = true
@@ -1576,7 +2166,7 @@ metafile = true
 
 [[files]]
 file = "patchouli_books/tableta/book.json"
-hash = "d7ba47fe237ec927bf47d073ab686e03b160553f1947b14bf5a58e91ce903abc"
+hash = "26d43c9797fffac3c37efe4ba7500e4d605f2301781bb4bf44aaa9f237324343"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/categories/comandos.json"
@@ -1593,6 +2183,10 @@ hash = "ce77f2e2d6085ebd03d803c075ed6c3c593727d002ded2567ff6c95ae062dbce"
 [[files]]
 file = "patchouli_books/tableta/en_us/categories/equipos.json"
 hash = "919e0cc0edd0641dc80bc468941e64847388ac4350311fa1d6c741742486964c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/categories/hoy.json"
+hash = "8453a450040e46737b2b12f0a4894fe018020caf265ca2d5fce4fe0e067ce2a0"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/categories/misiones.json"
@@ -1620,7 +2214,7 @@ hash = "e37ab4cf50db87f2e5c568ec596212adea300501fea93203f259e8a2a9a354ec"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/comandos/info.json"
-hash = "04a15354b7301adf1e8a562a825e36dd68356a790a985de434a953ff3051ca26"
+hash = "aafec9cd70456d5f91fb37aa134bf569ddfe2fc147f11e4093e1195a722ca1a6"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/corazones/fragil.json"
@@ -1652,7 +2246,7 @@ hash = "3c375eae0db31a956398d1fd44d944d46d3235bd6c20ce7c6fcef84b261b0d45"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/emotes.json"
-hash = "dfb3f15881601d32f196c2ea565c19b84981837131bb96bdd2b6ccd85d7de354"
+hash = "7743e0ec2f33cd287d3bd811b7d0eff0f8523a1b8c1ebdfa52213a902a273026"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/equipos.json"
@@ -1669,6 +2263,398 @@ hash = "1fdfd3d7fb09b184049ffac99977d1e17947dd70a653bf40f125cbcf2488decf"
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/equipos/voz.json"
 hash = "ab29a501a9749dbdb42ceaf72a0eab96f2a2349d30ac16c29db3f68da5f09c10"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/atajos.json"
+hash = "dbb46f239237bc81862e1a20c794e4e4fa1d3025d261a3fc31c841bb7c631ed6"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_1.json"
+hash = "d6c9e475768fcbfd21611275eedc064d0b1e9a36c75e32211b706493524b47d9"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_10.json"
+hash = "d7321f91b83d6da1b6fe6748c445e4c4692d804d4bad9302ff6fb04592f6b2df"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_11.json"
+hash = "6282b33426ed5262297ca4ead406190133c8c87dc640328938f84fe79f853f29"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_12.json"
+hash = "6adf2b031a4d18d0058ab8b23277e1471f8740cc0d5e785bf48dd7ea3e592a05"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_14.json"
+hash = "daf316230f981f1601fe149bc3e0cb40ceee916460957d856a8e3684dc820620"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_15.json"
+hash = "5e6b7526817c29aac41d92bd0476bd8141f97b14571bad3637e3801f85681bb3"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_16.json"
+hash = "13c18065704a2b0f8bff1aaf1812f819631bb0998f7eb2938de11d88e42fe2bf"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_17.json"
+hash = "accd09c691fc03505e8ebf68b90b6bedd5b9f059fa581e6334be425ba2874094"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_18.json"
+hash = "9b8bde37e73be95665ce535cb496b25acec947a4be69654008bd65e2fd336f62"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_19.json"
+hash = "f40ed69323f05d3890d9a8e870506e61c36f202a75cbd34374fc78a2edc57ab9"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_2.json"
+hash = "16fd5ad94667c61ea73ca131025311f4e73a08f057b0b1ad9556d6d5436322a2"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_21.json"
+hash = "b175245d33132aab03e0193f8e6f05f50e8f3d4140b5d0946413a17e08a2fbed"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_22.json"
+hash = "2d9f7ea32b8f7e75687da5cd8c69ce29eff601da407e30813ff2134dffae0d5b"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_23.json"
+hash = "c3e24f6f6aa4c6dbfb0782e46096ce7f594faae5fc9d8bcb31ee7452b8bfc851"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_24.json"
+hash = "641d255b58eb51ad34b6132673ce1af763de0098623a1a6f046884125a9fdd28"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_25.json"
+hash = "1d0f49b6f806ef3ae3538ccfbfe07f367c3cc956dd7059822063154870d780c3"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_26.json"
+hash = "4a0199530a7425db7c8bd0d44b2be8b665bc416cbea8a69167c298f3347dc163"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_3.json"
+hash = "afb3924d7bd62da0b0ad9bf3af9e6d04048aef0ca2c4f3161f1c3c2bc579574a"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_4.json"
+hash = "592e354de6c50ab0c2b1556cf7774e8f8c3b406593b80efe9d1c352080cbef2c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_5.json"
+hash = "6e38de4d672d5e175d35a9897d1d7421cdc4a7cc13833433e9e6e0c148da99ff"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_7.json"
+hash = "8f54046758d694f8800c8b699407dda68cf0099cdaffc0d9a8dcccff0565ad04"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_8.json"
+hash = "9650a671bede6a8f18f74f3a73ab1122af02641cda0beaf8d07ff9e0c7700b17"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/b_9.json"
+hash = "4d72d930d2a29b7820240cd5b09a35381cc8dcf471e738d40fb868d499d19b7b"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_1.json"
+hash = "d23f6135b2204815246d6bf331eb2f8ce03869da972add62244172d51fef0211"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_10.json"
+hash = "db792b212fefdec38e989872d87542658b50341e969afb56166fa5c57517a069"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_11.json"
+hash = "9914629802f67e39b5c9e31c64b6c869b03971e25639dcd41b64fdc3215d3676"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_12.json"
+hash = "6425e5b634033d60881a3f50b5d7df5e86a4e71b495979fd5cbb29e86d21c8e4"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_13.json"
+hash = "de57c8bb9e309d6683070698f37028410e121310e4e6a6c1475bac19371ea29e"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_14.json"
+hash = "40316b7eda4498a80eb5fd76d8f3f9d5ea1d3c18f9f9a56c2e764fd103dc97cd"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_15.json"
+hash = "0731f30909443bc1f7d2b7671a217fff63480778d148f90e6a5c3b3789476511"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_16.json"
+hash = "dec737b173a83dfc06345ea7bca0159b89331887c98004698bc4ccdd3962f730"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_17.json"
+hash = "73ea9a1de3c4fe4ca83ee2e12cbe06a2118fd89223a2f4c0eea09bf5919e40b0"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_18.json"
+hash = "dc3486d33c87adbbe18359914d3ca9b52db70689f45419b879f90bd71912c16f"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_19.json"
+hash = "91dcdfb369ec5ae7c023e96184b5ba50a45c0a049fb6466e1dbeb6328b26d442"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_2.json"
+hash = "e3ac96d90b1320d50329441c58ea59ac3d0c03ef88e6f0825bb4399d1ab02d45"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_20.json"
+hash = "4d2843d2749516aeb5f5c02f38c68b4e330a3516405066b1cc7cac7c211dc02b"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_21.json"
+hash = "f88883812d2973aa50af7548d5eb4e94e2484e06caf7104eb091f254121ab5ae"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_22.json"
+hash = "bfadc4570c83cd44b6716b6401964ed832cdddd593d8dc0db4fee2f2cad7333c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_23.json"
+hash = "f6d7a95888cfa088a7aef75d1e878357056843aadc4691286417220729cfabc8"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_24.json"
+hash = "95d6f68f7d0459f265b5624e4f5c641c854e44531f2b28266674c7eb8db789e8"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_25.json"
+hash = "01bd1c3dd92318eb7b91d8160a1337f8a82063d4757ff0857bd614475afdc36f"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_26.json"
+hash = "3eb291ac1c85be1079001091184fc90cfde39cb27bed21b3106a2e035ff07164"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_27.json"
+hash = "d9358009b02254c735207ded942b4d7d6c74370cb0c62b25edb325ae4974800a"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_28.json"
+hash = "0cd3f8a51dd3869a80c2014590f190b4cb15221939d2012583a155f18f11ed0e"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_3.json"
+hash = "5e314ec032b332cfd69ac21707e319cdf5c5f870aaac2bbbc948657331337682"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_4.json"
+hash = "e92811157bb87e2147a773af929e39478a540be8bdebc059140c3897c0966c14"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_5.json"
+hash = "9bd7d5646fdb64ca936dc8426b5adc282dc1eb94016ffa7dfa2b45741612d1cc"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_6.json"
+hash = "0ab15cd5654b708685594ef7c5a6006d40571d6e3aa5ab882301bd31d2e00aad"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_7.json"
+hash = "7b9f62f7356d4e69c94b5a764a71ff76fd04c67eb9cdbc06d0f8773e6abcd243"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_8.json"
+hash = "aefdc6c1edccfa85a451e8463105504f6fa2aef7eb9a7a81b0fbd719583db487"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/dia_9.json"
+hash = "bf8ec4d03865c82c82148d17989de31ce4c15f1d236408a7549302fb78f94890"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_1.json"
+hash = "1fd7eb65608290429d5dfe5bc18880bdbd71699e41ce42dc22c72e2d7ae29cc3"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_10.json"
+hash = "50f953b26b9d73bb33f874454b5f2b84f1c08444ec11dbf78b23e18031c06dc9"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_11.json"
+hash = "1a6fbcd31dec4b32a58e904dd24273c7e451d95e148b6eac38b6945dd7bdae8a"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_12.json"
+hash = "4c9c7b38305d241ef8834af36581db1a5d5d6796bd5e34df116cc24b20592126"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_14.json"
+hash = "3c54cd6b44881bc23f69ab596e647560bebdf317aaf61bed8732b63eae07e482"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_15.json"
+hash = "163d94bcb1e873a864ad8caf01a7ea185a099b29aa3f3d66f36e671b7f50e249"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_16.json"
+hash = "1cedd64fce85aa7007dc2ad9f5b73588ce7ced41056c975c9f842b097029d7e4"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_17.json"
+hash = "28fca0a26ef02f743999ae57216094d6b9d912a146187067caea84813eed7f4f"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_18.json"
+hash = "2280afd783a12e382190546f0310f3c1acc8fb4fff790853d21f5ad1da32173e"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_19.json"
+hash = "c6cc6597a13d6292d0a83ee2fde0de53bb6cefe860db95300f11e12d42721fe4"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_2.json"
+hash = "8410769557ce8cb126cb77ef856c765dc516057a72e5b8f70190e9ddb11f1d2a"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_21.json"
+hash = "db8a132bac394124d6ca5736b62dd7500899aad3fa69f0c6af34c53a1f7e12f8"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_22.json"
+hash = "3d13eaf8807d5155fdb7be7a9e5005d0226620a8e1172658673bfa1718e5345d"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_23.json"
+hash = "831e6c34e60c28e0639b7561e4f0565440ff625c870fb0ec73c632e0cd0be6c0"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_24.json"
+hash = "3b5475b74c348a64ed2e20efa9b6b098879f01e6b15c4efcc2887fe2410006eb"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_25.json"
+hash = "a681ad897d5705b68f0c136f5da511250b8c68f79e83f82c97bd2691b67bb5dd"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_26.json"
+hash = "2cf3424c9407b27d82d77eb8596d9eb72fe8174e5ec74e56b3390ee9c64a86bf"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_3.json"
+hash = "e42dd85eee4969f0f5497c7bc2043379fc3ef5746181502d873158088f589312"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_4.json"
+hash = "e7073746cfbf07dc6d98251ed318bd4e796c268a7506aa71396eb676b2b09cef"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_5.json"
+hash = "aeddb002ba8f488864495d58dd290d65b4f423f764db36811ac24df914258905"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_7.json"
+hash = "20dd5df7adb2cbfce7fbe2d1f96871866d911a5517546f9581db1ec545de3f4a"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_8.json"
+hash = "13803f3d72a38a05e4ad661aa903d59aab2ac4bd24a5aae9998aa5f86cb60bce"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n1_9.json"
+hash = "ff0ca57a45a29e7b7a0cf4827da282076d2d51cf7471fe315d61fb21afd204c2"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_1.json"
+hash = "f98ab53664a2352db925c52da6b56fb3bd4bb3eb5e844f3ebd683b1e1d5621ca"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_10.json"
+hash = "1a754f167cf90ce8eeb90fe1c6a530e86a0c8e3dd47c550841eef919ddf65eb6"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_11.json"
+hash = "e2880d8e14345d15a625c67b034b9ccabd949e32b2243a11165c31c537d13fdb"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_12.json"
+hash = "55e86521c49ba08af68015763628a0093e1ea57cbf43034cb6bea633f8113853"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_14.json"
+hash = "2bb6d5aa8ddd7c3fdc1399619dddffb6fdffb0713a6ebc6ad89c5e02c6dd02d8"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_15.json"
+hash = "c585aee7593282705e6893305f430d50459379a1eefd05968ee9df8f3efd7c91"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_16.json"
+hash = "54d4940d6c9e69a062fb15f2b21493f20bcb89751eb2e43decef4fb3f7fd81ab"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_17.json"
+hash = "b15073b0a47dbff6e50aa49c1d49ebc5f17e3aa12ea8b3d4d563bac4b85db8dd"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_18.json"
+hash = "fe45398c71ddc49aea01fbb68ecd6cf9b4575a929a00769c2cb5fca9601104fc"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_19.json"
+hash = "02c28e201a0b1f921584996c4958090c068dbbc205a246b93a806f52990600cb"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_2.json"
+hash = "375bf0a66ad0612fcc08521ed4fbfa80b11bec9c6c252b9ccbbd1193b4793d18"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_21.json"
+hash = "21f6a3d72e450580eeb910bfe1fb100660e908e8ada0c666800a018aecd0907f"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_22.json"
+hash = "c8721ea69e73842696ac2a523d98c570de4b60a2e6821c9e042dff125dcd344b"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_23.json"
+hash = "eefd99ee29c0031782d2c46f77cb926ab85917ee9962a2877588948bf5a1cfeb"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_24.json"
+hash = "5c4dc3b17ca5422750eb93c419c57d1c8e78b929df56dc560b21dd1b58a29327"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_25.json"
+hash = "1101434ab5dd6f3679c2f4daac8e8affb1d3622c6e2dfb59c2106237a252b64d"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_26.json"
+hash = "50feab40a10aa4210e7505790f6940a5e5963898715198cbe1b569bced1a1fda"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_3.json"
+hash = "bab5509ac3cae92deb6468e5c17d316564f1368fd3cf7a60162a6ff534938a8e"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_4.json"
+hash = "a9cae8207c963bf0b96a49783b3379f8f48daf0c6821e96c642c037fc6d3419c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_5.json"
+hash = "5ac2d8e33291c14ed51011fd8867f4cc0ea9520747e832cd8a0189c6f18aef31"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_7.json"
+hash = "57a6acf6e75846b18d08e51216661f9e10e597df8ee31c27087c1cc6a7333c8c"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_8.json"
+hash = "7953cd3f5cde09d335f7eb60c50c8d6ae8d48488a814af4816752ce53bffc869"
+
+[[files]]
+file = "patchouli_books/tableta/en_us/entries/hoy/n2_9.json"
+hash = "0b5fa5ff7c85312a1bdd488af018fc8e5ded588ffa03991fba63ee6d885c551c"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/misiones/como.json"
@@ -1711,6 +2697,10 @@ file = "patchouli_books/tableta/en_us/entries/mods/mod6.json"
 hash = "7c978576fc73823ad02702e3a9434b99db3031672130fd3b67c26392f36ca998"
 
 [[files]]
+file = "patchouli_books/tableta/en_us/entries/mods/mod7.json"
+hash = "816f7068bb137617e7f81bacd81f7bd4f5cb33a22a892e60b8af726a4d007ee4"
+
+[[files]]
 file = "patchouli_books/tableta/en_us/entries/peligros/criptas.json"
 hash = "168d9b5159f87e3c53659e5bb6fdd93465680bf7c56e1bbda2b17e698f3bf18c"
 
@@ -1728,15 +2718,15 @@ hash = "bd670b939a1271e2a129a23a39d0ad2ff4b2f50db915fd7dc6af140852010c08"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/reglas/anomalias.json"
-hash = "90072e33a23b268cea95b1019bed18605b22e9f0d1aab19f17613014e6f4e50c"
+hash = "7c88b8c12cfd306ddea2d0dad04fdfa473787cd242b7ae629ada63e7fb590b23"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/reglas/anuncios.json"
-hash = "ffacccc648ee64de29cf5941334b5a33fcb8d41d8b0100069db779312f2676a9"
+hash = "1604823ffee534ed25398c589c1e3251260542f9dd850148453631d648473947"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/reglas/dias.json"
-hash = "54cbb165dbae671b945e633419c1103108cff1bab5986b6e47d2988152c9a230"
+hash = "e7ec039b039bc048576dc921c57fcdd22f25c8062671cf34240938b5fea8bd7e"
 
 [[files]]
 file = "patchouli_books/tableta/en_us/entries/reglas/muerte.json"

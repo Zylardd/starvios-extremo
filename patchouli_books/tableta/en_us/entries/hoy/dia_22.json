@@ -1,0 +1,15 @@
+{
+ "name": "Día 22 · Al límite",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 22 · Al límite",
+   "text": "$(l)Regla del día:$()$(br)Pierdes otro corazón de vida máxima.$(br2)$(l)Misión: Tres vidas$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)3 tótems$(br2)$(l)Premio:$()$(li)340 Starcoins$(li)Botas de Ignitium$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_22",
+ "secret": true
+}

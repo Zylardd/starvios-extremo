@@ -1,0 +1,15 @@
+{
+ "name": "Día 15 · Debilidad",
+ "icon": "minecraft:clock",
+ "category": "patchouli:hoy",
+ "sortnum": 0,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Día 15 · Debilidad",
+   "text": "$(l)Regla del día:$()$(br)Pierdes otro corazón de vida máxima.$(br2)$(l)Misión: Netherita completa$()$(br)Tenlo en tu inventario (la armadura, puesta):$(li)armadura de netherita completa (puesta)$(br2)$(l)Premio:$()$(li)220 Starcoins$(li)1 Fragmento de Corazón$(li)Grebas Pesadas$(br)+ un buff extra hasta mañana.$(br2)$(c:/mision)$(2)▶ Ver mi progreso$(/c)"
+  }
+ ],
+ "advancement": "starvios:tableta/dia_15",
+ "secret": true
+}

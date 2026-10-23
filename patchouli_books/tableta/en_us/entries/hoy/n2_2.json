@@ -1,0 +1,15 @@
+{
+ "name": "Nerf 2 · día 2",
+ "icon": "minecraft:wither_rose",
+ "category": "patchouli:hoy",
+ "sortnum": 8,
+ "pages": [
+  {
+   "type": "patchouli:text",
+   "title": "Nerf 2 · día 2",
+   "text": "$(4)$(l)Anomalía activa$()$()$(br2)Al golpear a un zombi, puede llamar a un compañero (20%).$(br2)$(o)Activa desde el día 2 hasta el final de la serie.$()"
+  }
+ ],
+ "advancement": "starvios:tableta/n2_2",
+ "secret": true
+}
